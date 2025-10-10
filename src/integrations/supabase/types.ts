@@ -14,7 +14,225 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      orders: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          delivery_deadline: string | null
+          id: string
+          package_id: string
+          payment_intent_id: string | null
+          payment_status: string
+          status: string
+          total_amount: number
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          delivery_deadline?: string | null
+          id?: string
+          package_id: string
+          payment_intent_id?: string | null
+          payment_status?: string
+          status?: string
+          total_amount: number
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          delivery_deadline?: string | null
+          id?: string
+          package_id?: string
+          payment_intent_id?: string | null
+          payment_status?: string
+          status?: string
+          total_amount?: number
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "orders_package_id_fkey"
+            columns: ["package_id"]
+            isOneToOne: false
+            referencedRelation: "photo_packages"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "orders_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      photo_packages: {
+        Row: {
+          created_at: string
+          discount_percentage: number | null
+          id: string
+          is_active: boolean | null
+          name: string
+          photo_count: number
+          price_per_photo: number
+          total_price: number
+        }
+        Insert: {
+          created_at?: string
+          discount_percentage?: number | null
+          id?: string
+          is_active?: boolean | null
+          name: string
+          photo_count: number
+          price_per_photo: number
+          total_price: number
+        }
+        Update: {
+          created_at?: string
+          discount_percentage?: number | null
+          id?: string
+          is_active?: boolean | null
+          name?: string
+          photo_count?: number
+          price_per_photo?: number
+          total_price?: number
+        }
+        Relationships: []
+      }
+      photos: {
+        Row: {
+          created_at: string
+          edited_url: string | null
+          id: string
+          is_free_sample: boolean | null
+          notes: string | null
+          order_id: string
+          original_url: string
+          re_edit_count: number
+          status: string
+          updated_at: string
+          user_id: string
+        }
+        Insert: {
+          created_at?: string
+          edited_url?: string | null
+          id?: string
+          is_free_sample?: boolean | null
+          notes?: string | null
+          order_id: string
+          original_url: string
+          re_edit_count?: number
+          status?: string
+          updated_at?: string
+          user_id: string
+        }
+        Update: {
+          created_at?: string
+          edited_url?: string | null
+          id?: string
+          is_free_sample?: boolean | null
+          notes?: string | null
+          order_id?: string
+          original_url?: string
+          re_edit_count?: number
+          status?: string
+          updated_at?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "photos_order_id_fkey"
+            columns: ["order_id"]
+            isOneToOne: false
+            referencedRelation: "orders"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "photos_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      profiles: {
+        Row: {
+          created_at: string
+          email: string
+          full_name: string | null
+          id: string
+          phone: string | null
+          updated_at: string
+        }
+        Insert: {
+          created_at?: string
+          email: string
+          full_name?: string | null
+          id: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Update: {
+          created_at?: string
+          email?: string
+          full_name?: string | null
+          id?: string
+          phone?: string | null
+          updated_at?: string
+        }
+        Relationships: []
+      }
+      re_edit_requests: {
+        Row: {
+          completed_at: string | null
+          created_at: string
+          id: string
+          photo_id: string
+          request_notes: string
+          status: string
+          user_id: string
+        }
+        Insert: {
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          photo_id: string
+          request_notes: string
+          status?: string
+          user_id: string
+        }
+        Update: {
+          completed_at?: string | null
+          created_at?: string
+          id?: string
+          photo_id?: string
+          request_notes?: string
+          status?: string
+          user_id?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "re_edit_requests_photo_id_fkey"
+            columns: ["photo_id"]
+            isOneToOne: false
+            referencedRelation: "photos"
+            referencedColumns: ["id"]
+          },
+          {
+            foreignKeyName: "re_edit_requests_user_id_fkey"
+            columns: ["user_id"]
+            isOneToOne: false
+            referencedRelation: "profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
     }
     Views: {
       [_ in never]: never
