@@ -1,8 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle2 } from "lucide-react";
+import { useNavigate } from "react-router-dom";
+import { useAuth } from "@/contexts/AuthContext";
 import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
+  const navigate = useNavigate();
+  const { user } = useAuth();
+
   return (
     <section id="inicio" className="relative pt-28 md:pt-32 pb-20 md:pb-28 bg-gradient-to-br from-primary via-primary to-primary/90 overflow-hidden">
       {/* Decorative Elements */}
@@ -13,25 +18,29 @@ const Hero = () => {
           {/* Content */}
           <div className="text-white animate-fade-in-up">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 leading-tight">
-              Transformamos tu Negocio Local en Líder Digital
+              Edición Profesional de Fotografías
             </h1>
             <p className="text-lg md:text-xl mb-8 text-white/90 leading-relaxed">
-              Diseño web profesional + Fotografía empresarial. La combinación perfecta para que tu empresa destaque en Dénia y la Marina Alta
+              Transformamos tus fotos con edición profesional. Entrega en menos de 48 horas. Hasta 3 re-ediciones incluidas. Prueba gratuita disponible.
             </p>
             
             {/* CTAs */}
             <div className="flex flex-col sm:flex-row gap-4 mb-10">
-              <Button variant="cta" size="xl" asChild>
-                <a href="#contacto">Empezar Mi Proyecto</a>
+              <Button 
+                variant="cta" 
+                size="xl" 
+                onClick={() => navigate(user ? '/dashboard' : '/auth')}
+              >
+                {user ? 'Ir al Dashboard' : 'Empezar Ahora'}
               </Button>
               <Button variant="outlineWhite" size="xl" asChild>
-                <a href="#portfolio">Ver Nuestros Trabajos</a>
+                <a href="#servicios">Ver Packs</a>
               </Button>
             </div>
 
             {/* Trust Elements */}
             <div className="flex flex-wrap gap-6 md:gap-8">
-              {["100% Local", "Garantía de Satisfacción", "Soporte Continuo"].map((item) => (
+              {["Entrega 24-48h", "Hasta 3 Re-ediciones", "Muestra Gratuita"].map((item) => (
                 <div key={item} className="flex items-center gap-2">
                   <CheckCircle2 className="h-5 w-5 text-cta" />
                   <span className="font-semibold text-white/95">{item}</span>
@@ -45,7 +54,7 @@ const Hero = () => {
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img
                 src={heroImage}
-                alt="Diseño web y fotografía profesional"
+                alt="Edición profesional de fotografías"
                 className="w-full h-auto object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/20 to-transparent"></div>
@@ -53,8 +62,8 @@ const Hero = () => {
             
             {/* Floating Badge */}
             <div className="absolute -bottom-6 -left-6 bg-cta text-white px-6 py-4 rounded-xl shadow-xl hidden md:block">
-              <div className="text-3xl font-bold">+50</div>
-              <div className="text-sm">Proyectos Exitosos</div>
+              <div className="text-3xl font-bold">2€/foto</div>
+              <div className="text-sm">Precio Máximo</div>
             </div>
           </div>
         </div>
