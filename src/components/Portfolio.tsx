@@ -1,93 +1,112 @@
-import { Button } from "@/components/ui/button";
-import { ExternalLink, TrendingUp } from "lucide-react";
+import { useTranslation } from "react-i18next";
+import {
+  Utensils,
+  Hotel,
+  ShoppingBag,
+  Stethoscope,
+  Home,
+  Dumbbell,
+} from "lucide-react";
 
 const Portfolio = () => {
+  const { t } = useTranslation();
+
   const projects = [
     {
-      name: "Restaurante La Marina",
-      type: "Restaurante",
-      image: "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=600&h=400&fit=crop",
-      result: "Aumento 45% reservas online",
+      key: "restaurant",
+      icon: Utensils,
+      color: "from-orange-500 to-red-500",
     },
     {
-      name: "Hotel Costa Blanca",
-      type: "Hotel",
-      image: "https://images.unsplash.com/photo-1566073771259-6a8506099945?w=600&h=400&fit=crop",
-      result: "Aumento 60% visitas web",
+      key: "hotel",
+      icon: Hotel,
+      color: "from-blue-500 to-cyan-500",
     },
     {
-      name: "Boutique Moda Valencia",
-      type: "Tienda",
-      image: "https://images.unsplash.com/photo-1441986300917-64674bd600d8?w=600&h=400&fit=crop",
-      result: "Aumento 35% ventas online",
+      key: "fashion",
+      icon: ShoppingBag,
+      color: "from-pink-500 to-purple-500",
     },
     {
-      name: "Clínica Dental Dénia",
-      type: "Servicios de Salud",
-      image: "https://images.unsplash.com/photo-1629909613654-28e377c37b09?w=600&h=400&fit=crop",
-      result: "Aumento 50% nuevas citas",
+      key: "dental",
+      icon: Stethoscope,
+      color: "from-green-500 to-emerald-500",
     },
     {
-      name: "Inmobiliaria Costa",
-      type: "Inmobiliaria",
-      image: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=600&h=400&fit=crop",
-      result: "Aumento 40% leads cualificados",
+      key: "realEstate",
+      icon: Home,
+      color: "from-indigo-500 to-blue-500",
     },
     {
-      name: "Gimnasio FitZone",
-      type: "Fitness",
-      image: "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&h=400&fit=crop",
-      result: "Aumento 55% inscripciones",
+      key: "fitness",
+      icon: Dumbbell,
+      color: "from-red-500 to-orange-500",
     },
   ];
 
   return (
-    <section id="portfolio" className="py-20 md:py-28 bg-secondary">
+    <section
+      className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-gray-100"
+      id="portfolio"
+    >
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-            Trabajos que Hablan por Sí Solos
+        {/* Header */}
+        <div className="text-center mb-12 animate-fade-in-up">
+          <h2 className="text-3xl md:text-4xl font-bold mb-3 text-foreground">
+            {t("portfolio.title")}
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            Proyectos exitosos de empresas locales que confiaron en nosotros
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto">
+            {t("portfolio.subtitle")}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
-          {projects.map((project, index) => (
-            <div
-              key={project.name}
-              className="group relative overflow-hidden rounded-xl shadow-lg hover-lift animate-fade-in-up bg-white"
-              style={{ animationDelay: `${index * 0.1}s` }}
-            >
-              <div className="aspect-[4/3] overflow-hidden">
-                <img
-                  src={project.image}
-                  alt={project.name}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-              <div className="p-6">
-                <div className="text-sm text-cta font-semibold mb-2">{project.type}</div>
-                <h3 className="text-xl font-bold mb-3 text-foreground">{project.name}</h3>
-                <div className="flex items-center gap-2 text-sm text-muted-foreground">
-                  <TrendingUp className="h-4 w-4 text-cta" />
-                  <span className="font-semibold">{project.result}</span>
+        {/* Project Cards Grid */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto mb-12">
+          {projects.map((project, index) => {
+            const IconComponent = project.icon;
+            return (
+              <div
+                key={project.key}
+                className="bg-white rounded-xl p-6 shadow-lg hover:shadow-2xl transition-all hover:scale-105 animate-fade-in-up"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                {/* Icon */}
+                <div
+                  className={`inline-flex p-4 rounded-lg bg-gradient-to-br ${project.color} mb-4 shadow-lg`}
+                >
+                  <IconComponent className="h-8 w-8 text-white" />
                 </div>
+
+                {/* Project Name */}
+                <h3 className="text-xl font-bold mb-2 text-foreground">
+                  {t(`portfolio.projects.${project.key}.name`)}
+                </h3>
+
+                {/* Project Type */}
+                <p className="text-sm text-muted-foreground mb-2">
+                  {t(`portfolio.projects.${project.key}.type`)}
+                </p>
+
+                {/* Result */}
+                <p className="text-lg font-semibold text-primary">
+                  {t(`portfolio.projects.${project.key}.result`)}
+                </p>
               </div>
-              <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
-                <div className="bg-white rounded-full p-2 shadow-lg">
-                  <ExternalLink className="h-5 w-5 text-primary" />
-                </div>
-              </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
 
-        <div className="text-center">
-          <Button variant="outline" size="lg" asChild>
-            <a href="#contacto">Ver Todos los Proyectos</a>
-          </Button>
+        {/* Footer CTA */}
+        <div className="text-center bg-white rounded-xl p-8 max-w-3xl mx-auto shadow-md animate-fade-in-up">
+          <p className="text-muted-foreground mb-4 text-lg">
+            {t("portfolio.footerText")}
+          </p>
+          <a
+            href="#contacto"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-primary to-cta text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all hover:scale-105"
+          >
+            {t("portfolio.footerCta")}
+          </a>
         </div>
       </div>
     </section>

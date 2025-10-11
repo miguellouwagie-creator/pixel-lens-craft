@@ -5,17 +5,34 @@ import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
-import { Form, FormControl, FormField, FormItem, FormLabel, FormMessage } from "@/components/ui/form";
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select";
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage,
+} from "@/components/ui/form";
 import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
 
 const contactSchema = z.object({
-  name: z.string().min(2, { message: "El nombre debe tener al menos 2 caracteres" }),
+  name: z
+    .string()
+    .min(2, { message: "El nombre debe tener al menos 2 caracteres" }),
   email: z.string().email({ message: "Email inválido" }),
   phone: z.string().min(9, { message: "Teléfono inválido" }),
   service: z.string().min(1, { message: "Por favor selecciona un servicio" }),
-  message: z.string().min(10, { message: "El mensaje debe tener al menos 10 caracteres" }),
+  message: z
+    .string()
+    .min(10, { message: "El mensaje debe tener al menos 10 caracteres" }),
 });
 
 type ContactFormValues = z.infer<typeof contactSchema>;
@@ -37,17 +54,18 @@ const ContactForm = () => {
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
-    
+
     // Simulate form submission
     await new Promise((resolve) => setTimeout(resolve, 1500));
-    
+
     console.log("Form data:", data);
-    
+
     toast({
-      title: "¡Mensaje enviado!",
-      description: "Nos pondremos en contacto contigo en menos de 24 horas.",
+      title: "¡Mensaje recibido!",
+      description:
+        "Te responderemos personalmente en menos de 24 horas. ¡Gracias por confiar en nosotros!",
     });
-    
+
     form.reset();
     setIsSubmitting(false);
   };
@@ -63,7 +81,7 @@ const ContactForm = () => {
               <FormItem>
                 <FormLabel>Nombre *</FormLabel>
                 <FormControl>
-                  <Input placeholder="Tu nombre" {...field} />
+                  <Input placeholder="¿Cómo te llamas?" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -93,7 +111,7 @@ const ContactForm = () => {
               <FormItem>
                 <FormLabel>Teléfono *</FormLabel>
                 <FormControl>
-                  <Input type="tel" placeholder="+34 123 456 789" {...field} />
+                  <Input type="tel" placeholder="+34 XXX XXX XXX" {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
@@ -105,17 +123,31 @@ const ContactForm = () => {
             name="service"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Servicio de Interés *</FormLabel>
-                <Select onValueChange={field.onChange} defaultValue={field.value}>
+                <FormLabel>¿En qué podemos ayudarte? *</FormLabel>
+                <Select
+                  onValueChange={field.onChange}
+                  defaultValue={field.value}
+                >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Selecciona un servicio" />
+                      <SelectValue placeholder="Elige una opción" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent className="bg-white">
-                    <SelectItem value="web">Diseño Web</SelectItem>
-                    <SelectItem value="photography">Fotografía</SelectItem>
-                    <SelectItem value="both">Web + Fotografía</SelectItem>
+                    <SelectItem value="web-basica">Web Básica</SelectItem>
+                    <SelectItem value="web-profesional">
+                      Web Profesional
+                    </SelectItem>
+                    <SelectItem value="fotografia">
+                      Fotografía Profesional
+                    </SelectItem>
+                    <SelectItem value="pack-completo">
+                      Pack Web + Fotografía
+                    </SelectItem>
+                    <SelectItem value="edicion-fotos">
+                      Edición de Fotos
+                    </SelectItem>
+                    <SelectItem value="consulta">Consulta General</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -129,10 +161,10 @@ const ContactForm = () => {
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Mensaje *</FormLabel>
+              <FormLabel>Cuéntanos sobre tu proyecto *</FormLabel>
               <FormControl>
                 <Textarea
-                  placeholder="Cuéntanos sobre tu proyecto..."
+                  placeholder="Explícanos qué necesitas: tipo de negocio, objetivos, plazos... Cuanto más nos cuentes, mejor podremos ayudarte."
                   className="min-h-[120px]"
                   {...field}
                 />
@@ -142,14 +174,20 @@ const ContactForm = () => {
           )}
         />
 
-        <Button type="submit" variant="cta" size="lg" className="w-full" disabled={isSubmitting}>
+        <Button
+          type="submit"
+          variant="cta"
+          size="lg"
+          className="w-full"
+          disabled={isSubmitting}
+        >
           {isSubmitting ? (
             <>
               <Loader2 className="mr-2 h-4 w-4 animate-spin" />
               Enviando...
             </>
           ) : (
-            "Solicitar Información"
+            "Enviar Mensaje"
           )}
         </Button>
       </form>

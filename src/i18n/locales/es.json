@@ -1,0 +1,377 @@
+{
+  "hero": {
+    "title": "Páginas Web Profesionales",
+    "titleHighlight": "& Fotografía",
+    "subtitle": "Para tu negocio",
+    "description": "Creamos tu página web profesional y hacemos las fotografías de tus productos o servicios. Trato directo, servicio personalizado.",
+    "ctaWhatsapp": "Contactar por WhatsApp",
+    "ctaServices": "Ver Servicios",
+    "benefit1": "Consulta gratis",
+    "benefit2": "Sin compromiso",
+    "benefit3": "Profesionales licenciados"
+  },
+  "nav": {
+    "home": "Inicio",
+    "services": "Servicios",
+    "packs": "Packs",
+    "about": "Nosotros",
+    "contact": "Contacto",
+    "phone": "+34 123 456 789",
+    "whatsapp": "WhatsApp"
+  },
+  "services": {
+    "title": "Servicios Que Impulsan Tu Negocio",
+    "subtitle": "Soluciones completas para destacar tu empresa en el mundo digital",
+    "web": {
+      "title": "Páginas Web Profesionales",
+      "description": "Sitios web modernos, responsivos y optimizados para convertir visitantes en clientes",
+      "feature1": "Diseño responsive",
+      "feature2": "SEO local optimizado",
+      "feature3": "Velocidad de carga optimizada",
+      "feature4": "Integración redes sociales",
+      "feature5": "Panel de administración",
+      "price": "Desde XXX€",
+      "cta": "Solicitar Info"
+    },
+    "photography": {
+      "title": "Fotografía Profesional de Negocios",
+      "description": "Capturamos la esencia de tu empresa con fotografías que transmiten profesionalidad",
+      "feature1": "Fotografía corporativa",
+      "feature2": "Fotos de productos",
+      "feature3": "Fotografía inmobiliaria",
+      "feature4": "Edición profesional",
+      "feature5": "Entrega digital",
+      "price": "Desde XXX€",
+      "cta": "Solicitar Info"
+    },
+    "combo": {
+      "title": "Web + Fotografía",
+      "description": "La combinación perfecta: tu web profesional con sesión de fotos incluida",
+      "feature1": "Todo lo del diseño web",
+      "feature2": "Sesión de fotos completa",
+      "feature3": "Integración fotos en web",
+      "feature4": "Optimización de velocidad",
+      "feature5": "Soporte incluido",
+      "price": "Desde XXX€",
+      "priceNote": "(Pack completo)",
+      "cta": "¡Quiero Este Pack!",
+      "badge": "⭐ Más Popular"
+    }
+  },
+  "webDevelopment": {
+    "badge": "Desarrollo Web Profesional",
+    "title": "Tu Página Web Profesional, Sin Complicaciones",
+    "subtitle": "Precio inicial fijo + mantenimiento mensual opcional. Webs rápidas, modernas y optimizadas para negocios locales.",
+    "basic": {
+      "name": "Web Básica",
+      "setupPrice": "XXX€",
+      "monthlyPrice": "XX€/mes",
+      "setupLabel": "Coste inicial",
+      "maintenanceLabel": "Mantenimiento",
+      "includes": "Incluye:",
+      "maintenanceTitle": "Mantenimiento:",
+      "feature1": "Diseño responsive",
+      "feature2": "Hasta 5 páginas",
+      "feature3": "Formulario de contacto",
+      "feature4": "Google Analytics",
+      "maintenance1": "Actualizaciones mensuales",
+      "maintenance2": "Soporte técnico básico",
+      "cta": "Solicitar Info"
+    },
+    "professional": {
+      "name": "Web Profesional",
+      "setupPrice": "XXX€",
+      "monthlyPrice": "XX€/mes",
+      "badge": "Más Popular",
+      "feature1": "Diseño 100% personalizado",
+      "feature2": "Hasta 10 páginas",
+      "feature3": "Blog integrado",
+      "feature4": "Panel de administración",
+      "maintenance1": "Cambios ilimitados",
+      "maintenance2": "Soporte prioritario",
+      "cta": "Solicitar Info"
+    },
+    "infoTitle": "Información Importante",
+    "info1": "<strong>Dominio:</strong> 10-15€/año (te ayudamos con la compra y configuración)",
+    "info2": "<strong>Hosting:</strong> Incluido en el mantenimiento mensual",
+    "info3": "<strong>Certificado SSL:</strong> Incluido sin coste adicional (tu web será segura con HTTPS)",
+    "info4": "<strong>Sin permanencia:</strong> Puedes cancelar el mantenimiento cuando quieras",
+    "customProject": "¿Necesitas un proyecto a medida?",
+    "customDescription": "Webs con funcionalidades específicas, integraciones o diseños complejos.",
+    "customCta": "Cuéntanos tu proyecto"
+  },
+  "pricing": {
+    "webTitle": "Desarrollo Web Profesional",
+    "webSubtitle": "Creamos tu página web a medida. Diseño moderno, rápida y optimizada para Google.",
+    "photoTitle": "Fotografía y Edición Profesional",
+    "photoSubtitle": "Edición profesional de tus fotografías. Prueba gratuita disponible. Entrega en 24-48h.",
+    "photoPacks": {
+      "trial": {
+        "name": "Pack Prueba",
+        "price": "Gratis",
+        "photos": "1 foto",
+        "feature1": "1 foto editada",
+        "feature2": "Muestra de calidad",
+        "feature3": "Sin compromiso",
+        "cta": "Solicitar Gratis"
+      },
+      "basic": {
+        "name": "Pack Básico",
+        "price": "10€",
+        "photos": "5 fotos",
+        "feature1": "5 fotos editadas",
+        "feature2": "Hasta 3 re-ediciones por foto",
+        "feature3": "Entrega 24-48h",
+        "cta": "Contactar"
+      },
+      "standard": {
+        "name": "Pack Estándar",
+        "price": "20€",
+        "photos": "10 fotos",
+        "feature1": "10 fotos editadas",
+        "feature2": "Hasta 3 re-ediciones por foto",
+        "feature3": "24-48h delivery",
+        "feature4": "Soporte prioritario",
+        "cta": "Contactar"
+      },
+      "premium": {
+        "name": "Pack Premium",
+        "price": "35€",
+        "photos": "20 fotos",
+        "feature1": "20 fotos editadas",
+        "feature2": "Hasta 3 re-ediciones por foto",
+        "feature3": "Entrega 24-48h",
+        "feature4": "Soporte VIP",
+        "cta": "Contactar"
+      }
+    },
+    "footerText": "¿Necesitas algo personalizado o tienes un proyecto especial?",
+    "footerCta": "Cuéntanos y te hacemos un presupuesto a medida"
+  },
+  "photoPacks": {
+    "title": "Nuestros Packs",
+    "subtitle": "Escoge el pack que mejor se adapte a tus necesidades. Todos incluyen garantía de entrega y hasta 3 re-ediciones por foto.",
+    "trial": {
+      "name": "Pack Prueba",
+      "price": "Gratis",
+      "photos": "1 foto",
+      "feature1": "1 foto editada",
+      "feature2": "Muestra de calidad",
+      "feature3": "Sin compromiso",
+      "cta": "Probar Gratis"
+    },
+    "basic": {
+      "name": "Pack Básico",
+      "price": "10€",
+      "photos": "5 fotos editadas",
+      "feature1": "5 fotos editadas",
+      "feature2": "Hasta 3 re-ediciones por foto",
+      "feature3": "Entrega 24-48h",
+      "cta": "Contactar"
+    },
+    "standard": {
+      "name": "Pack Estándar",
+      "price": "20€",
+      "photos": "10 fotos editadas",
+      "feature1": "10 fotos editadas",
+      "feature2": "Hasta 3 re-ediciones por foto",
+      "feature3": "Entrega 24-48h",
+      "feature4": "Soporte prioritario",
+      "cta": "Contactar"
+    },
+    "premium": {
+      "name": "Pack Premium",
+      "price": "35€",
+      "photos": "20 fotos editadas",
+      "feature1": "20 fotos editadas",
+      "feature2": "Hasta 3 re-ediciones por foto",
+      "feature3": "Entrega 24-48h",
+      "feature4": "Soporte VIP",
+      "cta": "Contactar"
+    },
+    "professional": {
+      "name": "Pack Profesional",
+      "price": "60€",
+      "photos": "50 fotos editadas",
+      "feature1": "50 fotos editadas",
+      "feature2": "Hasta 3 re-ediciones por foto",
+      "feature3": "Entrega garantizada",
+      "feature4": "Soporte VIP 24/7",
+      "cta": "Contactar"
+    }
+  },
+  "whyUs": {
+    "title": "Por Qué Elegirnos",
+    "subtitle": "Profesionalidad, cercanía y compromiso con cada proyecto",
+    "reason1": {
+      "title": "Profesionales Licenciados",
+      "description": "Grado universitario en administración de empresas y marketing internacional"
+    },
+    "reason2": {
+      "title": "100% Local",
+      "description": "Conocemos el mercado de Dénia y la Marina Alta. Trato cercano y personalizado"
+    },
+    "reason3": {
+      "title": "Garantía de Calidad",
+      "description": "Todas nuestras ediciones están verificadas y son 100% reales"
+    },
+    "reason4": {
+      "title": "Entrega 24-48h",
+      "description": "Plazos claros y cumplidos. Hasta 3 re-ediciones por foto incluidas"
+    },
+    "reason5": {
+      "title": "Sin Reembolsos",
+      "description": "Política clara: Re-ediciones gratuitas en lugar de devoluciones"
+    },
+    "reason6": {
+      "title": "Soporte Continuo",
+      "description": "Web + Fotografía en un solo sitio. Te acompañamos después del lanzamiento"
+    }
+  },
+  "portfolio": {
+    "title": "Sectores Con Los Que Trabajamos",
+    "subtitle": "Experiencia en múltiples industrias con resultados reales",
+    "projects": {
+      "restaurant": {
+        "name": "Restaurante Local",
+        "type": "Gastronomía",
+        "result": "+45% reservas"
+      },
+      "hotel": {
+        "name": "Hotel Boutique",
+        "type": "Hostelería",
+        "result": "+60% visitas web"
+      },
+      "fashion": {
+        "name": "Tienda de Moda",
+        "type": "Retail & Moda",
+        "result": "+35% ventas"
+      },
+      "dental": {
+        "name": "Clínica Dental",
+        "type": "Servicios Salud",
+        "result": "+50% citas"
+      },
+      "realEstate": {
+        "name": "Inmobiliaria",
+        "type": "Sector Inmobiliario",
+        "result": "+40% leads"
+      },
+      "fitness": {
+        "name": "Centro Fitness",
+        "type": "Deporte & Bienestar",
+        "result": "+55% inscripciones"
+      }
+    },
+    "footerText": "¿Tu sector no aparece? Trabajamos con cualquier tipo de negocio",
+    "footerCta": "Cuéntanos Tu Proyecto"
+  },
+  "process": {
+    "title": "Cómo Trabajamos Contigo",
+    "subtitle": "Proceso simple y transparente en 3 pasos",
+    "step1": {
+      "title": "Cuéntanos Tu Proyecto",
+      "description": "Hablamos contigo para entender qué necesitas: web, fotografía, o ambos. Sin tecnicismos, solo soluciones claras."
+    },
+    "step2": {
+      "title": "Creamos Tu Solución",
+      "description": "Diseñamos tu web y/o realizamos la sesión de fotos. Trabajamos contigo hasta que esté perfecta."
+    },
+    "step3": {
+      "title": "Lanzamos y Te Acompañamos",
+      "description": "Publicamos tu proyecto y te enseñamos a gestionarlo. Seguimos disponibles para lo que necesites."
+    },
+    "ctaText": "¿Listo para empezar tu proyecto?",
+    "ctaButton": "Contactar Ahora"
+  },
+  "about": {
+    "title": "El Equipo",
+    "subtitle": "Dos hermanos, un objetivo: ayudar a negocios locales a destacar online",
+    "miguel": {
+      "name": "Miguel",
+      "role": "Desarrollo Web",
+      "description": "Desarrollo web moderno con React y TypeScript. Webs rápidas y optimizadas para negocios.",
+      "skill1": "React",
+      "skill2": "TypeScript",
+      "skill3": "Tailwind"
+    },
+    "sergio": {
+      "name": "Sergio",
+      "role": "Fotografía",
+      "description": "Fotografía profesional para negocios, productos e inmobiliarias. Estilo único y comercial.",
+      "skill1": "Corporativa",
+      "skill2": "Productos",
+      "skill3": "Inmobiliaria"
+    }
+  },
+  "contact": {
+    "title": "¿Hablamos?",
+    "description": "Si tienes dudas, quieres probar el servicio gratis, o simplemente necesitas asesoramiento, escríbenos. Respondemos personalmente y sin compromiso.",
+    "location": {
+      "title": "Ubicación",
+      "value": "Dénia, Alicante (Costa Blanca)"
+    },
+    "phone": {
+      "title": "Teléfono / WhatsApp",
+      "value": "+34 TU NÚMERO"
+    },
+    "email": {
+      "title": "Email",
+      "value": "info@pixelandlensdigital.com"
+    },
+    "preference": {
+      "title": "Preferencia de contacto",
+      "value": "WhatsApp es mi método favorito, ¡respondo rápido!"
+    },
+    "schedule": {
+      "title": "Horario de Respuesta",
+      "weekdays": "Lunes - Viernes: 9:00 - 20:00",
+      "weekends": "Fines de semana: Consultas urgentes vía WhatsApp",
+      "note": "Si escribes fuera de horario, te respondo al día siguiente 😊"
+    },
+    "formTitle": "Escríbeme directamente"
+  },
+  "footer": {
+    "description": "Tu agencia digital local en Dénia. Diseño web profesional y fotografía para negocios que impulsan tu empresa.",
+    "quickLinks": "Enlaces Rápidos",
+    "services": "Servicios",
+    "contact": "Contacto",
+    "location": "Dénia, Valencia",
+    "copyright": "Copyright {{year}} Pixel & Lens Digital. Todos los derechos reservados.",
+    "privacy": "Política de Privacidad",
+    "terms": "Términos de Servicio",
+    "cookies": "Cookies",
+    "links": {
+      "services": "Servicios",
+      "portfolio": "Portfolio",
+      "about": "Sobre Nosotros",
+      "contact": "Contacto",
+      "webDesign": "Diseño Web",
+      "photography": "Fotografía de Negocios",
+      "seo": "SEO Local",
+      "maintenance": "Mantenimiento Web"
+    }
+  },
+  "testimonials": {
+    "title": "Lo Que Dicen Nuestros Clientes",
+    "subtitle": "Testimonios reales de negocios que confiaron en nosotros",
+    "testimonial1": {
+      "name": "María García",
+      "role": "Propietaria, Restaurante La Marina",
+      "text": "Excelente trabajo en nuestra web y las fotos de los platos. Las reservas han aumentado un 40% desde que lanzamos la nueva página.",
+      "rating": 5
+    },
+    "testimonial2": {
+      "name": "Carlos Ruiz",
+      "role": "Director, Hotel Costa Blanca",
+      "text": "Profesionales, puntuales y con gran ojo para el detalle. Las fotografías de nuestras instalaciones han mejorado significativamente nuestras conversiones.",
+      "rating": 5
+    },
+    "testimonial3": {
+      "name": "Ana López",
+      "role": "Gerente, Boutique Mediterránea",
+      "text": "La nueva web ha transformado completamente nuestra presencia online. Diseño moderno y fácil de gestionar. ¡Muy recomendable!",
+      "rating": 5
+    }
+  }
+}

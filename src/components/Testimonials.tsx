@@ -1,72 +1,88 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, Quote } from "lucide-react";
+import { useTranslation } from "react-i18next";
 
 const Testimonials = () => {
+  const { t } = useTranslation();
+
   const testimonials = [
     {
-      name: "María González",
-      business: "Restaurante La Marina",
-      photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop",
-      text: "Increíble trabajo. No solo nos crearon una web preciosa, sino que también hicieron las fotos de nuestro restaurante. Todo en un solo lugar, fue muy cómodo y profesional.",
+      nameKey: "testimonials.testimonial1.name",
+      roleKey: "testimonials.testimonial1.role",
+      textKey: "testimonials.testimonial1.text",
       rating: 5,
+      image:
+        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
     },
     {
-      name: "Carlos Ruiz",
-      business: "Hotel Costa Blanca",
-      photo: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop",
-      text: "La mejor inversión que hemos hecho. Nuestra web es espectacular y las fotos del hotel son de nivel profesional. Las reservas han aumentado significativamente.",
+      nameKey: "testimonials.testimonial2.name",
+      roleKey: "testimonials.testimonial2.role",
+      textKey: "testimonials.testimonial2.text",
       rating: 5,
+      image:
+        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
     },
     {
-      name: "Ana Martínez",
-      business: "Boutique Moda Valencia",
-      photo: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop",
-      text: "Son de Dénia y entienden perfectamente el mercado local. El servicio post-venta es excelente, siempre disponibles cuando los necesitamos.",
+      nameKey: "testimonials.testimonial3.name",
+      roleKey: "testimonials.testimonial3.role",
+      textKey: "testimonials.testimonial3.text",
       rating: 5,
+      image:
+        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
     },
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-white">
+    <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 to-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-            Lo Que Dicen Nuestros Clientes
+            {t("testimonials.title")}
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            La satisfacción de nuestros clientes es nuestra mejor carta de presentación
+            {t("testimonials.subtitle")}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
           {testimonials.map((testimonial, index) => (
             <Card
-              key={testimonial.name}
-              className="relative hover-lift animate-fade-in-up border-border"
+              key={testimonial.nameKey}
+              className="animate-fade-in-up hover:shadow-xl transition-all bg-white border-2 border-slate-200 hover:border-primary/30"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="pt-6">
-                <Quote className="h-10 w-10 text-primary/20 mb-4" />
-                
-                <div className="flex mb-4">
+              <CardContent className="pt-8 relative">
+                {/* Quote Icon */}
+                <div className="absolute top-4 right-4 text-primary/10">
+                  <Quote className="h-12 w-12" />
+                </div>
+
+                {/* Rating Stars */}
+                <div className="flex gap-1 mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
                     <Star key={i} className="h-5 w-5 fill-cta text-cta" />
                   ))}
                 </div>
 
-                <p className="text-foreground mb-6 leading-relaxed italic">
-                  "{testimonial.text}"
+                {/* Testimonial Text */}
+                <p className="text-muted-foreground mb-6 leading-relaxed italic">
+                  "{t(testimonial.textKey)}"
                 </p>
 
+                {/* Author Info */}
                 <div className="flex items-center gap-4 pt-4 border-t border-border">
                   <img
-                    src={testimonial.photo}
-                    alt={testimonial.name}
-                    className="w-12 h-12 rounded-full object-cover"
+                    src={testimonial.image}
+                    alt={t(testimonial.nameKey)}
+                    className="w-14 h-14 rounded-full object-cover border-2 border-primary/20"
                   />
                   <div>
-                    <div className="font-bold text-foreground">{testimonial.name}</div>
-                    <div className="text-sm text-muted-foreground">{testimonial.business}</div>
+                    <div className="font-bold text-foreground">
+                      {t(testimonial.nameKey)}
+                    </div>
+                    <div className="text-sm text-muted-foreground">
+                      {t(testimonial.roleKey)}
+                    </div>
                   </div>
                 </div>
               </CardContent>
