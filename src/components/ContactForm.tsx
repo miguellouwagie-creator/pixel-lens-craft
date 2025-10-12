@@ -54,26 +54,34 @@ const ContactForm = () => {
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
+  const onSubmit = async (data: ContactFormValues) => {
+    setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    // Construir mensaje de WhatsApp
+    const whatsappNumber = "34667326300";
+    const message = `🌟 *Nuevo Mensaje de ${data.name}*
 
-    console.log("Form data:", data);
+📧 *Email:* ${data.email}
+📱 *Teléfono:* ${data.phone}
+🎯 *Servicio:* ${data.service}
 
+💬 *Mensaje:*
+${data.message}`;
+
+    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
+
+    // Abrir WhatsApp
+    window.open(whatsappUrl, "_blank");
+
+    // Mostrar toast de confirmación
     toast({
-      title: "¡Mensaje recibido!",
-      description:
-        "Te responderemos personalmente en menos de 24 horas. ¡Gracias por confiar en nosotros!",
+      title: "¡Redirigiendo a WhatsApp!",
+      description: "Te hemos llevado a WhatsApp para que puedas enviar tu mensaje directamente.",
     });
 
     form.reset();
     setIsSubmitting(false);
   };
-
-  return (
-    <Form {...form}>
-      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <div className="grid md:grid-cols-2 gap-6">
           <FormField
             control={form.control}
             name="name"
