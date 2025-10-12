@@ -47,12 +47,12 @@ const Header = () => {
           <a href="#inicio" className="flex items-center gap-3 group">
             <img
               src={logo}
-              alt="Pixel & Lens Digital - Páginas Web y Fotografía"
+              alt="Studio Pixelens - Páginas Web y Fotografía"
               className="h-16 md:h-20 w-auto transition-transform group-hover:scale-105"
             />
             <div className="hidden md:block">
               <div className="text-xl md:text-2xl font-bold text-primary leading-tight">
-                Pixel & Lens Digital
+                Studio Pixelens
               </div>
               <div className="text-xs md:text-sm text-muted-foreground">
                 Páginas Web & Fotografía

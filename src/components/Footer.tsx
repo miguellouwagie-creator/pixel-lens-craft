@@ -42,7 +42,7 @@ const Footer = () => {
           <div>
             <img
               src={logo}
-              alt="Pixel & Lens Digital"
+              alt="Studio Pixelens"
               className="h-14 w-auto mb-4 brightness-0 invert"
             />
             <p className="text-white/80 mb-4 leading-relaxed">

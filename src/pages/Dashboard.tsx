@@ -45,7 +45,7 @@ const Dashboard = () => {
           <div className="flex items-center justify-between">
             <div className="flex items-center gap-2">
               <Camera className="h-8 w-8 text-primary" />
-              <span className="text-xl font-bold text-primary">Pixel & Lens Digital</span>
+              <span className="text-xl font-bold text-primary">Studio Pixelens</span>
             </div>
             <div className="flex items-center gap-4">
               <span className="text-sm text-muted-foreground">{user.email}</span>
