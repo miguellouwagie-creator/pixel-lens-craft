@@ -54,8 +54,6 @@ const ContactForm = () => {
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
-  const onSubmit = async (data: ContactFormValues) => {
-    setIsSubmitting(true);
 
     // Construir mensaje de WhatsApp
     const whatsappNumber = "34667326300";
@@ -82,6 +80,11 @@ ${data.message}`;
     form.reset();
     setIsSubmitting(false);
   };
+
+  return (
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <div className="grid md:grid-cols-2 gap-6">
           <FormField
             control={form.control}
             name="name"
