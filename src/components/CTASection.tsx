@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 import { MessageCircle } from "lucide-react";
 
 const CTASection = () => {
-  const whatsappNumber = "34123456789";
+  const whatsappNumber = "34667326300";
   const whatsappMessage =
     "Hola, me gustaría hablar sobre mi proyecto web y/o fotografía";
 
@@ -29,8 +29,8 @@ const CTASection = () => {
         </Button>
         <p className="mt-6 text-sm text-white/80">
           También puedes llamarnos directamente al{" "}
-          <a href="tel:+34123456789" className="underline font-medium">
-            +34 123 456 789
+          <a href="tel:+34667326300" className="underline font-medium">
+            +34 667 32 63 00
           </a>
         </p>
       </div>

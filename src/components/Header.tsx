@@ -25,7 +25,7 @@ const Header = () => {
     { labelKey: "nav.contact", href: "#contacto" },
   ];
 
-  const whatsappNumber = "34123456789";
+  const whatsappNumber = "34667326300";
   const whatsappMessage = "Hola, estoy interesado en vuestros servicios";
 
   const changeLanguage = (lang: string) => {
@@ -82,7 +82,7 @@ const Header = () => {
           {/* Desktop CTA + Banderas DESPUÉS */}
           <div className="hidden lg:flex items-center space-x-4">
             <a
-              href="tel:+34123456789"
+              href="tel:+34667326300"
               className="flex items-center text-muted-foreground hover:text-primary transition-colors"
             >
               <Phone className="h-4 w-4 mr-2" />
@@ -200,7 +200,7 @@ const Header = () => {
                 </a>
               ))}
               <a
-                href="tel:+34123456789"
+                href="tel:+34667326300"
                 className="flex items-center text-muted-foreground hover:text-primary py-2 transition-colors"
               >
                 <Phone className="h-4 w-4 mr-2" />

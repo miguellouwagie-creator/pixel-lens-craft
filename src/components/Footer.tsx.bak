@@ -1,4 +1,7 @@
 import {
+  Facebook,
+  Instagram,
+  Linkedin,
   Mail,
   MapPin,
   Phone,
@@ -25,6 +28,12 @@ const Footer = () => {
     ],
   };
 
+  const socialLinks = [
+    { icon: Facebook, href: "#", label: "Facebook" },
+    { icon: Instagram, href: "#", label: "Instagram" },
+    { icon: Linkedin, href: "#", label: "LinkedIn" },
+  ];
+
   return (
     <footer className="bg-primary text-white">
       <div className="container mx-auto px-4 py-16">
@@ -39,6 +48,21 @@ const Footer = () => {
             <p className="text-white/80 mb-4 leading-relaxed">
               {t("footer.description")}
             </p>
+            <div className="flex gap-3">
+              {socialLinks.map((social) => {
+                const IconComponent = social.icon;
+                return (
+                  <a
+                    key={social.label}
+                    href={social.href}
+                    className="w-10 h-10 bg-white/10 hover:bg-cta rounded-lg flex items-center justify-center transition-colors"
+                    aria-label={social.label}
+                  >
+                    <IconComponent className="h-5 w-5" />
+                  </a>
+                );
+              })}
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -86,19 +110,19 @@ const Footer = () => {
               <li className="flex items-start gap-3">
                 <Phone className="h-5 w-5 flex-shrink-0 mt-0.5 text-cta" />
                 <a
-                  href="tel:+34667326300"
+                  href="tel:+34123456789"
                   className="text-white/80 hover:text-cta transition-colors"
                 >
-                  +34 667 32 63 00
+                  +34 123 456 789
                 </a>
               </li>
               <li className="flex items-start gap-3">
                 <Mail className="h-5 w-5 flex-shrink-0 mt-0.5 text-cta" />
                 <a
-                  href="mailto:studiopixelens@gmail.com"
+                  href="mailto:info@pixelandlensdigital.com"
                   className="text-white/80 hover:text-cta transition-colors"
                 >
-                  studiopixelens@gmail.com
+                  info@pixelandlensdigital.com
                 </a>
               </li>
             </ul>
@@ -109,7 +133,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/60 text-sm">
-              Copyright © {currentYear} Studio Pixelens. Todos los derechos reservados.
+              {t("footer.copyright", { year: currentYear })}
             </p>
             <div className="flex gap-6 text-sm">
               <a

@@ -5,7 +5,7 @@ import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
   const { t } = useTranslation();
-  const whatsappNumber = "34123456789";
+  const whatsappNumber = "34667326300";
   const whatsappMessage = "Hola, estoy interesado en vuestros servicios";
 
   return (

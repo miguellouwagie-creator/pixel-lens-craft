@@ -59,7 +59,7 @@ const FormSection = () => {
                     {t("contact.email.title")}
                   </h3>
                   <a
-                    href="mailto:info@pixelandlensdigital.com"
+                    href="mailto:studiopixelens@gmail.com"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {t("contact.email.value")}

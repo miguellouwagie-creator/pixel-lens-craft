@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 
 const WebDevelopmentSection = () => {
   const { t } = useTranslation();
-  const whatsappNumber = "34123456789";
+  const whatsappNumber = "34667326300";
 
   const webPackages = [
     {
