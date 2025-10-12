@@ -1,7 +1,4 @@
 import {
-  Facebook,
-  Instagram,
-  Linkedin,
   Mail,
   MapPin,
   Phone,
@@ -28,12 +25,6 @@ const Footer = () => {
     ],
   };
 
-  const socialLinks = [
-    { icon: Facebook, href: "#", label: "Facebook" },
-    { icon: Instagram, href: "#", label: "Instagram" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-  ];
-
   return (
     <footer className="bg-primary text-white">
       <div className="container mx-auto px-4 py-16">
@@ -48,21 +39,6 @@ const Footer = () => {
             <p className="text-white/80 mb-4 leading-relaxed">
               {t("footer.description")}
             </p>
-            <div className="flex gap-3">
-              {socialLinks.map((social) => {
-                const IconComponent = social.icon;
-                return (
-                  <a
-                    key={social.label}
-                    href={social.href}
-                    className="w-10 h-10 bg-white/10 hover:bg-cta rounded-lg flex items-center justify-center transition-colors"
-                    aria-label={social.label}
-                  >
-                    <IconComponent className="h-5 w-5" />
-                  </a>
-                );
-              })}
-            </div>
           </div>
 
           {/* Quick Links */}
@@ -133,7 +109,7 @@ const Footer = () => {
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-white/60 text-sm">
-              {t("footer.copyright", { year: currentYear })}
+              Copyright © {currentYear} Studio Pixelens. Todos los derechos reservados.
             </p>
             <div className="flex gap-6 text-sm">
               <a
