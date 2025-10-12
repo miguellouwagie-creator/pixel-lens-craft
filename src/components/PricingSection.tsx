@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import {
+import { Link } from "react-router-dom";
   Card,
   CardContent,
   CardDescription,
@@ -212,7 +213,7 @@ const PricingSection = () => {
         <div className="container mx-auto px-4">
           {/* Header con icono grande */}
           <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl mb-6 shadow-2xl">
+            <Link to="/portfolio" className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl mb-6 shadow-2xl hover:scale-110 transition-transform cursor-pointer">
               <Image className="h-12 w-12 text-white" />
             </div>
             <h2 className="text-4xl md:text-5xl font-bold text-orange-900 mb-4">
