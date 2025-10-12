@@ -3,6 +3,7 @@ import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/logo.png";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -18,11 +19,11 @@ const Header = () => {
   }, []);
 
   const navItems = [
-    { labelKey: "nav.home", href: "#inicio" },
-    { labelKey: "nav.services", href: "#servicios" },
-    { labelKey: "nav.packs", href: "#packs" },
-    { labelKey: "nav.about", href: "#sobre-mi" },
-    { labelKey: "nav.contact", href: "#contacto" },
+    { labelKey: "nav.home", to: "/" },
+    { labelKey: "nav.services", to: "/#servicios" },
+    { labelKey: "nav.packs", to: "/#packs" },
+    { labelKey: "nav.about", to: "/#sobre-mi" },
+    { labelKey: "nav.contact", to: "/#contacto" },
   ];
 
   const whatsappNumber = "34667326300";
@@ -44,7 +45,7 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo + Nombre + Badge profesional */}
-          <a href="#inicio" className="flex items-center gap-3 group">
+          <Link to="/" className="flex items-center gap-3 group">
             <img
               src={logo}
               alt="Studio Pixelens - Páginas Web y Fotografía"
@@ -64,40 +65,40 @@ const Header = () => {
                 </span>
               </div>
             </div>
-          </a>
+          </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
+              <Link
                 key={item.labelKey}
-                href={item.href}
+                to={item.to}
                 className="text-foreground hover:text-primary font-medium transition-colors"
               >
                 {t(item.labelKey)}
-              </a>
+              </Link>
             ))}
           </nav>
 
           {/* Desktop CTA + Banderas DESPUÉS */}
           <div className="hidden lg:flex items-center space-x-4">
-            <a
-              href="tel:+34667326300"
+            <Link
+              to="tel:+34667326300"
               className="flex items-center text-muted-foreground hover:text-primary transition-colors"
             >
               <Phone className="h-4 w-4 mr-2" />
               <span className="font-semibold">{t("nav.phone")}</span>
-            </a>
+            </Link>
             <Button variant="cta" size="default" asChild>
-              <a
-                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+              <Link
+                to={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
                 <MessageCircle className="h-4 w-4" />
                 {t("nav.whatsapp")}
-              </a>
+              </Link>
             </Button>
 
             {/* Banderas DESPUÉS del botón WhatsApp */}
@@ -190,30 +191,30 @@ const Header = () => {
           <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4 animate-fade-in">
             <nav className="flex flex-col space-y-3">
               {navItems.map((item) => (
-                <a
+                <Link
                   key={item.labelKey}
-                  href={item.href}
+                  to={item.to}
                   className="text-foreground hover:text-primary font-medium py-2 transition-colors"
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
                   {t(item.labelKey)}
-                </a>
+                </Link>
               ))}
-              <a
-                href="tel:+34667326300"
+              <Link
+                to="tel:+34667326300"
                 className="flex items-center text-muted-foreground hover:text-primary py-2 transition-colors"
               >
                 <Phone className="h-4 w-4 mr-2" />
                 <span className="font-semibold">{t("nav.phone")}</span>
-              </a>
+              </Link>
               <Button
                 variant="cta"
                 size="default"
                 className="w-full mt-2"
                 asChild
               >
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                <Link
+                  to={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2"
@@ -221,7 +222,7 @@ const Header = () => {
                 >
                   <MessageCircle className="h-4 w-4" />
                   {t("nav.whatsapp")}
-                </a>
+                </Link>
               </Button>
             </nav>
           </div>
