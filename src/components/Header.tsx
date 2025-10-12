@@ -55,12 +55,12 @@ const Header = () => {
                 Studio Pixelens
               </div>
               <div className="text-xs md:text-sm text-muted-foreground">
-                Páginas Web & Fotografía
+                {t("header.tagline")}
               </div>
               <div className="flex items-center gap-1 mt-0.5">
                 <div className="w-1.5 h-1.5 bg-cta rounded-full"></div>
                 <span className="text-[10px] md:text-xs text-cta font-semibold uppercase tracking-wide">
-                  Profesionales licenciados
+                  {t("header.badge")}
                 </span>
               </div>
             </div>
