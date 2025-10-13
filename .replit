@@ -1,7 +1,6 @@
 run = "./start.sh"
 entrypoint = "src/main.tsx"
-
-modules = ["nodejs-20", "web"]
+modules = ["nodejs-20", "python-3.11", "web"]
 
 [agent]
 expertMode = true
