@@ -1,3 +1,4 @@
+import React from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, MessageCircle, Award } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -8,27 +9,38 @@ const Hero = () => {
   const { t } = useTranslation();
   const whatsappNumber = "34667326300";
   const whatsappMessage = "Hola, estoy interesado en vuestros servicios";
+  const [isMobile, setIsMobile] = React.useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile();
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
 
   return (
     <section
-      id="inicio"
+      id="hero-section"
       className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-20"
       style={{ backgroundColor: '#000' }}
     >
       <div 
         className="absolute inset-0"
         style={{
-          backgroundImage: window.innerWidth < 768 ? `url(${heroBackgroundMobile})` : `url(${heroBackground})`,
+          backgroundImage: isMobile ? `url(${heroBackgroundMobile})` : `url(${heroBackground})`,
           backgroundSize: 'cover',
-          backgroundPosition: window.innerWidth < 768 ? 'center' : 'right center',
+          backgroundPosition: isMobile ? 'center' : 'right center',
           backgroundRepeat: 'no-repeat'
         }}
       ></div>
 
+      {/* Gradiente MUY SUAVE solo en PC */}
       <div 
         className="absolute inset-0" 
         style={{
-          background: 'linear-gradient(to right, rgba(0, 0, 0, 0.90) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.4) 70%, transparent 85%)'
+          background: isMobile 
+            ? 'linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 70%)'
+            : 'linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 60%)'
         }}
       ></div>
 
@@ -38,7 +50,7 @@ const Hero = () => {
             <h1 
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
               style={{
-                textShadow: '3px 6px 12px rgba(0, 0, 0, 0.95), 0 0 60px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 1)'
+                textShadow: '2px 4px 8px rgba(0, 0, 0, 0.6)'
               }}
             >
               {t("hero.title")}
@@ -47,14 +59,9 @@ const Hero = () => {
             </h1>
 
             <p 
-              className="text-xl md:text-3xl mb-6 text-white font-bold leading-tight"
+              className="text-2xl md:text-3xl mb-6 text-white font-medium"
               style={{
-                textShadow: '1px 2px 6px rgba(0, 0, 0, 0.8)',
-                backgroundColor: 'rgba(0, 0, 0, 0.9)',
-                backgroundColor: 'rgba(0, 0, 0, 0.95)',
-                padding: '16px 24px',
-                borderRadius: '8px',
-                display: 'inline-block'
+                textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'
               }}
             >
               {t("hero.subtitle")}
@@ -63,7 +70,7 @@ const Hero = () => {
             <p 
               className="text-lg md:text-xl mb-10 text-white leading-relaxed"
               style={{
-                textShadow: '1px 2px 4px rgba(0, 0, 0, 0.7)'
+                textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'
               }}
             >
               {t("hero.description")}
