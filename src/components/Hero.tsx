@@ -2,6 +2,7 @@ import { Button } from "@/components/ui/button";
 import { CheckCircle2, MessageCircle, Award } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import heroBackground from "@/assets/Fondo5.png";
+import heroBackgroundMobile from "@/assets/FondoMovil.png";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -17,9 +18,9 @@ const Hero = () => {
       <div 
         className="absolute inset-0"
         style={{
-          backgroundImage: `url(${heroBackground})`,
+          backgroundImage: window.innerWidth < 768 ? `url(${heroBackgroundMobile})` : `url(${heroBackground})`,
           backgroundSize: 'cover',
-          backgroundPosition: 'right center',
+          backgroundPosition: window.innerWidth < 768 ? 'center' : 'right center',
           backgroundRepeat: 'no-repeat'
         }}
       ></div>
@@ -27,7 +28,7 @@ const Hero = () => {
       <div 
         className="absolute inset-0" 
         style={{
-          background: 'linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.3) 35%, transparent 60%)'
+          background: 'linear-gradient(to right, rgba(0, 0, 0, 0.90) 0%, rgba(0, 0, 0, 0.75) 50%, rgba(0, 0, 0, 0.4) 70%, transparent 85%)'
         }}
       ></div>
 
@@ -37,7 +38,7 @@ const Hero = () => {
             <h1 
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
               style={{
-                textShadow: '2px 4px 8px rgba(0, 0, 0, 0.8), 0 0 40px rgba(0, 0, 0, 0.5)'
+                textShadow: '3px 6px 12px rgba(0, 0, 0, 0.95), 0 0 60px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 1)'
               }}
             >
               {t("hero.title")}
@@ -46,9 +47,14 @@ const Hero = () => {
             </h1>
 
             <p 
-              className="text-2xl md:text-3xl mb-6 text-white font-medium"
+              className="text-xl md:text-3xl mb-6 text-white font-bold leading-tight"
               style={{
-                textShadow: '1px 2px 6px rgba(0, 0, 0, 0.8)'
+                textShadow: '1px 2px 6px rgba(0, 0, 0, 0.8)',
+                backgroundColor: 'rgba(0, 0, 0, 0.9)',
+                backgroundColor: 'rgba(0, 0, 0, 0.95)',
+                padding: '16px 24px',
+                borderRadius: '8px',
+                display: 'inline-block'
               }}
             >
               {t("hero.subtitle")}
