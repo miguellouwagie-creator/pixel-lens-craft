@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { Menu, X, Phone, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
-import logo from "@/assets/logo.png";
+import logo from "@/assets/Logoo.png";
 import { Link } from "react-router-dom";
 
 const Header = () => {
