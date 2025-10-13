@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, MessageCircle, Award } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import heroBackground from "@/assets/Fondo4.png";
+import heroBackground from "@/assets/Fondo5.png";
 
 const Hero = () => {
   const { t } = useTranslation();
