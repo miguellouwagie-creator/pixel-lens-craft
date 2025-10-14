@@ -151,6 +151,8 @@
   "photoPacks": {
     "title": "Nuestros Packs",
     "subtitle": "Escoge el pack que mejor se adapte a tus necesidades. Todos incluyen garantía de entrega y hasta 3 re-ediciones por foto.",
+    "subtitle": "Escoge el pack que mejor se adapte a tus necesidades. Todos incluyen garantía de entrega y hasta 3 re-ediciones por foto.",
+    "portfolioButton": "VER NUESTRO PORTFOLIO",
     "trial": {
       "name": "Pack Prueba",
       "price": "Gratis",
@@ -377,5 +379,42 @@
   "header": {
     "tagline": "Páginas Web & Fotografía",
     "badge": "Profesionales licenciados"
+  },
+  "simplePrice": {
+    "title": "Tu Página Web Profesional",
+    "subtitle": "Diseño moderno, rápido y optimizado para Google.",
+    "offer": {
+      "title": "Página Web Profesional",
+      "price": "Desde 399€",
+      "description": "Todo incluido para lanzar tu negocio online",
+      "includes": "¿Qué incluye?",
+      "feature1": "Diseño 100% adaptable a móviles y tablets",
+      "feature2": "Hasta 3 secciones (Inicio, Servicios, Contacto)",
+      "feature3": "Formulario de contacto y mapa de Google",
+      "feature4": "Optimización SEO para búsquedas locales",
+      "feature5": "Dominio y Hosting (primer año incluido)",
+      "feature6": "Galería de fotos profesional",
+      "feature7": "Integración con redes sociales",
+      "feature8": "Formación inicial para gestionar tu web",
+      "maintenanceTitle": "Mantenimiento mensual:",
+      "maintenanceText": "Después de crear tu web, ofrecemos un servicio de mantenimiento mensual para mantenerla segura, actualizada y funcionando perfectamente. El coste mensual varía según tus necesidades (actualizaciones, soporte, backups). ¡Pregúntanos sin compromiso!",
+      "cta": "Pedir Presupuesto",
+      "whatsappMessage": "Hola, me interesa la Página Web Profesional desde 399€. ¿Me pueden dar más información?"
+    },
+    "benefits": {
+      "title": "¿Por qué necesitas una web?",
+      "benefit1Title": "Más clientes",
+      "benefit1Text": "Aparece en Google cuando busquen tus servicios en la zona.",
+      "benefit2Title": "Abierto 24/7",
+      "benefit2Text": "Tu web trabaja para ti incluso cuando estás cerrado.",
+      "benefit3Title": "Imagen profesional",
+      "benefit3Text": "Transmite confianza y destaca frente a la competencia.",
+      "benefit4Title": "Comunicación directa",
+      "benefit4Text": "Muestra ofertas, horarios y novedades al instante.",
+      "benefit5Title": "Es tuyo",
+      "benefit5Text": "Tu propio espacio digital, sin depender de redes sociales.",
+      "benefit6Title": "Visible en Google",
+      "benefit6Text": "Optimizado para aparecer en Google Maps y búsquedas locales."
+    }
   }
 }

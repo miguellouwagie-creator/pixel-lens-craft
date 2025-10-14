@@ -6,59 +6,12 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
-import {
-  Check,
-  MessageCircle,
-  Code,
-  Camera,
-  Laptop,
-  Image,
-} from "lucide-react";
+import { Check, MessageCircle, Camera, Image } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const PricingSection = () => {
   const { t } = useTranslation();
-  const whatsappNumber = "34123456789";
-
-  const webPacks = [
-    {
-      nameKey: "webDevelopment.basic.name",
-      priceKey: "webDevelopment.basic.setupPrice",
-      featuresKeys: [
-        "webDevelopment.basic.feature1",
-        "webDevelopment.basic.feature2",
-        "webDevelopment.basic.feature3",
-        "webDevelopment.basic.feature4",
-      ],
-      whatsappMessage: "Hola, me interesa la Web Básica (XXX€)",
-      ctaKey: "webDevelopment.basic.cta",
-    },
-    {
-      nameKey: "webDevelopment.professional.name",
-      priceKey: "webDevelopment.professional.setupPrice",
-      featuresKeys: [
-        "webDevelopment.professional.feature1",
-        "webDevelopment.professional.feature2",
-        "webDevelopment.professional.feature3",
-        "webDevelopment.professional.feature4",
-      ],
-      whatsappMessage: "Hola, me interesa la Web Profesional (XXX€)",
-      featured: true,
-      ctaKey: "webDevelopment.professional.cta",
-    },
-    {
-      nameKey: "services.combo.title",
-      priceKey: "services.combo.price",
-      featuresKeys: [
-        "services.combo.feature1",
-        "services.combo.feature2",
-        "services.combo.feature3",
-        "services.combo.feature4",
-      ],
-      whatsappMessage: "Hola, me interesa el Pack Web + Fotografía (XXX€)",
-      ctaKey: "services.combo.cta",
-    },
-  ];
+  const whatsappNumber = "34667326300";
 
   const photoPacks = [
     {
@@ -128,85 +81,7 @@ const PricingSection = () => {
   ];
 
   return (
-    <div className="py-20" id="packs">
-      {/* ============ DESARROLLO WEB ============ */}
-      <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 py-20">
-        <div className="container mx-auto px-4">
-          {/* Header con icono grande */}
-          <div className="text-center mb-16">
-            <div className="inline-flex items-center justify-center w-24 h-24 bg-blue-500 rounded-2xl mb-6 shadow-2xl">
-              <Laptop className="h-12 w-12 text-white" />
-            </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              {t("pricing.webTitle")}
-            </h2>
-            <p className="text-xl text-blue-200 max-w-3xl mx-auto">
-              {t("pricing.webSubtitle")}
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
-            {webPacks.map((pack) => (
-              <Card
-                key={pack.nameKey}
-                className={`flex flex-col bg-white/95 backdrop-blur hover:shadow-2xl transition-all hover:scale-105 ${pack.featured ? "border-4 border-blue-400 relative transform scale-105" : "border-2 border-blue-200"}`}
-              >
-                {pack.featured && (
-                  <div className="absolute -top-5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-blue-600 to-blue-500 text-white px-6 py-2 rounded-full text-sm font-bold shadow-xl">
-                    ⭐ {t("webDevelopment.professional.badge")}
-                  </div>
-                )}
-                <CardHeader className="bg-gradient-to-br from-blue-50 to-white">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Code className="h-6 w-6 text-blue-600" />
-                    <CardTitle className="text-xl text-blue-900">
-                      {t(pack.nameKey)}
-                    </CardTitle>
-                  </div>
-                  <CardDescription>
-                    <span className="text-4xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                      {t(pack.priceKey)}
-                    </span>
-                  </CardDescription>
-                </CardHeader>
-                <CardContent className="flex-1 flex flex-col pt-6">
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {pack.featuresKeys.map((featureKey) => (
-                      <li key={featureKey} className="flex items-start gap-3">
-                        <div className="bg-blue-100 rounded-full p-1">
-                          <Check className="h-4 w-4 text-blue-600" />
-                        </div>
-                        <span className="text-sm text-gray-700">
-                          {t(featureKey)}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
-                  <Button
-                    className={`w-full ${pack.featured ? "bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800" : "bg-blue-600 hover:bg-blue-700"} text-white`}
-                    size="lg"
-                    asChild
-                  >
-                    <a
-                      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(pack.whatsappMessage)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      <MessageCircle className="h-5 w-5" />
-                      {t(pack.ctaKey)}
-                    </a>
-                  </Button>
-                </CardContent>
-              </Card>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* ============ SEPARADOR VISUAL ============ */}
-      <div className="h-20 bg-gradient-to-b from-slate-800 to-white"></div>
-
+    <div className="py-20" id="photo-packs">
       {/* ============ FOTOGRAFÍA Y EDICIÓN ============ */}
       <section className="bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 py-20">
         <div className="container mx-auto px-4">
