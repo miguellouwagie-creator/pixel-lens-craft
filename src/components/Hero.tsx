@@ -34,7 +34,6 @@ const Hero = () => {
         }}
       ></div>
 
-      {/* Gradiente MUY SUAVE solo en PC */}
       <div 
         className="absolute inset-0" 
         style={{
@@ -45,7 +44,7 @@ const Hero = () => {
       ></div>
 
       <div className="container mx-auto px-4 relative z-10 py-20">
-        <div className="max-w-2xl">
+        <div className="max-w-xl lg:max-w-2xl">
           <div className="text-white animate-fade-in-up">
             <h1 
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
@@ -76,7 +75,7 @@ const Hero = () => {
               {t("hero.description")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-10">
+            <div className="flex flex-col sm:flex-row gap-4 mb-10 max-w-lg">
               <Button
                 size="lg"
                 className="bg-cta hover:bg-cta/90 text-white font-semibold text-lg px-8 py-6 rounded-full shadow-2xl hover:shadow-cta/50 transition-all duration-300 hover:scale-105"
@@ -102,18 +101,19 @@ const Hero = () => {
               </Button>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="h-6 w-6 text-cta flex-shrink-0" style={{filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))'}} />
-                <span className="text-white font-medium" style={{textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'}}>{t("hero.benefit1")}</span>
+            {/* Grid de beneficios MÁS COMPACTO y a la izquierda */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-md lg:max-w-lg">
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-5 w-5 text-cta flex-shrink-0" style={{filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))'}} />
+                <span className="text-white font-medium text-sm" style={{textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'}}>{t("hero.benefit1")}</span>
               </div>
-              <div className="flex items-center gap-3">
-                <CheckCircle2 className="h-6 w-6 text-cta flex-shrink-0" style={{filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))'}} />
-                <span className="text-white font-medium" style={{textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'}}>{t("hero.benefit2")}</span>
+              <div className="flex items-center gap-2">
+                <CheckCircle2 className="h-5 w-5 text-cta flex-shrink-0" style={{filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))'}} />
+                <span className="text-white font-medium text-sm" style={{textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'}}>{t("hero.benefit2")}</span>
               </div>
-              <div className="flex items-center gap-3">
-                <Award className="h-6 w-6 text-cta flex-shrink-0" style={{filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))'}} />
-                <span className="text-white font-medium" style={{textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'}}>{t("hero.benefit3")}</span>
+              <div className="flex items-center gap-2">
+                <Award className="h-5 w-5 text-cta flex-shrink-0" style={{filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))'}} />
+                <span className="text-white font-medium text-sm" style={{textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'}}>{t("hero.benefit3")}</span>
               </div>
             </div>
           </div>

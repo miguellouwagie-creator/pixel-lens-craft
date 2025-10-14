@@ -13,9 +13,9 @@ import {
   Code,
   Camera,
   Laptop,
-  Image,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import portfolioImage from "@/assets/Portfolio.png";
 
 const PricingSection = () => {
   const { t } = useTranslation();
@@ -130,10 +130,24 @@ const PricingSection = () => {
 
   return (
     <div className="py-20" id="packs">
-      {/* ============ DESARROLLO WEB ============ */}
+      <style>
+        {`
+          @keyframes ring-pulse {
+            0% {
+              box-shadow: 0 0 0 0 rgba(249, 115, 22, 0.7);
+            }
+            50% {
+              box-shadow: 0 0 0 20px rgba(249, 115, 22, 0);
+            }
+            100% {
+              box-shadow: 0 0 0 0 rgba(249, 115, 22, 0);
+            }
+          }
+        `}
+      </style>
+
       <section className="bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800 py-20">
         <div className="container mx-auto px-4">
-          {/* Header con icono grande */}
           <div className="text-center mb-16">
             <div className="inline-flex items-center justify-center w-24 h-24 bg-blue-500 rounded-2xl mb-6 shadow-2xl">
               <Laptop className="h-12 w-12 text-white" />
@@ -205,17 +219,27 @@ const PricingSection = () => {
         </div>
       </section>
 
-      {/* ============ SEPARADOR VISUAL ============ */}
       <div className="h-20 bg-gradient-to-b from-slate-800 to-white"></div>
 
-      {/* ============ FOTOGRAFÍA Y EDICIÓN ============ */}
       <section className="bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 py-20">
         <div className="container mx-auto px-4">
-          {/* Header con icono grande */}
           <div className="text-center mb-16">
-            <Link to="/portfolio" className="inline-flex items-center justify-center w-24 h-24 bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl mb-6 shadow-2xl hover:scale-110 transition-transform cursor-pointer">
-              <Image className="h-12 w-12 text-white" />
-            </Link>
+            <div className="mb-8 flex justify-center">
+              <Link to="/portfolio" className="block" style={{ width: '240px', height: '95px', borderRadius: '20px' }}>
+                <img 
+                  src={portfolioImage} 
+                  alt="Portfolio" 
+                  style={{ 
+                    width: '280px', 
+                    height: '95px',
+                    objectFit: 'contain', borderRadius: '20px',
+                    animation: 'ring-pulse 2s ease-out infinite',
+                    display: 'block'
+                  }}
+                />
+              </Link>
+            </div>
+            
             <h2 className="text-4xl md:text-5xl font-bold text-orange-900 mb-4">
               {t("photoPacks.title")}
             </h2>
@@ -281,7 +305,6 @@ const PricingSection = () => {
         </div>
       </section>
 
-      {/* Footer de sección */}
       <div className="bg-white py-12">
         <div className="container mx-auto px-4 text-center">
           <p className="text-lg text-muted-foreground">
