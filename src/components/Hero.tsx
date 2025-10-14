@@ -14,42 +14,44 @@ const Hero = () => {
   React.useEffect(() => {
     const checkMobile = () => setIsMobile(window.innerWidth < 768);
     checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
   return (
     <section
       id="hero-section"
-      className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-20"
-      style={{ backgroundColor: '#000' }}
+      className="relative min-h-screen flex items-center overflow-hidden pt-0 md:pt-0"
+      style={{ backgroundColor: "#000" }}
     >
-      <div 
+      <div
         className="absolute inset-0"
         style={{
-          backgroundImage: isMobile ? `url(${heroBackgroundMobile})` : `url(${heroBackground})`,
-          backgroundSize: 'cover',
-          backgroundPosition: isMobile ? 'center' : 'right center',
-          backgroundRepeat: 'no-repeat'
+          backgroundImage: isMobile
+            ? `url(${heroBackgroundMobile})`
+            : `url(${heroBackground})`,
+          backgroundSize: "cover",
+          backgroundPosition: isMobile ? "center" : "right center",
+          backgroundRepeat: "no-repeat",
         }}
       ></div>
 
-      <div 
-        className="absolute inset-0" 
+      <div
+        className="absolute inset-0"
         style={{
-          background: isMobile 
-            ? 'linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 70%)'
-            : 'linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 60%)'
+          background: isMobile
+            ? "linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 70%)"
+            : "linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 60%)",
         }}
       ></div>
 
-      <div className="container mx-auto px-4 relative z-10 py-20">
+      <div className="container mx-auto px-4 relative z-10 py-0">
         <div className="max-w-xl lg:max-w-2xl">
           <div className="text-white animate-fade-in-up">
-            <h1 
+            <h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
               style={{
-                textShadow: '2px 4px 8px rgba(0, 0, 0, 0.6)'
+                textShadow: "2px 4px 8px rgba(0, 0, 0, 0.6)",
               }}
             >
               {t("hero.title")}
@@ -57,19 +59,19 @@ const Hero = () => {
               <span className="text-cta">{t("hero.titleHighlight")}</span>
             </h1>
 
-            <p 
+            <p
               className="text-2xl md:text-3xl mb-6 text-white font-medium"
               style={{
-                textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'
+                textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)",
               }}
             >
               {t("hero.subtitle")}
             </p>
 
-            <p 
+            <p
               className="text-lg md:text-xl mb-10 text-white leading-relaxed"
               style={{
-                textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'
+                textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)",
               }}
             >
               {t("hero.description")}
@@ -82,7 +84,7 @@ const Hero = () => {
                 onClick={() => {
                   window.open(
                     `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-                    "_blank"
+                    "_blank",
                   );
                 }}
               >
@@ -94,7 +96,9 @@ const Hero = () => {
                 variant="outline"
                 className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
                 onClick={() => {
-                  document.getElementById("servicios")?.scrollIntoView({ behavior: "smooth" });
+                  document
+                    .getElementById("servicios")
+                    ?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
                 {t("hero.ctaServices")}
@@ -104,16 +108,40 @@ const Hero = () => {
             {/* Grid de beneficios MÁS COMPACTO y a la izquierda */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-md lg:max-w-lg">
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-cta flex-shrink-0" style={{filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))'}} />
-                <span className="text-white font-medium text-sm" style={{textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'}}>{t("hero.benefit1")}</span>
+                <CheckCircle2
+                  className="h-5 w-5 text-cta flex-shrink-0"
+                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}
+                />
+                <span
+                  className="text-white font-medium text-sm"
+                  style={{ textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)" }}
+                >
+                  {t("hero.benefit1")}
+                </span>
               </div>
               <div className="flex items-center gap-2">
-                <CheckCircle2 className="h-5 w-5 text-cta flex-shrink-0" style={{filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))'}} />
-                <span className="text-white font-medium text-sm" style={{textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'}}>{t("hero.benefit2")}</span>
+                <CheckCircle2
+                  className="h-5 w-5 text-cta flex-shrink-0"
+                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}
+                />
+                <span
+                  className="text-white font-medium text-sm"
+                  style={{ textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)" }}
+                >
+                  {t("hero.benefit2")}
+                </span>
               </div>
               <div className="flex items-center gap-2">
-                <Award className="h-5 w-5 text-cta flex-shrink-0" style={{filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.4))'}} />
-                <span className="text-white font-medium text-sm" style={{textShadow: '1px 2px 4px rgba(0, 0, 0, 0.5)'}}>{t("hero.benefit3")}</span>
+                <Award
+                  className="h-5 w-5 text-cta flex-shrink-0"
+                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}
+                />
+                <span
+                  className="text-white font-medium text-sm"
+                  style={{ textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)" }}
+                >
+                  {t("hero.benefit3")}
+                </span>
               </div>
             </div>
           </div>
