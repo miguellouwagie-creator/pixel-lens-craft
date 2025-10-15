@@ -146,7 +146,9 @@
       }
     },
     "footerText": "¿Necesitas algo personalizado o tienes un proyecto especial?",
-    "footerCta": "Cuéntanos y te hacemos un presupuesto a medida"
+    "footerCta": "Cuéntanos y te hacemos un presupuesto a medida",
+    "portfolioButton": "📸 VER PORTFOLIO FOTOGRÁFICO",
+    "portfolioDescription": "✨ Mira ejemplos reales de nuestro trabajo fotográfico"
   },
   "photoPacks": {
     "title": "Fotografía y Edición Profesional",
@@ -159,7 +161,7 @@
       "after": "Editada Profesional",
       "caption": "📸 Ejemplo real de nuestro trabajo - Fotografía y edición profesional"
     },
-    "portfolioButton": "VER NUESTRO PORTFOLIO",
+    "portfolioButton": "📸 VER PORTFOLIO FOTOGRÁFICO",
     "portfolioDescription": "✨ Mira ejemplos reales de nuestro trabajo fotográfico",
     "recommendedBadge": "⭐ Recomendado para probar",
     "guarantee": {
@@ -434,6 +436,8 @@
       "benefit5Text": "Tu propio espacio digital, sin depender de redes sociales.",
       "benefit6Title": "Visible en Google",
       "benefit6Text": "Optimizado para aparecer en Google Maps y búsquedas locales."
-    }
+    },
+    "portfolioButton": "🌐 VER EJEMPLOS DE WEBS",
+    "portfolioDescription": "Mira ejemplos reales de nuestro trabajo"
   }
 }

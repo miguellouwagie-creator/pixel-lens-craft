@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
-import Services from "@/components/Services";
+// import Services from "@/components/Services";
 import PricingSection from "@/components/SimplePricingSection"; // Web
 import PhotoPricingSection from "@/components/PricingSection"; // Fotografía (el original)
 import WhyUs from "@/components/WhyUs";
@@ -18,7 +18,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
-        <Services />
+        {/*         <Services /> */}
         <PricingSection /> {/* Nueva sección web simplificada */}
         <PhotoPricingSection /> {/* Sección de fotografía completa */}
         <WhyUs />

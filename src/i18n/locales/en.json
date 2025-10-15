@@ -146,7 +146,9 @@
       }
     },
     "footerText": "Need something custom or have a special project?",
-    "footerCta": "Tell us and we'll create a custom quote"
+    "footerCta": "Tell us and we'll create a custom quote",
+    "portfolioButton": "📸 VIEW PHOTOGRAPHY PORTFOLIO",
+    "portfolioDescription": "✨ See real examples of our photography work"
   },
   "photoPacks": {
     "title": "Professional Photography & Editing",
@@ -159,7 +161,7 @@
       "after": "Professional Edit",
       "caption": "📸 Real example of our work - Professional photography and editing"
     },
-    "portfolioButton": "VIEW OUR PORTFOLIO",
+    "portfolioButton": "📸 VIEW PHOTOGRAPHY PORTFOLIO",
     "portfolioDescription": "✨ See real examples of our photography work",
     "recommendedBadge": "⭐ Recommended to try",
     "guarantee": {
@@ -434,6 +436,8 @@
       "benefit5Text": "Your own digital space, independent from social media.",
       "benefit6Title": "Visible on Google",
       "benefit6Text": "Optimized to appear in Google Maps and local searches."
-    }
+    },
+    "portfolioButton": "🌐 VIEW WEBSITE EXAMPLES",
+    "portfolioDescription": "See real examples of our work"
   }
 }

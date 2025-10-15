@@ -10,6 +10,8 @@ import {
   Users,
   Zap,
   Search,
+  Eye,
+  ArrowRight,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
@@ -30,9 +32,33 @@ const SimplePricingSection = () => {
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
             {t("simplePrice.title")}
           </h2>
-          <p className="text-xl text-blue-200 max-w-3xl mx-auto">
+          <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
             {t("simplePrice.subtitle")}
           </p>
+
+          {/* Botón Ver Ejemplos de Webs */}
+          <div className="mb-8 relative inline-block">
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-xl opacity-40"></div>
+            
+            <Button
+              size="lg"
+              className="relative bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white text-lg px-10 py-7 shadow-2xl hover:shadow-blue-500/60 transform hover:scale-110 transition-all duration-300 border-2 border-blue-400"
+              asChild
+            >
+              <a 
+                href="/portfolio-webs"
+                className="flex items-center gap-3"
+              >
+                <Eye className="h-6 w-6 animate-bounce" />
+                <span className="font-bold tracking-wide">{t("simplePrice.portfolioButton")}</span>
+                <ArrowRight className="h-6 w-6" />
+              </a>
+            </Button>
+            
+            <p className="text-sm text-blue-300 mt-4 font-semibold">
+              {t("simplePrice.portfolioDescription")}
+            </p>
+          </div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto items-start">

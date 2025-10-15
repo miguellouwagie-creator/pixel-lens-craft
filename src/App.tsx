@@ -6,6 +6,7 @@ import Index from "./pages/Index";
 import Auth from "./pages/Auth";
 import Dashboard from "./pages/Dashboard";
 import Portfolio from "./pages/Portfolio";
+import PortfolioWebs from "./pages/PortfolioWebs";
 import NotFound from "./pages/NotFound";
 
 const App = () => (
@@ -17,6 +18,7 @@ const App = () => (
       <Route path="/auth" element={<Auth />} />
       <Route path="/dashboard" element={<Dashboard />} />
       <Route path="/portfolio" element={<Portfolio />} />
+      <Route path="/portfolio-webs" element={<PortfolioWebs />} />
       <Route path="*" element={<NotFound />} />
     </Routes>
   </TooltipProvider>
