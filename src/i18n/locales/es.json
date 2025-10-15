@@ -229,8 +229,8 @@
       "description": "Todas nuestras ediciones están verificadas y son 100% reales"
     },
     "reason4": {
-      "title": "Entrega 24-48h",
-      "description": "Plazos claros y cumplidos. Hasta 3 re-ediciones por foto incluidas"
+      "title": "Entrega Rápida 24-48h",
+      "description": "Tus fotos editadas y listas en 24-48 horas. Plazos rápidos y cumplidos para tus ediciones fotográficas."
     },
     "reason5": {
       "title": "Sin Reembolsos",
@@ -239,6 +239,18 @@
     "reason6": {
       "title": "Soporte Continuo",
       "description": "Web + Fotografía en un solo sitio. Te acompañamos después del lanzamiento"
+    },
+    "bestPrice": {
+      "title": "Mejor Calidad-Precio",
+      "description": "Servicios profesionales a precios justos y transparentes. Sin costes ocultos ni sorpresas."
+    },
+    "noRefunds": {
+      "title": "Re-editamos Gratis",
+      "description": "No damos reembolsos, pero re-editamos GRATIS hasta 3 veces hasta que estés 100% satisfecho."
+    },
+    "badges": {
+      "certified": "Garantizado",
+      "topPrice": "Top Precio"
     }
   },
   "portfolio": {

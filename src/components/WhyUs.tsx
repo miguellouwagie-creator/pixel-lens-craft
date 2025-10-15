@@ -1,102 +1,144 @@
 import {
-  MapPin,
   Award,
-  Shield,
-  CheckCircle,
+  DollarSign,
   Clock,
+  RotateCcw,
   Headset,
+  CheckCircle,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const WhyUs = () => {
   const { t } = useTranslation();
 
-  const reasons = [
-    {
-      icon: Award,
-      titleKey: "whyUs.reason1.title",
-      descriptionKey: "whyUs.reason1.description",
-      highlight: true,
-    },
-    {
-      icon: MapPin,
-      titleKey: "whyUs.reason2.title",
-      descriptionKey: "whyUs.reason2.description",
-      highlight: false,
-    },
-    {
-      icon: CheckCircle,
-      titleKey: "whyUs.reason3.title",
-      descriptionKey: "whyUs.reason3.description",
-      highlight: false,
-    },
-    {
-      icon: Clock,
-      titleKey: "whyUs.reason4.title",
-      descriptionKey: "whyUs.reason4.description",
-      highlight: false,
-    },
-    {
-      icon: Shield,
-      titleKey: "whyUs.reason5.title",
-      descriptionKey: "whyUs.reason5.description",
-      highlight: false,
-    },
-    {
-      icon: Headset,
-      titleKey: "whyUs.reason6.title",
-      descriptionKey: "whyUs.reason6.description",
-      highlight: false,
-    },
-  ];
-
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 to-white">
+    <section className="py-20 md:py-32 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
+        
+        {/* Header con color */}
+        <div className="text-center mb-20 animate-fade-in-up">
+          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
             {t("whyUs.title")}
           </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
             {t("whyUs.subtitle")}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reasons.map((reason, index) => {
-            const IconComponent = reason.icon;
-            return (
-              <div
-                key={reason.titleKey}
-                className={`text-center group animate-fade-in-up p-6 rounded-2xl transition-all ${
-                  reason.highlight
-                    ? "bg-gradient-to-br from-cta/10 to-cta/5 border-2 border-cta/30 shadow-lg hover:shadow-xl"
-                    : "bg-white hover:bg-slate-50 border border-slate-200 hover:shadow-lg"
-                }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
-              >
-                <div
-                  className={`inline-flex items-center justify-center w-16 h-16 mb-4 rounded-2xl transition-all ${
-                    reason.highlight
-                      ? "bg-cta/20 group-hover:bg-cta/30"
-                      : "bg-primary/10 group-hover:bg-primary/20"
-                  }`}
-                >
-                  <IconComponent
-                    className={`h-8 w-8 ${reason.highlight ? "text-cta" : "text-primary"}`}
-                  />
+        <div className="max-w-6xl mx-auto">
+          
+          {/* 2 Destacadas: Balance entre visual y profesional */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            
+            {/* Profesionales Licenciados */}
+            <div className="group relative bg-white rounded-3xl p-10 border-2 border-emerald-200 hover:border-emerald-400 shadow-lg hover:shadow-2xl transition-all duration-300 animate-fade-in-up overflow-hidden">
+              {/* Subtle gradient background */}
+              <div className="absolute top-0 right-0 w-48 h-48 bg-gradient-to-br from-emerald-100 to-transparent opacity-40 rounded-full -mr-24 -mt-24"></div>
+              
+              <div className="relative">
+                <div className="flex items-start gap-5 mb-6">
+                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <Award className="h-8 w-8 text-white" strokeWidth={2} />
+                  </div>
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-100 rounded-full mb-3">
+                      <CheckCircle className="h-3.5 w-3.5 text-emerald-700" />
+                      <span className="text-xs font-bold text-emerald-700 uppercase tracking-wide">
+                        {t("whyUs.badges.certified")}
+                      </span>
+                    </div>
+                  </div>
                 </div>
-                <h3
-                  className={`text-xl font-bold mb-3 ${reason.highlight ? "text-cta" : "text-foreground"}`}
-                >
-                  {t(reason.titleKey)}
+                
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                  {t("whyUs.reason1.title")}
                 </h3>
-                <p className="text-base text-muted-foreground leading-relaxed">
-                  {t(reason.descriptionKey)}
+                
+                <p className="text-gray-600 leading-relaxed text-base">
+                  {t("whyUs.reason1.description")}
                 </p>
               </div>
-            );
-          })}
+            </div>
+
+            {/* Mejor Calidad-Precio */}
+            <div className="group relative bg-white rounded-3xl p-10 border-2 border-green-200 hover:border-green-400 shadow-lg hover:shadow-2xl transition-all duration-300 animate-fade-in-up overflow-hidden" style={{ animationDelay: "0.1s" }}>
+              {/* Subtle gradient background */}
+              <div className="absolute top-0 left-0 w-48 h-48 bg-gradient-to-br from-green-100 to-transparent opacity-40 rounded-full -ml-24 -mt-24"></div>
+              
+              <div className="relative">
+                <div className="flex items-start gap-5 mb-6">
+                  <div className="flex-shrink-0 w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                    <DollarSign className="h-8 w-8 text-white" strokeWidth={2} />
+                  </div>
+                  <div>
+                    <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-100 rounded-full mb-3">
+                      <CheckCircle className="h-3.5 w-3.5 text-green-700" />
+                      <span className="text-xs font-bold text-green-700 uppercase tracking-wide">
+                        {t("whyUs.badges.topPrice")}
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">
+                  {t("whyUs.bestPrice.title")}
+                </h3>
+                
+                <p className="text-gray-600 leading-relaxed text-base">
+                  {t("whyUs.bestPrice.description")}
+                </p>
+              </div>
+            </div>
+          </div>
+
+          {/* 3 Ventajas secundarias: Más visuales */}
+          <div className="grid md:grid-cols-3 gap-6">
+            
+            {/* Entrega Rápida */}
+            <div className="group bg-white rounded-2xl p-8 border border-gray-200 hover:border-emerald-300 shadow-md hover:shadow-xl transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.2s" }}>
+              <div className="text-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+                  <Clock className="h-7 w-7 text-emerald-600" strokeWidth={2} />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-3">
+                  {t("whyUs.reason4.title")}
+                </h4>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {t("whyUs.reason4.description")}
+                </p>
+              </div>
+            </div>
+
+            {/* Re-editamos Gratis */}
+            <div className="group bg-white rounded-2xl p-8 border border-gray-200 hover:border-emerald-300 shadow-md hover:shadow-xl transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.3s" }}>
+              <div className="text-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+                  <RotateCcw className="h-7 w-7 text-emerald-600" strokeWidth={2} />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-3">
+                  {t("whyUs.noRefunds.title")}
+                </h4>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {t("whyUs.noRefunds.description")}
+                </p>
+              </div>
+            </div>
+
+            {/* Soporte Continuo */}
+            <div className="group bg-white rounded-2xl p-8 border border-gray-200 hover:border-emerald-300 shadow-md hover:shadow-xl transition-all duration-300 animate-fade-in-up" style={{ animationDelay: "0.4s" }}>
+              <div className="text-center">
+                <div className="w-14 h-14 bg-gradient-to-br from-emerald-100 to-emerald-50 rounded-xl flex items-center justify-center mx-auto mb-5 group-hover:scale-110 transition-transform">
+                  <Headset className="h-7 w-7 text-emerald-600" strokeWidth={2} />
+                </div>
+                <h4 className="text-lg font-bold text-gray-900 mb-3">
+                  {t("whyUs.reason6.title")}
+                </h4>
+                <p className="text-sm text-gray-600 leading-relaxed">
+                  {t("whyUs.reason6.description")}
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>

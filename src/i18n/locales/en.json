@@ -229,8 +229,8 @@
       "description": "All our editions are verified and 100% real"
     },
     "reason4": {
-      "title": "24-48h Delivery",
-      "description": "Clear deadlines and met. Up to 3 re-edits per photo included"
+      "title": "Fast Delivery 24-48h",
+      "description": "Your edited photos ready in 24-48 hours. Fast and reliable turnaround for your photo editing."
     },
     "reason5": {
       "title": "No Refunds",
@@ -239,6 +239,18 @@
     "reason6": {
       "title": "Continuous Support",
       "description": "Web + Photography in one place. We support you after launch"
+    },
+    "bestPrice": {
+      "title": "Best Quality-Price",
+      "description": "Professional services at fair and transparent prices. No hidden costs or surprises."
+    },
+    "noRefunds": {
+      "title": "Free Re-editing",
+      "description": "We don't give refunds, but we re-edit FREE up to 3 times until you're 100% satisfied."
+    },
+    "badges": {
+      "certified": "Certified",
+      "topPrice": "Best Price"
     }
   },
   "portfolio": {
