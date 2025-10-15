@@ -4,7 +4,7 @@ import Hero from "@/components/Hero";
 import PricingSection from "@/components/SimplePricingSection"; // Web
 import PhotoPricingSection from "@/components/PricingSection"; // Fotografía (el original)
 import WhyUs from "@/components/WhyUs";
-import Portfolio from "@/components/Portfolio";
+// import Portfolio from "@/components/Portfolio"; // ELIMINADO
 import Testimonials from "@/components/Testimonials";
 // import Process from "@/components/Process";
 import About from "@/components/About";
@@ -22,7 +22,7 @@ const Index = () => {
         <PricingSection /> {/* Nueva sección web simplificada */}
         <PhotoPricingSection /> {/* Sección de fotografía completa */}
         <WhyUs />
-        <Portfolio />
+        {/* <Portfolio /> ELIMINADO COMPLETAMENTE */}
         <Testimonials />
         {/* <Process /> */}
         <About />

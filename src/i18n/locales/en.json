@@ -256,38 +256,6 @@
   "portfolio": {
     "title": "Industries We Work With",
     "subtitle": "Experience in multiple industries with real results",
-    "projects": {
-      "restaurant": {
-        "name": "Local Restaurant",
-        "type": "Food & Dining",
-        "result": "+45% bookings"
-      },
-      "hotel": {
-        "name": "Boutique Hotel",
-        "type": "Hospitality",
-        "result": "+60% web visits"
-      },
-      "fashion": {
-        "name": "Fashion Store",
-        "type": "Retail & Fashion",
-        "result": "+35% sales"
-      },
-      "dental": {
-        "name": "Dental Clinic",
-        "type": "Health Services",
-        "result": "+50% appointments"
-      },
-      "realEstate": {
-        "name": "Real Estate Agency",
-        "type": "Real Estate",
-        "result": "+40% leads"
-      },
-      "fitness": {
-        "name": "Fitness Center",
-        "type": "Sports & Wellness",
-        "result": "+55% registrations"
-      }
-    },
     "footerText": "Your industry not listed? We work with any type of business",
     "footerCta": "Tell Us About Your Project"
   },

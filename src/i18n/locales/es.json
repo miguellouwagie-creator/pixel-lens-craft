@@ -254,40 +254,6 @@
     }
   },
   "portfolio": {
-    "title": "Sectores Con Los Que Trabajamos",
-    "subtitle": "Experiencia en múltiples industrias con resultados reales",
-    "projects": {
-      "restaurant": {
-        "name": "Restaurante Local",
-        "type": "Gastronomía",
-        "result": "+45% reservas"
-      },
-      "hotel": {
-        "name": "Hotel Boutique",
-        "type": "Hostelería",
-        "result": "+60% visitas web"
-      },
-      "fashion": {
-        "name": "Tienda de Moda",
-        "type": "Retail & Moda",
-        "result": "+35% ventas"
-      },
-      "dental": {
-        "name": "Clínica Dental",
-        "type": "Servicios Salud",
-        "result": "+50% citas"
-      },
-      "realEstate": {
-        "name": "Inmobiliaria",
-        "type": "Sector Inmobiliario",
-        "result": "+40% leads"
-      },
-      "fitness": {
-        "name": "Centro Fitness",
-        "type": "Deporte & Bienestar",
-        "result": "+55% inscripciones"
-      }
-    },
     "footerText": "¿Tu sector no aparece? Trabajamos con cualquier tipo de negocio",
     "footerCta": "Cuéntanos Tu Proyecto"
   },
