@@ -151,7 +151,6 @@
   "photoPacks": {
     "title": "Our Packs",
     "subtitle": "Choose the pack that best suits your needs. All include delivery guarantee and up to 3 re-edits per photo.",
-    "subtitle": "Choose the pack that best suits your needs. All include delivery guarantee and up to 3 re-edits per photo.",
     "portfolioButton": "VIEW OUR PORTFOLIO",
     "portfolioDescription": "✨ See real examples of our photography work",
     "trial": {
@@ -268,6 +267,16 @@
     },
     "footerText": "Your industry not listed? We work with any type of business",
     "footerCta": "Tell Us About Your Project"
+  },
+  "portfolioGallery": {
+    "title": "Our Photography Portfolio",
+    "subtitle": "Explore the power of professional editing. Slide to see the transformation.",
+    "beforeLabel": "Unedited",
+    "afterLabel": "Edited",
+    "ctaTitle": "Want your photos to look like this?",
+    "ctaSubtitle": "We can shoot from scratch or edit the images you already have. Contact us and let's bring your vision to life.",
+    "ctaButton": "Request Photo Editing",
+    "backButton": "Back to home"
   },
   "process": {
     "title": "How We Work With You",

@@ -151,7 +151,6 @@
   "photoPacks": {
     "title": "Nuestros Packs",
     "subtitle": "Escoge el pack que mejor se adapte a tus necesidades. Todos incluyen garantía de entrega y hasta 3 re-ediciones por foto.",
-    "subtitle": "Escoge el pack que mejor se adapte a tus necesidades. Todos incluyen garantía de entrega y hasta 3 re-ediciones por foto.",
     "portfolioButton": "VER NUESTRO PORTFOLIO",
     "portfolioDescription": "✨ Mira ejemplos reales de nuestro trabajo fotográfico",
     "trial": {
@@ -268,6 +267,16 @@
     },
     "footerText": "¿Tu sector no aparece? Trabajamos con cualquier tipo de negocio",
     "footerCta": "Cuéntanos Tu Proyecto"
+  },
+  "portfolioGallery": {
+    "title": "Nuestro Portfolio Fotográfico",
+    "subtitle": "Explora el poder de la edición profesional. Desliza para ver la transformación.",
+    "beforeLabel": "Sin Editar",
+    "afterLabel": "Editada",
+    "ctaTitle": "¿Quieres que tus fotos luzcan así?",
+    "ctaSubtitle": "Podemos fotografiar desde cero o editar las imágenes que ya tienes. Contáctanos y demos vida a tu visión.",
+    "ctaButton": "Solicitar Edición de Fotos",
+    "backButton": "Volver al inicio"
   },
   "process": {
     "title": "Cómo Trabajamos Contigo",
