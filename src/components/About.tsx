@@ -1,5 +1,7 @@
 import { Code, Camera } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import miguelPhoto from "@/assets/miguel-photo.jpeg";
+import sergioPhoto from "@/assets/sergio-foto2.png";
 
 const About = () => {
   const { t } = useTranslation();
@@ -9,8 +11,8 @@ const About = () => {
       nameKey: "about.miguel.name",
       roleKey: "about.miguel.role",
       descriptionKey: "about.miguel.description",
-      photo:
-        "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop",
+      photo: miguelPhoto,
+      photoPosition: "object-center", // Miguel centrado
       skillsKeys: [
         "about.miguel.skill1",
         "about.miguel.skill2",
@@ -22,8 +24,8 @@ const About = () => {
       nameKey: "about.sergio.name",
       roleKey: "about.sergio.role",
       descriptionKey: "about.sergio.description",
-      photo:
-        "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop",
+      photo: sergioPhoto,
+      photoPosition: "object-[center_20%]", // Sergio bajado un 20%
       skillsKeys: [
         "about.sergio.skill1",
         "about.sergio.skill2",
@@ -59,11 +61,11 @@ const About = () => {
               >
                 <div className="flex items-start gap-4 mb-4">
                   <div className="relative flex-shrink-0">
-                    <div className="w-24 h-24 rounded-xl overflow-hidden shadow-lg">
+                    <div className="w-32 h-32 rounded-xl overflow-hidden shadow-lg">
                       <img
                         src={member.photo}
                         alt={t(member.nameKey)}
-                        className="w-full h-full object-cover"
+                        className={`w-full h-full object-cover ${member.photoPosition}`}
                       />
                     </div>
                     <div className="absolute -bottom-2 -right-2 bg-primary text-white p-2 rounded-lg shadow-lg">

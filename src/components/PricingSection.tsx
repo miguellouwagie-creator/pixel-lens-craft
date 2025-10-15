@@ -12,27 +12,23 @@ import {
   Camera,
   Eye,
   ArrowRight,
+  Shield,
+  Sparkles,
+  Award,
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { useState } from "react";
+
+// Imagen demo del portfolio (foto 4)
+import beforeDemo from "@/assets/sin-editar-4.jpeg";
+import afterDemo from "@/assets/editada-4.png";
 
 const PricingSection = () => {
   const { t } = useTranslation();
   const whatsappNumber = "34667326300";
+  const [showAfterDemo, setShowAfterDemo] = useState(false);
 
   const photoPacks = [
-    {
-      nameKey: "photoPacks.trial.name",
-      priceKey: "photoPacks.trial.price",
-      photosKey: "photoPacks.trial.photos",
-      featuresKeys: [
-        "photoPacks.trial.feature1",
-        "photoPacks.trial.feature2",
-        "photoPacks.trial.feature3",
-      ],
-      ctaKey: "photoPacks.trial.cta",
-      whatsappMessage:
-        "Hola, quiero solicitar el Pack Prueba gratuito (1 foto)",
-    },
     {
       nameKey: "photoPacks.basic.name",
       priceKey: "photoPacks.basic.price",
@@ -43,7 +39,8 @@ const PricingSection = () => {
         "photoPacks.basic.feature3",
       ],
       ctaKey: "photoPacks.basic.cta",
-      whatsappMessage: "Hola, me interesa el Pack Básico (5 fotos - 10€)",
+      whatsappMessage: t("photoPacks.basic.whatsappMessage"),
+      recommended: true,
     },
     {
       nameKey: "photoPacks.standard.name",
@@ -56,7 +53,7 @@ const PricingSection = () => {
         "photoPacks.standard.feature4",
       ],
       ctaKey: "photoPacks.standard.cta",
-      whatsappMessage: "Hola, me interesa el Pack Estándar (10 fotos - 20€)",
+      whatsappMessage: t("photoPacks.standard.whatsappMessage"),
     },
     {
       nameKey: "photoPacks.premium.name",
@@ -69,7 +66,7 @@ const PricingSection = () => {
         "photoPacks.premium.feature4",
       ],
       ctaKey: "photoPacks.premium.cta",
-      whatsappMessage: "Hola, me interesa el Pack Premium (20 fotos - 35€)",
+      whatsappMessage: t("photoPacks.premium.whatsappMessage"),
     },
     {
       nameKey: "photoPacks.professional.name",
@@ -82,22 +79,106 @@ const PricingSection = () => {
         "photoPacks.professional.feature4",
       ],
       ctaKey: "photoPacks.professional.cta",
-      whatsappMessage: "Hola, me interesa el Pack Profesional (50 fotos - 60€)",
+      whatsappMessage: t("photoPacks.professional.whatsappMessage"),
     },
   ];
 
   return (
     <div className="py-20" id="photo-packs">
-      <section className="bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 py-20">
+      <section className="bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 py-20 relative">
+        {/* Badge flotante de prueba social */}
+        <div className="absolute top-8 right-8 z-20 hidden lg:block">
+          <div className="bg-gradient-to-r from-orange-600 to-red-600 text-white rounded-2xl px-6 py-4 shadow-2xl border-4 border-white animate-pulse">
+            <div className="flex items-center gap-3">
+              <Award className="h-8 w-8" />
+              <div className="text-left">
+                <div className="text-2xl font-bold">+500</div>
+                <div className="text-xs font-semibold">{t("photoPacks.badge.text")}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl md:text-5xl font-bold text-orange-900 mb-4">
               {t("photoPacks.title")}
             </h2>
-            <p className="text-xl text-orange-700 max-w-3xl mx-auto mb-8">
+            <p className="text-xl text-orange-700 max-w-3xl mx-auto mb-10">
               {t("photoPacks.subtitle")}
             </p>
+
+            {/* Mini Slider Antes/Después - REDUCIDO */}
+            <div className="mb-10 max-w-sm mx-auto">
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+                <div className="relative aspect-[4/3]">
+                  {/* Imagen Antes */}
+                  <img
+                    src={beforeDemo}
+                    alt="Antes de editar"
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                      showAfterDemo ? 'opacity-0' : 'opacity-100'
+                    }`}
+                  />
+                  {/* Imagen Después */}
+                  <img
+                    src={afterDemo}
+                    alt="Después de editar"
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
+                      showAfterDemo ? 'opacity-100' : 'opacity-0'
+                    }`}
+                  />
+
+                  {/* Etiquetas */}
+                  {!showAfterDemo && (
+                    <div className="absolute top-3 left-3 bg-red-600 text-white px-3 py-1.5 rounded-lg text-sm font-bold flex items-center gap-2 shadow-lg">
+                      <Camera className="h-4 w-4" />
+                      {t("photoPacks.demo.before")}
+                    </div>
+                  )}
+                  {showAfterDemo && (
+                    <div className="absolute top-3 left-3 bg-green-600 text-white px-3 py-1.5 rounded-lg text-sm font-bold flex items-center gap-2 shadow-lg">
+                      <Sparkles className="h-4 w-4" />
+                      {t("photoPacks.demo.after")}
+                    </div>
+                  )}
+
+                  {/* Botón de alternancia */}
+                  <button
+                    onClick={() => setShowAfterDemo(!showAfterDemo)}
+                    className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-full text-sm font-bold shadow-2xl transition-all hover:scale-105"
+                  >
+                    {showAfterDemo ? "← Ver Antes" : "Ver Después →"}
+                  </button>
+                </div>
+              </div>
+              <p className="text-xs text-orange-800 mt-3 font-semibold italic">
+                {t("photoPacks.demo.caption")}
+              </p>
+            </div>
             
+            {/* Banner de Garantía */}
+            <div className="mb-10 max-w-3xl mx-auto">
+              <div className="bg-white/80 backdrop-blur border-2 border-orange-200 rounded-xl p-6 shadow-lg">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="bg-orange-100 rounded-full p-3">
+                      <Shield className="h-6 w-6 text-orange-600" />
+                    </div>
+                  </div>
+                  <div className="text-left">
+                    <h3 className="text-xl font-bold text-orange-900 mb-2">
+                      {t("photoPacks.guarantee.title")}
+                    </h3>
+                    <p 
+                      className="text-sm text-gray-700 leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: t("photoPacks.guarantee.description") }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
             {/* Botón Ver Portfolio */}
             <div className="mb-8 relative inline-block">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-full blur-xl opacity-40"></div>
@@ -123,18 +204,30 @@ const PricingSection = () => {
             </div>
           </div>
 
-          <div className="grid md:grid-cols-2 lg:grid-cols-5 gap-6 max-w-7xl mx-auto">
+          {/* Grid de packs */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {photoPacks.map((pack) => (
               <Card
                 key={pack.nameKey}
-                className="flex flex-col bg-white hover:shadow-2xl transition-all hover:scale-105 border-2 border-orange-200"
+                className={`flex flex-col bg-white hover:shadow-2xl transition-all hover:scale-105 border-2 ${
+                  pack.recommended ? 'border-orange-400 ring-2 ring-orange-200' : 'border-orange-200'
+                }`}
               >
+                {pack.recommended && (
+                  <div className="bg-orange-600 text-white text-xs font-bold py-2 px-4 text-center">
+                    {t("photoPacks.recommendedBadge")}
+                  </div>
+                )}
+                
                 <CardHeader className="bg-gradient-to-br from-orange-50 to-white">
-                  <div className="flex items-center gap-2 mb-2">
-                    <Camera className="h-6 w-6 text-orange-600" />
-                    <CardTitle className="text-lg text-orange-900">
-                      {t(pack.nameKey)}
-                    </CardTitle>
+                  <div className="flex items-center justify-between mb-2">
+                    <div className="flex items-center gap-2">
+                      <Camera className="h-6 w-6 text-orange-600" />
+                      <CardTitle className="text-lg text-orange-900">
+                        {t(pack.nameKey)}
+                      </CardTitle>
+                    </div>
+                    <Shield className="h-5 w-5 text-orange-600" title={t("photoPacks.guarantee.badge")} />
                   </div>
                   <CardDescription>
                     <span className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
@@ -159,7 +252,7 @@ const PricingSection = () => {
                     ))}
                   </ul>
                   <Button
-                    className={`w-full ${t(pack.priceKey) === "Gratis" || t(pack.priceKey) === "Free" ? "bg-gradient-to-r from-orange-500 to-red-500 hover:from-orange-600 hover:to-red-600" : "bg-orange-600 hover:bg-orange-700"} text-white`}
+                    className="w-full bg-orange-600 hover:bg-orange-700 text-white"
                     size="lg"
                     asChild
                   >

@@ -149,23 +149,18 @@
     "footerCta": "Cuéntanos y te hacemos un presupuesto a medida"
   },
   "photoPacks": {
-    "title": "Fotografía y Edición Profesional",
-    "subtitle": "Capturamos y transformamos tus fotografías con edición profesional. Escoge el pack que mejor se adapte a tus necesidades.",
-    "badge": {
-      "text": "Fotos editadas en 2025"
-    },
-    "demo": {
-      "before": "Foto Original",
-      "after": "Editada Profesional",
-      "caption": "📸 Ejemplo real de nuestro trabajo - Fotografía y edición profesional"
-    },
+    "title": "Nuestros Packs",
+    "subtitle": "Escoge el pack que mejor se adapte a tus necesidades. Todos incluyen garantía de entrega y hasta 3 re-ediciones por foto.",
+    "subtitle": "Escoge el pack que mejor se adapte a tus necesidades. Todos incluyen garantía de entrega y hasta 3 re-ediciones por foto.",
     "portfolioButton": "VER NUESTRO PORTFOLIO",
-    "portfolioDescription": "✨ Mira ejemplos reales de nuestro trabajo fotográfico",
-    "recommendedBadge": "⭐ Recomendado para probar",
-    "guarantee": {
-      "title": "Garantía 100% de Satisfacción",
-      "description": "<strong>¿Primera vez?</strong> Compra sin miedo. Si alguna foto no cumple tus expectativas, <span class='font-bold text-orange-700'>la re-editamos GRATIS hasta 3 veces</span> hasta que te encante. Sin preguntas, sin letra pequeña.",
-      "badge": "Garantía incluida"
+    "trial": {
+      "name": "Pack Prueba",
+      "price": "Gratis",
+      "photos": "1 foto",
+      "feature1": "1 foto editada",
+      "feature2": "Muestra de calidad",
+      "feature3": "Sin compromiso",
+      "cta": "Probar Gratis"
     },
     "basic": {
       "name": "Pack Básico",
@@ -174,8 +169,7 @@
       "feature1": "5 fotos editadas",
       "feature2": "Hasta 3 re-ediciones por foto",
       "feature3": "Entrega 24-48h",
-      "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Básico (5 fotos - 10€)"
+      "cta": "Contactar"
     },
     "standard": {
       "name": "Pack Estándar",
@@ -185,8 +179,7 @@
       "feature2": "Hasta 3 re-ediciones por foto",
       "feature3": "Entrega 24-48h",
       "feature4": "Soporte prioritario",
-      "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Estándar (10 fotos - 20€)"
+      "cta": "Contactar"
     },
     "premium": {
       "name": "Pack Premium",
@@ -196,8 +189,7 @@
       "feature2": "Hasta 3 re-ediciones por foto",
       "feature3": "Entrega 24-48h",
       "feature4": "Soporte VIP",
-      "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Premium (20 fotos - 35€)"
+      "cta": "Contactar"
     },
     "professional": {
       "name": "Pack Profesional",
@@ -207,8 +199,7 @@
       "feature2": "Hasta 3 re-ediciones por foto",
       "feature3": "Entrega garantizada",
       "feature4": "Soporte VIP 24/7",
-      "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Profesional (50 fotos - 60€)"
+      "cta": "Contactar"
     }
   },
   "whyUs": {
@@ -276,16 +267,6 @@
     },
     "footerText": "¿Tu sector no aparece? Trabajamos con cualquier tipo de negocio",
     "footerCta": "Cuéntanos Tu Proyecto"
-  },
-  "portfolioGallery": {
-    "title": "Nuestro Portfolio Fotográfico",
-    "subtitle": "Explora el poder de la edición profesional. Desliza para ver la transformación.",
-    "beforeLabel": "Sin Editar",
-    "afterLabel": "Editada",
-    "ctaTitle": "¿Quieres que tus fotos luzcan así?",
-    "ctaSubtitle": "Podemos fotografiar desde cero o editar las imágenes que ya tienes. Contáctanos y demos vida a tu visión.",
-    "ctaButton": "Solicitar Edición de Fotos",
-    "backButton": "Volver al inicio"
   },
   "process": {
     "title": "Cómo Trabajamos Contigo",

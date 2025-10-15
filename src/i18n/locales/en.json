@@ -149,18 +149,23 @@
     "footerCta": "Tell us and we'll create a custom quote"
   },
   "photoPacks": {
-    "title": "Our Packs",
-    "subtitle": "Choose the pack that best suits your needs. All include delivery guarantee and up to 3 re-edits per photo.",
+    "title": "Professional Photography & Editing",
+    "subtitle": "We capture and transform your photos with professional editing. Choose the pack that best suits your needs.",
+    "badge": {
+      "text": "Photos edited in 2025"
+    },
+    "demo": {
+      "before": "Original Photo",
+      "after": "Professional Edit",
+      "caption": "📸 Real example of our work - Professional photography and editing"
+    },
     "portfolioButton": "VIEW OUR PORTFOLIO",
     "portfolioDescription": "✨ See real examples of our photography work",
-    "trial": {
-      "name": "Trial Pack",
-      "price": "Free",
-      "photos": "1 photo",
-      "feature1": "1 edited photo",
-      "feature2": "Quality sample",
-      "feature3": "No commitment",
-      "cta": "Try Free"
+    "recommendedBadge": "⭐ Recommended to try",
+    "guarantee": {
+      "title": "100% Satisfaction Guarantee",
+      "description": "<strong>First time?</strong> Buy without fear. If any photo doesn't meet your expectations, <span class='font-bold text-orange-700'>we'll re-edit it FREE up to 3 times</span> until you love it. No questions, no fine print.",
+      "badge": "Guarantee included"
     },
     "basic": {
       "name": "Basic Pack",
@@ -169,7 +174,8 @@
       "feature1": "5 edited photos",
       "feature2": "Up to 3 re-edits per photo",
       "feature3": "24-48h delivery",
-      "cta": "Contact"
+      "cta": "Contact",
+      "whatsappMessage": "Hello, I'm interested in the Basic Pack (5 photos - 10€)"
     },
     "standard": {
       "name": "Standard Pack",
@@ -179,7 +185,8 @@
       "feature2": "Up to 3 re-edits per photo",
       "feature3": "24-48h delivery",
       "feature4": "Priority support",
-      "cta": "Contact"
+      "cta": "Contact",
+      "whatsappMessage": "Hello, I'm interested in the Standard Pack (10 photos - 20€)"
     },
     "premium": {
       "name": "Premium Pack",
@@ -189,7 +196,8 @@
       "feature2": "Up to 3 re-edits per photo",
       "feature3": "24-48h delivery",
       "feature4": "VIP support",
-      "cta": "Contact"
+      "cta": "Contact",
+      "whatsappMessage": "Hello, I'm interested in the Premium Pack (20 photos - 35€)"
     },
     "professional": {
       "name": "Professional Pack",
@@ -199,7 +207,8 @@
       "feature2": "Up to 3 re-edits per photo",
       "feature3": "Guaranteed delivery",
       "feature4": "24/7 VIP support",
-      "cta": "Contact"
+      "cta": "Contact",
+      "whatsappMessage": "Hello, I'm interested in the Professional Pack (50 photos - 60€)"
     }
   },
   "whyUs": {

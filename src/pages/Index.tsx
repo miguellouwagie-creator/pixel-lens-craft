@@ -6,7 +6,7 @@ import PhotoPricingSection from "@/components/PricingSection"; // Fotografía (e
 import WhyUs from "@/components/WhyUs";
 import Portfolio from "@/components/Portfolio";
 import Testimonials from "@/components/Testimonials";
-import Process from "@/components/Process";
+// import Process from "@/components/Process";
 import About from "@/components/About";
 import FormSection from "@/components/FormSection";
 import Footer from "@/components/Footer";
@@ -24,7 +24,7 @@ const Index = () => {
         <WhyUs />
         <Portfolio />
         <Testimonials />
-        <Process />
+        {/* <Process /> */}
         <About />
         <FormSection />
       </main>
