@@ -1,5 +1,6 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import SectionDivider from "@/components/SectionDivider";
 // import Services from "@/components/Services";
 import PricingSection from "@/components/SimplePricingSection"; // Web
 import PhotoPricingSection from "@/components/PricingSection"; // Fotografía (el original)
@@ -18,6 +19,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <SectionDivider /> {/* Nueva sección de transición */}
         {/*         <Services /> */}
         <PricingSection /> {/* Nueva sección web simplificada */}
         <PhotoPricingSection /> {/* Sección de fotografía completa */}
