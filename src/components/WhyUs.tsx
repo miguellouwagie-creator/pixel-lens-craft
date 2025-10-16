@@ -12,13 +12,13 @@ const WhyUs = () => {
   const { t } = useTranslation();
 
   return (
-    <section className="py-20 md:py-32 bg-gradient-to-b from-white via-gray-50 to-white">
+    <section className="py-12 md:py-18 bg-gradient-to-b from-white via-gray-50 to-white">
       <div className="container mx-auto px-4">
         
         {/* Header con color */}
-        <div className="text-center mb-20 animate-fade-in-up overflow-visible">
+        <div className="text-center mb-10 animate-fade-in-up overflow-visible">
           <h2 
-            className="text-3xl md:text-5xl font-bold mb-6 text-emerald-600"
+            className="text-3xl md:text-5xl font-bold mb-4 text-emerald-600"
             style={{ lineHeight: '1.75', paddingBottom: '1.5rem', marginBottom: '0.5rem' }}
           >
             {t("whyUs.title")}
