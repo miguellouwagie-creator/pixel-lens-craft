@@ -359,21 +359,21 @@
     "title": "What Our Clients Say",
     "subtitle": "Real testimonials from businesses that trusted us",
     "testimonial1": {
-      "name": "María García",
-      "role": "Owner, La Marina Restaurant",
-      "text": "Excellent work on our website and food photos. Bookings have increased 40% since we launched the new page.",
+      "name": "María G.",
+      "location": "Dénia, Spain",
+      "text": "I hired the photography service for my real estate agency and the photos turned out amazing. Every property looks much better with professionally edited images. Clients congratulate me on the quality.",
       "rating": 5
     },
     "testimonial2": {
-      "name": "Carlos Ruiz",
-      "role": "Director, Costa Blanca Hotel",
-      "text": "Professional, punctual and with a great eye for detail. The photographs of our facilities have significantly improved our conversions.",
+      "name": "Robert M.",
+      "location": "Miami, USA",
+      "text": "I needed a professional website for my vertical service company. The team delivered an excellent bilingual site that works perfectly. Very responsive and professional.",
       "rating": 5
     },
     "testimonial3": {
-      "name": "Ana López",
-      "role": "Manager, Mediterranea Boutique",
-      "text": "The new website has completely transformed our online presence. Modern design and easy to manage. Highly recommended!",
+      "name": "Ana L.",
+      "location": "Calpe, Spain",
+      "text": "At first I didn't give much importance to having a website for my gym, but I was surprised by the number of people who contact us through it. Now it's my best customer acquisition tool.",
       "rating": 5
     }
   },
