@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Menu, X, MessageCircle } from "lucide-react";
+import { Menu, X, MessageCircle, ChevronDown, Camera, Globe } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/Logoo.png";
@@ -8,6 +8,7 @@ import { Link, useNavigate } from "react-router-dom";
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isPortfolioDropdownOpen, setIsPortfolioDropdownOpen] = useState(false);
   const { i18n, t } = useTranslation();
   const navigate = useNavigate();
 
@@ -22,6 +23,14 @@ const Header = () => {
   const navItems = [
     { labelKey: "nav.home", to: "/" },
     { labelKey: "nav.services", to: "/#packs" },
+    { 
+      labelKey: "nav.portfolio", 
+      to: "#", 
+      dropdown: [
+        { labelKey: "nav.photoPortfolio", to: "/portfolio", icon: "Camera" },
+        { labelKey: "nav.webExamples", to: "/portfolio-webs", icon: "Globe" }
+      ]
+    },
     { labelKey: "nav.about", to: "/#sobre-mi" },
     { labelKey: "nav.contact", to: "/#contacto" },
   ];
@@ -131,14 +140,75 @@ const Header = () => {
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <a
-                key={item.labelKey}
-                href={item.to}
-                onClick={(e) => handleNavClick(e, item.to)}
-                className="text-foreground hover:text-primary font-medium transition-colors cursor-pointer"
-              >
-                {t(item.labelKey)}
-              </a>
+              item.dropdown ? (
+                <div 
+                  key={item.labelKey}
+                  className="relative"
+                  onMouseEnter={() => setIsPortfolioDropdownOpen(true)}
+                >
+                  <button
+                    className="flex items-center gap-1 text-orange-600 font-semibold transition-colors cursor-pointer hover:text-orange-700"
+                  >
+                    {t(item.labelKey)}
+                    <ChevronDown className={`h-4 w-4 transition-transform ${isPortfolioDropdownOpen ? 'rotate-180' : ''}`} />
+                  </button>
+                  
+                  {isPortfolioDropdownOpen && (
+                    <div 
+                      className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-xl shadow-2xl border-2 border-gray-100 p-3 z-[9999]"
+                      onMouseLeave={() => setIsPortfolioDropdownOpen(false)}
+                    >
+                      <div className="flex gap-3">
+                        {item.dropdown.map((subItem) => {
+                          const Icon = subItem.icon === "Camera" ? Camera : Globe;
+                          const isPhoto = subItem.icon === "Camera";
+                          return (
+                            <a
+                              key={subItem.labelKey}
+                              href={subItem.to}
+                              onClick={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                handleNavClick(e, subItem.to);
+                                setIsPortfolioDropdownOpen(false);
+                              }}
+                              className={`group relative flex items-center gap-2.5 px-5 py-3 rounded-lg transition-all cursor-pointer overflow-hidden ${
+                                isPhoto 
+                                  ? 'bg-gradient-to-r from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 border-2 border-purple-200 hover:border-purple-400' 
+                                  : 'bg-gradient-to-r from-blue-50 to-cyan-50 hover:from-blue-100 hover:to-cyan-100 border-2 border-blue-200 hover:border-blue-400'
+                              }`}
+                            >
+                              <div className={`rounded-full p-2 transition-all ${
+                                isPhoto 
+                                  ? 'bg-purple-200 group-hover:bg-purple-300' 
+                                  : 'bg-blue-200 group-hover:bg-blue-300'
+                              }`}>
+                                <Icon className={`h-4 w-4 ${
+                                  isPhoto ? 'text-purple-700' : 'text-blue-700'
+                                }`} />
+                              </div>
+                              <span className={`font-bold whitespace-nowrap transition-colors text-sm ${
+                                isPhoto 
+                                  ? 'text-purple-800 group-hover:text-purple-900' 
+                                  : 'text-blue-800 group-hover:text-blue-900'
+                              }`}>{t(subItem.labelKey)}</span>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <a
+                  key={item.labelKey}
+                  href={item.to}
+                  onClick={(e) => handleNavClick(e, item.to)}
+                  className="text-foreground hover:text-primary font-medium transition-colors cursor-pointer"
+                >
+                  {t(item.labelKey)}
+                </a>
+              )
             ))}
           </nav>
 
@@ -247,14 +317,48 @@ const Header = () => {
           <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4 animate-fade-in">
             <nav className="flex flex-col space-y-3">
               {navItems.map((item) => (
-                <a
-                  key={item.labelKey}
-                  href={item.to}
-                  onClick={(e) => handleNavClick(e, item.to)}
-                  className="text-foreground hover:text-primary font-medium py-2 transition-colors cursor-pointer"
-                >
-                  {t(item.labelKey)}
-                </a>
+                item.dropdown ? (
+                  <div key={item.labelKey} className="flex flex-col">
+                    <button
+                      onClick={() => setIsPortfolioDropdownOpen(!isPortfolioDropdownOpen)}
+                      className="flex items-center justify-between text-foreground hover:text-primary font-medium py-2 transition-colors"
+                    >
+                      {t(item.labelKey)}
+                      <ChevronDown className={`h-4 w-4 transition-transform ${isPortfolioDropdownOpen ? 'rotate-180' : ''}`} />
+                    </button>
+                    {isPortfolioDropdownOpen && (
+                      <div className="ml-4 mt-2 flex flex-col space-y-2">
+                        {item.dropdown.map((subItem) => {
+                          const Icon = subItem.icon === "Camera" ? Camera : Globe;
+                          return (
+                            <a
+                              key={subItem.labelKey}
+                              href={subItem.to}
+                              onClick={(e) => {
+                                handleNavClick(e, subItem.to);
+                                setIsMobileMenuOpen(false);
+                                setIsPortfolioDropdownOpen(false);
+                              }}
+                              className="flex items-center gap-2 text-gray-600 hover:text-primary py-2 transition-colors cursor-pointer"
+                            >
+                              <Icon className="h-4 w-4 text-primary" />
+                              <span>{t(subItem.labelKey)}</span>
+                            </a>
+                          );
+                        })}
+                      </div>
+                    )}
+                  </div>
+                ) : (
+                  <a
+                    key={item.labelKey}
+                    href={item.to}
+                    onClick={(e) => handleNavClick(e, item.to)}
+                    className="text-foreground hover:text-primary font-medium py-2 transition-colors cursor-pointer"
+                  >
+                    {t(item.labelKey)}
+                  </a>
+                )
               ))}
 
               <Button
