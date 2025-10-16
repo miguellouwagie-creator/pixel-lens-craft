@@ -152,7 +152,11 @@
     "footerCta": "Cuéntanos y te hacemos un presupuesto a medida",
     "portfolioButton": "📸 VER PORTFOLIO FOTOGRÁFICO",
     "portfolioButtonShort": "📸 Ver Portfolio",
-    "portfolioDescription": "✨ Mira ejemplos reales de nuestro trabajo fotográfico"
+    "portfolioDescription": "✨ Mira ejemplos reales de nuestro trabajo fotográfico",
+    "from": "Desde 349€",
+    "vatIncluded": "IVA incluido",
+    "competitivePrice": "Precio más competitivo del mercado",
+    "fullMessage": "IVA incluido | Precio más competitivo del mercado"
   },
   "photoPacks": {
     "title": "Fotografía y Edición Profesional",
@@ -389,8 +393,8 @@
     "subtitle": "Diseño moderno, rápido y optimizado para Google.",
     "offer": {
       "title": "Página Web Profesional",
-      "price": "Desde 399€",
-      "description": "Todo incluido para lanzar tu negocio online",
+      "price": "Desde 349€",
+      "description": "IVA incluido | Precio más competitivo del mercado",
       "includes": "¿Qué incluye?",
       "feature1": "Diseño 100% adaptable a móviles y tablets",
       "feature2": "Hasta 3 secciones (Inicio, Servicios, Contacto)",

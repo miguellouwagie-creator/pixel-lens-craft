@@ -152,7 +152,11 @@
     "footerCta": "Tell us and we'll create a custom quote",
     "portfolioButton": "📸 VIEW PHOTOGRAPHY PORTFOLIO",
     "portfolioButtonShort": "📸 View Portfolio",
-    "portfolioDescription": "✨ See real examples of our photography work"
+    "portfolioDescription": "✨ See real examples of our photography work",
+    "from": "From 349€",
+    "vatIncluded": "VAT included",
+    "competitivePrice": "Most competitive market price",
+    "fullMessage": "VAT included | Most competitive market price"
   },
   "photoPacks": {
     "title": "Professional Photography & Editing",
@@ -391,8 +395,8 @@
     "subtitle": "Modern design, fast and optimized for Google.",
     "offer": {
       "title": "Professional Website",
-      "price": "From 399€",
-      "description": "All-inclusive to launch your business online",
+      "price": "From 349€",
+      "description": "VAT included | Most competitive market price",
       "includes": "What's included?",
       "feature1": "100% mobile and tablet responsive design",
       "feature2": "Up to 3 sections (Home, Services, Contact)",
