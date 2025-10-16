@@ -152,33 +152,11 @@ const PricingSection = () => {
                   </button>
                 </div>
               </div>
-              <p className="text-xs text-orange-800 mt-3 font-semibold italic">
+              <p className="text-xs text-gray-600 mt-3 font-normal">
                 {t("photoPacks.demo.caption")}
               </p>
             </div>
             
-            {/* Banner de Garantía */}
-            <div className="mb-10 max-w-3xl mx-auto">
-              <div className="bg-white/80 backdrop-blur border-2 border-orange-200 rounded-xl p-6 shadow-lg">
-                <div className="flex items-start gap-4">
-                  <div className="flex-shrink-0">
-                    <div className="bg-orange-100 rounded-full p-3">
-                      <Shield className="h-6 w-6 text-orange-600" />
-                    </div>
-                  </div>
-                  <div className="text-left">
-                    <h3 className="text-xl font-bold text-orange-900 mb-2">
-                      {t("photoPacks.guarantee.title")}
-                    </h3>
-                    <p 
-                      className="text-sm text-gray-700 leading-relaxed"
-                      dangerouslySetInnerHTML={{ __html: t("photoPacks.guarantee.description") }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-
             {/* Botón Ver Portfolio */}
             <div className="mb-8 relative inline-block">
               <div className="absolute inset-0 bg-gradient-to-r from-orange-400 to-red-400 rounded-full blur-xl opacity-40"></div>
@@ -205,7 +183,30 @@ const PricingSection = () => {
             </div>
           </div>
 
-          {/* Grid de packs */}
+          
+{/* Banner de Garantía */}
+            <div className="mb-10 max-w-3xl mx-auto">
+              <div className="bg-white/80 backdrop-blur border-2 border-orange-200 rounded-xl p-6 shadow-lg">
+                <div className="flex items-start gap-4">
+                  <div className="flex-shrink-0">
+                    <div className="bg-orange-100 rounded-full p-3">
+                      <Shield className="h-6 w-6 text-orange-600" />
+                    </div>
+                  </div>
+                  <div className="text-left">
+                    <h3 className="text-xl font-bold text-orange-900 mb-2">
+                      {t("photoPacks.guarantee.title")}
+                    </h3>
+                    <p 
+                      className="text-sm text-gray-700 leading-relaxed"
+                      dangerouslySetInnerHTML={{ __html: t("photoPacks.guarantee.description") }}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Grid de packs */}
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
             {photoPacks.map((pack) => (
               <Card
