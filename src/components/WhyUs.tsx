@@ -106,7 +106,7 @@ const WhyUs = () => {
                 <h4 className="text-lg font-bold text-gray-900 mb-3">
                   {t("whyUs.reason4.title")}
                 </h4>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-base text-gray-600 leading-relaxed">
                   {t("whyUs.reason4.description")}
                 </p>
               </div>
@@ -121,7 +121,7 @@ const WhyUs = () => {
                 <h4 className="text-lg font-bold text-gray-900 mb-3">
                   {t("whyUs.noRefunds.title")}
                 </h4>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-base text-gray-600 leading-relaxed">
                   {t("whyUs.noRefunds.description")}
                 </p>
               </div>
@@ -136,7 +136,7 @@ const WhyUs = () => {
                 <h4 className="text-lg font-bold text-gray-900 mb-3">
                   {t("whyUs.reason6.title")}
                 </h4>
-                <p className="text-sm text-gray-600 leading-relaxed">
+                <p className="text-base text-gray-600 leading-relaxed">
                   {t("whyUs.reason6.description")}
                 </p>
               </div>
