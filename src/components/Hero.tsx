@@ -21,7 +21,7 @@ const Hero = () => {
   return (
     <section
       id="hero-section"
-      className="relative min-h-screen flex items-center overflow-hidden pt-0 md:pt-0"
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-28"
       style={{ backgroundColor: "#000" }}
     >
       <div
