@@ -1,5 +1,5 @@
 import { Card, CardContent } from "@/components/ui/card";
-import { Star, Quote } from "lucide-react";
+import { Star, MapPin, CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 
 const Testimonials = () => {
@@ -8,32 +8,32 @@ const Testimonials = () => {
   const testimonials = [
     {
       nameKey: "testimonials.testimonial1.name",
-      roleKey: "testimonials.testimonial1.role",
+      locationKey: "testimonials.testimonial1.location",
       textKey: "testimonials.testimonial1.text",
       rating: 5,
-      image:
-        "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=150&h=150&fit=crop",
+      initials: "MG",
+      colorClass: "bg-gradient-to-br from-orange-400 to-orange-600",
     },
     {
       nameKey: "testimonials.testimonial2.name",
-      roleKey: "testimonials.testimonial2.role",
+      locationKey: "testimonials.testimonial2.location",
       textKey: "testimonials.testimonial2.text",
       rating: 5,
-      image:
-        "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=150&h=150&fit=crop",
+      initials: "RM",
+      colorClass: "bg-gradient-to-br from-blue-400 to-blue-600",
     },
     {
       nameKey: "testimonials.testimonial3.name",
-      roleKey: "testimonials.testimonial3.role",
+      locationKey: "testimonials.testimonial3.location",
       textKey: "testimonials.testimonial3.text",
       rating: 5,
-      image:
-        "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=150&h=150&fit=crop",
+      initials: "AL",
+      colorClass: "bg-gradient-to-br from-emerald-400 to-emerald-600",
     },
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 to-white">
+    <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 via-white to-slate-50">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
@@ -48,40 +48,42 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={testimonial.nameKey}
-              className="animate-fade-in-up hover:shadow-xl transition-all bg-white border-2 border-slate-200 hover:border-primary/30"
+              className="animate-fade-in-up hover:shadow-2xl transition-all duration-300 bg-white border-0 shadow-lg hover:-translate-y-2 relative overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
-              <CardContent className="pt-8 relative">
-                {/* Quote Icon */}
-                <div className="absolute top-4 right-4 text-primary/10">
-                  <Quote className="h-12 w-12" />
-                </div>
-
-                {/* Rating Stars */}
-                <div className="flex gap-1 mb-4">
+              {/* Decorative gradient top bar */}
+              <div className={`h-2 w-full ${testimonial.colorClass}`}></div>
+              
+              <CardContent className="pt-8 pb-8 px-6">
+                {/* Rating Stars - Más prominentes */}
+                <div className="flex gap-1 mb-5">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-5 w-5 fill-cta text-cta" />
+                    <Star key={i} className="h-6 w-6 fill-orange-500 text-orange-500" />
                   ))}
                 </div>
 
-                {/* Testimonial Text */}
-                <p className="text-muted-foreground mb-6 leading-relaxed italic">
+                {/* Testimonial Text - Más grande y legible */}
+                <p className="text-gray-700 mb-6 leading-relaxed text-base">
                   "{t(testimonial.textKey)}"
                 </p>
 
-                {/* Author Info */}
-                <div className="flex items-center gap-4 pt-4 border-t border-border">
-                  <img
-                    src={testimonial.image}
-                    alt={t(testimonial.nameKey)}
-                    className="w-14 h-14 rounded-full object-cover border-2 border-primary/20"
-                  />
-                  <div>
-                    <div className="font-bold text-foreground">
-                      {t(testimonial.nameKey)}
+                {/* Author Info - Rediseñado sin foto */}
+                <div className="flex items-center gap-4 pt-5 border-t border-gray-100">
+                  {/* Círculo con iniciales */}
+                  <div className={`w-14 h-14 rounded-full ${testimonial.colorClass} flex items-center justify-center text-white font-bold text-lg shadow-md flex-shrink-0`}>
+                    {testimonial.initials}
+                  </div>
+                  
+                  <div className="flex-1">
+                    <div className="flex items-center gap-2 mb-1">
+                      <span className="font-bold text-gray-900 text-base">
+                        {t(testimonial.nameKey)}
+                      </span>
+                      <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
                     </div>
-                    <div className="text-sm text-muted-foreground">
-                      {t(testimonial.roleKey)}
+                    <div className="flex items-center gap-1 text-sm text-gray-600">
+                      <MapPin className="h-3.5 w-3.5 text-gray-400" />
+                      <span>{t(testimonial.locationKey)}</span>
                     </div>
                   </div>
                 </div>

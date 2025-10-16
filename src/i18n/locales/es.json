@@ -357,21 +357,21 @@
     "title": "Lo Que Dicen Nuestros Clientes",
     "subtitle": "Testimonios reales de negocios que confiaron en nosotros",
     "testimonial1": {
-      "name": "María García",
-      "role": "Propietaria, Restaurante La Marina",
-      "text": "Excelente trabajo en nuestra web y las fotos de los platos. Las reservas han aumentado un 40% desde que lanzamos la nueva página.",
+      "name": "María G.",
+      "location": "Dénia, España",
+      "text": "Contraté el servicio de fotografía para mi inmobiliaria y las fotos salieron increíbles. Cada propiedad se ve mucho mejor con las imágenes editadas profesionalmente. Los clientes me felicitan por la calidad.",
       "rating": 5
     },
     "testimonial2": {
-      "name": "Carlos Ruiz",
-      "role": "Director, Hotel Costa Blanca",
-      "text": "Profesionales, puntuales y con gran ojo para el detalle. Las fotografías de nuestras instalaciones han mejorado significativamente nuestras conversiones.",
+      "name": "Robert M.",
+      "location": "Miami, USA",
+      "text": "I needed a professional website for my vertical service company. The team delivered an excellent bilingual site that works perfectly. Very responsive and professional.",
       "rating": 5
     },
     "testimonial3": {
-      "name": "Ana López",
-      "role": "Gerente, Boutique Mediterránea",
-      "text": "La nueva web ha transformado completamente nuestra presencia online. Diseño moderno y fácil de gestionar. ¡Muy recomendable!",
+      "name": "Ana L.",
+      "location": "Calpe, España",
+      "text": "Al principio no le daba mucha importancia a tener web para mi gimnasio, pero me sorprendió la cantidad de gente que nos contacta a través de ella. Ahora es mi mejor herramienta de captación.",
       "rating": 5
     }
   },
