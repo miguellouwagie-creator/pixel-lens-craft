@@ -3,12 +3,13 @@ import { Menu, X, MessageCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
 import logo from "@/assets/Logoo.png";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { i18n, t } = useTranslation(); // ← AÑADIDO 't' aquí
+  const { i18n, t } = useTranslation();
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -20,8 +21,7 @@ const Header = () => {
 
   const navItems = [
     { labelKey: "nav.home", to: "/" },
-    { labelKey: "nav.services", to: "/#servicios" },
-    { labelKey: "nav.packs", to: "/#packs" },
+    { labelKey: "nav.services", to: "/#packs" },
     { labelKey: "nav.about", to: "/#sobre-mi" },
     { labelKey: "nav.contact", to: "/#contacto" },
   ];
@@ -32,6 +32,63 @@ const Header = () => {
   const changeLanguage = (lang: string) => {
     i18n.changeLanguage(lang);
     localStorage.setItem("language", lang);
+  };
+
+  // Función para manejar la navegación con scroll suave
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, to: string) => {
+    e.preventDefault();
+    setIsMobileMenuOpen(false);
+
+    // Si es el botón de Inicio "/"
+    if (to === "/") {
+      if (window.location.pathname === "/") {
+        // Si ya estamos en la home, hacer scroll al top
+        window.scrollTo({ top: 0, behavior: "smooth" });
+      } else {
+        // Si estamos en otra página, navegar a home
+        navigate("/");
+      }
+      return;
+    }
+
+    // Si el link tiene hash
+    if (to.includes("#")) {
+      const [path, hash] = to.split("#");
+      
+      // Si estamos en la misma página o el path es "/"
+      if (window.location.pathname === path || path === "/") {
+        const element = document.getElementById(hash);
+        if (element) {
+          const headerOffset = 100;
+          const elementPosition = element.getBoundingClientRect().top;
+          const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+          
+          window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+          });
+        }
+      } else {
+        // Si estamos en otra página, navegar primero y luego hacer scroll
+        navigate(path);
+        setTimeout(() => {
+          const element = document.getElementById(hash);
+          if (element) {
+            const headerOffset = 100;
+            const elementPosition = element.getBoundingClientRect().top;
+            const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            
+            window.scrollTo({
+              top: offsetPosition,
+              behavior: "smooth"
+            });
+          }
+        }, 100);
+      }
+    } else {
+      // Navegación normal sin hash
+      navigate(to);
+    }
   };
 
   return (
@@ -45,7 +102,11 @@ const Header = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           {/* Logo + Nombre + Badge profesional */}
-          <Link to="/" className="flex items-center gap-3 group">
+          <a 
+            href="/"
+            onClick={(e) => handleNavClick(e, "/")}
+            className="flex items-center gap-3 group cursor-pointer"
+          >
             <img
               src={logo}
               alt="Studio Pixelens - Páginas Web y Fotografía"
@@ -65,18 +126,19 @@ const Header = () => {
                 </span>
               </div>
             </div>
-          </Link>
+          </a>
 
           {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) => (
-              <Link
+              <a
                 key={item.labelKey}
-                to={item.to}
-                className="text-foreground hover:text-primary font-medium transition-colors"
+                href={item.to}
+                onClick={(e) => handleNavClick(e, item.to)}
+                className="text-foreground hover:text-primary font-medium transition-colors cursor-pointer"
               >
                 {t(item.labelKey)}
-              </Link>
+              </a>
             ))}
           </nav>
 
@@ -84,15 +146,15 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-8">
 
             <Button variant="cta" size="default" asChild>
-              <Link
-                to={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2"
               >
                 <MessageCircle className="h-4 w-4" />
                 {t("nav.whatsapp")}
-              </Link>
+              </a>
             </Button>
 
             {/* Banderas DESPUÉS del botón WhatsApp */}
@@ -185,14 +247,14 @@ const Header = () => {
           <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4 animate-fade-in">
             <nav className="flex flex-col space-y-3">
               {navItems.map((item) => (
-                <Link
+                <a
                   key={item.labelKey}
-                  to={item.to}
-                  className="text-foreground hover:text-primary font-medium py-2 transition-colors"
-                  onClick={() => setIsMobileMenuOpen(false)}
+                  href={item.to}
+                  onClick={(e) => handleNavClick(e, item.to)}
+                  className="text-foreground hover:text-primary font-medium py-2 transition-colors cursor-pointer"
                 >
                   {t(item.labelKey)}
-                </Link>
+                </a>
               ))}
 
               <Button
@@ -201,8 +263,8 @@ const Header = () => {
                 className="w-full mt-2"
                 asChild
               >
-                <Link
-                  to={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
+                <a
+                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex items-center justify-center gap-2"
@@ -210,7 +272,7 @@ const Header = () => {
                 >
                   <MessageCircle className="h-4 w-4" />
                   {t("nav.whatsapp")}
-                </Link>
+                </a>
               </Button>
             </nav>
           </div>
