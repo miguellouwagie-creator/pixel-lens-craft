@@ -148,6 +148,7 @@
     "footerText": "¿Necesitas algo personalizado o tienes un proyecto especial?",
     "footerCta": "Cuéntanos y te hacemos un presupuesto a medida",
     "portfolioButton": "📸 VER PORTFOLIO FOTOGRÁFICO",
+    "portfolioButtonShort": "📸 Ver Portfolio",
     "portfolioDescription": "✨ Mira ejemplos reales de nuestro trabajo fotográfico"
   },
   "photoPacks": {
@@ -162,6 +163,7 @@
       "caption": "📸 Ejemplo real de nuestro trabajo - Fotografía y edición profesional"
     },
     "portfolioButton": "📸 VER PORTFOLIO FOTOGRÁFICO",
+    "portfolioButtonShort": "📸 Ver Portfolio",
     "portfolioDescription": "✨ Mira ejemplos reales de nuestro trabajo fotográfico",
     "recommendedBadge": "⭐ Recomendado para probar",
     "guarantee": {
@@ -416,6 +418,7 @@
       "benefit6Text": "Optimizado para aparecer en Google Maps y búsquedas locales."
     },
     "portfolioButton": "🌐 VER EJEMPLOS DE WEBS",
+    "portfolioButtonShort": "🌐 Ver Ejemplos",
     "portfolioDescription": "Mira ejemplos reales de nuestro trabajo"
   },
   "divider": {

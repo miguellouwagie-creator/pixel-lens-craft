@@ -148,6 +148,7 @@
     "footerText": "Need something custom or have a special project?",
     "footerCta": "Tell us and we'll create a custom quote",
     "portfolioButton": "📸 VIEW PHOTOGRAPHY PORTFOLIO",
+    "portfolioButtonShort": "📸 View Portfolio",
     "portfolioDescription": "✨ See real examples of our photography work"
   },
   "photoPacks": {
@@ -162,6 +163,7 @@
       "caption": "📸 Real example of our work - Professional photography and editing"
     },
     "portfolioButton": "📸 VIEW PHOTOGRAPHY PORTFOLIO",
+    "portfolioButtonShort": "📸 View Portfolio",
     "portfolioDescription": "✨ See real examples of our photography work",
     "recommendedBadge": "⭐ Recommended to try",
     "guarantee": {
@@ -418,6 +420,7 @@
       "benefit6Text": "Optimized to appear in Google Maps and local searches."
     },
     "portfolioButton": "🌐 VIEW WEBSITE EXAMPLES",
+    "portfolioButtonShort": "🌐 View Examples",
     "portfolioDescription": "See real examples of our work"
   },
   "divider": {

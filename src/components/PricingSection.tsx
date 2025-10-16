@@ -193,7 +193,8 @@ const PricingSection = () => {
                   className="flex items-center gap-3"
                 >
                   <Eye className="h-6 w-6 animate-bounce" />
-                  <span className="font-bold tracking-wide">{t("photoPacks.portfolioButton")}</span>
+                  <span className="hidden md:inline font-bold tracking-wide">{t("photoPacks.portfolioButton")}</span>
+                  <span className="md:hidden font-bold tracking-wide">{t("photoPacks.portfolioButtonShort")}</span>
                   <ArrowRight className="h-6 w-6" />
                 </a>
               </Button>
