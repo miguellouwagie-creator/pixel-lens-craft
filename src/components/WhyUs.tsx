@@ -16,8 +16,11 @@ const WhyUs = () => {
       <div className="container mx-auto px-4">
         
         {/* Header con color */}
-        <div className="text-center mb-20 animate-fade-in-up">
-          <h2 className="text-3xl md:text-5xl font-bold mb-4 bg-gradient-to-r from-emerald-600 to-green-600 bg-clip-text text-transparent">
+        <div className="text-center mb-20 animate-fade-in-up overflow-visible">
+          <h2 
+            className="text-3xl md:text-5xl font-bold mb-6 text-emerald-600"
+            style={{ lineHeight: '1.75', paddingBottom: '1.5rem', marginBottom: '0.5rem' }}
+          >
             {t("whyUs.title")}
           </h2>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
@@ -43,7 +46,7 @@ const WhyUs = () => {
                   <div>
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-emerald-100 rounded-full mb-3">
                       <CheckCircle className="h-3.5 w-3.5 text-emerald-700" />
-                      <span className="text-xs font-bold text-emerald-700 uppercase tracking-wide">
+                      <span className="text-xs font-bold text-emerald-700 tracking-wide">
                         {t("whyUs.badges.certified")}
                       </span>
                     </div>
@@ -73,7 +76,7 @@ const WhyUs = () => {
                   <div>
                     <div className="inline-flex items-center gap-2 px-3 py-1.5 bg-green-100 rounded-full mb-3">
                       <CheckCircle className="h-3.5 w-3.5 text-green-700" />
-                      <span className="text-xs font-bold text-green-700 uppercase tracking-wide">
+                      <span className="text-xs font-bold text-green-700 tracking-wide">
                         {t("whyUs.badges.topPrice")}
                       </span>
                     </div>
