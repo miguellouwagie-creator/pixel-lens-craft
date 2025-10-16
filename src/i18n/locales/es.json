@@ -123,8 +123,8 @@
         "price": "10€",
         "photos": "5 fotos",
         "feature1": "5 fotos editadas",
-        "feature2": "Hasta 3 re-ediciones por foto",
-        "feature3": "Entrega 24-48h",
+        "feature2": "Entrega 24-48h",
+        "feature3": "",
         "cta": "Contactar"
       },
       "standard": {
@@ -147,6 +147,15 @@
         "feature4": "Soporte VIP",
         "cta": "Contactar"
       }
+    },
+    "professional": {
+      "name": "Pack Profesional",
+      "price": "89,99€ (IVA incluido)",
+      "photos": "50 fotos",
+      "feature1": "50 fotos editadas",
+      "feature2": "Entrega garantizada",
+      "feature3": "Revisiones ilimitadas",
+      "cta": "Contactar"
     },
     "footerText": "¿Necesitas algo personalizado o tienes un proyecto especial?",
     "footerCta": "Cuéntanos y te hacemos un presupuesto a medida",
@@ -180,47 +189,37 @@
     },
     "basic": {
       "name": "Pack Básico",
-      "price": "10€",
+      "price": "14,99€",
       "photos": "5 fotos editadas",
-      "feature1": "5 fotos editadas",
-      "feature2": "Hasta 3 re-ediciones por foto",
-      "feature3": "Entrega 24-48h",
+      "feature1": "Entrega 24-48h",
       "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Básico (5 fotos - 10€)"
+      "whatsappMessage": "Hola, me interesa el Pack Básico (5 fotos - 14,99€)"
     },
     "standard": {
       "name": "Pack Estándar",
-      "price": "20€",
+      "price": "28,99€",
       "photos": "10 fotos editadas",
-      "feature1": "10 fotos editadas",
-      "feature2": "Hasta 3 re-ediciones por foto",
-      "feature3": "Entrega 24-48h",
-      "feature4": "Soporte prioritario",
+      "feature1": "Entrega 24-48h",
       "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Estándar (10 fotos - 20€)"
+      "whatsappMessage": "Hola, me interesa el Pack Estándar (10 fotos - 28,99€)"
     },
     "premium": {
       "name": "Pack Premium",
-      "price": "35€",
+      "price": "52,99€",
       "photos": "20 fotos editadas",
-      "feature1": "20 fotos editadas",
-      "feature2": "Hasta 3 re-ediciones por foto",
-      "feature3": "Entrega 24-48h",
-      "feature4": "Soporte VIP",
+      "feature1": "Entrega 24-48h",
       "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Premium (20 fotos - 35€)"
+      "whatsappMessage": "Hola, me interesa el Pack Premium (20 fotos - 52,99€)"
     },
     "professional": {
       "name": "Pack Profesional",
-      "price": "60€",
+      "price": "89,99€",
       "photos": "50 fotos editadas",
-      "feature1": "50 fotos editadas",
-      "feature2": "Hasta 3 re-ediciones por foto",
-      "feature3": "Entrega garantizada",
-      "feature4": "Soporte VIP 24/7",
+      "feature1": "Entrega 24-48h",
       "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Profesional (50 fotos - 60€)"
-    }
+      "whatsappMessage": "Hola, me interesa el Pack Profesional (50 fotos - 89,99€)"
+    },
+    "trialMessage": "¿No estás seguro? Podemos hacer una muestra gratuita para enseñarte cómo trabajamos"
   },
   "whyUs": {
     "title": "Por Qué Elegirnos",
@@ -426,7 +425,8 @@
     },
     "portfolioButton": "🌐 VER EJEMPLOS DE WEBS",
     "portfolioButtonShort": "🌐 Ver Ejemplos",
-    "portfolioDescription": "Mira ejemplos reales de nuestro trabajo"
+    "portfolioDescription": "Mira ejemplos reales de nuestro trabajo",
+    "vatIncluded": "IVA incluido"
   },
   "divider": {
     "title": "Tu negocio merece brillar online",

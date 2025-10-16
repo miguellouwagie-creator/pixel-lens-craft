@@ -35,8 +35,6 @@ const PricingSection = () => {
       photosKey: "photoPacks.basic.photos",
       featuresKeys: [
         "photoPacks.basic.feature1",
-        "photoPacks.basic.feature2",
-        "photoPacks.basic.feature3",
       ],
       ctaKey: "photoPacks.basic.cta",
       whatsappMessage: t("photoPacks.basic.whatsappMessage"),
@@ -48,9 +46,6 @@ const PricingSection = () => {
       photosKey: "photoPacks.standard.photos",
       featuresKeys: [
         "photoPacks.standard.feature1",
-        "photoPacks.standard.feature2",
-        "photoPacks.standard.feature3",
-        "photoPacks.standard.feature4",
       ],
       ctaKey: "photoPacks.standard.cta",
       whatsappMessage: t("photoPacks.standard.whatsappMessage"),
@@ -61,9 +56,6 @@ const PricingSection = () => {
       photosKey: "photoPacks.premium.photos",
       featuresKeys: [
         "photoPacks.premium.feature1",
-        "photoPacks.premium.feature2",
-        "photoPacks.premium.feature3",
-        "photoPacks.premium.feature4",
       ],
       ctaKey: "photoPacks.premium.cta",
       whatsappMessage: t("photoPacks.premium.whatsappMessage"),
@@ -74,9 +66,6 @@ const PricingSection = () => {
       photosKey: "photoPacks.professional.photos",
       featuresKeys: [
         "photoPacks.professional.feature1",
-        "photoPacks.professional.feature2",
-        "photoPacks.professional.feature3",
-        "photoPacks.professional.feature4",
       ],
       ctaKey: "photoPacks.professional.cta",
       whatsappMessage: t("photoPacks.professional.whatsappMessage"),
@@ -215,11 +204,9 @@ const PricingSection = () => {
                   pack.recommended ? 'border-orange-400 ring-2 ring-orange-200' : 'border-orange-200'
                 }`}
               >
-                {pack.recommended && (
-                  <div className="bg-orange-600 text-white text-xs font-bold py-2 px-4 text-center">
-                    {t("photoPacks.recommendedBadge")}
-                  </div>
-                )}
+                <div className={`text-xs font-bold py-2 px-4 text-center ${pack.recommended ? 'bg-orange-600 text-white' : 'bg-gradient-to-br from-orange-50 to-white text-transparent select-none'}`}>
+                  {pack.recommended ? t("photoPacks.recommendedBadge") : 'placeholder'}
+                </div>
                 
                 <CardHeader className="bg-gradient-to-br from-orange-50 to-white">
                   <div className="flex items-center justify-between mb-2">
@@ -235,14 +222,22 @@ const PricingSection = () => {
                     <span className="text-4xl font-bold bg-gradient-to-r from-orange-600 to-red-600 bg-clip-text text-transparent">
                       {t(pack.priceKey)}
                     </span>
+                    <span className="block text-xs text-gray-600 font-normal mt-1">
+                      IVA incluido
+                    </span>
                     <p className="text-sm mt-2 text-orange-700 font-semibold">
                       {t(pack.photosKey)}
                     </p>
                   </CardDescription>
                 </CardHeader>
-                <CardContent className="flex-1 flex flex-col pt-6">
-                  <ul className="space-y-3 mb-8 flex-1">
-                    {pack.featuresKeys.map((featureKey) => (
+                <CardContent className="flex-1 flex flex-col pt-4">
+                  <ul className="space-y-2 mb-4 flex-1">
+                    {pack.featuresKeys.map((featureKey) => {
+
+                      const featureText = t(featureKey);
+                      if (!featureText || featureText.trim() === '') return null;
+                      
+                      return (
                       <li key={featureKey} className="flex items-start gap-3">
                         <div className="bg-orange-100 rounded-full p-1">
                           <Check className="h-4 w-4 text-orange-600" />
@@ -251,7 +246,8 @@ const PricingSection = () => {
                           {t(featureKey)}
                         </span>
                       </li>
-                    ))}
+                      );
+                    })}
                   </ul>
                   <Button
                     className="w-full bg-orange-600 hover:bg-orange-700 text-white"
@@ -271,6 +267,15 @@ const PricingSection = () => {
                 </CardContent>
               </Card>
             ))}
+          </div>
+          
+          {/* Mensaje de muestra gratuita */}
+          <div className="mt-12 text-center max-w-2xl mx-auto">
+            <div className="bg-blue-50 border-2 border-blue-200 rounded-xl p-6">
+              <p className="text-lg text-blue-900 font-semibold">
+                {t("photoPacks.trialMessage")}
+              </p>
+            </div>
           </div>
         </div>
       </section>
