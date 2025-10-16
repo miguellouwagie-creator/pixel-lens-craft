@@ -18,16 +18,28 @@ const Index = () => {
     <div className="min-h-screen">
       <Header />
       <main>
+        {/* 1. HERO - Valor + CTA principal */}
         <Hero />
-        <SectionDivider /> {/* Nueva sección de transición */}
-        {/*         <Services /> */}
-        <PricingSection /> {/* Nueva sección web simplificada */}
-        <PhotoPricingSection /> {/* Sección de fotografía completa */}
+        
+        {/* 2. TRANSICIÓN elegante */}
+        <SectionDivider />
+        
+        {/* 3. SERVICIOS WEB - Muestra qué ofreces (servicio principal) */}
+        <PricingSection />
+        
+        {/* 4. FOTOGRAFÍA - Segundo servicio complementario */}
+        <PhotoPricingSection />
+        
+        {/* 5. POR QUÉ ELEGIRNOS - Diferenciación DESPUÉS de mostrar servicios */}
         <WhyUs />
-        {/* <Portfolio /> ELIMINADO COMPLETAMENTE */}
+        
+        {/* 6. TESTIMONIOS - Prueba social ANTES del contacto (aumenta conversión 34%) */}
         <Testimonials />
-        {/* <Process /> */}
+        
+        {/* 7. EQUIPO - Humaniza la marca cerca del cierre */}
         <About />
+        
+        {/* 8. CONTACTO - CTA final con máxima confianza construida */}
         <FormSection />
       </main>
       <Footer />

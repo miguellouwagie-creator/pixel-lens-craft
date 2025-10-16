@@ -34,7 +34,7 @@ const Footer = () => {
             <img
               src={logo}
               alt="Studio Pixelens"
-              className="h-14 w-auto mb-4 brightness-0 invert"
+              className="h-20 w-auto mb-6"
             />
             <p className="text-white/80 mb-4 leading-relaxed">
               {t("footer.description")}
