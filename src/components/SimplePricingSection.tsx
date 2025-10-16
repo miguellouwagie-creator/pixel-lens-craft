@@ -21,7 +21,7 @@ const SimplePricingSection = () => {
 
   return (
     <div
-      className="py-20 bg-gradient-to-br from-slate-900 via-blue-900 to-slate-800"
+      style={{ background: "linear-gradient(to bottom, #000000 0%, #0a0f1a 10%, #0f172a 25%, #1e3a8a 60%, #0f172a 100%)" }} className="py-20"
       id="packs"
     >
       <div className="container mx-auto px-4">
