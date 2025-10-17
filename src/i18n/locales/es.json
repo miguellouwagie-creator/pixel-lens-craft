@@ -219,7 +219,8 @@
       "cta": "Contactar",
       "whatsappMessage": "Hola, me interesa el Pack Profesional (50 fotos - 89,99€)"
     },
-    "trialMessage": "¿No estás seguro? Podemos hacer una muestra gratuita para enseñarte cómo trabajamos"
+    "trialMessage": "¿No estás seguro? Podemos hacer una muestra gratuita para enseñarte cómo trabajamos",
+    "vatIncluded": "IVA incluido"
   },
   "whyUs": {
     "title": "Por Qué Elegirnos",

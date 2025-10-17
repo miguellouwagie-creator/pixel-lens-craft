@@ -223,7 +223,7 @@ const PricingSection = () => {
                       {t(pack.priceKey)}
                     </span>
                     <span className="block text-xs text-gray-600 font-normal mt-1">
-                      IVA incluido
+                      {t("photoPacks.vatIncluded")}
                     </span>
                     <p className="text-sm mt-2 text-orange-700 font-semibold">
                       {t(pack.photosKey)}
