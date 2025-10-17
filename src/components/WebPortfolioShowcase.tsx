@@ -110,9 +110,9 @@ const WebPortfolioShowcase = () => {
                       hoveredProject === project.id ? "opacity-100" : "opacity-0"
                     }`}
                   >
-                    <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-orange-500/40 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-orange-400/35 rounded-full blur-3xl"></div>
-                    <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-yellow-500/30 rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-orange-500/25 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-orange-400/20 rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-yellow-500/15 rounded-full blur-3xl"></div>
                   </div>
                   
                   {/* Fondo degradado original */}
@@ -121,20 +121,18 @@ const WebPortfolioShowcase = () => {
                   <div className={`relative ${!project.fullWidth ? "lg:w-4/5" : "w-full"}`}>
                     {/* Glow naranja alrededor de la imagen - aparece en hover */}
                     <div 
-                      className={`absolute -inset-6 bg-gradient-to-br from-orange-500/60 via-orange-400/50 to-yellow-500/60 rounded-3xl blur-3xl transition-opacity duration-500 ${
+                      className={`absolute -inset-6 bg-gradient-to-br from-orange-500/40 via-orange-400/30 to-yellow-500/40 rounded-3xl blur-3xl transition-opacity duration-500 ${
                         hoveredProject === project.id ? "opacity-100" : "opacity-0"
                       }`}
                     ></div>
                     
-                    <div className="relative rounded-2xl overflow-hidden shadow-2xl transition-all duration-500 bg-slate-900/30 backdrop-blur border-2 border-blue-400/20">
-                      <img
-                        src={project.imageSrc}
-                        alt={t(project.titleKey)}
-                        className={`w-full h-auto transition-all duration-500 ${
-                          hoveredProject === project.id ? "scale-110" : "scale-100"
-                        }`}
-                      />
-                    </div>
+                    <img
+                      src={project.imageSrc}
+                      alt={t(project.titleKey)}
+                      className={`w-full h-auto transition-all duration-500 ${
+                        hoveredProject === project.id ? "scale-110" : "scale-100"
+                      }`}
+                    />
                   </div>
                 </div>
 
