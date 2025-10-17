@@ -424,5 +424,36 @@
   "divider": {
     "title": "Your business deserves to shine online",
     "subtitle": "We capture your business essence and transform it into a digital presence that attracts customers"
+  },
+  "portfolioShowcase": {
+    "header": {
+      "title": "Featured Projects",
+      "subtitle": "Designs that turn visitors into customers. Every project is a success story that drives real businesses.",
+      "hoverText": "View project"
+    },
+    "tropidenia": {
+      "title": "TropiDenia",
+      "tagline": "Booking system that generated +40% more revenue",
+      "description": "We eliminated intermediaries and commissions. Result: direct bookings, full business control and maximum profitability from day one.",
+      "tag1": "UI/UX",
+      "tag2": "React",
+      "tag3": "Bookings"
+    },
+    "bvs": {
+      "title": "BVS Vertical Works",
+      "tagline": "Digital presence that instantly conveys trust",
+      "description": "We transformed their online image to reflect their leadership. More qualified leads, bigger projects, more authority in the sector.",
+      "tag1": "Corporate",
+      "tag2": "Wordpress",
+      "tag3": "SEO"
+    },
+    "gymdenia": {
+      "title": "GymDenia",
+      "tagline": "Website that multiplies inquiries and member acquisition",
+      "description": "From going unnoticed to becoming the local fitness reference. Optimised forms that convert visitors into potential clients every day.",
+      "tag1": "Web Design",
+      "tag2": "Forms",
+      "tag3": "Responsive"
+    }
   }
 }

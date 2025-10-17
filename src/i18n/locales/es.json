@@ -432,5 +432,36 @@
   "divider": {
     "title": "Tu negocio merece brillar online",
     "subtitle": "Capturamos la esencia de tu negocio y la transformamos en una presencia digital que atrae clientes"
+  },
+  "portfolioShowcase": {
+    "header": {
+      "title": "Proyectos Destacados",
+      "subtitle": "Diseños que convierten visitantes en clientes. Cada proyecto es una historia de éxito que impulsa negocios reales.",
+      "hoverText": "Ver proyecto"
+    },
+    "tropidenia": {
+      "title": "TropiDenia",
+      "tagline": "Sistema de reservas que generó +40% más ingresos",
+      "description": "Eliminamos intermediarios y comisiones. Resultado: reservas directas, control total del negocio y rentabilidad máxima desde el primer mes.",
+      "tag1": "UI/UX",
+      "tag2": "React",
+      "tag3": "Reservas"
+    },
+    "bvs": {
+      "title": "BVS Trabajos Verticales",
+      "tagline": "Presencia digital que transmite confianza al instante",
+      "description": "Transformamos su imagen online para reflejar su liderazgo. Más contactos cualificados, más proyectos grandes, más autoridad en el sector.",
+      "tag1": "Corporativo",
+      "tag2": "Wordpress",
+      "tag3": "SEO"
+    },
+    "gymdenia": {
+      "title": "GymDenia",
+      "tagline": "Web que multiplica consultas y captación de socios",
+      "description": "De pasar desapercibidos a ser la referencia fitness local. Formularios optimizados que convierten visitantes en clientes potenciales cada día.",
+      "tag1": "Diseño Web",
+      "tag2": "Formularios",
+      "tag3": "Responsive"
+    }
   }
 }
