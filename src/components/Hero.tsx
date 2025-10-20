@@ -1,53 +1,50 @@
+// src/components/Hero.tsx
 import React from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, MessageCircle, Award } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import heroBackground from "@/assets/Fondo5.png";
-import heroBackgroundMobile from "@/assets/FondoMovil.png";
+// IMPORTANTE: Importa tu video
+import heroVideo from "@/assets/Fondo Vid optimizado.mp4"; // Asegúrate que la ruta relativa desde Hero.tsx sea correcta
 
 const Hero = () => {
   const { t } = useTranslation();
   const whatsappNumber = "34667326300";
   const whatsappMessage = "Hola, estoy interesado en vuestros servicios";
-  const [isMobile, setIsMobile] = React.useState(false);
-
-  React.useEffect(() => {
-    const checkMobile = () => setIsMobile(window.innerWidth < 768);
-    checkMobile();
-    window.addEventListener("resize", checkMobile);
-    return () => window.removeEventListener("resize", checkMobile);
-  }, []);
 
   return (
     <section
       id="hero-section"
-      className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-28"
-      style={{ backgroundColor: "#000" }}
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-28" // Asegura altura y oculta desbordamiento
     >
-      <div
-        className="absolute inset-0"
-        style={{
-          backgroundImage: isMobile
-            ? `url(${heroBackgroundMobile})`
-            : `url(${heroBackground})`,
-          backgroundSize: "cover",
-          backgroundPosition: isMobile ? "center" : "right center",
-          backgroundRepeat: "no-repeat",
-        }}
-      ></div>
+      {/* Elemento Video añadido */}
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline // Importante para reproducción en móviles
+        className="hero-video-background" // Clase definida en index.css
+        // MODIFICADO: Usa la variable importada del video
+        src={heroVideo}
+      >
+        {/* Considera añadir fuentes alternativas si tienes formatos como .webm */}
+        {/* <source src="/path/to/your-video.webm" type="video/webm" /> */}
+        Tu navegador no soporta el tag de video.
+      </video>
 
+      {/* Overlay Oscuro */}
       <div
         className="absolute inset-0"
         style={{
-          background: isMobile
-            ? "linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.5) 50%, transparent 70%)"
-            : "linear-gradient(to right, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.2) 40%, transparent 60%)",
+          // Overlay más oscuro y consistente
+          background:
+            "linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 70%)",
         }}
       ></div>
 
       <div className="container mx-auto px-4 relative z-10 py-0">
         <div className="max-w-xl lg:max-w-2xl">
           <div className="text-white animate-fade-in-up">
+            {/* Contenido se mantiene igual */}
             <h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
               style={{
@@ -105,7 +102,6 @@ const Hero = () => {
               </Button>
             </div>
 
-            {/* Grid de beneficios MÁS COMPACTO y a la izquierda */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-md lg:max-w-lg">
               <div className="flex items-center gap-2">
                 <CheckCircle2
