@@ -10,58 +10,73 @@ All colors MUST be HSL.
 @layer base {
   :root {
     /* Pixel & Lens Digital Brand Colors */
-    /* MODIFICADO: Cambiado de 0 0% 100% (blanco) a un gris suave */
+    /* Dominant (60% approx) */
     --background: 220 20% 98%;
+    /* Light Grayish Blue */
     --foreground: 217 19% 27%;
+    /* Dark Desaturated Blue */
 
     --card: 0 0% 100%;
+    /* White */
     --card-foreground: 217 19% 27%;
+    /* Dark Desaturated Blue */
 
     --popover: 0 0% 100%;
     --popover-foreground: 217 19% 27%;
 
-    /* Primary: Deep Corporate Blue #1E3A8A */
+    /* Brand (30% approx) */
     --primary: 221 68% 33%;
+    /* Strong Blue */
     --primary-foreground: 0 0% 100%;
+    /* White */
 
-    /* CTA/Action: Energetic Orange #EA580C */
+    /* Accent (10% approx) */
     --cta: 20 91% 48%;
+    /* Vivid Orange */
     --cta-foreground: 0 0% 100%;
+    /* White */
+    --accent: 20 91% 48%;
+    /* Same as CTA for simplicity */
+    --accent-foreground: 0 0% 100%;
 
-    /* Secondary backgrounds */
+    /* Neutrals & Functional */
     --secondary: 220 20% 98%;
+    /* Same as background */
     --secondary-foreground: 217 19% 27%;
+    /* Same as foreground */
 
     --muted: 220 20% 98%;
-    --muted-foreground: 220 9% 46%;
-
-    --accent: 20 91% 48%;
-    --accent-foreground: 0 0% 100%;
+    /* Same as background */
+    /* MODIFICADO: Oscurecido para mejorar contraste AA (de 46% a 40%) */
+    --muted-foreground: 220 9% 40%;
+    /* Grayish Blue - Contrast Ratio > 4.5:1 on background */
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    /* Borders: #E5E7EB */
     --border: 220 13% 91%;
+    /* Light Gray */
     --input: 220 13% 91%;
     --ring: 221 68% 33%;
+    /* Primary Blue */
 
     --radius: 0.5rem;
 
     /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(221, 68%, 33%), hsl(221, 68%, 45%));
-    --gradient-hero: linear-gradient(135deg, hsl(221, 68%, 33%) 0%, hsl(221, 68%, 25%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(20, 91%, 48%), hsl(20, 91%, 55%));
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(221, 68%, 45%));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(221, 68%, 25%) 100%);
+    --gradient-cta: linear-gradient(135deg, hsl(var(--cta)), hsl(20, 91%, 55%));
 
     /* Shadows */
-    --shadow-soft: 0 2px 8px hsl(221, 68%, 33%, 0.08);
-    --shadow-medium: 0 4px 16px hsl(221, 68%, 33%, 0.12);
-    --shadow-strong: 0 8px 24px hsl(221, 68%, 33%, 0.16);
+    --shadow-soft: 0 2px 8px hsla(var(--primary), 0.08);
+    --shadow-medium: 0 4px 16px hsla(var(--primary), 0.12);
+    --shadow-strong: 0 8px 24px hsla(var(--primary), 0.16);
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
+    /* Sidebar - Assuming specific use, keeping separate */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -73,7 +88,6 @@ All colors MUST be HSL.
   }
 
   .dark {
-    /* Mantenemos el modo oscuro como estaba, ajusta si es necesario */
     --background: 221 68% 8%;
     --foreground: 0 0% 98%;
 
@@ -84,18 +98,22 @@ All colors MUST be HSL.
     --popover-foreground: 0 0% 98%;
 
     --primary: 221 68% 33%;
+    /* Keep primary same or adjust lighter if needed */
     --primary-foreground: 0 0% 100%;
 
     --cta: 20 91% 48%;
+    /* Keep cta same */
     --cta-foreground: 0 0% 100%;
 
     --secondary: 221 68% 15%;
     --secondary-foreground: 0 0% 98%;
 
     --muted: 221 68% 15%;
+    /* Muted foreground already has decent contrast in dark mode */
     --muted-foreground: 220 9% 65%;
 
     --accent: 20 91% 48%;
+    /* Keep accent same */
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 62.8% 30.6%;
@@ -104,7 +122,9 @@ All colors MUST be HSL.
     --border: 221 68% 15%;
     --input: 221 68% 15%;
     --ring: 221 68% 50%;
+    /* Lighter ring for dark mode */
 
+    /* Sidebar Dark */
     --sidebar-background: 240 5.9% 10%;
     --sidebar-foreground: 240 4.8% 95.9%;
     --sidebar-primary: 224.3 76.3% 48%;
@@ -122,7 +142,6 @@ All colors MUST be HSL.
   }
 
   body {
-    /* Ya usa --background, por lo que heredará el gris suave */
     @apply bg-background text-foreground font-sans antialiased;
   }
 
@@ -171,7 +190,6 @@ All colors MUST be HSL.
   }
 }
 
-/* AÑADIDO: Estilos para el video de fondo */
 .hero-video-background {
   position: absolute;
   top: 0;
@@ -179,7 +197,5 @@ All colors MUST be HSL.
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* Asegura que el video cubra todo el espacio */
   z-index: -1;
-  /* Lo pone detrás del contenido */
 }

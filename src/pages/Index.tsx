@@ -1,3 +1,4 @@
+// src/pages/Index.tsx (Sin cambios necesarios para Fase B)
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SectionDivider from "@/components/SectionDivider";
@@ -20,25 +21,18 @@ const Index = () => {
       <main>
         {/* 1. HERO - Valor + CTA principal */}
         <Hero />
-        
         {/* 2. TRANSICIÓN elegante */}
         <SectionDivider />
-        
         {/* 3. SERVICIOS WEB - Muestra qué ofreces (servicio principal) */}
-        <PricingSection />
-        
+        <PricingSection /> {/* aka SimplePricingSection */}
         {/* 4. FOTOGRAFÍA - Segundo servicio complementario */}
-        <PhotoPricingSection />
-        
+        <PhotoPricingSection /> {/* aka PricingSection */}
         {/* 5. POR QUÉ ELEGIRNOS - Diferenciación DESPUÉS de mostrar servicios */}
         <WhyUs />
-        
         {/* 6. TESTIMONIOS - Prueba social ANTES del contacto (aumenta conversión 34%) */}
         <Testimonials />
-        
         {/* 7. EQUIPO - Humaniza la marca cerca del cierre */}
         <About />
-        
         {/* 8. CONTACTO - CTA final con máxima confianza construida */}
         <FormSection />
       </main>

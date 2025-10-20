@@ -1,3 +1,4 @@
+// src/components/Testimonials.tsx
 import { Card, CardContent } from "@/components/ui/card";
 import { Star, MapPin, CheckCircle2 } from "lucide-react";
 import { useTranslation } from "react-i18next";
@@ -12,6 +13,7 @@ const Testimonials = () => {
       textKey: "testimonials.testimonial1.text",
       rating: 5,
       initials: "MG",
+      // Mantenemos gradientes específicos por ahora
       colorClass: "bg-gradient-to-br from-orange-400 to-orange-600",
     },
     {
@@ -33,12 +35,14 @@ const Testimonials = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-gradient-to-br from-slate-50 via-white to-slate-50">
+    // Usa bg-background como base (o un gradiente suave con colores del tema si se prefiere)
+    <section className="py-20 md:py-28 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-in-up">
           <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
             {t("testimonials.title")}
           </h2>
+          {/* Usa text-muted-foreground (ahora con mejor contraste) */}
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
             {t("testimonials.subtitle")}
           </p>
@@ -48,41 +52,49 @@ const Testimonials = () => {
           {testimonials.map((testimonial, index) => (
             <Card
               key={testimonial.nameKey}
-              className="animate-fade-in-up hover:shadow-2xl transition-all duration-300 bg-white border-0 shadow-lg hover:-translate-y-2 relative overflow-hidden"
+              // Usa bg-card y border-border (o border-0 si prefieres sin borde)
+              className="animate-fade-in-up hover:shadow-2xl transition-all duration-300 bg-card border border-border shadow-lg hover:-translate-y-2 relative overflow-hidden"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
               {/* Decorative gradient top bar */}
               <div className={`h-2 w-full ${testimonial.colorClass}`}></div>
-              
+
               <CardContent className="pt-8 pb-8 px-6">
-                {/* Rating Stars - Más prominentes */}
+                {/* Rating Stars - MODIFICADO: usa color cta */}
                 <div className="flex gap-1 mb-5">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="h-6 w-6 fill-orange-500 text-orange-500" />
+                    <Star key={i} className="h-6 w-6 fill-cta text-cta" />
                   ))}
                 </div>
 
-                {/* Testimonial Text - Más grande y legible */}
-                <p className="text-gray-700 mb-6 leading-relaxed text-base">
+                {/* Testimonial Text - MODIFICADO: usa text-foreground */}
+                <p className="text-foreground mb-6 leading-relaxed text-base">
                   "{t(testimonial.textKey)}"
                 </p>
 
-                {/* Author Info - Rediseñado sin foto */}
-                <div className="flex items-center gap-4 pt-5 border-t border-gray-100">
+                {/* Author Info */}
+                {/* MODIFICADO: usa border-border */}
+                <div className="flex items-center gap-4 pt-5 border-t border-border">
                   {/* Círculo con iniciales */}
-                  <div className={`w-14 h-14 rounded-full ${testimonial.colorClass} flex items-center justify-center text-white font-bold text-lg shadow-md flex-shrink-0`}>
+                  <div
+                    className={`w-14 h-14 rounded-full ${testimonial.colorClass} flex items-center justify-center text-white font-bold text-lg shadow-md flex-shrink-0`}
+                  >
                     {testimonial.initials}
                   </div>
-                  
+
                   <div className="flex-1">
                     <div className="flex items-center gap-2 mb-1">
-                      <span className="font-bold text-gray-900 text-base">
+                      {/* MODIFICADO: usa text-foreground */}
+                      <span className="font-bold text-foreground text-base">
                         {t(testimonial.nameKey)}
                       </span>
-                      <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />
+                      <CheckCircle2 className="h-4 w-4 text-green-600 flex-shrink-0" />{" "}
+                      {/* Keep green? */}
                     </div>
-                    <div className="flex items-center gap-1 text-sm text-gray-600">
-                      <MapPin className="h-3.5 w-3.5 text-gray-400" />
+                    {/* MODIFICADO: usa text-muted-foreground */}
+                    <div className="flex items-center gap-1 text-sm text-muted-foreground">
+                      {/* MODIFICADO: usa text-muted-foreground */}
+                      <MapPin className="h-3.5 w-3.5 text-muted-foreground" />
                       <span>{t(testimonial.locationKey)}</span>
                     </div>
                   </div>

@@ -1,3 +1,4 @@
+// src/components/About.tsx (Beneficiado por --muted-foreground, sin otros cambios)
 import { Code, Camera } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import miguelPhoto from "@/assets/miguel-photo.jpeg";
@@ -12,7 +13,7 @@ const About = () => {
       roleKey: "about.miguel.role",
       descriptionKey: "about.miguel.description",
       photo: miguelPhoto,
-      photoPosition: "object-center", // Miguel centrado
+      photoPosition: "object-center",
       skillsKeys: [
         "about.miguel.skill1",
         "about.miguel.skill2",
@@ -25,7 +26,7 @@ const About = () => {
       roleKey: "about.sergio.role",
       descriptionKey: "about.sergio.description",
       photo: sergioPhoto,
-      photoPosition: "object-[center_20%]", // Sergio bajado un 20%
+      photoPosition: "object-[center_20%]",
       skillsKeys: [
         "about.sergio.skill1",
         "about.sergio.skill2",
@@ -36,12 +37,11 @@ const About = () => {
   ];
 
   return (
-    <section
-      id="sobre-mi"
-      className="py-16 md:py-20 bg-gradient-to-br from-slate-50 to-white"
-    >
+    // Usa bg-background como base
+    <section id="sobre-mi" className="py-16 md:py-20 bg-background">
       <div className="container mx-auto px-4">
         <div className="text-center mb-12 animate-fade-in-up">
+          {/* Usa text-primary y text-muted-foreground */}
           <h2 className="text-3xl md:text-4xl font-bold mb-3 text-primary">
             {t("about.title")}
           </h2>
@@ -56,7 +56,8 @@ const About = () => {
             return (
               <div
                 key={member.nameKey}
-                className="bg-white rounded-2xl p-6 shadow-md hover:shadow-xl transition-all animate-fade-in-up"
+                // Usa bg-card y border-border
+                className="bg-card rounded-2xl p-6 border border-border shadow-md hover:shadow-xl transition-all animate-fade-in-up"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex items-start gap-4 mb-4">
@@ -68,18 +69,21 @@ const About = () => {
                         className={`w-full h-full object-cover ${member.photoPosition}`}
                       />
                     </div>
-                    <div className="absolute -bottom-2 -right-2 bg-primary text-white p-2 rounded-lg shadow-lg">
+                    {/* Usa bg-primary y text-primary-foreground */}
+                    <div className="absolute -bottom-2 -right-2 bg-primary text-primary-foreground p-2 rounded-lg shadow-lg">
                       <IconComponent className="h-4 w-4" />
                     </div>
                   </div>
 
                   <div className="flex-1">
+                    {/* Usa text-foreground y text-cta */}
                     <h3 className="text-xl font-bold text-foreground mb-1">
                       {t(member.nameKey)}
                     </h3>
                     <div className="text-sm font-semibold text-cta mb-3">
                       {t(member.roleKey)}
                     </div>
+                    {/* Usa text-muted-foreground */}
                     <p className="text-sm text-muted-foreground leading-relaxed">
                       {t(member.descriptionKey)}
                     </p>
@@ -90,6 +94,7 @@ const About = () => {
                   {member.skillsKeys.map((skillKey) => (
                     <span
                       key={skillKey}
+                      // Usa bg-primary/10 y text-primary
                       className="px-3 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
                     >
                       {t(skillKey)}
