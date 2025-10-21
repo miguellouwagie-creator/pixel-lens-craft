@@ -1,8 +1,21 @@
-/*
-  X-Frame-Options: DENY
-  X-Content-Type-Options: nosniff
-  X-XSS-Protection: 1; mode=block
-  Referrer-Policy: strict-origin-when-cross-origin
-  Permissions-Policy: camera=(), microphone=(), geolocation=()
-  Strict-Transport-Security: max-age=31536000; includeSubDomains; preload
-  Content-Security-Policy: default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https://fonts.gstatic.com; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'
+# Favicons - No cachear para forzar actualización
+/favicon.ico
+  Cache-Control: public, max-age=0, must-revalidate
+
+/favicon-16x16.png
+  Cache-Control: public, max-age=0, must-revalidate
+
+/favicon-32x32.png
+  Cache-Control: public, max-age=0, must-revalidate
+
+/apple-touch-icon.png
+  Cache-Control: public, max-age=0, must-revalidate
+
+/android-chrome-192x192.png
+  Cache-Control: public, max-age=0, must-revalidate
+
+/android-chrome-512x512.png
+  Cache-Control: public, max-age=0, must-revalidate
+
+/site.webmanifest
+  Cache-Control: public, max-age=0, must-revalidate
