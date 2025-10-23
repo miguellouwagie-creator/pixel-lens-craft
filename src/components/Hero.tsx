@@ -13,7 +13,8 @@ const Hero = () => {
   return (
     <section
       id="hero-section"
-      className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-28"
+      className="sticky top-0 h-screen flex items-center overflow-hidden pt-32 md:pt-36"
+      style={{ zIndex: 0 }}
     >
       <video
         autoPlay
@@ -34,7 +35,7 @@ const Hero = () => {
         }}
       ></div>
 
-      <div className="container mx-auto px-4 relative z-10 py-0">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-xl lg:max-w-2xl">
           <div className="text-white animate-fade-in-up">
             <h1

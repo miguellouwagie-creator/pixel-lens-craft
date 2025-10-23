@@ -1,5 +1,5 @@
 // src/components/Header.tsx
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import {
   Menu,
   X,
@@ -10,9 +10,9 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
-import logo from "@/assets/Logoo.png"; // Asume que este logo funciona bien sobre fondo oscuro/transparente
+import logo from "@/assets/Logoo.png";
 import { Link, useNavigate } from "react-router-dom";
-import { cn } from "@/lib/utils"; // Importa cn para combinar clases condicionalmente
+import { cn } from "@/lib/utils";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -21,12 +21,15 @@ const Header = () => {
   const { i18n, t } = useTranslation();
   const navigate = useNavigate();
 
+  // Timeout para el dropdown
+  const dropdownTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50); // Aumentado umbral para el cambio
+      setIsScrolled(window.scrollY > window.innerHeight - 100);
     };
     window.addEventListener("scroll", handleScroll);
-    handleScroll(); // Ejecuta al montar por si la página carga scrolleada
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
@@ -38,7 +41,8 @@ const Header = () => {
       to: "#",
       dropdown: [
         { labelKey: "nav.photoPortfolio", to: "/portfolio", icon: "Camera" },
-        { labelKey: "nav.webExamples", to: "/portfolio-webs", icon: "Globe" },
+        // OCULTO: Portfolio de webs ahora está en la página de inicio
+        // { labelKey: "nav.webExamples", to: "/portfolio-webs", icon: "Globe" },
       ],
     },
     { labelKey: "nav.about", to: "/#sobre-mi" },
@@ -53,7 +57,6 @@ const Header = () => {
     localStorage.setItem("language", lang);
   };
 
-  // Función para manejar la navegación con scroll suave (sin cambios)
   const handleNavClick = (
     e: React.MouseEvent<HTMLAnchorElement>,
     to: string,
@@ -74,9 +77,8 @@ const Header = () => {
       const [path, hash] = to.split("#");
 
       if (window.location.pathname === path || path === "/" || path === "") {
-        const targetPath = path || "/"; // Asegura que navegamos a "/" si path está vacío
+        const targetPath = path || "/";
         if (window.location.pathname === targetPath) {
-          // Ya estamos en la página correcta, solo hacer scroll
           const element = document.getElementById(hash);
           if (element) {
             const headerOffset = 100;
@@ -86,7 +88,6 @@ const Header = () => {
             window.scrollTo({ top: offsetPosition, behavior: "smooth" });
           }
         } else {
-          // Navegar a la página y luego hacer scroll
           navigate(targetPath);
           setTimeout(() => {
             const element = document.getElementById(hash);
@@ -97,30 +98,42 @@ const Header = () => {
                 elementPosition + window.pageYOffset - headerOffset;
               window.scrollTo({ top: offsetPosition, behavior: "smooth" });
             }
-          }, 150); // Un poco más de tiempo para asegurar la navegación
+          }, 150);
         }
       } else {
-        // Navegación normal sin hash (si no es un enlace interno)
         navigate(to);
       }
     } else {
-      // Navegación normal a otra página (ej. /portfolio)
       navigate(to);
-      window.scrollTo({ top: 0, behavior: "auto" }); // Scroll al top en la nueva página
+      window.scrollTo({ top: 0, behavior: "auto" });
     }
   };
 
-  // Determinar color de texto basado en scroll y menú móvil
+  // Funciones para manejar el dropdown con delay
+  const handleMouseEnterDropdown = () => {
+    if (dropdownTimeoutRef.current) {
+      clearTimeout(dropdownTimeoutRef.current);
+      dropdownTimeoutRef.current = null;
+    }
+    setIsPortfolioDropdownOpen(true);
+  };
+
+  const handleMouseLeaveDropdown = () => {
+    dropdownTimeoutRef.current = setTimeout(() => {
+      setIsPortfolioDropdownOpen(false);
+    }, 400); // 400ms de delay antes de cerrar
+  };
+
   const getTextColor = () => {
-    if (isMobileMenuOpen) return "text-foreground"; // Texto oscuro normal en menú móvil abierto
-    return isScrolled ? "text-foreground" : "text-white"; // Blanco si no scrolleado, oscuro si scrolleado
+    if (isMobileMenuOpen) return "text-foreground";
+    return isScrolled ? "text-foreground" : "text-white";
   };
   const textHoverColor = isScrolled
     ? "hover:text-primary"
     : "hover:text-gray-200";
   const logoTextColor = isScrolled ? "text-primary" : "text-white";
   const logoMutedColor = isScrolled ? "text-muted-foreground" : "text-gray-300";
-  const logoBadgeColor = isScrolled ? "text-cta" : "text-cta"; // CTA siempre visible
+  const logoBadgeColor = isScrolled ? "text-cta" : "text-cta";
   const iconColor =
     isMobileMenuOpen || isScrolled ? "text-foreground" : "text-white";
 
@@ -129,26 +142,22 @@ const Header = () => {
       className={cn(
         "fixed top-0 left-0 right-0 z-[9999] transition-all duration-300",
         isScrolled
-          ? "bg-white/90 backdrop-blur-md shadow-md py-2 border-b border-border" // Estilo al scrollear (semi-transparente blanco)
-          : "bg-transparent py-3 border-b border-white/10", // Estilo inicial (transparente)
-        isMobileMenuOpen && "bg-white shadow-md", // Asegura fondo blanco si menú móvil está abierto
+          ? "bg-white/90 backdrop-blur-md shadow-md py-2 border-b border-border"
+          : "bg-transparent py-3 border-b border-white/10",
+        isMobileMenuOpen && "bg-white shadow-md",
       )}
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
-          {/* Logo + Nombre + Badge profesional */}
           <a
             href="/"
             onClick={(e) => handleNavClick(e, "/")}
             className="flex items-center gap-3 group cursor-pointer"
           >
-            {/* Considera tener un logo alternativo blanco si el actual no contrasta bien */}
             <img
               src={logo}
               alt="Studio Pixelens - Páginas Web y Fotografía"
               className="h-16 md:h-20 w-auto transition-transform group-hover:scale-105"
-              // AÑADIDO: Filtro para invertir colores si el header es transparente (si el logo es oscuro)
-              // style={{ filter: !isScrolled && !isMobileMenuOpen ? 'brightness(0) invert(1)' : 'none' }}
             />
             <div className="hidden md:block">
               <div
@@ -176,20 +185,18 @@ const Header = () => {
             </div>
           </a>
 
-          {/* Desktop Navigation */}
           <nav className="hidden lg:flex items-center space-x-8">
             {navItems.map((item) =>
               item.dropdown ? (
                 <div
                   key={item.labelKey}
                   className="relative"
-                  onMouseEnter={() => setIsPortfolioDropdownOpen(true)}
-                  onMouseLeave={() => setIsPortfolioDropdownOpen(false)} // Cerrar al salir del div entero
+                  onMouseEnter={handleMouseEnterDropdown}
+                  onMouseLeave={handleMouseLeaveDropdown}
                 >
                   <button
                     className={cn(
                       "flex items-center gap-1 font-semibold transition-colors cursor-pointer",
-                      // Texto naranja si scrolleado, blanco si transparente
                       isScrolled
                         ? "text-orange-600 hover:text-orange-700"
                         : "text-white hover:text-gray-200",
@@ -201,7 +208,6 @@ const Header = () => {
                     />
                   </button>
 
-                  {/* Dropdown - Mantenido como estaba, asume que fondo blanco funciona bien */}
                   {isPortfolioDropdownOpen && (
                     <div className="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 bg-white rounded-xl shadow-2xl border-2 border-gray-100 p-3 z-[9999]">
                       <div className="flex gap-3">
@@ -263,8 +269,8 @@ const Header = () => {
                   onClick={(e) => handleNavClick(e, item.to)}
                   className={cn(
                     "font-medium transition-colors cursor-pointer",
-                    getTextColor(), // Color dinámico
-                    textHoverColor, // Hover dinámico
+                    getTextColor(),
+                    textHoverColor,
                   )}
                 >
                   {t(item.labelKey)}
@@ -273,11 +279,9 @@ const Header = () => {
             )}
           </nav>
 
-          {/* Desktop CTA + Banderas */}
           <div className="hidden lg:flex items-center space-x-8">
-            {/* Botón WhatsApp - Ajustado para versión transparente */}
             <Button
-              variant={isScrolled ? "cta" : "outline"} // Outline blanco si transparente
+              variant={isScrolled ? "cta" : "outline"}
               size="default"
               className={cn(
                 !isScrolled &&
@@ -296,7 +300,6 @@ const Header = () => {
               </a>
             </Button>
 
-            {/* Banderas */}
             <div
               className={cn(
                 "flex items-center gap-2 ml-auto pl-8",
@@ -310,7 +313,7 @@ const Header = () => {
                 className={`w-8 h-6 rounded overflow-hidden border-2 transition-all ${
                   i18n.language === "es"
                     ? (isScrolled ? "border-primary" : "border-white") +
-                      " scale-110" // Borde dinámico
+                      " scale-110"
                     : "border-transparent opacity-60 hover:opacity-100"
                 }`}
                 aria-label="Español"
@@ -326,7 +329,7 @@ const Header = () => {
                 className={`w-8 h-6 rounded overflow-hidden border-2 transition-all ${
                   i18n.language === "en"
                     ? (isScrolled ? "border-primary" : "border-white") +
-                      " scale-110" // Borde dinámico
+                      " scale-110"
                     : "border-transparent opacity-60 hover:opacity-100"
                 }`}
                 aria-label="English"
@@ -340,9 +343,7 @@ const Header = () => {
             </div>
           </div>
 
-          {/* Mobile Menu Button + Banderas Mobile */}
           <div className="flex items-center gap-3 lg:hidden">
-            {/* Banderas Mobile */}
             <div className="flex items-center gap-2">
               <button
                 onClick={() => changeLanguage("es")}
@@ -350,7 +351,7 @@ const Header = () => {
                   i18n.language === "es"
                     ? (isScrolled || isMobileMenuOpen
                         ? "border-primary"
-                        : "border-white") + " scale-110" // Borde dinámico
+                        : "border-white") + " scale-110"
                     : "border-transparent opacity-60"
                 }`}
                 aria-label="Español"
@@ -367,7 +368,7 @@ const Header = () => {
                   i18n.language === "en"
                     ? (isScrolled || isMobileMenuOpen
                         ? "border-primary"
-                        : "border-white") + " scale-110" // Borde dinámico
+                        : "border-white") + " scale-110"
                     : "border-transparent opacity-60"
                 }`}
                 aria-label="English"
@@ -381,7 +382,7 @@ const Header = () => {
             </div>
 
             <button
-              className={cn("p-2", iconColor)} // Color dinámico icono
+              className={cn("p-2", iconColor)}
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-label="Toggle menu"
             >
@@ -394,13 +395,9 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Mobile Menu - Se mantiene con fondo blanco */}
         {isMobileMenuOpen && (
           <div className="lg:hidden mt-4 pb-4 border-t border-border pt-4 animate-fade-in bg-white">
-            {" "}
-            {/* Asegura fondo blanco */}
             <nav className="flex flex-col space-y-3">
-              {/* Items del menú móvil - Usan text-foreground (oscuro) */}
               {navItems.map((item) =>
                 item.dropdown ? (
                   <div key={item.labelKey} className="flex flex-col">

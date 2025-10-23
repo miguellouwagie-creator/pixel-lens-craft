@@ -166,7 +166,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
             />
           </div>
 
-          {/* Información del Proyecto */}
+          {/* Información del Proyecto - ACTUALIZADO para fondo oscuro */}
           <div className="space-y-4 relative z-10">
             <div>
               <Badge
@@ -175,17 +175,17 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
               >
                 {project.category === "web" ? "Desarrollo Web" : "Fotografía"}
               </Badge>
-              <h3 className="text-2xl md:text-3xl font-bold text-foreground mb-2">
+              <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                 {project.title}
               </h3>
               {project.clientName && (
-                <p className="text-muted-foreground text-base">
+                <p className="text-gray-300 text-base">
                   Cliente: {project.clientName}
                 </p>
               )}
             </div>
 
-            <p className="text-base md:text-lg text-foreground/80 leading-relaxed">
+            <p className="text-base md:text-lg text-gray-200 leading-relaxed">
               {project.description}
             </p>
 
@@ -193,7 +193,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
               {project.tags.map((tag, index) => (
                 <span
                   key={index}
-                  className="px-2.5 py-1 bg-primary/10 text-primary rounded-full text-xs font-medium"
+                  className="px-2.5 py-1 bg-white/10 text-white rounded-full text-xs font-medium backdrop-blur-sm"
                 >
                   {tag}
                 </span>

@@ -3,7 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
 All colors MUST be HSL.
 */
 
@@ -198,4 +198,69 @@ All colors MUST be HSL.
   height: 100%;
   object-fit: cover;
   z-index: -1;
+}
+
+/* Horizontal Showcase Styles */
+.horizontal-showcase {
+  position: relative;
+  overflow-x: hidden;
+}
+
+.horizontal-showcase .flex {
+  will-change: transform;
+}
+
+.project-card {
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+}
+
+@media (max-width: 768px) {
+  .horizontal-showcase {
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .project-card {
+    scroll-snap-align: start;
+  }
+}
+
+/* Ocultar scrollbar pero mantener funcionalidad */
+.scrollbar-hide {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+
+/* Parallax Effect - Hero sticky que se oculta al pasar a otras secciones */
+#hero-section {
+  position: sticky;
+  top: 0;
+  height: 100vh;
+  z-index: 0;
+}
+
+/* Contenedor main con fondo sólido */
+main {
+  position: relative;
+  background-color: hsl(var(--background));
+}
+
+/* CRÍTICO: Todas las secciones después del Hero tienen fondo OPACO que tapa el video */
+main>*:not(#hero-section) {
+  position: relative;
+  z-index: 1;
+  background-color: hsl(var(--background));
+}
+
+/* Asegurar que SectionDivider y todas las demás secciones tengan fondo sólido */
+main section:not(#hero-section),
+main>div {
+  background-color: hsl(var(--background)) !important;
 }
