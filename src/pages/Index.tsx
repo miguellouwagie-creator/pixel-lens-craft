@@ -3,7 +3,7 @@ import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import SectionDivider from "@/components/SectionDivider";
 import HorizontalShowcase from "@/components/HorizontalShowcase";
-import PricingSection from "@/components/SimplePricingSection";
+import StickyScrollSection from "@/components/StickyScrollSection";
 import PhotoPricingSection from "@/components/PricingSection";
 import WhyUs from "@/components/WhyUs";
 import Testimonials from "@/components/Testimonials";
@@ -20,7 +20,7 @@ const Index = () => {
         <Hero />
         <SectionDivider />
         <HorizontalShowcase />
-        <PricingSection />
+        <StickyScrollSection />
         <PhotoPricingSection />
         <WhyUs />
         <Testimonials />

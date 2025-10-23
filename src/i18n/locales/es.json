@@ -391,6 +391,12 @@
   "simplePrice": {
     "title": "Tu Página Web Profesional",
     "subtitle": "Diseño moderno, rápido y optimizado para Google.",
+    "valueTitle": "Tu Plataforma de Crecimiento Digital",
+    "investmentLabel": "Inversión Inicial",
+    "priceFrom": "Desde 349€",
+    "ctaMainTitle": "DISEÑO ESTRATÉGICO",
+    "ctaSubtitle": "Solicitar Mi Presupuesto Único",
+    "badgeCRO": "Construido para Convertir (CRO)",
     "offer": {
       "title": "Página Web Profesional",
       "price": "Desde 349€",
@@ -428,6 +434,61 @@
     "portfolioButtonShort": "🌐 Ver Ejemplos",
     "portfolioDescription": "Mira ejemplos reales de nuestro trabajo",
     "vatIncluded": "IVA incluido"
+  },
+  "stickyScroll": {
+    "mainTitle": "El Proceso Exclusivo: De Plantilla a Máquina de Ventas",
+    "result1": {
+      "title": "Credibilidad de Nivel Enterprise",
+      "description": "Mejore su imagen de marca con un diseño que transmite confianza y destaca frente al 90% de su competencia, como lo hace un proyecto de alto valor."
+    },
+    "process1": {
+      "title": "Diseño Mobile-First y de Conversión",
+      "description": "Aseguramos una experiencia de usuario (UX) impecable que maximiza la captura de leads en cualquier dispositivo."
+    },
+    "result2": {
+      "title": "Su Mejor Vendedor, 24/7",
+      "description": "Su plataforma digital actúa como su representante comercial inagotable, captando leads e información sin intervención manual."
+    },
+    "process2": {
+      "title": "Estructura Esencial y Escalable",
+      "description": "Definición de la arquitectura web centrada en el crecimiento y la venta, no solo en la presencia."
+    },
+    "result3": {
+      "title": "Posicionamiento Estratégico Proactivo",
+      "description": "No solo aparecer, sino dominar las búsquedas para que su negocio sea la primera opción de los clientes cercanos y en su sector."
+    },
+    "process3": {
+      "title": "Sistema de Captura de Oportunidades (Leads)",
+      "description": "Reducción de la fricción para que el cliente potencial contacte de inmediato, facilitando la conversión."
+    },
+    "result4": {
+      "title": "El Poder del Show, Don't Tell",
+      "description": "Usamos fotografía de calidad para vender la experiencia y el valor de su servicio, logrando que el sitio sea más auténtico y fiable."
+    },
+    "process4": {
+      "title": "Optimización Técnica (Velocidad y Core Vitals)",
+      "description": "La base de un sitio de alto valor es ser rápido y optimizado para Google, asegurando que el sitio se construya para rendir desde el primer día."
+    },
+    "result5": {
+      "title": "Fricción Cero en la Conversión",
+      "description": "Reducimos los pasos innecesarios para que los usuarios encuentren la información y contacten inmediatamente, aumentando las tasas de éxito."
+    },
+    "process5": {
+      "title": "Activos Visuales Premium Exclusivos (Pixelens)",
+      "description": "Las fotografías de alta calidad y no genéricas son la clave para generar credibilidad instantánea y destacar frente a competidores que usan stock de baja calidad."
+    },
+    "result6": {
+      "title": "Control Total de Activos Digitales",
+      "description": "Usted posee y controla su marca y sus datos, sin depender de algoritmos ni plataformas que pueden cambiar las reglas en cualquier momento."
+    },
+    "process6": {
+      "title": "Total Control del CMS",
+      "description": "Reciba formación clara para gestionar su contenido a través de un sistema de gestión moderno (CMS), sin llamar a un desarrollador cada semana."
+    },
+    "process7": {
+      "title": "Seguridad y Soporte Continuo",
+      "description": "Mantenimiento proactivo para que su inversión se mantenga segura, actualizada y siempre funcionando correctamente."
+    }
   },
   "divider": {
     "title": "Tu negocio merece brillar online",
