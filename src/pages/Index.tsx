@@ -16,17 +16,42 @@ const Index = () => {
   return (
     <div className="min-h-screen">
       <Header />
-      <main>
-        <Hero />
+
+      <main className="relative">
+        {/* Hero Section - Sticky con efecto parallax */}
+        <section id="hero-section">
+          <Hero />
+        </section>
+
+        {/* Todas las secciones después del Hero tienen fondo sólido que oculta el video */}
         <SectionDivider />
+
         <HorizontalShowcase />
+
+        <SectionDivider />
+
+        {/* Sección de Proceso con Scroll-Spy */}
         <StickyScrollSection />
+
+        {/* Sección de Precio con Módulos de Valor */}
         <PhotoPricingSection />
+
+        <SectionDivider />
+
+        {/* Sección "Por Qué Elegirnos" con animaciones avanzadas */}
         <WhyUs />
+
+        <SectionDivider />
+
         <Testimonials />
+
+        <SectionDivider />
+
         <About />
+
         <FormSection />
       </main>
+
       <Footer />
       <WhatsAppButton />
     </div>

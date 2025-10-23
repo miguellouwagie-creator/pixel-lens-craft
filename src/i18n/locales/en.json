@@ -215,42 +215,42 @@
   },
   "whyUs": {
     "title": "Why Choose Us",
-    "subtitle": "Professionalism, proximity and commitment to every project",
+    "subtitle": "Professionalism, proximity and commitment to real results",
     "reason1": {
-      "title": "Licensed Professionals",
-      "description": "University degree in business management and international marketing"
+      "title": "Strategy-Driven Design",
+      "description": "Our team with training in marketing and business administration delivers a digital asset that solves business problems, not just aesthetic design."
     },
     "reason2": {
-      "title": "100% Local",
-      "description": "We know the Dénia and Marina Alta market. Close and personalized service"
+      "title": "100% Local, Direct Service",
+      "description": "We know the Dénia and Marina Alta market. Close, personalized treatment without intermediaries."
     },
     "reason3": {
-      "title": "Quality Guarantee",
-      "description": "All our editions are verified and 100% real"
+      "title": "Instant Visual Credibility",
+      "description": "We combine Professional Web and Photography with high-quality images (not generic) so your website is authentic, reliable and generates immediate trust."
     },
     "reason4": {
-      "title": "Fast Delivery 24-48h",
-      "description": "Your edited photos ready in 24-48 hours. Fast and reliable turnaround for your photo editing."
+      "title": "Guaranteed Delivery Times",
+      "description": "Photos edited in 24-48h so your project moves forward without delays. Speed without sacrificing professional quality."
     },
     "reason5": {
-      "title": "No Refunds",
-      "description": "Clear policy: Free re-edits instead of refunds"
+      "title": "Total Satisfaction Guarantee",
+      "description": "Your investment is protected. We re-edit FREE (up to 3 times) until you are 100% satisfied. No risk, no fine print."
     },
     "reason6": {
-      "title": "Continuous Support",
-      "description": "Web + Photography in one place. We support you after launch"
+      "title": "Post-Launch Strategic Support",
+      "description": "We don't just deliver the website, we provide proactive maintenance so your investment stays secure, updated and running perfectly."
     },
     "bestPrice": {
       "title": "Best Quality-Price",
       "description": "Professional services at fair and transparent prices. No hidden costs or surprises."
     },
     "noRefunds": {
-      "title": "Free Re-editing",
+      "title": "We Re-edit for Free",
       "description": "We don't give refunds, but we re-edit FREE up to 3 times until you're 100% satisfied."
     },
     "badges": {
-      "certified": "Certified",
-      "topPrice": "Best Price"
+      "certified": "Guaranteed",
+      "topPrice": "Top Price"
     }
   },
   "portfolio": {
