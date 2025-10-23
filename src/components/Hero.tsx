@@ -3,8 +3,7 @@ import React from "react";
 import { Button } from "@/components/ui/button";
 import { CheckCircle2, MessageCircle, Award } from "lucide-react";
 import { useTranslation } from "react-i18next";
-// IMPORTANTE: Importa tu video
-import heroVideo from "@/assets/Fondo Vid optimizado.mp4"; // Asegúrate que la ruta relativa desde Hero.tsx sea correcta
+import heroVideo from "@/assets/Fondo Vid.mp4";
 
 const Hero = () => {
   const { t } = useTranslation();
@@ -14,28 +13,22 @@ const Hero = () => {
   return (
     <section
       id="hero-section"
-      className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-28" // Asegura altura y oculta desbordamiento
+      className="relative min-h-screen flex items-center overflow-hidden pt-24 md:pt-28"
     >
-      {/* Elemento Video añadido */}
       <video
         autoPlay
         loop
         muted
-        playsInline // Importante para reproducción en móviles
-        className="hero-video-background" // Clase definida en index.css
-        // MODIFICADO: Usa la variable importada del video
+        playsInline
+        className="hero-video-background"
         src={heroVideo}
       >
-        {/* Considera añadir fuentes alternativas si tienes formatos como .webm */}
-        {/* <source src="/path/to/your-video.webm" type="video/webm" /> */}
         Tu navegador no soporta el tag de video.
       </video>
 
-      {/* Overlay Oscuro */}
       <div
         className="absolute inset-0"
         style={{
-          // Overlay más oscuro y consistente
           background:
             "linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 70%)",
         }}
@@ -44,7 +37,6 @@ const Hero = () => {
       <div className="container mx-auto px-4 relative z-10 py-0">
         <div className="max-w-xl lg:max-w-2xl">
           <div className="text-white animate-fade-in-up">
-            {/* Contenido se mantiene igual */}
             <h1
               className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
               style={{
