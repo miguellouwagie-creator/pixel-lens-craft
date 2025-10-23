@@ -3,13 +3,9 @@ import { initReactI18next } from "react-i18next";
 import es from "./locales/es.json";
 import en from "./locales/en.json";
 
-// Función segura para leer localStorage
+// Función que siempre retorna Español como idioma inicial
 const getStoredLanguage = () => {
-  try {
-    return localStorage.getItem("language") || "es";
-  } catch {
-    return "es";
-  }
+  return "es";
 };
 
 i18n.use(initReactI18next).init({
