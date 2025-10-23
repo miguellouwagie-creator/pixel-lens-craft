@@ -1,3 +1,7 @@
+import gymdenia from "@/assets/showcase/gymdenia.jpg";
+import bvs from "@/assets/showcase/bvs.jpg";
+import tropidenia from "@/assets/showcase/tropidenia.jpg";
+
 export interface Project {
   id: number;
   title: string;
@@ -15,7 +19,7 @@ export const showcaseProjects: Project[] = [
     category: "web",
     description:
       "Web que multiplica consultas y captación de socios. Formularios optimizados que convierten visitantes en clientes potenciales cada día.",
-    imageUrl: "/src/assets/showcase/gymdenia.jpg",
+    imageUrl: gymdenia,
     tags: ["Diseño Web", "Formularios", "Responsive"],
     clientName: "GymDenia",
   },
@@ -25,7 +29,7 @@ export const showcaseProjects: Project[] = [
     category: "web",
     description:
       "Presencia digital que transmite confianza al instante. Transformamos su imagen online para reflejar su liderazgo en el sector.",
-    imageUrl: "/src/assets/showcase/bvs.jpg",
+    imageUrl: bvs,
     tags: ["Corporativo", "WordPress", "SEO"],
     clientName: "BVS",
   },
@@ -35,7 +39,7 @@ export const showcaseProjects: Project[] = [
     category: "web",
     description:
       "Sistema de reservas que generó +40% más ingresos. Eliminamos intermediarios y comisiones para control total del negocio.",
-    imageUrl: "/src/assets/showcase/tropidenia.jpg",
+    imageUrl: tropidenia,
     tags: ["UI/UX", "React", "Reservas"],
     clientName: "TropiDenia",
   },
