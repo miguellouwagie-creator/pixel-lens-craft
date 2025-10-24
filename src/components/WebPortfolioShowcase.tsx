@@ -1,50 +1,27 @@
 // src/components/WebPortfolioShowcase.tsx
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useTranslation } from "react-i18next";
 import { Star } from "lucide-react";
 import tropidenia from "@/assets/portfolio-tropidenia.png";
 import bvs from "@/assets/portfolio-bvs.png";
 import gymdenia from "@/assets/portfolio-gymdenia.png";
+import gsap from "gsap";
+import ScrollTrigger from "gsap/ScrollTrigger";
+
+// Registrar plugin GSAP
+if (typeof window !== "undefined") {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
 const WebPortfolioShowcase = () => {
   const { t } = useTranslation();
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
+  const titleRef = useRef<HTMLHeadingElement>(null);
+  const subtitleRef = useRef<HTMLParagraphElement>(null);
 
   const projects = [
     {
       id: 1,
-      client: "BVS",
-      imageSrc: bvs,
-      titleKey: "portfolioShowcase.bvs.title",
-      taglineKey: "portfolioShowcase.bvs.tagline",
-      descriptionKey: "portfolioShowcase.bvs.description",
-      tagsKeys: [
-        "portfolioShowcase.bvs.tag1",
-        "portfolioShowcase.bvs.tag2",
-        "portfolioShowcase.bvs.tag3",
-      ],
-      imageLeft: true,
-      fullWidth: false,
-      gradient: "from-purple-500/20 via-blue-500/20 to-cyan-500/20",
-    },
-    {
-      id: 2,
-      client: "GymDenia",
-      imageSrc: gymdenia,
-      titleKey: "portfolioShowcase.gymdenia.title",
-      taglineKey: "portfolioShowcase.gymdenia.tagline",
-      descriptionKey: "portfolioShowcase.gymdenia.description",
-      tagsKeys: [
-        "portfolioShowcase.gymdenia.tag1",
-        "portfolioShowcase.gymdenia.tag2",
-        "portfolioShowcase.gymdenia.tag3",
-      ],
-      imageLeft: false,
-      fullWidth: false,
-      gradient: "from-cyan-500/20 via-blue-500/20 to-purple-500/20",
-    },
-    {
-      id: 3,
       client: "TropiDenia",
       imageSrc: tropidenia,
       titleKey: "portfolioShowcase.tropidenia.title",
@@ -59,7 +36,85 @@ const WebPortfolioShowcase = () => {
       fullWidth: true,
       gradient: "from-blue-500/20 via-cyan-500/20 to-blue-600/20",
     },
+    {
+      id: 2,
+      client: "BVS",
+      imageSrc: bvs,
+      titleKey: "portfolioShowcase.bvs.title",
+      taglineKey: "portfolioShowcase.bvs.tagline",
+      descriptionKey: "portfolioShowcase.bvs.description",
+      tagsKeys: [
+        "portfolioShowcase.bvs.tag1",
+        "portfolioShowcase.bvs.tag2",
+        "portfolioShowcase.bvs.tag3",
+      ],
+      imageLeft: false,
+      fullWidth: false,
+      gradient: "from-purple-500/20 via-blue-500/20 to-cyan-500/20",
+    },
+    {
+      id: 3,
+      client: "GymDenia",
+      imageSrc: gymdenia,
+      titleKey: "portfolioShowcase.gymdenia.title",
+      taglineKey: "portfolioShowcase.gymdenia.tagline",
+      descriptionKey: "portfolioShowcase.gymdenia.description",
+      tagsKeys: [
+        "portfolioShowcase.gymdenia.tag1",
+        "portfolioShowcase.gymdenia.tag2",
+        "portfolioShowcase.gymdenia.tag3",
+      ],
+      imageLeft: true,
+      fullWidth: false,
+      gradient: "from-cyan-500/20 via-blue-500/20 to-purple-500/20",
+    },
   ];
+
+  // Animación GSAP para título y subtítulo
+  useEffect(() => {
+    if (titleRef.current && subtitleRef.current) {
+      gsap.fromTo(
+        titleRef.current,
+        {
+          opacity: 0,
+          y: 50,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 80%",
+            end: "top 50%",
+            toggleActions: "play none none none",
+          },
+        },
+      );
+
+      gsap.fromTo(
+        subtitleRef.current,
+        {
+          opacity: 0,
+          y: 30,
+        },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1,
+          delay: 0.3,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: subtitleRef.current,
+            start: "top 80%",
+            end: "top 50%",
+            toggleActions: "play none none none",
+          },
+        },
+      );
+    }
+  }, []);
 
   return (
     <div className="relative py-24 overflow-hidden bg-gradient-to-b from-[hsl(222,47%,11%)] via-primary to-[hsl(222,47%,11%)]">
@@ -77,21 +132,33 @@ const WebPortfolioShowcase = () => {
 
       {/* Contenido */}
       <div className="relative z-10">
-        {/* Header Section */}
+        {/* Header Section - REDISEÑADO CON NEXT-LEVEL STYLING */}
         <div className="container mx-auto px-4 mb-24">
-          <div className="text-center max-w-4xl mx-auto">
-            <h2 className="text-5xl md:text-7xl font-bold text-white mb-6 tracking-tight">
-              {t("portfolioShowcase.header.title")}
+          <div className="text-center max-w-5xl mx-auto">
+            {/* Título Principal con palabra clave destacada */}
+            <h2
+              ref={titleRef}
+              className="text-6xl md:text-8xl font-black text-white mb-8 tracking-tight leading-tight"
+            >
+              {t("portfolioShowcase.header.mainTitle")}{" "}
+              <span className="bg-gradient-to-r from-orange-500 via-orange-600 to-red-600 bg-clip-text text-transparent">
+                {t("portfolioShowcase.header.highlightWord")}
+              </span>
             </h2>
-            <p className="text-xl md:text-2xl text-blue-200 leading-relaxed max-w-3xl mx-auto">
+
+            {/* Subtítulo estratégico */}
+            <p
+              ref={subtitleRef}
+              className="text-xl md:text-2xl text-blue-200 leading-relaxed max-w-4xl mx-auto font-medium"
+            >
               {t("portfolioShowcase.header.subtitle")}
             </p>
 
             {/* Línea decorativa */}
             <div className="flex items-center justify-center gap-3 mt-12">
-              <div className="h-px w-12 bg-gradient-to-r from-transparent to-primary"></div>
-              <Star className="h-5 w-5 text-primary fill-primary" />
-              <div className="h-px w-12 bg-gradient-to-l from-transparent to-primary"></div>
+              <div className="h-px w-12 bg-gradient-to-r from-transparent to-orange-500"></div>
+              <Star className="h-5 w-5 text-orange-500 fill-orange-500" />
+              <div className="h-px w-12 bg-gradient-to-l from-transparent to-orange-500"></div>
             </div>
           </div>
         </div>
@@ -124,9 +191,9 @@ const WebPortfolioShowcase = () => {
                         : "opacity-0"
                     }`}
                   >
-                    <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-cta/25 rounded-full blur-3xl"></div>
-                    <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-cta/20 rounded-full blur-3xl"></div>
-                    <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-accent/15 rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/4 left-1/4 w-48 h-48 bg-orange-500/25 rounded-full blur-3xl"></div>
+                    <div className="absolute bottom-1/4 right-1/4 w-56 h-56 bg-orange-500/20 rounded-full blur-3xl"></div>
+                    <div className="absolute top-1/2 right-1/3 w-40 h-40 bg-orange-600/15 rounded-full blur-3xl"></div>
                   </div>
 
                   <div
@@ -137,7 +204,7 @@ const WebPortfolioShowcase = () => {
                     className={`relative ${!project.fullWidth ? "lg:w-4/5" : "w-full"}`}
                   >
                     <div
-                      className={`absolute -inset-6 bg-gradient-to-br from-cta/40 via-cta/30 to-accent/40 rounded-3xl blur-3xl transition-opacity duration-500 ${
+                      className={`absolute -inset-6 bg-gradient-to-br from-orange-500/40 via-orange-600/30 to-red-600/40 rounded-3xl blur-3xl transition-opacity duration-500 ${
                         hoveredProject === project.id
                           ? "opacity-100"
                           : "opacity-0"
@@ -156,19 +223,20 @@ const WebPortfolioShowcase = () => {
                   </div>
                 </div>
 
-                {/* Content Section */}
+                {/* Content Section - TEXTO ALINEADO A LA IZQUIERDA */}
                 <div
                   className={`flex items-center ${project.imageLeft ? "lg:order-2" : "lg:order-1"}`}
                 >
-                  <div className="space-y-6">
+                  <div className="space-y-6 text-left">
                     <div className="space-y-4">
                       <h3 className="text-4xl md:text-5xl font-bold text-white leading-tight tracking-tight">
                         {t(project.titleKey)}
                       </h3>
-                      <p className="text-2xl text-blue-300 font-semibold">
+                      <p className="text-2xl text-orange-400 font-semibold">
                         {t(project.taglineKey)}
                       </p>
-                      <p className="text-lg text-blue-200 leading-relaxed">
+                      {/* Descripción alineada a la izquierda para legibilidad */}
+                      <p className="text-lg text-blue-200 leading-relaxed text-left">
                         {t(project.descriptionKey)}
                       </p>
                     </div>
@@ -177,7 +245,7 @@ const WebPortfolioShowcase = () => {
                       {project.tagsKeys.map((tagKey, idx) => (
                         <span
                           key={tagKey}
-                          className="px-5 py-2.5 bg-primary/20 border border-primary/30 rounded-lg text-blue-200 text-sm font-medium hover:bg-primary/30 hover:border-primary/60 transition-all duration-300"
+                          className="px-5 py-2.5 bg-primary/20 border border-primary/30 rounded-lg text-blue-200 text-sm font-medium hover:bg-orange-500/20 hover:border-orange-500/60 transition-all duration-300"
                           style={{
                             animation: `fadeIn 0.5s ease-out ${0.1 * idx}s both`,
                           }}

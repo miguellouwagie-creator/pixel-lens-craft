@@ -153,7 +153,7 @@
     "portfolioButton": "📸 VIEW PHOTOGRAPHY PORTFOLIO",
     "portfolioButtonShort": "📸 View Portfolio",
     "portfolioDescription": "✨ See real examples of our photography work",
-    "from": "From 349€",
+    "from": "From €349",
     "vatIncluded": "VAT included",
     "competitivePrice": "Most competitive market price",
     "fullMessage": "VAT included | Most competitive market price"
@@ -208,45 +208,37 @@
       "photos": "50 photos",
       "feature1": "24-48h delivery",
       "cta": "Contact",
-      "whatsappMessage": "Hello, I'm interested in the Professional Pack (50 photos - 60€)"
+      "whatsappMessage": "Hello, I'm interested in the Professional Pack (50 photos - €89.99)"
     },
     "trialMessage": "Not sure? We can create a free sample to show you how we work",
     "vatIncluded": "VAT included"
   },
   "whyUs": {
-    "title": "Why Choose Us",
-    "subtitle": "Professionalism, proximity and commitment to real results",
+    "title": "Your Website as a Business Asset",
+    "subtitle": "Strategic design and professional photography that deliver real results.",
     "reason1": {
       "title": "Strategy-Driven Design",
-      "description": "Our team with training in marketing and business administration delivers a digital asset that solves business problems, not just aesthetic design."
+      "description": "Licensed Designers and Marketers. <strong>Built to convert (CRO)</strong>. We deliver a <strong>strategic digital asset</strong>, not just a pretty website."
     },
     "reason2": {
-      "title": "100% Local, Direct Service",
-      "description": "We know the Dénia and Marina Alta market. Close, personalized treatment without intermediaries."
+      "title": "100% Local Service",
+      "description": "<strong>Direct service</strong>, no intermediaries. We know your market <strong>(Dénia & Marina Alta)</strong>. Real proximity and commitment."
     },
     "reason3": {
       "title": "Instant Visual Credibility",
-      "description": "We combine Professional Web and Photography with high-quality images (not generic) so your website is authentic, reliable and generates immediate trust."
+      "description": "Professional Photography Included. <strong>Authentic images (not generic stock)</strong> that build <strong>trust immediately</strong>. Your brand will look professional instantly."
     },
     "reason4": {
       "title": "Guaranteed Delivery Times",
-      "description": "Photos edited in 24-48h so your project moves forward without delays. Speed without sacrificing professional quality."
+      "description": "<strong>Guaranteed Speed</strong>. Photo editing and project tracking in <strong>24-48 hours</strong>. On-time delivery without sacrificing quality."
     },
     "reason5": {
       "title": "Total Satisfaction Guarantee",
-      "description": "Your investment is protected. We re-edit FREE (up to 3 times) until you are 100% satisfied. No risk, no fine print."
+      "description": "<strong>Protected Investment</strong>. 100% Satisfaction Guarantee. <strong>FREE re-edits (up to 3 times)</strong> so you love the result."
     },
     "reason6": {
-      "title": "Post-Launch Strategic Support",
-      "description": "We don't just deliver the website, we provide proactive maintenance so your investment stays secure, updated and running perfectly."
-    },
-    "bestPrice": {
-      "title": "Best Quality-Price",
-      "description": "Professional services at fair and transparent prices. No hidden costs or surprises."
-    },
-    "noRefunds": {
-      "title": "We Re-edit for Free",
-      "description": "We don't give refunds, but we re-edit FREE up to 3 times until you're 100% satisfied."
+      "title": "Post-Launch Support",
+      "description": "<strong>Proactive Support</strong> Post-Launch. Continuous strategic maintenance. Your website <strong>always secure, updated and running</strong> perfectly."
     },
     "badges": {
       "certified": "Guaranteed",
@@ -258,6 +250,76 @@
     "subtitle": "Experience in multiple industries with real results",
     "footerText": "Your industry not listed? We work with any type of business",
     "footerCta": "Tell Us About Your Project"
+  },
+  "stickyScroll": {
+    "mainTitle": "Your Website as",
+    "mainTitleHighlight": "Business Asset",
+    "result1": {
+      "title": "CRO-Based Strategic Design",
+      "description": "We don't design for aesthetics. Every visual element is optimized to maximize conversions through CRO (Conversion Rate Optimization) techniques backed by user psychology."
+    },
+    "result2": {
+      "title": "Premium User Experience",
+      "description": "Smooth animations, fluid transitions and micro-interactions that elevate perceived value. Your website will feel like a $5,000+ product, not a generic template."
+    },
+    "result3": {
+      "title": "Content Strategy Included",
+      "description": "Persuasive copy, clear visual hierarchy and strategically placed calls-to-action. Every word works to sell your value proposition."
+    },
+    "process1": {
+      "title": "Analysis and Strategy",
+      "description": "We study your market, competition and target audience to create a winning digital strategy from the start."
+    },
+    "process3": {
+      "title": "Post-Launch Tracking",
+      "description": "We don't abandon you after launch. We monitor performance and continuously optimize to improve results."
+    },
+    "priceTitle": "Your Platform for",
+    "priceTitleHighlight": "Digital Growth",
+    "croBadge": "✨ Built to Convert (CRO)",
+    "initialInvestment": "Initial Investment",
+    "priceAmount": "From €349",
+    "priceDisclaimer": "This is the cost of our Basic Plan. Request a quote for our strategic design services with advanced CRO and smooth animations.",
+    "strategicDesign": "Strategic Design",
+    "ctaButton": "Request My Custom Quote",
+    "whatsappMessage": "Hello, I want to request a custom quote for a professional website with strategic design",
+    "feature1": "Built to Convert (CRO)",
+    "feature2": "Smooth Animations (Next-Level Design)",
+    "feature3": "Content Strategy Included",
+    "maintenanceTitle": "Proactive Maintenance: Avoid Hidden Costs",
+    "maintenanceDescription": "After creating your website, we offer a monthly maintenance service to keep it secure, updated and running perfectly. You'll never have to call an emergency developer. Cost varies based on your needs (updates, support, backups). Ask us without obligation!",
+    "legalDisclaimer": "All prices include VAT. Domain and hosting managed separately."
+  },
+  "portfolioShowcase": {
+    "header": {
+      "mainTitle": "Real Results:",
+      "highlightWord": "Websites Built to Convert",
+      "subtitle": "Strategic designs with CRO and visual credibility that transform visitors into clients"
+    },
+    "tropidenia": {
+      "title": "TropiDenia",
+      "tagline": "Booking system that generated +40% more revenue",
+      "description": "We eliminated intermediaries and commissions. Result: direct bookings, full business control and maximum profitability from day one.",
+      "tag1": "UI/UX",
+      "tag2": "React",
+      "tag3": "Bookings"
+    },
+    "bvs": {
+      "title": "BVS Vertical Works",
+      "tagline": "Digital presence that instantly conveys trust",
+      "description": "We transformed their online image to reflect their leadership. More qualified leads, bigger projects, more authority in the sector.",
+      "tag1": "Corporate",
+      "tag2": "WordPress",
+      "tag3": "SEO"
+    },
+    "gymdenia": {
+      "title": "GymDenia",
+      "tagline": "Website that multiplies inquiries and member acquisition",
+      "description": "From going unnoticed to becoming the local fitness reference. Optimized forms that convert visitors into potential clients every day.",
+      "tag1": "Web Design",
+      "tag2": "Forms",
+      "tag3": "Responsive"
+    }
   },
   "portfolioGallery": {
     "title": "Our Photography Portfolio",
@@ -386,7 +448,7 @@
     "subtitle": "Modern design, fast and optimized for Google.",
     "offer": {
       "title": "Professional Website",
-      "price": "From 349€",
+      "price": "From €349",
       "description": "VAT included | Most competitive market price",
       "includes": "What's included?",
       "feature1": "100% mobile and tablet responsive design",
@@ -400,7 +462,7 @@
       "maintenanceTitle": "Monthly maintenance:",
       "maintenanceText": "After creating your website, we offer a monthly maintenance service to keep it secure, updated and running perfectly. Monthly cost varies based on your needs (updates, support, backups). Ask us without obligation!",
       "cta": "Request Quote",
-      "whatsappMessage": "Hello, I'm interested in the Professional Website from 399€. Can you give me more information?"
+      "whatsappMessage": "Hello, I'm interested in the Professional Website from €349. Can you give me more information?"
     },
     "benefits": {
       "title": "Why you need a website?",
@@ -424,36 +486,5 @@
   "divider": {
     "title": "Your business deserves to shine online",
     "subtitle": "We capture your business essence and transform it into a digital presence that attracts customers"
-  },
-  "portfolioShowcase": {
-    "header": {
-      "title": "Featured Projects",
-      "subtitle": "Designs that turn visitors into customers. Every project is a success story that drives real businesses.",
-      "hoverText": "View project"
-    },
-    "tropidenia": {
-      "title": "TropiDenia",
-      "tagline": "Booking system that generated +40% more revenue",
-      "description": "We eliminated intermediaries and commissions. Result: direct bookings, full business control and maximum profitability from day one.",
-      "tag1": "UI/UX",
-      "tag2": "React",
-      "tag3": "Bookings"
-    },
-    "bvs": {
-      "title": "BVS Vertical Works",
-      "tagline": "Digital presence that instantly conveys trust",
-      "description": "We transformed their online image to reflect their leadership. More qualified leads, bigger projects, more authority in the sector.",
-      "tag1": "Corporate",
-      "tag2": "Wordpress",
-      "tag3": "SEO"
-    },
-    "gymdenia": {
-      "title": "GymDenia",
-      "tagline": "Website that multiplies inquiries and member acquisition",
-      "description": "From going unnoticed to becoming the local fitness reference. Optimised forms that convert visitors into potential clients every day.",
-      "tag1": "Web Design",
-      "tag2": "Forms",
-      "tag3": "Responsive"
-    }
   }
 }

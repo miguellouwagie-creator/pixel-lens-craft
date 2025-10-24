@@ -14,8 +14,60 @@ const WhyUs = () => {
   const { t } = useTranslation();
   const sectionRef = useRef<HTMLDivElement>(null);
   const [isVisible, setIsVisible] = useState(false);
+  const [headerOpacity, setHeaderOpacity] = useState(1);
 
-  // Intersection Observer para scroll-triggered animation
+  const reasons = [
+    {
+      key: "reason1",
+      icon: Award,
+      badge: "certified",
+      borderColor: "border-emerald-200",
+      iconBg: "bg-emerald-50",
+      iconColor: "text-emerald-600",
+    },
+    {
+      key: "reason3",
+      icon: Camera,
+      badge: "topPrice",
+      borderColor: "border-purple-200",
+      iconBg: "bg-purple-50",
+      iconColor: "text-purple-600",
+    },
+    {
+      key: "reason2",
+      icon: MapPin,
+      badge: null,
+      borderColor: "border-blue-200",
+      iconBg: "bg-blue-50",
+      iconColor: "text-blue-600",
+    },
+    {
+      key: "reason5",
+      icon: CheckCircle,
+      badge: null,
+      borderColor: "border-emerald-200",
+      iconBg: "bg-emerald-50",
+      iconColor: "text-emerald-600",
+    },
+    {
+      key: "reason4",
+      icon: Clock,
+      badge: null,
+      borderColor: "border-orange-200",
+      iconBg: "bg-orange-50",
+      iconColor: "text-orange-600",
+    },
+    {
+      key: "reason6",
+      icon: Headphones,
+      badge: null,
+      borderColor: "border-indigo-200",
+      iconBg: "bg-indigo-50",
+      iconColor: "text-indigo-600",
+    },
+  ];
+
+  // Intersection Observer para animaciones de entrada
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
@@ -37,145 +89,136 @@ const WhyUs = () => {
     };
   }, []);
 
-  const reasons = [
-    {
-      key: "reason1",
-      icon: Award,
-      badge: "certified",
-      color: "from-emerald-500 to-teal-500",
-      bgColor: "bg-emerald-50",
-      borderColor: "border-emerald-200 hover:border-emerald-400",
-      iconBg: "bg-emerald-100",
-      iconColor: "text-emerald-700",
-    },
-    {
-      key: "reason2",
-      icon: MapPin,
-      badge: null,
-      color: "from-blue-500 to-cyan-500",
-      bgColor: "bg-blue-50",
-      borderColor: "border-blue-200 hover:border-blue-400",
-      iconBg: "bg-blue-100",
-      iconColor: "text-blue-700",
-    },
-    {
-      key: "reason3",
-      icon: Camera,
-      badge: "topPrice",
-      color: "from-purple-500 to-pink-500",
-      bgColor: "bg-purple-50",
-      borderColor: "border-purple-200 hover:border-purple-400",
-      iconBg: "bg-purple-100",
-      iconColor: "text-purple-700",
-    },
-    {
-      key: "reason4",
-      icon: Clock,
-      badge: null,
-      color: "from-orange-500 to-red-500",
-      bgColor: "bg-orange-50",
-      borderColor: "border-orange-200 hover:border-orange-400",
-      iconBg: "bg-orange-100",
-      iconColor: "text-orange-700",
-    },
-    {
-      key: "reason5",
-      icon: CheckCircle,
-      badge: null,
-      color: "from-green-500 to-emerald-500",
-      bgColor: "bg-green-50",
-      borderColor: "border-green-200 hover:border-green-400",
-      iconBg: "bg-green-100",
-      iconColor: "text-green-700",
-    },
-    {
-      key: "reason6",
-      icon: Headphones,
-      badge: null,
-      color: "from-indigo-500 to-blue-500",
-      bgColor: "bg-indigo-50",
-      borderColor: "border-indigo-200 hover:border-indigo-400",
-      iconBg: "bg-indigo-100",
-      iconColor: "text-indigo-700",
-    },
-  ];
+  // Scroll observer para backdrop blur dinámico en header sticky
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!sectionRef.current) return;
+
+      const rect = sectionRef.current.getBoundingClientRect();
+      const scrollProgress = Math.abs(rect.top) / (rect.height * 0.3);
+      const newOpacity = Math.max(0.85, 1 - scrollProgress * 0.15);
+
+      setHeaderOpacity(newOpacity);
+    };
+
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
     <section
       ref={sectionRef}
       id="sobre-mi"
-      className="py-20 bg-gradient-to-b from-white to-gray-50"
+      className="relative bg-gray-50 pb-20"
     >
-      <div className="container mx-auto px-4">
-        {/* Header con fade-in */}
-        <div
-          className={`text-center mb-16 transition-all duration-700 ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
-        >
-          <h2 className="text-4xl md:text-5xl font-black text-gray-900 mb-4">
+      {/* STICKY HEADER con backdrop blur */}
+      <div
+        className="sticky top-0 z-20 bg-white/90 backdrop-blur-lg border-b border-gray-200/50 py-16 transition-all duration-300"
+        style={{
+          opacity: headerOpacity,
+        }}
+      >
+        <div className="container mx-auto px-4 text-center">
+          {/* Título prominente - el más grande de la sección */}
+          <h2 className="text-3xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight max-w-5xl mx-auto">
             {t("whyUs.title")}
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+
+          {/* Subtítulo que refuerza el valor */}
+          <p className="text-lg md:text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
             {t("whyUs.subtitle")}
           </p>
         </div>
+      </div>
 
-        {/* Grid de cards con stagger animation */}
+      {/* GRID con animaciones y parallax sutil */}
+      <div className="container mx-auto px-4 pt-12">
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto">
           {reasons.map((reason, index) => {
             const Icon = reason.icon;
+
             return (
               <div
                 key={reason.key}
-                className={`group relative transition-all duration-700 ${
+                className={`group relative transition-all duration-700 ease-out ${
                   isVisible
                     ? "opacity-100 translate-y-0"
-                    : "opacity-0 translate-y-8"
+                    : "opacity-0 translate-y-12"
                 }`}
-                style={{ transitionDelay: `${index * 100}ms` }}
+                style={{
+                  transitionDelay: `${index * 100}ms`,
+                  // Parallax sutil en hover
+                  transform: isVisible ? "translateY(0)" : "translateY(50px)",
+                }}
               >
-                {/* Card con efecto de onda al hover */}
+                {/* Card blanca con radius generoso (40px) */}
                 <div
-                  className={`relative bg-white rounded-2xl p-8 border-2 ${reason.borderColor} transition-all duration-500 hover:scale-105 hover:shadow-2xl cursor-pointer overflow-hidden`}
+                  className={`relative bg-white rounded-[40px] p-8 border-2 ${reason.borderColor} shadow-lg
+                  h-full flex flex-col
+                  transition-all duration-500 ease-out hover:scale-[1.03] hover:shadow-2xl cursor-pointer overflow-hidden`}
                 >
-                  {/* Efecto de onda (wave) al hover */}
-                  <span
-                    className={`absolute inset-0 bg-gradient-to-br ${reason.color} opacity-0 group-hover:opacity-10 transition-opacity duration-500`}
-                  ></span>
-                  <span
-                    className={`absolute inset-0 rounded-2xl bg-gradient-radial from-transparent to-transparent group-hover:from-${reason.iconColor}/5 scale-0 group-hover:scale-100 transition-transform duration-700 ease-out`}
-                  ></span>
-
-                  {/* Badge opcional */}
+                  {/* Badge */}
                   {reason.badge && (
-                    <div className="absolute top-4 right-4 bg-emerald-100 text-emerald-700 px-3 py-1 rounded-full text-xs font-bold">
+                    <div className="absolute top-4 right-4 bg-emerald-500 text-white px-3 py-2 rounded-full text-xs font-bold shadow-md z-10">
                       ✓ {t(`whyUs.badges.${reason.badge}`)}
                     </div>
                   )}
 
-                  {/* Icono grande con fondo circular */}
-                  <div className="relative z-10 mb-6">
+                  {/* Icono con efecto parallax en hover */}
+                  <div className="relative z-10 mb-5 flex-shrink-0 transition-transform duration-500 group-hover:scale-110 group-hover:-translate-y-2">
                     <div
-                      className={`w-16 h-16 ${reason.iconBg} rounded-full flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:rotate-6`}
+                      className={`w-16 h-16 ${reason.iconBg} rounded-full flex items-center justify-center shadow-md`}
                     >
                       <Icon className={`w-8 h-8 ${reason.iconColor}`} />
                     </div>
                   </div>
 
-                  {/* Título */}
-                  <h3 className="relative z-10 text-2xl font-bold text-gray-900 mb-4 group-hover:text-gray-800 transition-colors">
+                  {/* Título con animación de color */}
+                  <h3
+                    className={`relative z-10 text-xl md:text-2xl font-black text-gray-900 mb-4 leading-tight flex-shrink-0
+                    transition-colors duration-300 group-hover:text-emerald-600`}
+                  >
                     {t(`whyUs.${reason.key}.title`)}
                   </h3>
 
-                  {/* Descripción */}
-                  <p className="relative z-10 text-base text-gray-700 leading-relaxed">
-                    {t(`whyUs.${reason.key}.description`)}
-                  </p>
+                  {/* Descripción ALINEADA A LA IZQUIERDA con negritas estratégicas */}
+                  <div
+                    className={`relative z-10 text-sm md:text-base text-gray-700 leading-relaxed text-left flex-grow
+                    [&>strong]:font-bold [&>strong]:text-gray-900`}
+                    dangerouslySetInnerHTML={{
+                      __html: t(`whyUs.${reason.key}.description`),
+                    }}
+                  />
+
+                  {/* Gradient accent bottom */}
+                  <div
+                    className={`absolute bottom-0 left-0 right-0 h-1.5 bg-gradient-to-r ${reason.iconColor === "text-emerald-600" ? "from-emerald-400 to-teal-400" : reason.iconColor === "text-purple-600" ? "from-purple-400 to-pink-400" : reason.iconColor === "text-blue-600" ? "from-blue-400 to-cyan-400" : reason.iconColor === "text-orange-600" ? "from-orange-400 to-red-400" : "from-indigo-400 to-blue-400"} rounded-b-[40px]`}
+                  />
                 </div>
               </div>
             );
           })}
+        </div>
+
+        {/* CTA con animación */}
+        <div
+          className={`text-center mt-16 transition-all duration-700 ease-out ${
+            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+          }`}
+          style={{ transitionDelay: "600ms" }}
+        >
+          <a
+            href="https://wa.me/34634408043"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-3 bg-gradient-to-r from-orange-500 to-red-500 text-white 
+            px-10 py-5 rounded-full text-lg font-bold shadow-2xl 
+            transition-all duration-300 hover:shadow-3xl hover:scale-105 active:scale-100
+            hover:from-orange-600 hover:to-red-600"
+          >
+            <span className="text-2xl">💬</span>
+            <span>Hablemos de Tu Proyecto</span>
+          </a>
         </div>
       </div>
     </section>

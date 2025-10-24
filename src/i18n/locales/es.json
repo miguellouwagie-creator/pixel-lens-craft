@@ -3,10 +3,10 @@
     "title": "Páginas Web Profesionales",
     "titleHighlight": "& Fotografía",
     "subtitle": "Para tu negocio",
-    "description": "Creamos tu página web profesional y hacemos las fotografías de tus productos o servicios. Trato directo, servicio personalizado.",
+    "description": "Creamos tu página web profesional y hacemos fotos de tus productos o servicios. Comunicación directa, trato personalizado.",
     "ctaWhatsapp": "Contactar por WhatsApp",
     "ctaServices": "Ver Servicios",
-    "benefit1": "Consulta gratis",
+    "benefit1": "Consulta gratuita",
     "benefit2": "Sin compromiso",
     "benefit3": "Profesionales licenciados"
   },
@@ -20,14 +20,14 @@
     "whatsapp": "WhatsApp",
     "portfolio": "Portfolio",
     "photoPortfolio": "Portfolio Fotográfico",
-    "webExamples": "Ejemplos de Webs"
+    "webExamples": "Ejemplos Web"
   },
   "services": {
     "title": "Servicios Que Impulsan Tu Negocio",
-    "subtitle": "Soluciones completas para destacar tu empresa en el mundo digital",
+    "subtitle": "Soluciones completas para que tu empresa destaque en el mundo digital",
     "web": {
       "title": "Páginas Web Profesionales",
-      "description": "Sitios web modernos, responsivos y optimizados para convertir visitantes en clientes",
+      "description": "Sitios web modernos, responsive y optimizados para convertir visitantes en clientes",
       "feature1": "Diseño responsive",
       "feature2": "SEO local optimizado",
       "feature3": "Velocidad de carga optimizada",
@@ -37,7 +37,7 @@
       "cta": "Solicitar Info"
     },
     "photography": {
-      "title": "Fotografía Profesional de Negocios",
+      "title": "Fotografía Profesional de Negocio",
       "description": "Capturamos la esencia de tu empresa con fotografías que transmiten profesionalidad",
       "feature1": "Fotografía corporativa",
       "feature2": "Fotos de productos",
@@ -51,19 +51,19 @@
       "title": "Web + Fotografía",
       "description": "La combinación perfecta: tu web profesional con sesión de fotos incluida",
       "feature1": "Todo lo del diseño web",
-      "feature2": "Sesión de fotos completa",
+      "feature2": "Sesión fotográfica completa",
       "feature3": "Integración fotos en web",
-      "feature4": "Optimización de velocidad",
+      "feature4": "Optimización velocidad",
       "feature5": "Soporte incluido",
       "price": "Desde XXX€",
-      "priceNote": "(Pack completo)",
-      "cta": "¡Quiero Este Pack!",
+      "priceNote": "(Paquete completo)",
+      "cta": "¡Quiero Este Paquete!",
       "badge": "⭐ Más Popular"
     }
   },
   "webDevelopment": {
     "badge": "Desarrollo Web Profesional",
-    "title": "Tu Página Web Profesional, Sin Complicaciones",
+    "title": "Tu Web Profesional, Sin Complicaciones",
     "subtitle": "Precio inicial fijo + mantenimiento mensual opcional. Webs rápidas, modernas y optimizadas para negocios locales.",
     "basic": {
       "name": "Web Básica",
@@ -89,23 +89,23 @@
       "feature1": "Diseño 100% personalizado",
       "feature2": "Hasta 10 páginas",
       "feature3": "Blog integrado",
-      "feature4": "Panel de administración",
+      "feature4": "Panel administración",
       "maintenance1": "Cambios ilimitados",
       "maintenance2": "Soporte prioritario",
       "cta": "Solicitar Info"
     },
     "infoTitle": "Información Importante",
-    "info1": "<strong>Dominio:</strong> 10-15€/año (te ayudamos con la compra y configuración)",
-    "info2": "<strong>Hosting:</strong> Incluido en el mantenimiento mensual",
+    "info1": "<strong>Dominio:</strong> 10-15€/año (te ayudamos con compra y configuración)",
+    "info2": "<strong>Hosting:</strong> Incluido en mantenimiento mensual",
     "info3": "<strong>Certificado SSL:</strong> Incluido sin coste adicional (tu web será segura con HTTPS)",
-    "info4": "<strong>Sin permanencia:</strong> Puedes cancelar el mantenimiento cuando quieras",
-    "customProject": "¿Necesitas un proyecto a medida?",
+    "info4": "<strong>Sin compromiso:</strong> Puedes cancelar el mantenimiento cuando quieras",
+    "customProject": "¿Necesitas un proyecto personalizado?",
     "customDescription": "Webs con funcionalidades específicas, integraciones o diseños complejos.",
     "customCta": "Cuéntanos tu proyecto"
   },
   "pricing": {
     "webTitle": "Desarrollo Web Profesional",
-    "webSubtitle": "Creamos tu página web a medida. Diseño moderno, rápida y optimizada para Google.",
+    "webSubtitle": "Creamos tu web a medida. Diseño moderno, rápido y optimizado para Google.",
     "photoTitle": "Fotografía y Edición Profesional",
     "photoSubtitle": "Edición profesional de tus fotografías. Prueba gratuita disponible. Entrega en 24-48h.",
     "photoPacks": {
@@ -123,8 +123,8 @@
         "price": "10€",
         "photos": "5 fotos",
         "feature1": "5 fotos editadas",
-        "feature2": "Entrega 24-48h",
-        "feature3": "",
+        "feature2": "Hasta 3 re-ediciones por foto",
+        "feature3": "Entrega 24-48h",
         "cta": "Contactar"
       },
       "standard": {
@@ -133,7 +133,7 @@
         "photos": "10 fotos",
         "feature1": "10 fotos editadas",
         "feature2": "Hasta 3 re-ediciones por foto",
-        "feature3": "24-48h delivery",
+        "feature3": "Entrega 24-48h",
         "feature4": "Soporte prioritario",
         "cta": "Contactar"
       },
@@ -148,20 +148,11 @@
         "cta": "Contactar"
       }
     },
-    "professional": {
-      "name": "Pack Profesional",
-      "price": "89,99€ (IVA incluido)",
-      "photos": "50 fotos",
-      "feature1": "50 fotos editadas",
-      "feature2": "Entrega garantizada",
-      "feature3": "Revisiones ilimitadas",
-      "cta": "Contactar"
-    },
     "footerText": "¿Necesitas algo personalizado o tienes un proyecto especial?",
-    "footerCta": "Cuéntanos y te hacemos un presupuesto a medida",
-    "portfolioButton": "📸 VER PORTFOLIO FOTOGRÁFICO",
+    "footerCta": "Cuéntanos y crearemos un presupuesto a medida",
+    "portfolioButton": "📸 VER PORTFOLIO FOTOGRAFÍA",
     "portfolioButtonShort": "📸 Ver Portfolio",
-    "portfolioDescription": "✨ Mira ejemplos reales de nuestro trabajo fotográfico",
+    "portfolioDescription": "✨ Ve ejemplos reales de nuestro trabajo fotográfico",
     "from": "Desde 349€",
     "vatIncluded": "IVA incluido",
     "competitivePrice": "Precio más competitivo del mercado",
@@ -169,22 +160,22 @@
   },
   "photoPacks": {
     "title": "Fotografía y Edición Profesional",
-    "subtitle": "Capturamos y transformamos tus fotografías con edición profesional. Escoge el pack que mejor se adapte a tus necesidades.",
+    "subtitle": "Capturamos y transformamos tus fotos con edición profesional. Elige el pack que mejor se adapte a tus necesidades.",
     "badge": {
       "text": "Fotos editadas en 2025"
     },
     "demo": {
       "before": "Foto Original",
-      "after": "Editada Profesional",
+      "after": "Edición Profesional",
       "caption": "Dénia, España"
     },
-    "portfolioButton": "📸 VER PORTFOLIO FOTOGRÁFICO",
+    "portfolioButton": "📸 VER PORTFOLIO FOTOGRAFÍA",
     "portfolioButtonShort": "📸 Ver Portfolio",
-    "portfolioDescription": "✨ Mira ejemplos reales de nuestro trabajo fotográfico",
-    "recommendedBadge": "⭐ Recomendado para probar",
+    "portfolioDescription": "✨ Ve ejemplos reales de nuestro trabajo fotográfico",
+    "recommendedBadge": "⭐ Recomendado probar",
     "guarantee": {
-      "title": "Garantía 100% de Satisfacción",
-      "description": "<strong>¿Primera vez?</strong> Compra sin miedo. Si alguna foto no cumple tus expectativas, <span class='font-bold text-orange-700'>la re-editamos GRATIS hasta 3 veces</span> hasta que te encante. Sin preguntas, sin letra pequeña.",
+      "title": "Garantía 100% Satisfacción",
+      "description": "<strong>¿Primera vez?</strong> Compra sin miedo. Si alguna foto no te convence, <span class='font-bold text-orange-700'>la re-editamos GRATIS hasta 3 veces</span> hasta que te encante. Sin preguntas, sin letra pequeña.",
       "badge": "Garantía incluida"
     },
     "basic": {
@@ -193,7 +184,7 @@
       "photos": "5 fotos editadas",
       "feature1": "Entrega 24-48h",
       "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Básico (5 fotos - 14,99€)"
+      "whatsappMessage": "Hola, estoy interesado en el Pack Básico (5 fotos - 14,99€)"
     },
     "standard": {
       "name": "Pack Estándar",
@@ -201,7 +192,7 @@
       "photos": "10 fotos editadas",
       "feature1": "Entrega 24-48h",
       "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Estándar (10 fotos - 28,99€)"
+      "whatsappMessage": "Hola, estoy interesado en el Pack Estándar (10 fotos - 28,99€)"
     },
     "premium": {
       "name": "Pack Premium",
@@ -209,53 +200,45 @@
       "photos": "20 fotos editadas",
       "feature1": "Entrega 24-48h",
       "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Premium (20 fotos - 52,99€)"
+      "whatsappMessage": "Hola, estoy interesado en el Pack Premium (20 fotos - 52,99€)"
     },
     "professional": {
       "name": "Pack Profesional",
       "price": "89,99€",
-      "photos": "50 fotos editadas",
+      "photos": "50 fotos",
       "feature1": "Entrega 24-48h",
       "cta": "Contactar",
-      "whatsappMessage": "Hola, me interesa el Pack Profesional (50 fotos - 89,99€)"
+      "whatsappMessage": "Hola, estoy interesado en el Pack Profesional (50 fotos - 89,99€)"
     },
-    "trialMessage": "¿No estás seguro? Podemos hacer una muestra gratuita para enseñarte cómo trabajamos",
+    "trialMessage": "¿No estás seguro? Podemos crear una muestra gratuita para mostrarte cómo trabajamos",
     "vatIncluded": "IVA incluido"
   },
   "whyUs": {
-    "title": "Por Qué Elegirnos",
-    "subtitle": "Profesionalidad, cercanía y compromiso con resultados reales",
+    "title": "Tu Web Como Activo de Negocio",
+    "subtitle": "Diseño estratégico y fotografía profesional que generan resultados reales.",
     "reason1": {
       "title": "Diseño Guiado por Estrategia",
-      "description": "Nuestro equipo con formación en marketing y administración de empresas entrega un activo digital que resuelve problemas de negocio, no solo diseño estético."
+      "description": "Diseñadores y Marketeros Licenciados. <strong>Construido para convertir (CRO)</strong>. Entregamos un <strong>activo digital estratégico</strong>, no solo una web bonita."
     },
     "reason2": {
-      "title": "100% Local, Servicio Directo",
-      "description": "Conocemos el mercado de Dénia y Marina Alta. Trato cercano, personalizado y sin intermediarios."
+      "title": "Servicio 100% Local",
+      "description": "<strong>Trato directo</strong>, sin intermediarios. Conocemos tu mercado <strong>(Dénia y Marina Alta)</strong>. Proximidad y compromiso real."
     },
     "reason3": {
       "title": "Credibilidad Visual al Instante",
-      "description": "Combinamos Web y Fotografía Profesional con imágenes de alta calidad (no genéricas) para que su sitio web sea auténtico, fiable y genere confianza inmediata."
+      "description": "Fotografía Profesional Incluida. <strong>Imágenes auténticas (no genéricas)</strong> que generan <strong>confianza inmediata</strong>. Tu marca se verá profesional al instante."
     },
     "reason4": {
       "title": "Plazos de Entrega Garantizados",
-      "description": "Fotos editadas en 24-48h para que su proyecto avance sin retrasos. Rapidez sin sacrificar calidad profesional."
+      "description": "<strong>Rapidez Garantizada</strong>. Edición de fotos y seguimiento de proyecto en <strong>24-48 horas</strong>. Cumplimiento de plazos sin sacrificar calidad."
     },
     "reason5": {
       "title": "Garantía Total de Satisfacción",
-      "description": "Su inversión está protegida. Re-editamos GRATIS (hasta 3 veces) hasta que esté 100% satisfecho. Sin riesgo, sin letra pequeña."
+      "description": "<strong>Inversión Protegida</strong>. Garantía 100% Satisfacción. <strong>Re-ediciones GRATIS (hasta 3 veces)</strong> para que ames el resultado."
     },
     "reason6": {
-      "title": "Soporte Estratégico Post-Lanzamiento",
-      "description": "No solo entregamos la web, sino mantenimiento proactivo para que su inversión se mantenga segura, actualizada y funcionando perfectamente."
-    },
-    "bestPrice": {
-      "title": "Mejor Calidad-Precio",
-      "description": "Servicios profesionales a precios justos y transparentes. Sin costes ocultos ni sorpresas."
-    },
-    "noRefunds": {
-      "title": "Re-editamos Gratis",
-      "description": "No damos reembolsos, pero re-editamos GRATIS hasta 3 veces hasta que estés 100% satisfecho."
+      "title": "Soporte Post-Lanzamiento",
+      "description": "<strong>Soporte Proactivo</strong> Post-Lanzamiento. Mantenimiento y soporte estratégico continuo. Tu web <strong>siempre segura, actualizada y funcionando</strong> perfectamente."
     },
     "badges": {
       "certified": "Garantizado",
@@ -263,8 +246,80 @@
     }
   },
   "portfolio": {
+    "title": "Industrias Con Las Que Trabajamos",
+    "subtitle": "Experiencia en múltiples sectores con resultados reales",
     "footerText": "¿Tu sector no aparece? Trabajamos con cualquier tipo de negocio",
     "footerCta": "Cuéntanos Tu Proyecto"
+  },
+  "stickyScroll": {
+    "mainTitle": "Tu Web Como",
+    "mainTitleHighlight": "Activo de Negocio",
+    "result1": {
+      "title": "Diseño Estratégico Basado en CRO",
+      "description": "No diseñamos por estética. Cada elemento visual está optimizado para maximizar conversiones mediante técnicas de CRO (Conversion Rate Optimization) respaldadas por psicología del usuario."
+    },
+    "result2": {
+      "title": "Experiencia de Usuario Premium",
+      "description": "Animaciones fluidas, transiciones suaves y microinteracciones que elevan la percepción de valor. Tu web se sentirá como un producto de $5,000+, no una plantilla genérica."
+    },
+    "result3": {
+      "title": "Estrategia de Contenido Incluida",
+      "description": "Textos persuasivos, jerarquía visual clara y llamadas a la acción estratégicamente ubicadas. Cada palabra trabaja para vender tu propuesta de valor."
+    },
+    "process1": {
+      "title": "Análisis y Estrategia",
+      "description": "Estudiamos tu mercado, competencia y audiencia objetivo para crear una estrategia digital ganadora desde el inicio."
+    },
+    "process3": {
+      "title": "Seguimiento Post-Lanzamiento",
+      "description": "No te abandonamos después del lanzamiento. Monitoreamos el rendimiento y optimizamos continuamente para mejorar resultados."
+    },
+    "priceTitle": "Tu Plataforma de",
+    "priceTitleHighlight": "Crecimiento Digital",
+    "croBadge": "✨ Construido para Convertir (CRO)",
+    "initialInvestment": "Inversión Inicial",
+    "priceAmount": "Desde 349€",
+    "priceDisclaimer": "Este es el costo de nuestro Plan Básico. Pida presupuesto para nuestros servicios estratégicos de diseño avanzado con CRO y animaciones fluidas.",
+    "strategicDesign": "Diseño Estratégico",
+    "ctaButton": "Solicitar Mi Presupuesto Único",
+    "whatsappMessage": "Hola, quiero solicitar mi presupuesto único para una web profesional con diseño estratégico",
+    "feature1": "Construido para Convertir (CRO)",
+    "feature2": "Animaciones Fluidas (Next-Level Design)",
+    "feature3": "Estrategia de Contenido Incluida",
+    "maintenanceTitle": "Mantenimiento Proactivo: Evite Costos Ocultos",
+    "maintenanceDescription": "Después de crear su web, ofrecemos un servicio de mantenimiento mensual para mantenerla segura, actualizada y funcionando perfectamente. Nunca tendrá que llamar a un desarrollador de emergencia. El coste varía según sus necesidades (actualizaciones, soporte, backups). ¡Pregúntanos sin compromiso!",
+    "legalDisclaimer": "Todos los precios incluyen IVA. Dominio y hosting gestionados por separado."
+  },
+  "portfolioShowcase": {
+    "header": {
+      "mainTitle": "Resultados Reales:",
+      "highlightWord": "Webs Construidas para Convertir",
+      "subtitle": "Diseños estratégicos con CRO y credibilidad visual que transforman visitantes en clientes"
+    },
+    "tropidenia": {
+      "title": "TropiDenia",
+      "tagline": "Sistema de reservas que generó +40% más ingresos",
+      "description": "Eliminamos intermediarios y comisiones. Resultado: reservas directas, control total del negocio y máxima rentabilidad desde el día uno.",
+      "tag1": "UI/UX",
+      "tag2": "React",
+      "tag3": "Reservas"
+    },
+    "bvs": {
+      "title": "BVS Trabajos Verticales",
+      "tagline": "Presencia digital que transmite confianza al instante",
+      "description": "Transformamos su imagen online para reflejar su liderazgo. Más leads cualificados, proyectos más grandes, más autoridad en el sector.",
+      "tag1": "Corporativa",
+      "tag2": "WordPress",
+      "tag3": "SEO"
+    },
+    "gymdenia": {
+      "title": "GymDenia",
+      "tagline": "Web que multiplica consultas y captación de socios",
+      "description": "De pasar desapercibido a convertirse en la referencia fitness local. Formularios optimizados que convierten visitantes en clientes potenciales cada día.",
+      "tag1": "Diseño Web",
+      "tag2": "Formularios",
+      "tag3": "Responsive"
+    }
   },
   "portfolioGallery": {
     "title": "Nuestro Portfolio Fotográfico",
@@ -272,7 +327,7 @@
     "beforeLabel": "Sin Editar",
     "afterLabel": "Editada",
     "ctaTitle": "¿Quieres que tus fotos luzcan así?",
-    "ctaSubtitle": "Podemos fotografiar desde cero o editar las imágenes que ya tienes. Contáctanos y demos vida a tu visión.",
+    "ctaSubtitle": "Podemos fotografiar desde cero o editar las imágenes que ya tengas. Contáctanos y hagamos realidad tu visión.",
     "ctaButton": "Solicitar Edición de Fotos",
     "backButton": "Volver al inicio"
   },
@@ -281,15 +336,15 @@
     "subtitle": "Proceso simple y transparente en 3 pasos",
     "step1": {
       "title": "Cuéntanos Tu Proyecto",
-      "description": "Hablamos contigo para entender qué necesitas: web, fotografía, o ambos. Sin tecnicismos, solo soluciones claras."
+      "description": "Hablamos contigo para entender qué necesitas: web, fotografía o ambos. Sin tecnicismos, solo soluciones claras."
     },
     "step2": {
       "title": "Creamos Tu Solución",
-      "description": "Diseñamos tu web y/o realizamos la sesión de fotos. Trabajamos contigo hasta que esté perfecta."
+      "description": "Diseñamos tu web y/o realizamos la sesión fotográfica. Trabajamos contigo hasta que quede perfecto."
     },
     "step3": {
-      "title": "Lanzamos y Te Acompañamos",
-      "description": "Publicamos tu proyecto y te enseñamos a gestionarlo. Seguimos disponibles para lo que necesites."
+      "title": "Lanzamos y Te Apoyamos",
+      "description": "Publicamos tu proyecto y te enseñamos a gestionarlo. Quedamos disponibles para lo que necesites."
     },
     "ctaText": "¿Listo para empezar tu proyecto?",
     "ctaButton": "Contactar Ahora"
@@ -300,7 +355,7 @@
     "miguel": {
       "name": "Miguel",
       "role": "Desarrollo Web",
-      "description": "Desarrollo web moderno con React y TypeScript. Webs rápidas y optimizadas para negocios.",
+      "description": "Desarrollo web moderno con React y TypeScript. Webs rápidas optimizadas para negocios.",
       "skill1": "React",
       "skill2": "TypeScript",
       "skill3": "Tailwind"
@@ -308,7 +363,7 @@
     "sergio": {
       "name": "Sergio",
       "role": "Fotografía",
-      "description": "Fotografía profesional para negocios, productos e inmobiliarias. Estilo único y comercial.",
+      "description": "Fotografía profesional para negocios, productos e inmobiliaria. Estilo único y comercial.",
       "skill1": "Corporativa",
       "skill2": "Productos",
       "skill3": "Inmobiliaria"
@@ -316,7 +371,7 @@
   },
   "contact": {
     "title": "¿Hablamos?",
-    "description": "Si tienes dudas, quieres probar el servicio gratis, o simplemente necesitas asesoramiento, escríbenos. Respondemos personalmente y sin compromiso.",
+    "description": "Si tienes dudas, quieres probar el servicio gratis o simplemente necesitas asesoramiento, escríbenos. Respondemos personalmente y sin compromiso.",
     "location": {
       "title": "Ubicación",
       "value": "Dénia, Alicante (Costa Blanca)"
@@ -336,13 +391,13 @@
     "schedule": {
       "title": "Horario de Respuesta",
       "weekdays": "Lunes - Viernes: 9:00 - 20:00",
-      "weekends": "Fines de semana: Consultas urgentes vía WhatsApp",
+      "weekends": "Fines de semana: Consultas urgentes por WhatsApp",
       "note": "Si escribes fuera de horario, te respondo al día siguiente 😊"
     },
     "formTitle": "Escríbeme directamente"
   },
   "footer": {
-    "description": "Tu agencia digital local en Dénia. Diseño web profesional y fotografía para negocios que impulsan tu empresa.",
+    "description": "Tu agencia digital local en Dénia. Diseño web profesional y fotografía de negocio para impulsar tu empresa.",
     "quickLinks": "Enlaces Rápidos",
     "services": "Servicios",
     "contact": "Contacto",
@@ -354,10 +409,10 @@
     "links": {
       "services": "Servicios",
       "portfolio": "Portfolio",
-      "about": "Sobre Nosotros",
+      "about": "Nosotros",
       "contact": "Contacto",
       "webDesign": "Diseño Web",
-      "photography": "Fotografía de Negocios",
+      "photography": "Fotografía de Negocio",
       "seo": "SEO Local",
       "maintenance": "Mantenimiento Web"
     }
@@ -368,13 +423,13 @@
     "testimonial1": {
       "name": "María G.",
       "location": "Dénia, España",
-      "text": "Contraté el servicio de fotografía para mi inmobiliaria y las fotos salieron increíbles. Cada propiedad se ve mucho mejor con las imágenes editadas profesionalmente. Los clientes me felicitan por la calidad.",
+      "text": "Contraté el servicio de fotografía para mi inmobiliaria y las fotos quedaron increíbles. Cada propiedad luce mucho mejor con imágenes editadas profesionalmente. Los clientes me felicitan por la calidad.",
       "rating": 5
     },
     "testimonial2": {
       "name": "Robert M.",
       "location": "Miami, USA",
-      "text": "I needed a professional website for my vertical service company. The team delivered an excellent bilingual site that works perfectly. Very responsive and professional.",
+      "text": "Necesitaba una web profesional para mi empresa de servicios verticales. El equipo entregó un sitio bilingüe excelente que funciona perfectamente. Muy receptivos y profesionales.",
       "rating": 5
     },
     "testimonial3": {
@@ -385,144 +440,51 @@
     }
   },
   "header": {
-    "tagline": "Páginas Web & Fotografía",
+    "tagline": "Web & Fotografía",
     "badge": "Profesionales licenciados"
   },
   "simplePrice": {
-    "title": "Tu Página Web Profesional",
+    "title": "Tu Web Profesional",
     "subtitle": "Diseño moderno, rápido y optimizado para Google.",
-    "valueTitle": "Tu Plataforma de Crecimiento Digital",
-    "investmentLabel": "Inversión Inicial",
-    "priceFrom": "Desde 349€",
-    "ctaMainTitle": "DISEÑO ESTRATÉGICO",
-    "ctaSubtitle": "Solicitar Mi Presupuesto Único",
-    "badgeCRO": "Construido para Convertir (CRO)",
     "offer": {
-      "title": "Página Web Profesional",
+      "title": "Web Profesional",
       "price": "Desde 349€",
       "description": "IVA incluido | Precio más competitivo del mercado",
       "includes": "¿Qué incluye?",
-      "feature1": "Diseño 100% adaptable a móviles y tablets",
+      "feature1": "Diseño 100% responsive móvil y tablet",
       "feature2": "Hasta 3 secciones (Inicio, Servicios, Contacto)",
-      "feature3": "Formulario de contacto y mapa de Google",
+      "feature3": "Formulario de contacto y mapa Google",
       "feature4": "Optimización SEO para búsquedas locales",
       "feature5": "Dominio y Hosting (primer año incluido)",
       "feature6": "Galería de fotos profesional",
-      "feature7": "Integración con redes sociales",
+      "feature7": "Integración redes sociales",
       "feature8": "Formación inicial para gestionar tu web",
       "maintenanceTitle": "Mantenimiento mensual:",
-      "maintenanceText": "Después de crear tu web, ofrecemos un servicio de mantenimiento mensual para mantenerla segura, actualizada y funcionando perfectamente. El coste mensual varía según tus necesidades (actualizaciones, soporte, backups). ¡Pregúntanos sin compromiso!",
-      "cta": "Pedir Presupuesto",
-      "whatsappMessage": "Hola, me interesa la Página Web Profesional desde 399€. ¿Me pueden dar más información?"
+      "maintenanceText": "Después de crear tu web, ofrecemos un servicio de mantenimiento mensual para mantenerla segura, actualizada y funcionando perfectamente. El coste mensual varía según tus necesidades (actualizaciones, soporte, copias seguridad). ¡Pregúntanos sin compromiso!",
+      "cta": "Solicitar Presupuesto",
+      "whatsappMessage": "Hola, estoy interesado en la Web Profesional desde 349€. ¿Me pueden dar más información?"
     },
     "benefits": {
       "title": "¿Por qué necesitas una web?",
       "benefit1Title": "Más clientes",
-      "benefit1Text": "Aparece en Google cuando busquen tus servicios en la zona.",
+      "benefit1Text": "Aparece en Google cuando busquen tus servicios localmente.",
       "benefit2Title": "Abierto 24/7",
       "benefit2Text": "Tu web trabaja para ti incluso cuando estás cerrado.",
       "benefit3Title": "Imagen profesional",
-      "benefit3Text": "Transmite confianza y destaca frente a la competencia.",
+      "benefit3Text": "Genera confianza y destaca de la competencia.",
       "benefit4Title": "Comunicación directa",
       "benefit4Text": "Muestra ofertas, horarios y novedades al instante.",
-      "benefit5Title": "Es tuyo",
-      "benefit5Text": "Tu propio espacio digital, sin depender de redes sociales.",
+      "benefit5Title": "Es tuya",
+      "benefit5Text": "Tu propio espacio digital, independiente de redes sociales.",
       "benefit6Title": "Visible en Google",
-      "benefit6Text": "Optimizado para aparecer en Google Maps y búsquedas locales."
+      "benefit6Text": "Optimizada para aparecer en Google Maps y búsquedas locales."
     },
-    "portfolioButton": "🌐 VER EJEMPLOS DE WEBS",
+    "portfolioButton": "🌐 VER EJEMPLOS WEB",
     "portfolioButtonShort": "🌐 Ver Ejemplos",
-    "portfolioDescription": "Mira ejemplos reales de nuestro trabajo",
-    "vatIncluded": "IVA incluido"
-  },
-  "stickyScroll": {
-    "mainTitle": "El Proceso Exclusivo: De Plantilla a Máquina de Ventas",
-    "result1": {
-      "title": "Credibilidad de Nivel Enterprise",
-      "description": "Mejore su imagen de marca con un diseño que transmite confianza y destaca frente al 90% de su competencia, como lo hace un proyecto de alto valor."
-    },
-    "process1": {
-      "title": "Diseño Mobile-First y de Conversión",
-      "description": "Aseguramos una experiencia de usuario (UX) impecable que maximiza la captura de leads en cualquier dispositivo."
-    },
-    "result2": {
-      "title": "Su Mejor Vendedor, 24/7",
-      "description": "Su plataforma digital actúa como su representante comercial inagotable, captando leads e información sin intervención manual."
-    },
-    "process2": {
-      "title": "Estructura Esencial y Escalable",
-      "description": "Definición de la arquitectura web centrada en el crecimiento y la venta, no solo en la presencia."
-    },
-    "result3": {
-      "title": "Posicionamiento Estratégico Proactivo",
-      "description": "No solo aparecer, sino dominar las búsquedas para que su negocio sea la primera opción de los clientes cercanos y en su sector."
-    },
-    "process3": {
-      "title": "Sistema de Captura de Oportunidades (Leads)",
-      "description": "Reducción de la fricción para que el cliente potencial contacte de inmediato, facilitando la conversión."
-    },
-    "result4": {
-      "title": "El Poder del Show, Don't Tell",
-      "description": "Usamos fotografía de calidad para vender la experiencia y el valor de su servicio, logrando que el sitio sea más auténtico y fiable."
-    },
-    "process4": {
-      "title": "Optimización Técnica (Velocidad y Core Vitals)",
-      "description": "La base de un sitio de alto valor es ser rápido y optimizado para Google, asegurando que el sitio se construya para rendir desde el primer día."
-    },
-    "result5": {
-      "title": "Fricción Cero en la Conversión",
-      "description": "Reducimos los pasos innecesarios para que los usuarios encuentren la información y contacten inmediatamente, aumentando las tasas de éxito."
-    },
-    "process5": {
-      "title": "Activos Visuales Premium Exclusivos (Pixelens)",
-      "description": "Las fotografías de alta calidad y no genéricas son la clave para generar credibilidad instantánea y destacar frente a competidores que usan stock de baja calidad."
-    },
-    "result6": {
-      "title": "Control Total de Activos Digitales",
-      "description": "Usted posee y controla su marca y sus datos, sin depender de algoritmos ni plataformas que pueden cambiar las reglas en cualquier momento."
-    },
-    "process6": {
-      "title": "Total Control del CMS",
-      "description": "Reciba formación clara para gestionar su contenido a través de un sistema de gestión moderno (CMS), sin llamar a un desarrollador cada semana."
-    },
-    "process7": {
-      "title": "Seguridad y Soporte Continuo",
-      "description": "Mantenimiento proactivo para que su inversión se mantenga segura, actualizada y siempre funcionando correctamente."
-    }
+    "portfolioDescription": "Ve ejemplos reales de nuestro trabajo"
   },
   "divider": {
     "title": "Tu negocio merece brillar online",
     "subtitle": "Capturamos la esencia de tu negocio y la transformamos en una presencia digital que atrae clientes"
-  },
-  "portfolioShowcase": {
-    "header": {
-      "title": "Proyectos Destacados",
-      "subtitle": "Diseños que convierten visitantes en clientes. Cada proyecto es una historia de éxito que impulsa negocios reales.",
-      "hoverText": "Ver proyecto"
-    },
-    "tropidenia": {
-      "title": "TropiDenia",
-      "tagline": "Sistema de reservas que generó +40% más ingresos",
-      "description": "Eliminamos intermediarios y comisiones. Resultado: reservas directas, control total del negocio y rentabilidad máxima desde el primer mes.",
-      "tag1": "UI/UX",
-      "tag2": "React",
-      "tag3": "Reservas"
-    },
-    "bvs": {
-      "title": "BVS Trabajos Verticales",
-      "tagline": "Presencia digital que transmite confianza al instante",
-      "description": "Transformamos su imagen online para reflejar su liderazgo. Más contactos cualificados, más proyectos grandes, más autoridad en el sector.",
-      "tag1": "Corporativo",
-      "tag2": "Wordpress",
-      "tag3": "SEO"
-    },
-    "gymdenia": {
-      "title": "GymDenia",
-      "tagline": "Web que multiplica consultas y captación de socios",
-      "description": "De pasar desapercibidos a ser la referencia fitness local. Formularios optimizados que convierten visitantes en clientes potenciales cada día.",
-      "tag1": "Diseño Web",
-      "tag2": "Formularios",
-      "tag3": "Responsive"
-    }
   }
 }
