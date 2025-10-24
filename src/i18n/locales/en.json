@@ -214,7 +214,7 @@
     "vatIncluded": "VAT included"
   },
   "whyUs": {
-    "title": "From Expense to Investment:<br>We Create a Digital Asset That <span class='text-orange-500'>Generates Clients</span>",
+    "title": "From Expense to Investment:<br><span class='text-3xl md:text-4xl lg:text-5xl'>We Create a Digital Asset That<br><span class='text-orange-500'>Generates Clients</span></span>",
     "subtitle": "",
     "reason1": {
       "title": "Strategy-Driven Design",

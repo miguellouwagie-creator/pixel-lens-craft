@@ -214,7 +214,7 @@
     "vatIncluded": "IVA incluido"
   },
   "whyUs": {
-    "title": "De Gasto a Inversión:<br>Creamos un Activo Digital que <span class='text-orange-500'>Genera Clientes</span>",
+    "title": "De Gasto a Inversión:<br><span class='text-3xl md:text-4xl lg:text-5xl'>Creamos un Activo Digital que<br><span class='text-orange-500'>Genera Clientes</span></span>",
     "subtitle": "",
     "reason1": {
       "title": "Diseño Guiado por Estrategia",
