@@ -1,7 +1,7 @@
 // src/components/Footer.tsx
 import { Mail, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import logo from "@/assets/logo.png"; // Considera una versión blanca del logo si esta no contrasta bien
+import logo from "@/assets/Logo2-PP.png"; // Considera una versión blanca del logo si esta no contrasta bien
 
 const Footer = () => {
   const { t } = useTranslation();
@@ -36,13 +36,14 @@ const Footer = () => {
           {/* Aumentado gap */}
           {/* Logo and Description */}
           <div>
-            <img
-              src={logo}
-              alt="Studio Pixelens"
-              // AÑADIDO: Filtro para invertir si el logo es oscuro, ajustar si es necesario
-              // style={{ filter: 'brightness(0) invert(1)' }}
-              className="h-16 md:h-20 w-auto mb-6"
-            />
+            <div className="inline-block mb-6 relative">
+              <div className="absolute -inset-x-4 -inset-y-1.5 bg-white/20 backdrop-blur-sm rounded-lg"></div>
+              <img
+                src={logo}
+                alt="Studio Pixelens"
+                className="relative h-28 md:h-32 lg:h-36 w-auto"
+              />
+            </div>
             {/* MODIFICADO: Usar text-blue-100 para texto secundario con mejor contraste */}
             <p className="text-blue-100 mb-4 leading-relaxed">
               {t("footer.description")}

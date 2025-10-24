@@ -24,7 +24,7 @@ const FormSection = () => {
                   <MapPin className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">
+                  <h3 className="text-base md:text-lg font-bold text-foreground mb-1">
                     {t("contact.location.title")}
                   </h3>
                   <p className="text-muted-foreground">
@@ -38,11 +38,11 @@ const FormSection = () => {
                   <Phone className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">
+                  <h3 className="text-base md:text-lg font-bold text-foreground mb-1">
                     {t("contact.phone.title")}
                   </h3>
                   <a
-                    href="tel:+34TU_NUMERO"
+                    href="tel:+34667326300"
                     className="text-muted-foreground hover:text-primary transition-colors"
                   >
                     {t("contact.phone.value")}
@@ -55,7 +55,7 @@ const FormSection = () => {
                   <Mail className="h-6 w-6 text-primary" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">
+                  <h3 className="text-base md:text-lg font-bold text-foreground mb-1">
                     {t("contact.email.title")}
                   </h3>
                   <a
@@ -72,7 +72,7 @@ const FormSection = () => {
                   <MessageCircle className="h-6 w-6 text-cta" />
                 </div>
                 <div>
-                  <h3 className="font-bold text-foreground mb-1">
+                  <h3 className="text-base md:text-lg font-bold text-foreground mb-1">
                     {t("contact.preference.title")}
                   </h3>
                   <p className="text-muted-foreground">
@@ -83,7 +83,7 @@ const FormSection = () => {
             </div>
 
             <div className="mt-8 p-6 bg-secondary rounded-xl">
-              <h3 className="font-bold text-foreground mb-3">
+              <h3 className="text-base md:text-lg font-bold text-foreground mb-3">
                 {t("contact.schedule.title")}
               </h3>
               <div className="space-y-2 text-muted-foreground">

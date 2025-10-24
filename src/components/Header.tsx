@@ -10,7 +10,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useTranslation } from "react-i18next";
-import logo from "@/assets/Logoo.png";
+import logo from "@/assets/Logo2-PP.png";
 import { Link, useNavigate } from "react-router-dom";
 import { cn } from "@/lib/utils";
 
@@ -123,7 +123,7 @@ const Header = () => {
     <header
       className={cn(
         "fixed top-0 left-0 right-0 z-[9999] transition-all duration-500 ease-out",
-        isScrolled ? "py-2" : "py-4 md:py-6",
+        isScrolled ? "py-1" : "py-2 md:py-3",
       )}
     >
       <div className="container mx-auto px-4">
@@ -136,7 +136,7 @@ const Header = () => {
             isMobileMenuOpen && "bg-white shadow-lg",
           )}
         >
-          <div className="flex items-center justify-between px-4 md:px-6 py-3 md:py-4">
+          <div className="flex items-center justify-between px-4 md:px-6 py-2 md:py-3">
             {/* Logo */}
             <a
               href="/"
@@ -146,7 +146,7 @@ const Header = () => {
               <img
                 src={logo}
                 alt="Studio Pixelens"
-                className="h-12 md:h-14 w-auto transition-transform group-hover:scale-105"
+                className="h-20 md:h-22 lg:h-26 w-auto transition-transform group-hover:scale-105"
               />
               <div className="hidden md:block">
                 <div
