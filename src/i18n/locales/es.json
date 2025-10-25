@@ -170,7 +170,9 @@
     "demo": {
       "before": "Foto Original",
       "after": "Edición Profesional",
-      "caption": "Dénia, España"
+      "caption": "Dénia, España",
+      "viewBefore": "← Ver Antes",
+      "viewAfter": "Ver Después →"
     },
     "portfolioButton": "📸 VER PORTFOLIO FOTOGRAFÍA",
     "portfolioButtonShort": "📸 Ver Portfolio",
@@ -252,7 +254,9 @@
     "title": "Industrias Con Las Que Trabajamos",
     "subtitle": "Experiencia en múltiples sectores con resultados reales",
     "footerText": "¿Tu sector no aparece? Trabajamos con cualquier tipo de negocio",
-    "footerCta": "Cuéntanos Tu Proyecto"
+    "footerCta": "Cuéntanos Tu Proyecto",
+    "webCategory": "Desarrollo Web",
+    "photoCategory": "Fotografía"
   },
   "stickyScroll": {
     "mainTitle": "Tu Web Como",

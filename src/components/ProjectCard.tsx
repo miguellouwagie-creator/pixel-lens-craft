@@ -1,6 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import { Project } from "@/data/showcaseData";
 import { Badge } from "@/components/ui/badge";
+import { useTranslation } from "react-i18next";
+
 
 interface ProjectCardProps {
   project: Project;
@@ -12,6 +14,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [tiltRotation, setTiltRotation] = useState({ rotateX: 0, rotateY: 0 });
   const [isMobile, setIsMobile] = useState(false);
+  const { t } = useTranslation();
+
 
   // Detectar si es móvil
   useEffect(() => {
@@ -173,7 +177,8 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
                 variant={project.category === "web" ? "default" : "secondary"}
                 className="mb-3 text-xs px-3 py-1"
               >
-                {project.category === "web" ? "Desarrollo Web" : "Fotografía"}
+                {project.category === "web" ? t("portfolio.webCategory") : t("portfolio.photoCategory")}
+
               </Badge>
               <h3 className="text-2xl md:text-3xl font-bold text-white mb-2">
                 {project.title}

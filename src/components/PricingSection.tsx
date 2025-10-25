@@ -195,7 +195,8 @@ const PricingSection = () => {
                     onClick={() => setShowAfterDemo(!showAfterDemo)}
                     className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-2xl transition-all hover:scale-105"
                   >
-                    {showAfterDemo ? "← Ver Antes" : "Ver Después →"}
+                    {showAfterDemo ? t("photoPacks.demo.viewBefore") : t("photoPacks.demo.viewAfter")}
+
                   </button>
                 </div>
                 <p className="text-xs text-gray-600 mt-3 font-normal text-center px-4 pb-3">

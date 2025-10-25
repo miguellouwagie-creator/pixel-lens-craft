@@ -170,7 +170,9 @@
     "demo": {
       "before": "Original Photo",
       "after": "Professional Edit",
-      "caption": "Denia, Spain"
+      "caption": "Denia, Spain",
+      "viewBefore": "← View Before",
+      "viewAfter": "View After →"
     },
     "portfolioButton": "📸 VIEW PHOTOGRAPHY PORTFOLIO",
     "portfolioButtonShort": "📸 View Portfolio",
@@ -252,7 +254,9 @@
     "title": "Industries We Work With",
     "subtitle": "Experience in multiple industries with real results",
     "footerText": "Your industry not listed? We work with any type of business",
-    "footerCta": "Tell Us About Your Project"
+    "footerCta": "Tell Us About Your Project",
+    "webCategory": "Web Development",
+    "photoCategory": "Photography"
   },
   "stickyScroll": {
     "mainTitle": "Your Website as",

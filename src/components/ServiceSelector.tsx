@@ -132,7 +132,7 @@ const ServiceSelector = () => {
                   className="h-6 w-6 md:h-10 md:w-10 text-yellow-400 animate-pulse"
                   style={{ filter: "drop-shadow(0 0 10px #fbbf24)" }}
                 />
-                ¿Qué Activo Digital Buscas Hoy?
+                {t("hero.serviceIndexTitle")}
                 <Sparkles
                   className="h-6 w-6 md:h-10 md:w-10 text-yellow-400 animate-pulse"
                   style={{ filter: "drop-shadow(0 0 10px #fbbf24)" }}
@@ -169,7 +169,8 @@ const ServiceSelector = () => {
 
                 <Settings className="h-7 w-7 md:h-8 md:w-8 flex-shrink-0 relative z-10 group-hover:rotate-180 transition-transform duration-500" />
                 <span className="leading-tight text-center md:text-left relative z-10">
-                  Creación Web para Convertir (CRO)
+                  {t("hero.serviceIndexBtn1Text")}
+
                 </span>
               </Button>
             </div>
@@ -200,7 +201,8 @@ const ServiceSelector = () => {
 
                 <Camera className="h-7 w-7 md:h-8 md:w-8 flex-shrink-0 relative z-10 group-hover:scale-125 transition-transform duration-500" />
                 <span className="leading-tight text-center md:text-left relative z-10">
-                  Fotografía y Edición
+                  {t("hero.serviceIndexBtn2Text")}
+
                 </span>
               </Button>
             </div>
