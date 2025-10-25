@@ -1,3 +1,4 @@
+// src/data/showcaseData.ts
 import gymdenia from "@/assets/showcase/gymdenia.jpg";
 import bvs from "@/assets/showcase/bvs.jpg";
 import tropidenia from "@/assets/showcase/tropidenia.jpg";
@@ -13,16 +14,7 @@ export interface Project {
 }
 
 export const showcaseProjects: Project[] = [
-  {
-    id: 1,
-    title: "GymDenia",
-    category: "web",
-    description:
-      "Web que multiplica consultas y captación de socios. Formularios optimizados que convierten visitantes en clientes potenciales cada día.",
-    imageUrl: gymdenia,
-    tags: ["Diseño Web", "Formularios", "Responsive"],
-    clientName: "GymDenia",
-  },
+  // 🥇 PRIMERO: BVS Trabajos Verticales
   {
     id: 2,
     title: "BVS Trabajos Verticales",
@@ -33,6 +25,20 @@ export const showcaseProjects: Project[] = [
     tags: ["Corporativo", "WordPress", "SEO"],
     clientName: "BVS",
   },
+
+  // 🥈 SEGUNDO: GymDenia
+  {
+    id: 1,
+    title: "GymDenia",
+    category: "web",
+    description:
+      "Web que multiplica consultas y captación de socios. Formularios optimizados que convierten visitantes en clientes potenciales cada día.",
+    imageUrl: gymdenia,
+    tags: ["Diseño Web", "Formularios", "Responsive"],
+    clientName: "GymDenia",
+  },
+
+  // 🥉 TERCERO: TropiDenia
   {
     id: 3,
     title: "TropiDenia",

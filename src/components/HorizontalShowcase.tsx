@@ -120,6 +120,7 @@ const HorizontalShowcase: React.FC = () => {
 
   return (
     <section
+      id="horizontal-showcase" // ⬅️ ID AÑADIDO PARA NAVEGACIÓN
       ref={sectionRef}
       className="horizontal-showcase relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 md:py-24 overflow-hidden"
     >

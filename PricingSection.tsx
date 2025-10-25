@@ -1,3 +1,4 @@
+// src/components/PricingSection.tsx
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -83,7 +84,10 @@ const PricingSection = () => {
   return (
     <div className="py-20" id="photo-packs">
       {/* ============ FOTOGRAFÍA Y EDICIÓN ============ */}
-      <section className="bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 py-20">
+      <section
+        id="photo-pricing" // ⬅️ ID AÑADIDO PARA NAVEGACIÓN
+        className="bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100 py-20"
+      >
         <div className="container mx-auto px-4">
           {/* Header con icono grande */}
           <div className="text-center mb-16">

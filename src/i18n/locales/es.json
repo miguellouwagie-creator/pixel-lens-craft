@@ -1,14 +1,17 @@
 {
   "hero": {
     "title": "Páginas Web Profesionales",
-    "titleHighlight": "& Fotografía",
+    "titleHighlight": "Fotografía",
     "subtitle": "Para tu negocio",
     "description": "Creamos tu página web profesional y hacemos fotos de tus productos o servicios. Comunicación directa, trato personalizado.",
+    "serviceIndexTitle": "¿Qué Activo Digital Buscas Hoy?",
+    "serviceIndexBtn1Text": "Creación Web para Convertir (CRO)",
+    "serviceIndexBtn2Text": "Fotografía y Credibilidad Visual",
     "ctaWhatsapp": "Contactar por WhatsApp",
     "ctaServices": "Ver Servicios",
     "benefit1": "Consulta gratuita",
     "benefit2": "Sin compromiso",
-    "benefit3": "Profesionales licenciados"
+    "benefit3": "Profesionales Especializados"
   },
   "nav": {
     "home": "Inicio",

@@ -1,6 +1,7 @@
 // src/pages/Index.tsx
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import ServiceSelector from "@/components/ServiceSelector"; // ⬅️ NUEVO IMPORT
 import SectionDivider from "@/components/SectionDivider";
 import HorizontalShowcase from "@/components/HorizontalShowcase";
 import StickyScrollSection from "@/components/StickyScrollSection";
@@ -22,6 +23,11 @@ const Index = () => {
         <section id="hero-section">
           <Hero />
         </section>
+
+        {/* ================================================ */}
+        {/* SERVICE SELECTOR - Índice de Servicios Dual     */}
+        {/* ================================================ */}
+        <ServiceSelector />
 
         {/* Todas las secciones después del Hero tienen fondo sólido que oculta el video */}
         <SectionDivider />

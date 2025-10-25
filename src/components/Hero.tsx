@@ -1,14 +1,11 @@
 // src/components/Hero.tsx
 import React from "react";
-import { Button } from "@/components/ui/button";
-import { CheckCircle2, MessageCircle, Award } from "lucide-react";
+import { CheckCircle2, Award } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import heroVideo from "@/assets/Fondo Vid.mp4";
 
 const Hero = () => {
   const { t } = useTranslation();
-  const whatsappNumber = "34667326300";
-  const whatsappMessage = "Hola, estoy interesado en vuestros servicios";
 
   return (
     <section
@@ -46,7 +43,7 @@ const Hero = () => {
             >
               {t("hero.title")}
               <br />
-              <span className="text-cta">{t("hero.titleHighlight")}</span>
+              <span className="text-cta">& {t("hero.titleHighlight")}</span>
             </h1>
 
             <p
@@ -67,34 +64,7 @@ const Hero = () => {
               {t("hero.description")}
             </p>
 
-            <div className="flex flex-col sm:flex-row gap-4 mb-10 max-w-lg">
-              <Button
-                size="lg"
-                className="bg-cta hover:bg-cta/90 text-white font-semibold text-lg px-8 py-6 rounded-full shadow-2xl hover:shadow-cta/50 transition-all duration-300 hover:scale-105"
-                onClick={() => {
-                  window.open(
-                    `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`,
-                    "_blank",
-                  );
-                }}
-              >
-                <MessageCircle className="mr-2 h-5 w-5" />
-                {t("hero.ctaWhatsapp")}
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="border-2 border-white text-white hover:bg-white hover:text-primary font-semibold text-lg px-8 py-6 rounded-full transition-all duration-300 hover:scale-105"
-                onClick={() => {
-                  document
-                    .getElementById("packs")
-                    ?.scrollIntoView({ behavior: "smooth" });
-                }}
-              >
-                {t("hero.ctaServices")}
-              </Button>
-            </div>
-
+            {/* Beneficios (3 puntos) */}
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-md lg:max-w-lg">
               <div className="flex items-center gap-2">
                 <CheckCircle2

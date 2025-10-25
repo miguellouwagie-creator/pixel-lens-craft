@@ -1,171 +1,172 @@
+// src/components/Hero.tsx
+import React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Globe, Camera, Package, Check, MessageCircle } from "lucide-react";
+import { CheckCircle2, Award, Settings, Camera } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import heroVideo from "@/assets/Fondo Vid.mp4";
 
-const Services = () => {
+const Hero = () => {
   const { t } = useTranslation();
-  const whatsappNumber = "34667326300";
 
-  const services = [
-    {
-      icon: Globe,
-      titleKey: "services.web.title",
-      descriptionKey: "services.web.description",
-      featuresKeys: [
-        "services.web.feature1",
-        "services.web.feature2",
-        "services.web.feature3",
-        "services.web.feature4",
-        "services.web.feature5",
-      ],
-      priceKey: "services.web.price",
-      ctaKey: "services.web.cta",
-      whatsappMessage:
-        "Hola, me interesa información sobre desarrollo de páginas web profesionales",
-      bgColor: "from-blue-900 to-slate-800",
-      featured: false,
-    },
-    {
-      icon: Camera,
-      titleKey: "services.photography.title",
-      descriptionKey: "services.photography.description",
-      featuresKeys: [
-        "services.photography.feature1",
-        "services.photography.feature2",
-        "services.photography.feature3",
-        "services.photography.feature4",
-        "services.photography.feature5",
-      ],
-      priceKey: "services.photography.price",
-      ctaKey: "services.photography.cta",
-      whatsappMessage:
-        "Hola, me interesa información sobre fotografía profesional para mi negocio",
-      bgColor: "from-orange-500 to-red-500",
-      featured: false,
-    },
-    {
-      icon: Package,
-      titleKey: "services.combo.title",
-      descriptionKey: "services.combo.description",
-      featuresKeys: [
-        "services.combo.feature1",
-        "services.combo.feature2",
-        "services.combo.feature3",
-        "services.combo.feature4",
-        "services.combo.feature5",
-      ],
-      priceKey: "services.combo.price",
-      priceNoteKey: "services.combo.priceNote",
-      ctaKey: "services.combo.cta",
-      whatsappMessage: "Hola, me interesa el Pack Web + Fotografía completo",
-      bgColor: "from-purple-600 to-indigo-600",
-      featured: true,
-      badgeKey: "services.combo.badge",
-    },
-  ];
+  const handleScrollToWeb = () => {
+    const element = document.getElementById("web-service");
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
+
+  const handleScrollToPhoto = () => {
+    const element = document.getElementById("photo-service");
+    element?.scrollIntoView({ behavior: "smooth" });
+  };
 
   return (
-    <section id="servicios" className="py-20 md:py-28 bg-white">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 text-foreground">
-            {t("services.title")}
-          </h2>
-          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
-            {t("services.subtitle")}
-          </p>
-        </div>
+    <section
+      id="hero-section"
+      className="sticky top-0 h-screen flex items-center overflow-hidden pt-32 md:pt-36"
+      style={{ zIndex: 0 }}
+    >
+      <video
+        autoPlay
+        loop
+        muted
+        playsInline
+        className="hero-video-background"
+        src={heroVideo}
+      >
+        Tu navegador no soporta el tag de video.
+      </video>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {services.map((service, index) => {
-            const IconComponent = service.icon;
-            return (
-              <Card
-                key={service.titleKey}
-                className={`hover-lift relative ${
-                  service.featured
-                    ? "border-4 border-purple-500 shadow-2xl transform scale-105"
-                    : "border-2 border-gray-200"
-                }`}
-                style={{ animationDelay: `${index * 0.1}s` }}
+      <div
+        className="absolute inset-0"
+        style={{
+          background:
+            "linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 70%)",
+        }}
+      ></div>
+
+      <div className="container mx-auto px-4 relative z-10">
+        <div className="max-w-xl lg:max-w-2xl">
+          <div className="text-white animate-fade-in-up">
+            <h1
+              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
+              style={{
+                textShadow: "2px 4px 8px rgba(0, 0, 0, 0.6)",
+              }}
+            >
+              {t("hero.title")}
+              <br />
+              <span className="text-cta">{t("hero.titleHighlight")}</span>
+            </h1>
+
+            <p
+              className="text-2xl md:text-3xl mb-6 text-white font-medium"
+              style={{
+                textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)",
+              }}
+            >
+              {t("hero.subtitle")}
+            </p>
+
+            <p
+              className="text-lg md:text-xl mb-10 text-white leading-relaxed"
+              style={{
+                textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)",
+              }}
+            >
+              {t("hero.description")}
+            </p>
+
+            {/* ========================================== */}
+            {/* ÍNDICE DE SERVICIOS DUAL (ÚNICO CTA)     */}
+            {/* ========================================== */}
+            <div className="service-index-container mb-10">
+              {/* Título guía */}
+              <h2
+                className="service-index-title text-2xl md:text-3xl font-semibold text-white mb-6 text-center"
+                style={{
+                  textShadow: "2px 4px 8px rgba(0, 0, 0, 0.6)",
+                }}
               >
-                {service.featured && (
-                  <div className="absolute top-4 right-4 bg-gradient-to-r from-purple-600 to-indigo-600 text-white px-3 py-1 rounded-full text-xs font-semibold shadow-lg z-10">
-                    {t(service.badgeKey!)}
-                  </div>
-                )}
+                {t("hero.serviceIndexTitle")}
+              </h2>
 
-                <div
-                  className={`bg-gradient-to-br ${service.bgColor} p-6 text-white`}
+              {/* Contenedor de botones */}
+              <div className="service-index-buttons flex flex-col md:flex-row gap-4 max-w-3xl mx-auto">
+                {/* Botón 1: Creación Web (Primario - Naranja) */}
+                <Button
+                  onClick={handleScrollToWeb}
+                  size="lg"
+                  className="service-btn service-btn--primary bg-cta hover:bg-cta/90 text-white font-semibold text-base md:text-lg px-6 py-6 rounded-full shadow-2xl hover:shadow-cta/50 transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 min-h-[70px]"
+                  style={{
+                    border: "2px solid transparent",
+                  }}
                 >
-                  <div className="mb-4 inline-flex p-3 bg-white/20 backdrop-blur rounded-xl">
-                    <IconComponent className="h-8 w-8" />
-                  </div>
-                  <CardTitle className="text-2xl mb-2">
-                    {t(service.titleKey)}
-                  </CardTitle>
-                  <CardDescription className="text-base text-white/90">
-                    {t(service.descriptionKey)}
-                  </CardDescription>
-                </div>
+                  <Settings className="service-btn__icon h-6 w-6 flex-shrink-0" />
+                  <span className="leading-tight">
+                    {t("hero.serviceIndexBtn1Text")}
+                  </span>
+                </Button>
 
-                <CardContent className="pt-6">
-                  <ul className="space-y-3 mb-6">
-                    {service.featuresKeys.map((featureKey) => (
-                      <li key={featureKey} className="flex items-start gap-2">
-                        <Check className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                        <span className="text-sm text-foreground">
-                          {t(featureKey)}
-                        </span>
-                      </li>
-                    ))}
-                  </ul>
+                {/* Botón 2: Fotografía (Secundario - Outline) */}
+                <Button
+                  onClick={handleScrollToPhoto}
+                  size="lg"
+                  variant="outline"
+                  className="service-btn service-btn--secondary border-2 border-white text-white hover:bg-white hover:text-primary font-semibold text-base md:text-lg px-6 py-6 rounded-full transition-all duration-300 hover:scale-105 flex items-center justify-center gap-3 min-h-[70px]"
+                >
+                  <Camera className="service-btn__icon h-6 w-6 flex-shrink-0" />
+                  <span className="leading-tight">
+                    {t("hero.serviceIndexBtn2Text")}
+                  </span>
+                </Button>
+              </div>
+            </div>
+            {/* ========================================== */}
+            {/* FIN ÍNDICE DE SERVICIOS DUAL              */}
+            {/* ========================================== */}
 
-                  <div className="pt-4 border-t border-border">
-                    <div className="text-3xl font-bold text-foreground mb-1">
-                      {t(service.priceKey)}
-                    </div>
-                    {service.priceNoteKey && (
-                      <div className="text-sm text-purple-600 font-semibold">
-                        {t(service.priceNoteKey)}
-                      </div>
-                    )}
-                  </div>
-                </CardContent>
-
-                <CardFooter>
-                  <Button
-                    variant={service.featured ? "default" : "outline"}
-                    className={`w-full ${service.featured ? "bg-gradient-to-r from-purple-600 to-indigo-600 text-white hover:opacity-90" : ""}`}
-                    size="lg"
-                    asChild
-                  >
-                    <a
-                      href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(service.whatsappMessage)}`}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-center gap-2"
-                    >
-                      <MessageCircle className="h-4 w-4" />
-                      {t(service.ctaKey)}
-                    </a>
-                  </Button>
-                </CardFooter>
-              </Card>
-            );
-          })}
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-md lg:max-w-lg">
+              <div className="flex items-center gap-2">
+                <CheckCircle2
+                  className="h-5 w-5 text-cta flex-shrink-0"
+                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}
+                />
+                <span
+                  className="text-white font-medium text-sm"
+                  style={{ textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)" }}
+                >
+                  {t("hero.benefit1")}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <CheckCircle2
+                  className="h-5 w-5 text-cta flex-shrink-0"
+                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}
+                />
+                <span
+                  className="text-white font-medium text-sm"
+                  style={{ textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)" }}
+                >
+                  {t("hero.benefit2")}
+                </span>
+              </div>
+              <div className="flex items-center gap-2">
+                <Award
+                  className="h-5 w-5 text-cta flex-shrink-0"
+                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}
+                />
+                <span
+                  className="text-white font-medium text-sm"
+                  style={{ textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)" }}
+                >
+                  {t("hero.benefit3")}
+                </span>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
   );
 };
 
-export default Services;
+export default Hero;
