@@ -17,9 +17,8 @@ const ServiceSelector = () => {
     }
   };
 
-  // NAVEGACIÓN A FOTOGRAFÍA - ACTUALIZADO ⬇️
+  // NAVEGACIÓN A FOTOGRAFÍA
   const handleScrollToPhoto = () => {
-    // Intenta primero con photo-packs, luego photo-pricing
     const element =
       document.getElementById("photo-packs") ||
       document.getElementById("photo-pricing");
@@ -27,7 +26,6 @@ const ServiceSelector = () => {
     if (element) {
       element.scrollIntoView({ behavior: "smooth", block: "start" });
     } else {
-      // Fallback: buscar por contenido del título
       const sections = document.querySelectorAll("section");
       const photoSection = Array.from(sections).find((section) =>
         section.textContent?.includes("Fotografía y Edición"),
@@ -45,9 +43,9 @@ const ServiceSelector = () => {
       className="sticky top-0 min-h-screen flex items-center justify-center relative overflow-hidden"
       style={{ zIndex: 1 }}
     >
-      {/* FONDO DIVIDIDO */}
+      {/* FONDO DIVIDIDO - Desktop: dividido | Móvil: blend */}
       <div
-        className="absolute top-0 left-0 bottom-0 w-1/2"
+        className="absolute top-0 left-0 bottom-0 w-full md:w-1/2"
         style={{ zIndex: 0 }}
       >
         <div
@@ -61,7 +59,7 @@ const ServiceSelector = () => {
       </div>
 
       <div
-        className="absolute top-0 right-0 bottom-0 w-1/2"
+        className="absolute top-0 right-0 bottom-0 w-full md:w-1/2 md:opacity-100 opacity-50"
         style={{ zIndex: 0 }}
       >
         <div
@@ -74,9 +72,9 @@ const ServiceSelector = () => {
         />
       </div>
 
-      {/* LÍNEAS DIVISORIAS */}
+      {/* LÍNEAS DIVISORIAS - Solo visible en desktop (md:block) */}
       <div
-        className="absolute top-0 left-1/2 animate-pulse"
+        className="hidden md:block absolute top-0 left-1/2 animate-pulse"
         style={{
           zIndex: 15,
           transform: "translateX(-0.5px)",
@@ -90,7 +88,7 @@ const ServiceSelector = () => {
       />
 
       <div
-        className="absolute bottom-0 left-1/2 animate-pulse"
+        className="hidden md:block absolute bottom-0 left-1/2 animate-pulse"
         style={{
           zIndex: 15,
           transform: "translateX(-0.5px)",
@@ -107,9 +105,9 @@ const ServiceSelector = () => {
       <div className="w-full relative" style={{ zIndex: 10 }}>
         <div className="container mx-auto px-4">
           {/* TÍTULO */}
-          <div className="flex justify-center mb-16">
+          <div className="flex justify-center mb-12 md:mb-16">
             <div
-              className="inline-block px-12 py-6 rounded-3xl animate-fade-in-up"
+              className="inline-block px-6 py-4 md:px-12 md:py-6 rounded-3xl animate-fade-in-up"
               style={{
                 background: "rgba(0, 0, 0, 0.5)",
                 backdropFilter: "blur(20px)",
@@ -119,7 +117,7 @@ const ServiceSelector = () => {
               }}
             >
               <h2
-                className="text-4xl md:text-5xl lg:text-6xl font-bold text-white text-center flex items-center gap-4"
+                className="text-2xl md:text-4xl lg:text-6xl font-bold text-white text-center flex flex-col md:flex-row items-center gap-2 md:gap-4"
                 style={{
                   textShadow:
                     "0 0 40px rgba(255, 255, 255, 0.5), 2px 4px 20px rgba(0, 0, 0, 0.9)",
@@ -131,26 +129,26 @@ const ServiceSelector = () => {
                 }}
               >
                 <Sparkles
-                  className="h-10 w-10 text-yellow-400 animate-pulse"
+                  className="h-6 w-6 md:h-10 md:w-10 text-yellow-400 animate-pulse"
                   style={{ filter: "drop-shadow(0 0 10px #fbbf24)" }}
                 />
                 ¿Qué Activo Digital Buscas Hoy?
                 <Sparkles
-                  className="h-10 w-10 text-yellow-400 animate-pulse"
+                  className="h-6 w-6 md:h-10 md:w-10 text-yellow-400 animate-pulse"
                   style={{ filter: "drop-shadow(0 0 10px #fbbf24)" }}
                 />
               </h2>
             </div>
           </div>
 
-          {/* BOTONES */}
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-0 max-w-6xl mx-auto">
+          {/* BOTONES - Móvil: columna centrada | Desktop: dos columnas */}
+          <div className="flex flex-col md:grid md:grid-cols-2 gap-6 md:gap-0 max-w-6xl mx-auto items-center">
             {/* Botón 1: Portfolio Web */}
-            <div className="flex justify-end items-center pr-4 md:pr-8">
+            <div className="w-full flex justify-center md:justify-end items-center md:pr-8">
               <Button
                 onClick={handleScrollToWeb}
                 size="lg"
-                className="group relative overflow-hidden text-white font-bold text-lg md:text-xl px-10 py-8 rounded-full transition-all duration-500 hover:scale-110 flex items-center justify-center gap-4 min-h-[90px] w-full max-w-[420px]"
+                className="group relative overflow-hidden text-white font-bold text-base md:text-lg lg:text-xl px-8 py-6 md:px-10 md:py-8 rounded-full transition-all duration-500 hover:scale-110 flex items-center justify-center gap-3 md:gap-4 min-h-[80px] md:min-h-[90px] w-full max-w-[380px] md:max-w-[420px]"
                 style={{
                   background:
                     "linear-gradient(135deg, #1e3a8a 0%, #3b82f6 50%, #60a5fa 100%)",
@@ -169,19 +167,19 @@ const ServiceSelector = () => {
                   }}
                 />
 
-                <Settings className="h-8 w-8 flex-shrink-0 relative z-10 group-hover:rotate-180 transition-transform duration-500" />
-                <span className="leading-tight text-left relative z-10">
+                <Settings className="h-7 w-7 md:h-8 md:w-8 flex-shrink-0 relative z-10 group-hover:rotate-180 transition-transform duration-500" />
+                <span className="leading-tight text-center md:text-left relative z-10">
                   Creación Web para Convertir (CRO)
                 </span>
               </Button>
             </div>
 
             {/* Botón 2: Fotografía y Edición */}
-            <div className="flex justify-start items-center pl-4 md:pl-8">
+            <div className="w-full flex justify-center md:justify-start items-center md:pl-8">
               <Button
                 onClick={handleScrollToPhoto}
                 size="lg"
-                className="group relative overflow-hidden text-white font-bold text-lg md:text-xl px-10 py-8 rounded-full transition-all duration-500 hover:scale-110 flex items-center justify-center gap-4 min-h-[90px] w-full max-w-[420px]"
+                className="group relative overflow-hidden text-white font-bold text-base md:text-lg lg:text-xl px-8 py-6 md:px-10 md:py-8 rounded-full transition-all duration-500 hover:scale-110 flex items-center justify-center gap-3 md:gap-4 min-h-[80px] md:min-h-[90px] w-full max-w-[380px] md:max-w-[420px]"
                 style={{
                   background:
                     "linear-gradient(135deg, #c2410c 0%, #ea580c 50%, #fb923c 100%)",
@@ -200,8 +198,8 @@ const ServiceSelector = () => {
                   }}
                 />
 
-                <Camera className="h-8 w-8 flex-shrink-0 relative z-10 group-hover:scale-125 transition-transform duration-500" />
-                <span className="leading-tight text-left relative z-10">
+                <Camera className="h-7 w-7 md:h-8 md:w-8 flex-shrink-0 relative z-10 group-hover:scale-125 transition-transform duration-500" />
+                <span className="leading-tight text-center md:text-left relative z-10">
                   Fotografía y Edición
                 </span>
               </Button>

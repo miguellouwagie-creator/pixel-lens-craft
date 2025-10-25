@@ -129,26 +129,26 @@ const PricingSection = () => {
 
           {/* ==================== LAYOUT CORRECTO ==================== */}
           <div className="mb-16 max-w-7xl mx-auto space-y-8">
-            {/* FILA 1: Solo Garantía 100% (ancha, centrada) */}
+            {/* FILA 1: Solo Garantía 100% (ancha, centrada) - MEJORADO PARA MÓVIL */}
             <div className="max-w-5xl mx-auto">
-              <div className="bg-white rounded-2xl p-8 shadow-xl shadow-orange-500/10 border-2 border-orange-300 transform hover:scale-105 transition-all duration-300">
-                <div className="flex items-center gap-6">
+              <div className="bg-white rounded-2xl p-6 md:p-8 shadow-xl shadow-orange-500/10 border-2 border-orange-300 transform hover:scale-105 transition-all duration-300">
+                <div className="flex flex-col md:flex-row items-center md:items-center gap-4 md:gap-6">
                   <div className="flex-shrink-0">
-                    <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl p-5 shadow-lg">
+                    <div className="bg-gradient-to-br from-orange-500 to-red-500 rounded-2xl p-4 md:p-5 shadow-lg">
                       <Shield
-                        className="h-14 w-14 text-white"
+                        className="h-10 w-10 md:h-14 md:w-14 text-white"
                         strokeWidth={2.5}
                       />
                     </div>
                   </div>
 
-                  <div className="text-left flex-1">
-                    <h3 className="text-3xl font-black text-orange-900 mb-3 flex items-center gap-2">
-                      <CheckCircle2 className="h-7 w-7 text-green-600" />
-                      {t("photoPacks.guarantee.title")}
+                  <div className="text-center md:text-left flex-1">
+                    <h3 className="text-2xl md:text-3xl font-black text-orange-900 mb-2 md:mb-3 flex flex-col md:flex-row items-center justify-center md:justify-start gap-2">
+                      <CheckCircle2 className="h-6 w-6 md:h-7 md:w-7 text-green-600 flex-shrink-0" />
+                      <span>{t("photoPacks.guarantee.title")}</span>
                     </h3>
                     <p
-                      className="text-base text-gray-700 leading-relaxed font-medium"
+                      className="text-sm md:text-base text-gray-700 leading-relaxed font-medium"
                       dangerouslySetInnerHTML={{
                         __html: t("photoPacks.guarantee.description"),
                       }}
@@ -159,9 +159,9 @@ const PricingSection = () => {
             </div>
 
             {/* FILA 2: Imagen (izquierda) + Botón Portfolio (derecha, alineado con imagen) */}
-            <div className="grid md:grid-cols-2 gap-8 items-start">
-              {/* Imagen Antes/Después */}
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-8 items-start">
+              {/* Imagen Antes/Después - TAMAÑO MEJORADO PARA MÓVIL */}
+              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white w-full max-w-md mx-auto md:max-w-none">
                 <div className="relative aspect-[4/3]">
                   <img
                     src={beforeDemo}
@@ -193,7 +193,7 @@ const PricingSection = () => {
 
                   <button
                     onClick={() => setShowAfterDemo(!showAfterDemo)}
-                    className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-full text-sm font-bold shadow-2xl transition-all hover:scale-105"
+                    className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-2xl transition-all hover:scale-105"
                   >
                     {showAfterDemo ? "← Ver Antes" : "Ver Después →"}
                   </button>
@@ -228,8 +228,11 @@ const PricingSection = () => {
                         <Eye className="h-8 w-8 animate-bounce group-hover:animate-none group-hover:scale-125 transition-transform flex-shrink-0" />
 
                         {/* Texto central */}
-                        <span className="tracking-wide drop-shadow-lg text-center leading-tight flex-1">
-                          VER PORTFOLIO FOTOGRAFÍA
+                        <span className="tracking-wide drop-shadow-lg text-center leading-tight flex-1 text-sm md:text-xl">
+                          <span className="hidden md:inline">
+                            VER PORTFOLIO FOTOGRAFÍA
+                          </span>
+                          <span className="md:hidden">VER PORTFOLIO</span>
                         </span>
 
                         {/* Icono derecho */}
