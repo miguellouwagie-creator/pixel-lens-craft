@@ -1,21 +1,61 @@
-# Favicons - No cachear para forzar actualización
-/favicon.ico
+# Cache agresivo para assets estáticos (JS, CSS con hash)
+/js/*
+  Cache-Control: public, max-age=31536000, immutable
+
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# HTML sin cache (para forzar actualizaciones del contenido)
+/*.html
   Cache-Control: public, max-age=0, must-revalidate
+
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate
+
+# Favicons con cache de 1 año (ya tienes cache busting con ?v=timestamp)
+/favicon.ico
+  Cache-Control: public, max-age=31536000, immutable
 
 /favicon-16x16.png
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
 
 /favicon-32x32.png
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
 
 /apple-touch-icon.png
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
 
 /android-chrome-192x192.png
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
 
 /android-chrome-512x512.png
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
 
 /site.webmanifest
-  Cache-Control: public, max-age=0, must-revalidate
+  Cache-Control: public, max-age=31536000, immutable
+
+# Imágenes de contenido (si no tienen hash)
+/*.jpg
+  Cache-Control: public, max-age=2592000
+
+/*.jpeg
+  Cache-Control: public, max-age=2592000
+
+/*.png
+  Cache-Control: public, max-age=2592000
+
+/*.webp
+  Cache-Control: public, max-age=2592000
+
+/*.svg
+  Cache-Control: public, max-age=2592000
+
+/*.gif
+  Cache-Control: public, max-age=2592000
+
+# Videos
+/*.mp4
+  Cache-Control: public, max-age=2592000
+
+/*.webm
+  Cache-Control: public, max-age=2592000
