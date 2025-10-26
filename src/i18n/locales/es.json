@@ -162,7 +162,8 @@
     "fullMessage": "IVA incluido | Precio más competitivo del mercado"
   },
   "photoPacks": {
-    "title": "Fotografía y Edición Profesional",
+    "title": "Fotografía y Edición",
+    "titleHighlight": "Profesional",
     "subtitle": "Capturamos y transformamos tus fotos con edición profesional. Elige el pack que mejor se adapte a tus necesidades.",
     "badge": {
       "text": "Fotos editadas en 2025"

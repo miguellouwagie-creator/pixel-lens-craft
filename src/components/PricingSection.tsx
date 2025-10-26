@@ -111,8 +111,13 @@ const PricingSection = () => {
         <div className="container mx-auto px-4 relative z-10">
           {/* Título + Badge elegante */}
           <div className="text-center mb-14">
-            <h2 className="text-5xl md:text-7xl font-black text-transparent bg-clip-text bg-gradient-to-r from-orange-700 via-red-600 to-orange-700 mb-6 leading-tight tracking-tight drop-shadow-lg">
-              {t("photoPacks.title")}
+            <h2 className="text-5xl md:text-7xl font-black mb-6 leading-tight tracking-tight text-center">
+              <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-700 via-red-600 to-orange-700 drop-shadow-lg">
+                {t("photoPacks.title")}
+              </span>
+              <span className="block text-amber-500 drop-shadow-[0_2px_8px_rgba(217,119,6,0.4)] mt-2">
+                {t("photoPacks.titleHighlight")}
+              </span>
             </h2>
 
             <div className="inline-flex items-center gap-2 bg-gradient-to-r from-orange-100 to-amber-100 backdrop-blur-sm border border-orange-300 rounded-full px-5 py-2.5 shadow-md mb-4">
@@ -195,8 +200,9 @@ const PricingSection = () => {
                     onClick={() => setShowAfterDemo(!showAfterDemo)}
                     className="absolute bottom-3 left-1/2 transform -translate-x-1/2 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 md:px-6 md:py-2 rounded-full text-xs md:text-sm font-bold shadow-2xl transition-all hover:scale-105"
                   >
-                    {showAfterDemo ? t("photoPacks.demo.viewBefore") : t("photoPacks.demo.viewAfter")}
-
+                    {showAfterDemo
+                      ? t("photoPacks.demo.viewBefore")
+                      : t("photoPacks.demo.viewAfter")}
                   </button>
                 </div>
                 <p className="text-xs text-gray-600 mt-3 font-normal text-center px-4 pb-3">

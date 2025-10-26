@@ -1,7 +1,7 @@
 {
   "hero": {
     "title": "Professional Websites",
-    "titleHighlight": "& Photography",
+    "titleHighlight": "Photography",
     "subtitle": "For your business",
     "description": "We create your professional website and take photos of your products or services. Direct communication, personalized service.",
     "serviceIndexTitle": "What Digital Asset Are You Looking For Today?",
@@ -162,7 +162,8 @@
     "fullMessage": "VAT included | Most competitive market price"
   },
   "photoPacks": {
-    "title": "Professional Photography & Editing",
+    "title": "Photography & Editing",
+    "titleHighlight": "Professional",
     "subtitle": "We capture and transform your photos with professional editing. Choose the pack that best suits your needs.",
     "badge": {
       "text": "Photos edited in 2025"
