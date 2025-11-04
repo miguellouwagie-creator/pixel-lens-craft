@@ -3,6 +3,7 @@ import { Project } from "@/data/showcaseData";
 import { Badge } from "@/components/ui/badge";
 import { useTranslation } from "react-i18next";
 
+
 interface ProjectCardProps {
   project: Project;
   isActive: boolean;
@@ -15,6 +16,20 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
   const [isMobile, setIsMobile] = useState(false);
   const { t } = useTranslation();
 
+  // Mapeo de títulos a claves de traducción
+  const descriptionKeyMap: { [key: string]: string } = {
+    "BVS Trabajos Verticales": "portfolioShowcase.bvs.description",
+    "Golden Coast Charter": "portfolioShowcase.goldencoast.description",
+    "GymDenia": "portfolioShowcase.gymdenia.description",
+    "TropiDenia": "portfolioShowcase.tropidenia.description",
+  };
+
+  const getDescription = () => {
+    const key = descriptionKeyMap[project.title];
+    return key ? t(key) : project.description;
+  };
+
+  // Detectar si es móvil
   useEffect(() => {
     const checkMobile = () => {
       setIsMobile(window.innerWidth < 768);
@@ -24,6 +39,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
     return () => window.removeEventListener("resize", checkMobile);
   }, []);
 
+  // Mouse tracking para desktop
   useEffect(() => {
     if (isMobile || !isActive) return;
 
@@ -63,6 +79,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
     };
   }, [isActive, isMobile]);
 
+  // Gyroscope parallax para móviles
   useEffect(() => {
     if (!isMobile || !isActive) return;
 
@@ -80,6 +97,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
       window.removeEventListener("deviceorientation", handleOrientation);
   }, [isActive, isMobile]);
 
+  // Transforms para cada capa
   const layer1Transform = {
     transform: `translate(${mousePosition.x * 8}px, ${mousePosition.y * 8}px)`,
     transition: "transform 0.2s ease-out",
@@ -106,7 +124,10 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
     willChange: "transform",
   };
 
+  // Detectar si es TropiDenia para aplicar zoom o fondo blanco
   const isTropiDenia = project.title === "TropiDenia";
+  const isGoldenCoast = project.title === "Golden Coast Charter";
+  const hasLightBg = isTropiDenia || isGoldenCoast;
 
   return (
     <div
@@ -116,7 +137,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
     >
       <div className="max-w-6xl mx-auto relative" style={cardTilt}>
         <div className="grid md:grid-cols-2 gap-8 items-center relative">
+          {/* Imagen del Proyecto con capas parallax */}
           <div className="relative h-[350px] md:h-[500px] overflow-visible">
+            {/* Capa 1: Fondo abstracto */}
             <div
               className="absolute inset-0 -z-10 rounded-2xl opacity-30"
               style={{
@@ -128,6 +151,7 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
               }}
             />
 
+            {/* Capa 2: Imagen principal */}
             <div
               className="absolute inset-0 rounded-2xl shadow-2xl overflow-hidden group"
               style={layer2Transform}
@@ -135,17 +159,18 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
               <img
                 src={project.imageUrl}
                 alt={project.title}
-                className={`w-full h-full transition-transform duration-700 ${!isTropiDenia ? "group-hover:scale-105" : ""}`}
+                className={`w-full h-full transition-transform duration-700 ${!hasLightBg ? "group-hover:scale-105" : ""}`}
                 style={{
-                  objectFit: isTropiDenia ? "contain" : "cover",
+                  objectFit: hasLightBg ? "contain" : "cover",
                   objectPosition: "center",
-                  backgroundColor: isTropiDenia ? "#f5f5f5" : "transparent",
-                  transform: isTropiDenia ? "scale(1.45)" : "none",
+                  backgroundColor: hasLightBg ? "#ffffff" : "transparent",
+                  transform: isTropiDenia ? "scale(1.45)" : isGoldenCoast ? "scale(1)" : "none",
                 }}
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </div>
 
+            {/* Capa 3: Elementos decorativos flotantes */}
             <div
               className="absolute -top-4 -right-4 w-20 h-20 rounded-full bg-cta/15 blur-xl"
               style={layer3Transform}
@@ -159,28 +184,22 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, isActive }) => {
             />
           </div>
 
+          {/* Información del Proyecto */}
           <div className="space-y-4 relative z-10">
             <div>
               <Badge
                 variant={project.category === "web" ? "default" : "secondary"}
                 className="mb-3 text-xs px-3 py-1"
               >
-                {project.category === "web"
-                  ? t("portfolio.webCategory")
-                  : t("portfolio.photoCategory")}
+                {project.category === "web" ? t("portfolio.webCategory") : t("portfolio.photoCategory")}
               </Badge>
-              <h3 className="text-4xl md:text-5xl font-bold bg-gradient-to-r from-orange-500 via-orange-600 to-red-600 bg-clip-text text-transparent mb-2">
+              <h3 className="text-3xl md:text-4xl font-bold bg-gradient-to-r from-orange-300 via-orange-400 to-orange-500 bg-clip-text text-transparent drop-shadow-lg mb-2">
                 {project.title}
               </h3>
-              {project.clientName && (
-                <p className="text-gray-300 text-base">
-                  Cliente: {project.clientName}
-                </p>
-              )}
             </div>
 
             <p className="text-base md:text-lg text-gray-200 leading-relaxed">
-              {t(project.descriptionKey)}
+              {getDescription()}
             </p>
 
             <div className="flex flex-wrap gap-2">

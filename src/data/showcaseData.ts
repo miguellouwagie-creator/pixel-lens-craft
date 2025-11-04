@@ -1,3 +1,4 @@
+// src/data/showcaseData.ts
 import gymdenia from "@/assets/showcase/gymdenia.jpg";
 import bvs from "@/assets/showcase/bvs.jpg";
 import tropidenia from "@/assets/showcase/tropidenia.jpg";
@@ -7,8 +8,7 @@ export interface Project {
   id: number;
   title: string;
   category: "web" | "photography";
-  description?: string;
-  descriptionKey: string;
+  description: string;
   imageUrl: string;
   tags: string[];
   clientName?: string;
@@ -17,32 +17,35 @@ export interface Project {
 export const showcaseProjects: Project[] = [
   // 🥇 PRIMERO: BVS Trabajos Verticales
   {
-    id: 2,
+    id: 1,
     title: "BVS Trabajos Verticales",
     category: "web",
-    descriptionKey: "portfolioShowcase.bvs.description",
+    description:
+      "Presencia digital que transmite confianza al instante. Transformamos su imagen online para reflejar su liderazgo en el sector.",
     imageUrl: bvs,
     tags: ["Corporativo", "WordPress", "SEO"],
     clientName: "BVS",
   },
 
-  // 🥈 SEGUNDO: Golden Coast Charter (NUEVO)
+  // 🥈 SEGUNDO: Golden Coast Charter
   {
-    id: 4,
+    id: 2,
     title: "Golden Coast Charter",
     category: "web",
-    descriptionKey: "portfolioShowcase.goldencoast.description",
+    description:
+      "Plataforma de reservas online que revolucionó su negocio de charters náuticos. Sistema de calendario en tiempo real y pasarela de pago integrada.",
     imageUrl: goldencoast,
-    tags: ["Turismo", "Reservas", "Lujo"],
-    clientName: "Golden Coast",
+    tags: ["Next.js", "Reservas", "Pasarela de Pago"],
+    clientName: "Golden Coast Charter",
   },
 
   // 🥉 TERCERO: GymDenia
   {
-    id: 1,
+    id: 3,
     title: "GymDenia",
     category: "web",
-    descriptionKey: "portfolioShowcase.gymdenia.description",
+    description:
+      "Web que multiplica consultas y captación de socios. Formularios optimizados que convierten visitantes en clientes potenciales cada día.",
     imageUrl: gymdenia,
     tags: ["Diseño Web", "Formularios", "Responsive"],
     clientName: "GymDenia",
@@ -50,10 +53,11 @@ export const showcaseProjects: Project[] = [
 
   // 🏅 CUARTO: TropiDenia
   {
-    id: 3,
+    id: 4,
     title: "TropiDenia",
     category: "web",
-    descriptionKey: "portfolioShowcase.tropidenia.description",
+    description:
+      "Sistema de reservas que generó +40% más ingresos. Eliminamos intermediarios y comisiones para control total del negocio.",
     imageUrl: tropidenia,
     tags: ["UI/UX", "React", "Reservas"],
     clientName: "TropiDenia",
