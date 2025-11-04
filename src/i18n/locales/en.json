@@ -304,14 +304,6 @@
       "highlightWord": "Websites Built to Convert",
       "subtitle": "Strategic designs with CRO and visual credibility that transform visitors into clients"
     },
-    "tropidenia": {
-      "title": "TropiDenia",
-      "tagline": "Booking system that generated +40% more revenue",
-      "description": "We eliminated intermediaries and commissions. Result: direct bookings, full business control and maximum profitability from day one.",
-      "tag1": "UI/UX",
-      "tag2": "React",
-      "tag3": "Bookings"
-    },
     "bvs": {
       "title": "BVS Vertical Works",
       "tagline": "Digital presence that instantly conveys trust",
@@ -320,6 +312,14 @@
       "tag2": "WordPress",
       "tag3": "SEO"
     },
+    "goldencoast": {
+      "title": "Golden Coast Charter",
+      "tagline": "Premium booking platform for luxury vessels",
+      "description": "High-end system that increases conversions and direct reservations. Strategic design that conveys luxury and trust to VIP clients.",
+      "tag1": "Tourism",
+      "tag2": "Bookings",
+      "tag3": "Luxury"
+    },
     "gymdenia": {
       "title": "GymDenia",
       "tagline": "Website that multiplies inquiries and member acquisition",
@@ -327,6 +327,14 @@
       "tag1": "Web Design",
       "tag2": "Forms",
       "tag3": "Responsive"
+    },
+    "tropidenia": {
+      "title": "TropiDenia",
+      "tagline": "Booking system that generated +40% more revenue",
+      "description": "We eliminated intermediaries and commissions. Result: direct bookings, full business control and maximum profitability from day one.",
+      "tag1": "UI/UX",
+      "tag2": "React",
+      "tag3": "Bookings"
     }
   },
   "portfolioGallery": {

@@ -304,14 +304,6 @@
       "highlightWord": "Webs Construidas para Convertir",
       "subtitle": "Diseños estratégicos con CRO y credibilidad visual que transforman visitantes en clientes"
     },
-    "tropidenia": {
-      "title": "TropiDenia",
-      "tagline": "Sistema de reservas que generó +40% más ingresos",
-      "description": "Eliminamos intermediarios y comisiones. Resultado: reservas directas, control total del negocio y máxima rentabilidad desde el día uno.",
-      "tag1": "UI/UX",
-      "tag2": "React",
-      "tag3": "Reservas"
-    },
     "bvs": {
       "title": "BVS Trabajos Verticales",
       "tagline": "Presencia digital que transmite confianza al instante",
@@ -320,6 +312,14 @@
       "tag2": "WordPress",
       "tag3": "SEO"
     },
+    "goldencoast": {
+      "title": "Golden Coast Charter",
+      "tagline": "Plataforma de reservas de embarcaciones de lujo",
+      "description": "Sistema premium que aumenta conversiones y reservas directas. Diseño estratégico que transmite lujo y confianza a clientes VIP.",
+      "tag1": "Turismo",
+      "tag2": "Reservas",
+      "tag3": "Lujo"
+    },
     "gymdenia": {
       "title": "GymDenia",
       "tagline": "Web que multiplica consultas y captación de socios",
@@ -327,6 +327,14 @@
       "tag1": "Diseño Web",
       "tag2": "Formularios",
       "tag3": "Responsive"
+    },
+    "tropidenia": {
+      "title": "TropiDenia",
+      "tagline": "Sistema de reservas que generó +40% más ingresos",
+      "description": "Eliminamos intermediarios y comisiones. Resultado: reservas directas, control total del negocio y máxima rentabilidad desde el día uno.",
+      "tag1": "UI/UX",
+      "tag2": "React",
+      "tag3": "Reservas"
     }
   },
   "portfolioGallery": {

@@ -122,7 +122,7 @@ const HorizontalShowcase: React.FC = () => {
     <section
       id="horizontal-showcase" // ⬅️ ID AÑADIDO PARA NAVEGACIÓN
       ref={sectionRef}
-      className="horizontal-showcase relative bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 py-16 md:py-24 overflow-hidden"
+      className="horizontal-showcase relative bg-gradient-to-br from-blue-100 via-blue-50 to-blue-100 py-16 md:py-24 overflow-hidden"
     >
       {/* Overlay oscuro para contraste */}
       <div className="absolute inset-0 bg-black/30 z-0" />
