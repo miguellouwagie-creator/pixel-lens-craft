@@ -5,6 +5,8 @@ import * as z from "zod";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { Checkbox } from "@/components/ui/checkbox"; // Componente necesario
+import { Link } from "react-router-dom";
 import {
   Select,
   SelectContent,
@@ -24,24 +26,20 @@ import { useToast } from "@/hooks/use-toast";
 import { Loader2 } from "lucide-react";
 
 const contactSchema = z.object({
-  name: z
-    .string()
-    .min(2, { message: "El nombre debe tener al menos 2 caracteres" }),
-  email: z.string().email({ message: "Email inválido" }),
-  phone: z.string().min(9, { message: "Teléfono inválido" }),
-  service: z.string().min(1, { message: "Por favor selecciona un servicio" }),
-  message: z
-    .string()
-    .min(10, { message: "El mensaje debe tener al menos 10 caracteres" }),
+  name: z.string().min(2, "Nombre muy corto"),
+  email: z.string().email("Email inválido"),
+  phone: z.string().min(9, "Teléfono inválido"),
+  service: z.string().min(1, "Selecciona un servicio"),
+  message: z.string().min(10, "Mensaje muy corto"),
+  terms: z
+    .boolean()
+    .refine((val) => val === true, "Debes aceptar la política de privacidad"),
 });
-
-type ContactFormValues = z.infer<typeof contactSchema>;
 
 const ContactForm = () => {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
-
-  const form = useForm<ContactFormValues>({
+  const form = useForm({
     resolver: zodResolver(contactSchema),
     defaultValues: {
       name: "",
@@ -49,34 +47,19 @@ const ContactForm = () => {
       phone: "",
       service: "",
       message: "",
+      terms: false,
     },
   });
 
-  const onSubmit = async (data: ContactFormValues) => {
+  const onSubmit = async (data: any) => {
     setIsSubmitting(true);
-
-    // Construir mensaje de WhatsApp
     const whatsappNumber = "34667326300";
-    const message = `🌟 *Nuevo Mensaje de ${data.name}*
-
-📧 *Email:* ${data.email}
-📱 *Teléfono:* ${data.phone}
-🎯 *Servicio:* ${data.service}
-
-💬 *Mensaje:*
-${data.message}`;
-
-    const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
-
-    // Abrir WhatsApp
-    window.open(whatsappUrl, "_blank");
-
-    // Mostrar toast de confirmación
-    toast({
-      title: "¡Redirigiendo a WhatsApp!",
-      description: "Te hemos llevado a WhatsApp para que puedas enviar tu mensaje directamente.",
-    });
-
+    const text = `*Nuevo Cliente Web*\n\n👤 ${data.name}\n📧 ${data.email}\n📱 ${data.phone}\n💼 ${data.service}\n💬 ${data.message}`;
+    window.open(
+      `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(text)}`,
+      "_blank",
+    );
+    toast({ title: "Abriendo WhatsApp..." });
     form.reset();
     setIsSubmitting(false);
   };
@@ -90,75 +73,61 @@ ${data.message}`;
             name="name"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Nombre *</FormLabel>
+                <FormLabel>Nombre</FormLabel>
                 <FormControl>
-                  <Input placeholder="¿Cómo te llamas?" {...field} />
+                  <Input {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-
           <FormField
             control={form.control}
             name="email"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Email *</FormLabel>
+                <FormLabel>Email</FormLabel>
                 <FormControl>
-                  <Input type="email" placeholder="tu@email.com" {...field} />
+                  <Input {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
         </div>
-
         <div className="grid md:grid-cols-2 gap-6">
           <FormField
             control={form.control}
             name="phone"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>Teléfono *</FormLabel>
+                <FormLabel>Teléfono</FormLabel>
                 <FormControl>
-                  <Input type="tel" placeholder="+34 XXX XXX XXX" {...field} />
+                  <Input {...field} />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-
           <FormField
             control={form.control}
             name="service"
             render={({ field }) => (
               <FormItem>
-                <FormLabel>¿En qué podemos ayudarte? *</FormLabel>
+                <FormLabel>Servicio</FormLabel>
                 <Select
                   onValueChange={field.onChange}
                   defaultValue={field.value}
                 >
                   <FormControl>
                     <SelectTrigger>
-                      <SelectValue placeholder="Elige una opción" />
+                      <SelectValue placeholder="Elige opción" />
                     </SelectTrigger>
                   </FormControl>
                   <SelectContent className="bg-white">
-                    <SelectItem value="web-basica">Web Básica</SelectItem>
-                    <SelectItem value="web-profesional">
-                      Web Profesional
-                    </SelectItem>
-                    <SelectItem value="fotografia">
-                      Fotografía Profesional
-                    </SelectItem>
-                    <SelectItem value="pack-completo">
-                      Pack Web + Fotografía
-                    </SelectItem>
-                    <SelectItem value="edicion-fotos">
-                      Edición de Fotos
-                    </SelectItem>
-                    <SelectItem value="consulta">Consulta General</SelectItem>
+                    <SelectItem value="web">Diseño Web</SelectItem>
+                    <SelectItem value="foto">Fotografía</SelectItem>
+                    <SelectItem value="pack">Ambos</SelectItem>
                   </SelectContent>
                 </Select>
                 <FormMessage />
@@ -166,44 +135,59 @@ ${data.message}`;
             )}
           />
         </div>
-
         <FormField
           control={form.control}
           name="message"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Cuéntanos sobre tu proyecto *</FormLabel>
+              <FormLabel>Mensaje</FormLabel>
               <FormControl>
-                <Textarea
-                  placeholder="Explícanos qué necesitas: tipo de negocio, objetivos, plazos... Cuanto más nos cuentes, mejor podremos ayudarte."
-                  className="min-h-[120px]"
-                  {...field}
-                />
+                <Textarea {...field} />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
 
-        <Button
-          type="submit"
-          variant="cta"
-          size="lg"
-          className="w-full"
-          disabled={isSubmitting}
-        >
+        {/* CHECKBOX LEGAL */}
+        <FormField
+          control={form.control}
+          name="terms"
+          render={({ field }) => (
+            <FormItem className="flex flex-row items-start space-x-3 space-y-0 p-4 border rounded-md bg-white/5">
+              <FormControl>
+                <Checkbox
+                  checked={field.value}
+                  onCheckedChange={field.onChange}
+                />
+              </FormControl>
+              <div className="space-y-1 leading-none">
+                <FormLabel className="font-normal text-sm">
+                  He leído y acepto la{" "}
+                  <Link
+                    to="/privacidad"
+                    target="_blank"
+                    className="underline text-primary"
+                  >
+                    política de privacidad
+                  </Link>
+                  .
+                </FormLabel>
+                <FormMessage />
+              </div>
+            </FormItem>
+          )}
+        />
+
+        <Button type="submit" className="w-full" disabled={isSubmitting}>
           {isSubmitting ? (
-            <>
-              <Loader2 className="mr-2 h-4 w-4 animate-spin" />
-              Enviando...
-            </>
+            <Loader2 className="mr-2 h-4 w-4 animate-spin" />
           ) : (
-            "Enviar Mensaje"
+            "Enviar"
           )}
         </Button>
       </form>
     </Form>
   );
 };
-
 export default ContactForm;
