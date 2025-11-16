@@ -1,7 +1,7 @@
 // src/components/Footer.tsx
-import { Mail, MapPin, Phone } from "lucide-react";
+import { Instagram, Mail, MapPin, Phone } from "lucide-react";
 import { useTranslation } from "react-i18next";
-import { Link } from "react-router-dom"; // IMPORTANTE: Importar Link
+import { Link } from "react-router-dom";
 import logo from "@/assets/Logo2-PP.png";
 
 const Footer = () => {
@@ -27,7 +27,7 @@ const Footer = () => {
     <footer className="bg-primary text-primary-foreground">
       <div className="container mx-auto px-4 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
-          {/* Logo and Description */}
+          {/* Logo, Description and Socials */}
           <div>
             <div className="inline-block mb-6 relative">
               <div className="absolute -inset-x-4 -inset-y-1.5 bg-white/20 backdrop-blur-sm rounded-lg"></div>
@@ -37,9 +37,22 @@ const Footer = () => {
                 className="relative h-28 md:h-32 lg:h-36 w-auto"
               />
             </div>
-            <p className="text-blue-100 mb-4 leading-relaxed">
+            <p className="text-blue-100 mb-6 leading-relaxed">
               {t("footer.description")}
             </p>
+
+            {/* Redes Sociales */}
+            <div className="flex gap-4">
+              <a
+                href="https://www.instagram.com/studio.pixelens/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="p-2 bg-white/10 rounded-full text-white hover:bg-cta hover:text-white transition-all duration-300 hover:scale-110"
+                aria-label="Instagram"
+              >
+                <Instagram className="h-5 w-5" />
+              </a>
+            </div>
           </div>
 
           {/* Quick Links */}
@@ -50,7 +63,6 @@ const Footer = () => {
             <ul className="space-y-2.5">
               {footerLinks.quickLinks.map((link) => (
                 <li key={link.labelKey}>
-                  {/* Usamos Link para rutas internas y a para anclas (#) */}
                   {link.href.startsWith("/#") ? (
                     <a
                       href={link.href}
@@ -122,7 +134,7 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Bottom Footer - ENLACES LEGALES CORREGIDOS */}
+        {/* Bottom Footer */}
         <div className="pt-8 border-t border-white/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-blue-100 text-sm text-center md:text-left">
@@ -130,7 +142,6 @@ const Footer = () => {
               {t("footer.rightsReserved")}
             </p>
             <div className="flex gap-6 text-sm">
-              {/* AQUÍ ESTABA EL ERROR: Usamos Link y rutas reales */}
               <Link
                 to="/privacidad"
                 className="text-blue-100 hover:text-cta transition-colors"
