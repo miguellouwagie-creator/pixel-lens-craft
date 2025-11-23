@@ -35,14 +35,12 @@ export default defineConfig({
     target: "esnext",
     minify: "esbuild",
     sourcemap: false,
-    esbuild: {
-      drop: ["console", "debugger"],
-    },
     rollupOptions: {
       output: {
         manualChunks: {
           vendor: ["react", "react-dom"],
           router: ["react-router-dom"],
+          animations: ["gsap", "@gsap/react"],
           ui: [
             "lucide-react",
             "@radix-ui/react-accordion",
@@ -76,5 +74,8 @@ export default defineConfig({
       },
     },
     chunkSizeWarningLimit: 1000,
+  },
+  esbuild: {
+    drop: ["console", "debugger"],
   },
 });

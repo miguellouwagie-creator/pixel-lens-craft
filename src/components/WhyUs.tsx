@@ -9,6 +9,7 @@ import {
   Headphones,
   MapPin,
 } from "lucide-react";
+import { createSafeHtml } from "@/lib/security";
 
 const WhyUs = () => {
   const { t } = useTranslation();
@@ -117,7 +118,7 @@ const WhyUs = () => {
           {/* Título prominente - el más grande de la sección */}
           <h2
             className="text-3xl md:text-5xl lg:text-6xl font-black text-gray-900 mb-6 leading-tight max-w-5xl mx-auto"
-            dangerouslySetInnerHTML={{ __html: t("whyUs.title") }}
+            dangerouslySetInnerHTML={createSafeHtml(t("whyUs.title"))}
           />
 
           {/* Subtítulo que refuerza el valor */}
@@ -136,11 +137,10 @@ const WhyUs = () => {
             return (
               <div
                 key={reason.key}
-                className={`group relative transition-all duration-700 ease-out ${
-                  isVisible
+                className={`group relative transition-all duration-700 ease-out ${isVisible
                     ? "opacity-100 translate-y-0"
                     : "opacity-0 translate-y-12"
-                }`}
+                  }`}
                 style={{
                   transitionDelay: `${index * 100}ms`,
                   // Parallax sutil en hover
@@ -181,9 +181,9 @@ const WhyUs = () => {
                   <div
                     className={`relative z-10 text-sm md:text-base text-gray-700 leading-relaxed text-left flex-grow
                     [&>strong]:font-bold [&>strong]:text-gray-900`}
-                    dangerouslySetInnerHTML={{
-                      __html: t(`whyUs.${reason.key}.description`),
-                    }}
+                    dangerouslySetInnerHTML={createSafeHtml(
+                      t(`whyUs.${reason.key}.description`)
+                    )}
                   />
 
                   {/* Gradient accent bottom */}
@@ -198,9 +198,8 @@ const WhyUs = () => {
 
         {/* CTA con animación */}
         <div
-          className={`text-center mt-16 transition-all duration-700 ease-out ${
-            isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
-          }`}
+          className={`text-center mt-16 transition-all duration-700 ease-out ${isVisible ? "opacity-100 translate-y-0" : "opacity-0 translate-y-8"
+            }`}
           style={{ transitionDelay: "600ms" }}
         >
           <a

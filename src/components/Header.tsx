@@ -34,7 +34,7 @@ const Header = () => {
 
   const navItems = [
     { labelKey: "nav.home", to: "/" },
-    { labelKey: "nav.services", to: "/#packs" },
+    { labelKey: "nav.services", to: "/#service-selector" },
     {
       labelKey: "nav.portfolio",
       to: "#",
@@ -219,33 +219,29 @@ const Header = () => {
                                   handleNavClick(e, subItem.to);
                                   setIsPortfolioDropdownOpen(false);
                                 }}
-                                className={`group flex items-center gap-2.5 px-5 py-3 rounded-lg transition-all cursor-pointer ${
-                                  isPhoto
-                                    ? "bg-gradient-to-r from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 border-2 border-purple-200 hover:border-purple-400"
-                                    : "bg-gradient-to-r from-blue-50 to-cyan-50 hover:from-blue-100 hover:to-cyan-100 border-2 border-blue-200 hover:border-blue-400"
-                                }`}
+                                className={`group flex items-center gap-2.5 px-5 py-3 rounded-lg transition-all cursor-pointer ${isPhoto
+                                  ? "bg-gradient-to-r from-purple-50 to-pink-50 hover:from-purple-100 hover:to-pink-100 border-2 border-purple-200 hover:border-purple-400"
+                                  : "bg-gradient-to-r from-blue-50 to-cyan-50 hover:from-blue-100 hover:to-cyan-100 border-2 border-blue-200 hover:border-blue-400"
+                                  }`}
                               >
                                 <div
-                                  className={`rounded-full p-2 transition-all ${
-                                    isPhoto
-                                      ? "bg-purple-200 group-hover:bg-purple-300"
-                                      : "bg-blue-200 group-hover:bg-blue-300"
-                                  }`}
+                                  className={`rounded-full p-2 transition-all ${isPhoto
+                                    ? "bg-purple-200 group-hover:bg-purple-300"
+                                    : "bg-blue-200 group-hover:bg-blue-300"
+                                    }`}
                                 >
                                   <Icon
-                                    className={`h-4 w-4 ${
-                                      isPhoto
-                                        ? "text-purple-700"
-                                        : "text-blue-700"
-                                    }`}
+                                    className={`h-4 w-4 ${isPhoto
+                                      ? "text-purple-700"
+                                      : "text-blue-700"
+                                      }`}
                                   />
                                 </div>
                                 <span
-                                  className={`font-bold whitespace-nowrap text-sm ${
-                                    isPhoto
-                                      ? "text-purple-800 group-hover:text-purple-900"
-                                      : "text-blue-800 group-hover:text-blue-900"
-                                  }`}
+                                  className={`font-bold whitespace-nowrap text-sm ${isPhoto
+                                    ? "text-purple-800 group-hover:text-purple-900"
+                                    : "text-blue-800 group-hover:text-blue-900"
+                                    }`}
                                 >
                                   {t(subItem.labelKey)}
                                 </span>
@@ -280,12 +276,11 @@ const Header = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => changeLanguage("es")}
-                  className={`w-8 h-6 rounded overflow-hidden border-2 transition-all ${
-                    i18n.language === "es"
-                      ? (isScrolled ? "border-primary" : "border-white") +
-                        " scale-110"
-                      : "border-transparent opacity-60 hover:opacity-100"
-                  }`}
+                  className={`w-8 h-6 rounded overflow-hidden border-2 transition-all ${i18n.language === "es"
+                    ? (isScrolled ? "border-primary" : "border-white") +
+                    " scale-110"
+                    : "border-transparent opacity-60 hover:opacity-100"
+                    }`}
                   aria-label="Español"
                 >
                   <img
@@ -296,12 +291,11 @@ const Header = () => {
                 </button>
                 <button
                   onClick={() => changeLanguage("en")}
-                  className={`w-8 h-6 rounded overflow-hidden border-2 transition-all ${
-                    i18n.language === "en"
-                      ? (isScrolled ? "border-primary" : "border-white") +
-                        " scale-110"
-                      : "border-transparent opacity-60 hover:opacity-100"
-                  }`}
+                  className={`w-8 h-6 rounded overflow-hidden border-2 transition-all ${i18n.language === "en"
+                    ? (isScrolled ? "border-primary" : "border-white") +
+                    " scale-110"
+                    : "border-transparent opacity-60 hover:opacity-100"
+                    }`}
                   aria-label="English"
                 >
                   <img
@@ -333,13 +327,12 @@ const Header = () => {
               <div className="flex items-center gap-2">
                 <button
                   onClick={() => changeLanguage("es")}
-                  className={`w-7 h-5 rounded overflow-hidden border-2 transition-all ${
-                    i18n.language === "es"
-                      ? (isScrolled || isMobileMenuOpen
-                          ? "border-primary"
-                          : "border-white") + " scale-110"
-                      : "border-transparent opacity-60"
-                  }`}
+                  className={`w-7 h-5 rounded overflow-hidden border-2 transition-all ${i18n.language === "es"
+                    ? (isScrolled || isMobileMenuOpen
+                      ? "border-primary"
+                      : "border-white") + " scale-110"
+                    : "border-transparent opacity-60"
+                    }`}
                   aria-label="Español"
                 >
                   <img
@@ -350,13 +343,12 @@ const Header = () => {
                 </button>
                 <button
                   onClick={() => changeLanguage("en")}
-                  className={`w-7 h-5 rounded overflow-hidden border-2 transition-all ${
-                    i18n.language === "en"
-                      ? (isScrolled || isMobileMenuOpen
-                          ? "border-primary"
-                          : "border-white") + " scale-110"
-                      : "border-transparent opacity-60"
-                  }`}
+                  className={`w-7 h-5 rounded overflow-hidden border-2 transition-all ${i18n.language === "en"
+                    ? (isScrolled || isMobileMenuOpen
+                      ? "border-primary"
+                      : "border-white") + " scale-110"
+                    : "border-transparent opacity-60"
+                    }`}
                   aria-label="English"
                 >
                   <img

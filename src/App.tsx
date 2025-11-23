@@ -1,39 +1,45 @@
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
+import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
-import Index from "./pages/Index";
-import Auth from "./pages/Auth";
-import Dashboard from "./pages/Dashboard";
-import Portfolio from "./pages/Portfolio";
-import PortfolioWebs from "./pages/PortfolioWebs";
-import NotFound from "./pages/NotFound";
+import PageLoader from "@/components/PageLoader";
 
-// IMPORTACIONES LEGALES QUE FALTABAN
-import LegalNotice from "./pages/legal/LegalNotice";
-import PrivacyPolicy from "./pages/legal/PrivacyPolicy";
-import CookiesPolicy from "./pages/legal/CookiesPolicy";
+// Lazy load pages
+const Index = lazy(() => import("./pages/Index"));
+const Auth = lazy(() => import("./pages/Auth"));
+const Dashboard = lazy(() => import("./pages/Dashboard"));
+const Portfolio = lazy(() => import("./pages/Portfolio"));
+const PortfolioWebs = lazy(() => import("./pages/PortfolioWebs"));
+const NotFound = lazy(() => import("./pages/NotFound"));
+
+// Legal pages
+const LegalNotice = lazy(() => import("./pages/legal/LegalNotice"));
+const PrivacyPolicy = lazy(() => import("./pages/legal/PrivacyPolicy"));
+const CookiesPolicy = lazy(() => import("./pages/legal/CookiesPolicy"));
 
 const App = () => (
   <TooltipProvider>
     <Toaster />
     <Sonner />
     <ScrollToTop />
-    <Routes>
-      <Route path="/" element={<Index />} />
-      <Route path="/auth" element={<Auth />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/portfolio" element={<Portfolio />} />
-      <Route path="/portfolio-webs" element={<PortfolioWebs />} />
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/portfolio" element={<Portfolio />} />
+        <Route path="/portfolio-webs" element={<PortfolioWebs />} />
 
-      {/* RUTAS LEGALES OBLIGATORIAS */}
-      <Route path="/aviso-legal" element={<LegalNotice />} />
-      <Route path="/privacidad" element={<PrivacyPolicy />} />
-      <Route path="/cookies" element={<CookiesPolicy />} />
+        {/* RUTAS LEGALES OBLIGATORIAS */}
+        <Route path="/aviso-legal" element={<LegalNotice />} />
+        <Route path="/privacidad" element={<PrivacyPolicy />} />
+        <Route path="/cookies" element={<CookiesPolicy />} />
 
-      <Route path="*" element={<NotFound />} />
-    </Routes>
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   </TooltipProvider>
 );
 

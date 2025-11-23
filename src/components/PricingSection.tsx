@@ -23,6 +23,7 @@ import {
 } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useState } from "react";
+import { createSafeHtml } from "@/lib/security";
 
 // Imagen demo del portfolio (foto 4)
 import beforeDemo from "@/assets/sin-editar-4.jpeg";
@@ -148,9 +149,9 @@ const PricingSection = () => {
                     </h3>
                     <p
                       className="text-sm md:text-base text-gray-700 leading-relaxed font-medium"
-                      dangerouslySetInnerHTML={{
-                        __html: t("photoPacks.guarantee.description"),
-                      }}
+                      dangerouslySetInnerHTML={createSafeHtml(
+                        t("photoPacks.guarantee.description")
+                      )}
                     />
                   </div>
                 </div>
@@ -165,16 +166,14 @@ const PricingSection = () => {
                   <img
                     src={beforeDemo}
                     alt="Antes de editar"
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                      showAfterDemo ? "opacity-0" : "opacity-100"
-                    }`}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${showAfterDemo ? "opacity-0" : "opacity-100"
+                      }`}
                   />
                   <img
                     src={afterDemo}
                     alt="Después de editar"
-                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${
-                      showAfterDemo ? "opacity-100" : "opacity-0"
-                    }`}
+                    className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-500 ${showAfterDemo ? "opacity-100" : "opacity-0"
+                      }`}
                   />
                   {!showAfterDemo && (
                     <div className="absolute top-3 left-3 bg-red-600 text-white px-3 py-1.5 rounded-lg text-sm font-bold flex items-center gap-2 shadow-lg">
@@ -257,18 +256,16 @@ const PricingSection = () => {
             {photoPacks.map((pack) => (
               <Card
                 key={pack.id}
-                className={`flex flex-col bg-white hover:shadow-2xl transition-all hover:scale-105 border-2 relative overflow-hidden ${
-                  pack.recommended
+                className={`flex flex-col bg-white hover:shadow-2xl transition-all hover:scale-105 border-2 relative overflow-hidden ${pack.recommended
                     ? "border-orange-500 ring-4 ring-orange-200/50 z-10 scale-[1.02] lg:scale-105 shadow-orange-500/20"
                     : "border-orange-200"
-                }`}
+                  }`}
               >
                 <div
-                  className={`text-xs font-bold py-3 px-4 text-center tracking-wider uppercase ${
-                    pack.recommended
+                  className={`text-xs font-bold py-3 px-4 text-center tracking-wider uppercase ${pack.recommended
                       ? "bg-orange-600 text-white"
                       : "bg-gray-100 text-gray-500"
-                  }`}
+                    }`}
                 >
                   {pack.recommended
                     ? t("photoPacks.recommendedBadge")
@@ -330,11 +327,10 @@ const PricingSection = () => {
                   </div>
 
                   <Button
-                    className={`w-full font-black text-lg py-8 shadow-lg hover:shadow-xl transition-all rounded-xl ${
-                      pack.recommended
+                    className={`w-full font-black text-lg py-8 shadow-lg hover:shadow-xl transition-all rounded-xl ${pack.recommended
                         ? "bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white border-0"
                         : "bg-white hover:bg-orange-50 text-orange-600 border-2 border-orange-200"
-                    }`}
+                      }`}
                     asChild
                   >
                     <a
