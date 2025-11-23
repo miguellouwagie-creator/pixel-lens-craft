@@ -3,252 +3,231 @@
     "title": "Professional Websites",
     "titleHighlight": "Photography",
     "subtitle": "For your business",
-    "description": "We create your professional website and take photos of your products or services. Direct communication, personalized service.",
-    "serviceIndexTitle": "What do you need for your project?",
-    "serviceIndexBtn1Text": "A Professional Website",
-    "serviceIndexBtn2Text": "Photography for my Business",
+    "description": "We create your digital asset: high-performance web development and strategic photography. Direct communication, real results.",
+    "serviceIndexTitle": "What do you need to boost?",
+    "serviceIndexBtn1Text": "Premium Web Development",
+    "serviceIndexBtn2Text": "Business Photography",
     "ctaWhatsapp": "Contact via WhatsApp",
-    "ctaServices": "View Services",
-    "benefit1": "Free consultation",
-    "benefit2": "No commitment",
+    "ctaServices": "View Solutions",
+    "benefit1": "Initial audit",
+    "benefit2": "No permanence",
     "benefit3": "Licensed professionals"
   },
   "nav": {
     "home": "Home",
     "services": "Services",
-    "packs": "Packs",
+    "packs": "Investment",
     "about": "About",
     "contact": "Contact",
     "phone": "+34 667 32 63 00",
     "whatsapp": "WhatsApp",
     "portfolio": "Portfolio",
-    "photoPortfolio": "Photo Portfolio",
-    "webExamples": "Website Examples"
+    "photoPortfolio": "Visual Portfolio",
+    "webExamples": "Success Stories"
   },
   "services": {
-    "title": "Services That Drive Your Business",
-    "subtitle": "Complete solutions to make your company stand out in the digital world",
+    "title": "High Impact Solutions",
+    "subtitle": "Software engineering and visual production for companies looking to lead",
     "web": {
-      "title": "Professional Websites",
-      "description": "Modern, responsive websites optimized to convert visitors into customers",
-      "feature1": "Responsive design",
-      "feature2": "Optimized local SEO",
-      "feature3": "Optimized loading speed",
-      "feature4": "Social media integration",
-      "feature5": "Admin panel",
-      "price": "From XXX€",
-      "cta": "Request Info"
+      "title": "Web Engineering (React)",
+      "description": "We don't make simple websites. We develop fast, secure, and scalable platforms with the technology used by big startups.",
+      "feature1": "React/Next.js Technology",
+      "feature2": "Advanced Technical SEO",
+      "feature3": "Speed < 1 second",
+      "feature4": "Armored Security",
+      "feature5": "Total scalability",
+      "price": "From €699",
+      "cta": "View Plans"
     },
     "photography": {
-      "title": "Professional Business Photography",
-      "description": "We capture your company's essence with photographs that convey professionalism",
-      "feature1": "Corporate photography",
-      "feature2": "Product photos",
-      "feature3": "Real estate photography",
-      "feature4": "Professional editing",
-      "feature5": "Digital delivery",
-      "price": "From XXX€",
-      "cta": "Request Info"
+      "title": "Corporate Visual Ecosystem",
+      "description": "We elevate the perceived value of your brand with images that sell authority and trust.",
+      "feature1": "Brand Sessions",
+      "feature2": "Gastronomic Photography",
+      "feature3": "Interior Design & Real Estate",
+      "feature4": "Corporate Portraits",
+      "feature5": "High-End Editing",
+      "price": "From €350",
+      "cta": "View Packs"
     },
     "combo": {
-      "title": "Web + Photography",
-      "description": "The perfect combination: your professional website with photo session included",
-      "feature1": "Everything from web design",
-      "feature2": "Complete photo session",
-      "feature3": "Photo integration in website",
-      "feature4": "Speed optimization",
-      "feature5": "Support included",
-      "price": "From XXX€",
-      "priceNote": "(Complete package)",
-      "cta": "I Want This Package!",
-      "badge": "⭐ Most Popular"
+      "title": "Growth Partner (All-in-One)",
+      "description": "The ultimate solution: Web infrastructure + Visual assets + Strategy. Your outsourced digital department.",
+      "feature1": "Complete Web Development",
+      "feature2": "Integral Photo Session",
+      "feature3": "Content Strategy",
+      "feature4": "Priority Maintenance",
+      "feature5": "Monthly Consulting",
+      "price": "Consult",
+      "priceNote": "(Integral Solution)",
+      "cta": "Talk to a Consultant",
+      "badge": "🚀 Highest ROI"
     }
   },
   "webDevelopment": {
-    "badge": "Professional Web Development",
-    "title": "Your Professional Website, No Complications",
-    "subtitle": "Fixed initial price + optional monthly maintenance. Fast, modern websites optimized for local businesses.",
+    "badge": "Cutting-Edge Technology",
+    "title": "Investment in Digital Infrastructure",
+    "subtitle": "Stop spending on websites that need to be thrown away in two years. Invest in a solid platform.",
     "basic": {
-      "name": "Basic Website",
-      "setupPrice": "XXX€",
-      "monthlyPrice": "XX€/month",
-      "setupLabel": "Initial cost",
-      "maintenanceLabel": "Maintenance",
+      "name": "Startup Launch",
+      "setupPrice": "€699",
+      "monthlyPrice": "Optional Maintenance",
+      "setupLabel": "One-time investment",
+      "maintenanceLabel": "Support",
       "includes": "Includes:",
-      "maintenanceTitle": "Maintenance:",
-      "feature1": "Responsive design",
-      "feature2": "Up to 5 pages",
-      "feature3": "Contact form",
-      "feature4": "Google Analytics",
-      "maintenance1": "Monthly updates",
-      "maintenance2": "Basic technical support",
-      "cta": "Request Info"
+      "maintenanceTitle": "Optional:",
+      "feature1": "Ultra-fast SPA (React)",
+      "feature2": "Base Technical SEO",
+      "feature3": "Custom UX/UI Design",
+      "feature4": "Analytics Configured",
+      "maintenance1": "Security & Backups",
+      "maintenance2": "Content updates",
+      "cta": "Start Project"
     },
     "professional": {
-      "name": "Professional Website",
-      "setupPrice": "XXX€",
-      "monthlyPrice": "XX€/month",
-      "badge": "Most Popular",
-      "feature1": "100% custom design",
-      "feature2": "Up to 10 pages",
-      "feature3": "Integrated blog",
-      "feature4": "Admin panel",
-      "maintenance1": "Unlimited changes",
-      "maintenance2": "Priority support",
-      "cta": "Request Info"
+      "name": "Business Growth",
+      "setupPrice": "€1,200",
+      "monthlyPrice": "Premium",
+      "badge": "Recommended",
+      "feature1": "Everything in Launch Pack",
+      "feature2": "CMS (Content Management)",
+      "feature3": "Blog / News",
+      "feature4": "CRM/Email Integrations",
+      "maintenance1": "Priority Support",
+      "maintenance2": "Monthly ROI Report",
+      "cta": "Request Consulting"
     },
-    "infoTitle": "Important Information",
-    "info1": "<strong>Domain:</strong> 10-15€/year (we help with purchase and setup)",
-    "info2": "<strong>Hosting:</strong> Included in monthly maintenance",
-    "info3": "<strong>SSL Certificate:</strong> Included at no additional cost (your website will be secure with HTTPS)",
-    "info4": "<strong>No commitment:</strong> You can cancel maintenance anytime",
-    "customProject": "Need a custom project?",
-    "customDescription": "Websites with specific functionalities, integrations, or complex designs.",
-    "customCta": "Tell us about your project"
+    "infoTitle": "Radical Transparency",
+    "info1": "<strong>Intellectual Property:</strong> The code and photos are 100% yours after payment.",
+    "info2": "<strong>Technology:</strong> We use React and TypeScript, the modern industry standard.",
+    "info3": "<strong>Speed:</strong> We guarantee scores >90 on Google PageSpeed.",
+    "info4": "<strong>Guarantee:</strong> Free technical support for 30 days post-launch.",
+    "customProject": "Custom Project?",
+    "customDescription": "Development of SaaS platforms, complex web apps, or custom booking systems.",
+    "customCta": "Schedule Technical Meeting"
   },
   "pricing": {
-    "webTitle": "Professional Web Development",
-    "webSubtitle": "We create your custom website. Modern design, fast and optimized for Google.",
-    "photoTitle": "Professional Photography and Editing",
-    "photoSubtitle": "Professional editing of your photographs. Free trial available. Delivery in 24-48h.",
+    "webTitle": "Development Plans",
+    "webSubtitle": "Enterprise technology within reach of your local business.",
+    "photoTitle": "Corporate Photography Sessions",
+    "photoSubtitle": "Stop using stock photos. Show the reality of your business with editorial quality.",
     "photoPacks": {
-      "trial": {
-        "name": "Trial Pack",
-        "price": "Free",
-        "photos": "1 photo",
-        "feature1": "1 edited photo",
-        "feature2": "Quality sample",
-        "feature3": "No commitment",
-        "cta": "Request Free"
+      "corporate": {
+        "name": "Corporate Pack",
+        "price": "€350",
+        "photos": "Full Report",
+        "feature1": "Half-day on-site session",
+        "feature2": "Team, venue, and product photos",
+        "feature3": "Premium High-End Editing",
+        "feature4": "Digital delivery in 48h",
+        "cta": "Book Date",
+        "whatsappMessage": "Hello, I am interested in booking the €350 Corporate Pack."
       },
-      "basic": {
-        "name": "Basic Pack",
-        "price": "10€",
-        "photos": "5 photos",
-        "feature1": "5 edited photos",
-        "feature2": "Up to 3 re-edits per photo",
-        "feature3": "24-48h delivery",
-        "cta": "Contact"
-      },
-      "standard": {
-        "name": "Standard Pack",
-        "price": "20€",
-        "photos": "10 photos",
-        "feature1": "10 edited photos",
-        "feature2": "Up to 3 re-edits per photo",
-        "feature3": "24-48h delivery",
-        "feature4": "Priority support",
-        "cta": "Contact"
-      },
-      "premium": {
-        "name": "Premium Pack",
-        "price": "35€",
-        "photos": "20 photos",
-        "feature1": "20 edited photos",
-        "feature2": "Up to 3 re-edits per photo",
-        "feature3": "24-48h delivery",
-        "feature4": "VIP support",
-        "cta": "Contact"
+      "custom": {
+        "name": "Custom Project",
+        "price": "Consult",
+        "photos": "Tailored",
+        "feature1": "E-commerce / Catalog",
+        "feature2": "Corporate Video",
+        "feature3": "Creative Direction",
+        "feature4": "VIP Support",
+        "cta": "Get Quote",
+        "whatsappMessage": "Hello, I have a special photography project and need a quote."
       }
     },
-    "footerText": "Need something custom or have a special project?",
-    "footerCta": "Tell us and we'll create a custom quote",
-    "portfolioButton": "📸 VIEW PHOTOGRAPHY PORTFOLIO",
-    "portfolioButtonShort": "📸 View Portfolio",
-    "portfolioDescription": "✨ See real examples of our photography work",
-    "from": "From €349",
-    "vatIncluded": "VAT included",
-    "competitivePrice": "Most competitive market price",
-    "fullMessage": "VAT included | Most competitive market price"
+    "footerText": "Have a big project or need video?",
+    "footerCta": "Contact us for a custom quote",
+    "portfolioButton": "📸 VIEW WORK GALLERY",
+    "portfolioButtonShort": "📸 View Gallery",
+    "portfolioDescription": "Quality you can see. Check out our latest projects.",
+    "from": "From €699",
+    "vatIncluded": "VAT not included",
+    "competitivePrice": "Profitable Investment",
+    "fullMessage": "Prices + VAT | Deductible investment for your company"
   },
   "photoPacks": {
-    "title": "Photography & Editing",
-    "titleHighlight": "Professional",
-    "subtitle": "We capture and transform your photos with professional editing. Choose the pack that best suits your needs.",
+    "title": "Strategic Photography",
+    "titleHighlight": "For Business",
+    "subtitle": "Visual assets designed to sell, not just to decorate.",
     "badge": {
-      "text": "Photos edited in 2025"
+      "text": "Magazine Quality"
     },
+    "subBadge": "Sales-Driven Photography • High-End Editing • Fast Delivery",
     "demo": {
-      "before": "Original Photo",
-      "after": "Professional Edit",
-      "caption": "Denia, Spain",
-      "viewBefore": "← View Before",
-      "viewAfter": "View After →"
+      "before": "Mobile Photo",
+      "after": "Professional Photo",
+      "caption": "The difference between a client who scrolls past and one who enters.",
+      "viewBefore": "View Reality",
+      "viewAfter": "View Potential",
+      "feature1": "Ad-Quality",
+      "feature2": "48h Delivery",
+      "feature3": "High-End Retouching",
+      "cta": "VIEW PORTFOLIO"
     },
-    "portfolioButton": "📸 VIEW PHOTOGRAPHY PORTFOLIO",
-    "portfolioButtonShort": "📸 View Portfolio",
-    "portfolioDescription": "✨ See real examples of our photography work",
-    "recommendedBadge": "⭐ Recommended to try",
+    "portfolioButton": "📸 VIEW SUCCESS STORIES",
+    "portfolioButtonShort": "📸 View Work",
+    "portfolioDescription": "Real images of real clients.",
+    "recommendedBadge": "⭐ B2B Best Seller",
     "guarantee": {
-      "title": "100% Satisfaction Guarantee",
-      "description": "<strong>First time?</strong> Buy without fear. If any photo doesn't meet your expectations, <span class='font-bold text-orange-700'>we'll re-edit it FREE up to 3 times</span> until you love it. No questions, no fine print.",
-      "badge": "Guarantee included"
+      "title": "Quality Guaranteed",
+      "description": "If the photos don't elevate your brand image, <strong>we repeat them</strong>. Our goal is for you to have the best material in your sector.",
+      "badge": "Professional Guarantee"
     },
-    "basic": {
-      "name": "Basic Pack",
-      "price": "€14.99",
-      "photos": "5 edited photos",
-      "feature1": "24-48h delivery",
-      "cta": "Contact",
-      "whatsappMessage": "Hello, I am interested in the Basic Pack (5 photos - €14.99)"
+    "corporate": {
+      "name": "Corporate Pack",
+      "price": "€350",
+      "photos": "Half Day Session",
+      "feature1": "Up to 4 hours on-site session",
+      "feature2": "Portraits, Facilities, and Action",
+      "feature3": "Advanced Editing (Color & Light)",
+      "feature4": "Full commercial use rights",
+      "cta": "Book Now",
+      "whatsappMessage": "Hello, I want to book the Corporate Pack (€350) to improve my company image."
     },
-    "standard": {
-      "name": "Standard Pack",
-      "price": "€28.99",
-      "photos": "10 edited photos",
-      "feature1": "24-48h delivery",
-      "cta": "Contact",
-      "whatsappMessage": "Hello, I am interested in the Standard Pack (10 photos - €28.99)"
+    "custom": {
+      "name": "Custom Pack",
+      "price": "Consult",
+      "photos": "Specific Project",
+      "feature1": "Ideal for franchises or catalogs",
+      "feature2": "E-commerce product photography",
+      "feature3": "Corporate Video / Reels",
+      "feature4": "Creative planning included",
+      "cta": "Request Quote",
+      "whatsappMessage": "Hello, I have a special photography project and need a quote."
     },
-    "premium": {
-      "name": "Premium Pack",
-      "price": "€52.99",
-      "photos": "20 edited photos",
-      "feature1": "24-48h delivery",
-      "cta": "Contact",
-      "whatsappMessage": "Hello, I am interested in the Premium Pack (20 photos - €52.99)"
-    },
-    "professional": {
-      "name": "Professional Pack",
-      "price": "€89.99",
-      "photos": "50 photos",
-      "feature1": "24-48h delivery",
-      "cta": "Contact",
-      "whatsappMessage": "Hello, I'm interested in the Professional Pack (50 photos - €89.99)"
-    },
-    "trialMessage": "Not sure? We can create a free sample to show you how we work",
-    "vatIncluded": "VAT included"
+    "trialMessage": "Need to see more examples from your sector? Write to us.",
+    "vatIncluded": "+ VAT"
   },
   "whyUs": {
-    "title": "From Expense to Investment:<br><span class='text-3xl md:text-4xl lg:text-5xl'>We Create a Digital Asset That<br><span class='text-orange-500'>Generates Clients</span></span>",
+    "title": "Don't Look for Vendors,<br><span class='text-3xl md:text-4xl lg:text-5xl'>Look for a <br><span class='text-orange-500'>Growth Partner</span></span>",
     "subtitle": "",
     "reason1": {
-      "title": "Strategy-Driven Design",
-      "description": "Licensed Designers and Marketers. <strong>Built to convert (CRO)</strong>. We deliver a <strong>strategic digital asset</strong>, not just a pretty website."
+      "title": "Engineering vs. Craftsmanship",
+      "description": "We don't use slow templates. We write clean code (React) that Google loves and your customers appreciate. <strong>Your site will fly.</strong>"
     },
     "reason2": {
-      "title": "100% Local Service",
-      "description": "<strong>Direct service</strong>, no intermediaries. We know your market <strong>(Dénia & Marina Alta)</strong>. Real proximity and commitment."
+      "title": "Business Vision",
+      "description": "We don't just take pretty photos or make modern websites. We understand <strong>sales funnels, conversion, and retention</strong>."
     },
     "reason3": {
-      "title": "Instant Visual Credibility",
-      "description": "Professional Photography Included. <strong>Authentic images (not generic stock)</strong> that build <strong>trust immediately</strong>. Your brand will look professional instantly."
+      "title": "In-House Production",
+      "description": "No outsourcing. The developer and photographer are the owners. <strong>Total commitment</strong> to your result."
     },
     "reason4": {
-      "title": "Guaranteed Delivery Times",
-      "description": "<strong>Guaranteed Speed</strong>. Photo editing and project tracking in <strong>24-48 hours</strong>. On-time delivery without sacrificing quality."
+      "title": "Commercial Agility",
+      "description": "We understand business timelines. <strong>Fast deliveries and fluid communication</strong> via WhatsApp."
     },
     "reason5": {
-      "title": "Total Satisfaction Guarantee",
-      "description": "<strong>Protected Investment</strong>. 100% Satisfaction Guarantee. <strong>FREE re-edits (up to 3 times)</strong> so you love the result."
+      "title": "Safe Investment",
+      "description": "We work until the result meets the agreed quality standards. Your satisfaction is our reputation."
     },
     "reason6": {
-      "title": "Post-Launch Support",
-      "description": "<strong>Proactive Support</strong> Post-Launch. Continuous strategic maintenance. Your website <strong>always secure, updated and running</strong> perfectly."
+      "title": "Scalability",
+      "description": "Our solutions grow with you. Start with the Launch Pack and scale to complex systems without throwing anything away."
     },
     "badges": {
-      "certified": "Guaranteed",
-      "topPrice": "Top Price"
+      "certified": "Certified",
+      "topPrice": "High Value"
     }
   },
   "portfolio": {
@@ -286,8 +265,8 @@
     "priceTitleHighlight": "Digital Growth",
     "croBadge": "✨ Built to Convert (CRO)",
     "initialInvestment": "Initial Investment",
-    "priceAmount": "From €349",
-    "priceDisclaimer": "This is the cost of our Basic Plan. Request a quote for our strategic design services with advanced CRO and smooth animations.",
+    "priceAmount": "From €699",
+    "priceDisclaimer": "This is the cost of our Startup Launch Pack. Request a quote for our strategic design services with advanced CRO and smooth animations.",
     "strategicDesign": "Strategic Design",
     "ctaButton": "Request My Custom Quote",
     "whatsappMessage": "Hello, I want to request a custom quote for a professional website with strategic design",
@@ -296,7 +275,7 @@
     "feature3": "Content Strategy Included",
     "maintenanceTitle": "Proactive Maintenance: Avoid Hidden Costs",
     "maintenanceDescription": "After creating your website, we offer a monthly maintenance service to keep it secure, updated and running perfectly. You'll never have to call an emergency developer. Cost varies based on your needs (updates, support, backups). Ask us without obligation!",
-    "legalDisclaimer": "All prices include VAT. Domain and hosting managed separately."
+    "legalDisclaimer": "All prices do not include VAT. Domain and hosting managed separately."
   },
   "portfolioShowcase": {
     "header": {
@@ -460,44 +439,44 @@
     "badge": "Licensed professionals"
   },
   "simplePrice": {
-    "title": "Your Professional Website",
-    "subtitle": "Modern design, fast and optimized for Google.",
+    "title": "Startup Launch Pack",
+    "subtitle": "The solid technological foundation your business needs to take off digitally.",
     "offer": {
-      "title": "Professional Website",
-      "price": "From €349",
-      "description": "VAT included | Most competitive market price",
-      "includes": "What's included?",
-      "feature1": "100% mobile and tablet responsive design",
-      "feature2": "Up to 3 sections (Home, Services, Contact)",
-      "feature3": "Contact form and Google map",
-      "feature4": "SEO optimization for local searches",
-      "feature5": "Domain and Hosting (first year included)",
-      "feature6": "Professional photo gallery",
-      "feature7": "Social media integration",
-      "feature8": "Initial training to manage your website",
-      "maintenanceTitle": "Monthly maintenance:",
-      "maintenanceText": "After creating your website, we offer a monthly maintenance service to keep it secure, updated and running perfectly. Monthly cost varies based on your needs (updates, support, backups). Ask us without obligation!",
-      "cta": "Request Quote",
-      "whatsappMessage": "Hello, I'm interested in the Professional Website from €349. Can you give me more information?"
+      "title": "Startup Launch Pack",
+      "price": "From €699",
+      "description": "+ VAT | One-time investment | Installment payment available",
+      "includes": "Everything needed to sell:",
+      "feature1": "Ultra-Fast Website (React/Next.js)",
+      "feature2": "Custom Premium Design",
+      "feature3": "Technical SEO (Core Web Vitals)",
+      "feature4": "Base persuasive copywriting",
+      "feature5": "Pro Domain & Hosting (1 year)",
+      "feature6": "WhatsApp & Analytics Integration",
+      "feature7": "Lead Capture Forms",
+      "feature8": "1-on-1 training session",
+      "maintenanceTitle": "'Peace of Mind' Maintenance:",
+      "maintenanceText": "We ensure your website never fails. Security, updates, and small changes included in our optional maintenance plans.",
+      "cta": "Request Free Consulting",
+      "whatsappMessage": "Hello, I am interested in the Startup Launch Pack for €699. Can we talk?"
     },
     "benefits": {
-      "title": "Why you need a website?",
-      "benefit1Title": "More customers",
-      "benefit1Text": "Appear on Google when they search for your services locally.",
-      "benefit2Title": "Open 24/7",
-      "benefit2Text": "Your website works for you even when you're closed.",
-      "benefit3Title": "Professional image",
-      "benefit3Text": "Build trust and stand out from the competition.",
-      "benefit4Title": "Direct communication",
-      "benefit4Text": "Show offers, schedules and news instantly.",
-      "benefit5Title": "It's yours",
-      "benefit5Text": "Your own digital space, independent from social media.",
-      "benefit6Title": "Visible on Google",
-      "benefit6Text": "Optimized to appear in Google Maps and local searches."
+      "title": "Why this investment?",
+      "benefit1Title": "Speed = Sales",
+      "benefit1Text": "Every extra second of loading costs you 20% of customers. We eliminate that problem.",
+      "benefit2Title": "Leader Image",
+      "benefit2Text": "Your website will convey that you are the best option in the area, justifying your prices.",
+      "benefit3Title": "Long-Term Savings",
+      "benefit3Text": "A well-made website lasts for years. A cheap one gives problems in months.",
+      "benefit4Title": "Google Will Prefer You",
+      "benefit4Text": "Clean code ranks better than heavy templates.",
+      "benefit5Title": "Total Ownership",
+      "benefit5Text": "You don't depend on platforms that charge you commissions for everything.",
+      "benefit6Title": "Real Support",
+      "benefit6Text": "We speak your language and are a WhatsApp away."
     },
-    "portfolioButton": "🌐 VIEW WEBSITE EXAMPLES",
-    "portfolioButtonShort": "🌐 View Examples",
-    "portfolioDescription": "See real examples of our work"
+    "portfolioButton": "🌐 VIEW TECH IN ACTION",
+    "portfolioButtonShort": "🌐 View Webs",
+    "portfolioDescription": "See the speed of our projects"
   },
   "divider": {
     "title": "Your business deserves to shine online",

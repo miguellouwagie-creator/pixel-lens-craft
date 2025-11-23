@@ -3,252 +3,247 @@
     "title": "Páginas Web Profesionales",
     "titleHighlight": "Fotografía",
     "subtitle": "Para tu negocio",
-    "description": "Creamos tu página web profesional y hacemos fotos de tus productos o servicios. Comunicación directa, trato personalizado.",
-    "serviceIndexTitle": "¿Qué necesitas para tu proyecto?",
-    "serviceIndexBtn1Text": "Una Página Web Profesional",
-    "serviceIndexBtn2Text": "Fotografía para mi Negocio",
+    "description": "Creamos tu activo digital: desarrollo web de alto rendimiento y fotografía estratégica. Comunicación directa, trato personalizado.",
+    "serviceIndexTitle": "¿Qué necesitas potenciar?",
+    "serviceIndexBtn1Text": "Desarrollo Web Premium",
+    "serviceIndexBtn2Text": "Fotografía de Negocio",
     "ctaWhatsapp": "Contactar por WhatsApp",
-    "ctaServices": "Ver Servicios",
-    "benefit1": "Consulta gratuita",
-    "benefit2": "Sin compromiso",
-    "benefit3": "Profesionales Especializados"
+    "ctaServices": "Ver Soluciones",
+    "benefit1": "Auditoría inicial",
+    "benefit2": "Sin permanencia",
+    "benefit3": "Profesionales Licenciados"
   },
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
-    "packs": "Packs",
+    "packs": "Inversión",
     "about": "Nosotros",
     "contact": "Contacto",
     "phone": "+34 667 32 63 00",
     "whatsapp": "WhatsApp",
     "portfolio": "Portfolio",
-    "photoPortfolio": "Portfolio Fotográfico",
-    "webExamples": "Ejemplos Web"
+    "photoPortfolio": "Portfolio Visual",
+    "webExamples": "Casos de Éxito"
   },
   "services": {
-    "title": "Servicios Que Impulsan Tu Negocio",
-    "subtitle": "Soluciones completas para que tu empresa destaque en el mundo digital",
+    "title": "Soluciones de Alto Impacto",
+    "subtitle": "Ingeniería de software y producción visual para empresas que buscan liderar",
     "web": {
-      "title": "Páginas Web Profesionales",
-      "description": "Sitios web modernos, responsive y optimizados para convertir visitantes en clientes",
-      "feature1": "Diseño responsive",
-      "feature2": "SEO local optimizado",
-      "feature3": "Velocidad de carga optimizada",
-      "feature4": "Integración redes sociales",
-      "feature5": "Panel de administración",
-      "price": "Desde XXX€",
-      "cta": "Solicitar Info"
+      "title": "Ingeniería Web (React)",
+      "description": "No hacemos simples webs. Desarrollamos plataformas rápidas, seguras y escalables con la tecnología que usan las grandes startups.",
+      "feature1": "Tecnología React/Next.js",
+      "feature2": "SEO Técnico Avanzado",
+      "feature3": "Velocidad de carga < 1s",
+      "feature4": "Seguridad Blindada",
+      "feature5": "Escalabilidad total",
+      "price": "Desde 699€",
+      "cta": "Ver Planes"
     },
     "photography": {
-      "title": "Fotografía Profesional de Negocio",
-      "description": "Capturamos la esencia de tu empresa con fotografías que transmiten profesionalidad",
-      "feature1": "Fotografía corporativa",
-      "feature2": "Fotos de productos",
-      "feature3": "Fotografía inmobiliaria",
-      "feature4": "Edición profesional",
-      "feature5": "Entrega digital",
-      "price": "Desde XXX€",
-      "cta": "Solicitar Info"
+      "title": "Ecosistema Visual Corporativo",
+      "description": "Elevamos el valor percibido de tu marca con imágenes que venden autoridad y confianza.",
+      "feature1": "Sesiones de Marca",
+      "feature2": "Fotografía Gastronómica",
+      "feature3": "Interiorismo y Arquitectura",
+      "feature4": "Retratos Corporativos",
+      "feature5": "Edición High-End",
+      "price": "Desde 350€",
+      "cta": "Ver Packs"
     },
     "combo": {
-      "title": "Web + Fotografía",
-      "description": "La combinación perfecta: tu web profesional con sesión de fotos incluida",
-      "feature1": "Todo lo del diseño web",
-      "feature2": "Sesión fotográfica completa",
-      "feature3": "Integración fotos en web",
-      "feature4": "Optimización velocidad",
-      "feature5": "Soporte incluido",
-      "price": "Desde XXX€",
-      "priceNote": "(Paquete completo)",
-      "cta": "¡Quiero Este Paquete!",
-      "badge": "⭐ Más Popular"
+      "title": "Growth Partner (Todo en Uno)",
+      "description": "La solución definitiva: Infraestructura web + Activos visuales + Estrategia. Tu departamento digital externalizado.",
+      "feature1": "Desarrollo Web Completo",
+      "feature2": "Sesión de Fotos Integral",
+      "feature3": "Estrategia de Contenidos",
+      "feature4": "Mantenimiento Prioritario",
+      "feature5": "Consultoría Mensual",
+      "price": "Consultar",
+      "priceNote": "(Solución Integral)",
+      "cta": "Hablar con un Consultor",
+      "badge": "🚀 Mayor ROI"
     }
   },
   "webDevelopment": {
-    "badge": "Desarrollo Web Profesional",
-    "title": "Tu Web Profesional, Sin Complicaciones",
-    "subtitle": "Precio inicial fijo + mantenimiento mensual opcional. Webs rápidas, modernas y optimizadas para negocios locales.",
+    "badge": "Tecnología de Vanguardia",
+    "title": "Inversión en Infraestructura Digital",
+    "subtitle": "Deja de gastar en webs que hay que tirar a los dos años. Invierte en una plataforma sólida.",
     "basic": {
-      "name": "Web Básica",
-      "setupPrice": "XXX€",
-      "monthlyPrice": "XX€/mes",
-      "setupLabel": "Coste inicial",
-      "maintenanceLabel": "Mantenimiento",
+      "name": "Startup Launch",
+      "setupPrice": "699€",
+      "monthlyPrice": "Mantenimiento Opcional",
+      "setupLabel": "Inversión única",
+      "maintenanceLabel": "Soporte",
       "includes": "Incluye:",
-      "maintenanceTitle": "Mantenimiento:",
-      "feature1": "Diseño responsive",
-      "feature2": "Hasta 5 páginas",
-      "feature3": "Formulario de contacto",
-      "feature4": "Google Analytics",
-      "maintenance1": "Actualizaciones mensuales",
-      "maintenance2": "Soporte técnico básico",
-      "cta": "Solicitar Info"
+      "maintenanceTitle": "Opcional:",
+      "feature1": "SPA ultrarrápida (React)",
+      "feature2": "SEO Técnico Base",
+      "feature3": "Diseño UX/UI a medida",
+      "feature4": "Analytics Configurado",
+      "maintenance1": "Seguridad y Backups",
+      "maintenance2": "Actualizaciones de contenido",
+      "cta": "Empezar Proyecto"
     },
     "professional": {
-      "name": "Web Profesional",
-      "setupPrice": "XXX€",
-      "monthlyPrice": "XX€/mes",
-      "badge": "Más Popular",
-      "feature1": "Diseño 100% personalizado",
-      "feature2": "Hasta 10 páginas",
-      "feature3": "Blog integrado",
-      "feature4": "Panel administración",
-      "maintenance1": "Cambios ilimitados",
-      "maintenance2": "Soporte prioritario",
-      "cta": "Solicitar Info"
+      "name": "Business Growth",
+      "setupPrice": "1.200€",
+      "monthlyPrice": "Premium",
+      "badge": "Recomendado",
+      "feature1": "Todo lo del Launch Pack",
+      "feature2": "CMS (Gestor de contenidos)",
+      "feature3": "Blog / Noticias",
+      "feature4": "Integraciones CRM/Email",
+      "maintenance1": "Soporte Prioritario",
+      "maintenance2": "Informe Mensual ROI",
+      "cta": "Solicitar Consultoría"
     },
-    "infoTitle": "Información Importante",
-    "info1": "<strong>Dominio:</strong> 10-15€/año (te ayudamos con compra y configuración)",
-    "info2": "<strong>Hosting:</strong> Incluido en mantenimiento mensual",
-    "info3": "<strong>Certificado SSL:</strong> Incluido sin coste adicional (tu web será segura con HTTPS)",
-    "info4": "<strong>Sin compromiso:</strong> Puedes cancelar el mantenimiento cuando quieras",
-    "customProject": "¿Necesitas un proyecto personalizado?",
-    "customDescription": "Webs con funcionalidades específicas, integraciones o diseños complejos.",
-    "customCta": "Cuéntanos tu proyecto"
+    "infoTitle": "Transparencia Radical",
+    "info1": "<strong>Propiedad Intelectual:</strong> El código y las fotos son 100% tuyos tras el pago.",
+    "info2": "<strong>Tecnología:</strong> Usamos React y TypeScript, el estándar de la industria moderna.",
+    "info3": "<strong>Velocidad:</strong> Garantizamos puntuaciones >90 en Google PageSpeed.",
+    "info4": "<strong>Garantía:</strong> Soporte técnico gratuito durante 30 días post-lanzamiento.",
+    "customProject": "¿Proyecto a Medida?",
+    "customDescription": "Desarrollo de plataformas SaaS, apps web complejas o sistemas de reservas personalizados.",
+    "customCta": "Agendar Reunión Técnica"
   },
   "pricing": {
-    "webTitle": "Desarrollo Web Profesional",
-    "webSubtitle": "Creamos tu web a medida. Diseño moderno, rápido y optimizado para Google.",
-    "photoTitle": "Fotografía y Edición Profesional",
-    "photoSubtitle": "Edición profesional de tus fotografías. Prueba gratuita disponible. Entrega en 24-48h.",
+    "webTitle": "Planes de Desarrollo",
+    "webSubtitle": "Tecnología empresarial al alcance de tu negocio local.",
+    "photoTitle": "Sesiones Fotográficas Corporativas",
+    "photoSubtitle": "Deja de usar fotos de stock. Muestra la realidad de tu negocio con calidad editorial.",
     "photoPacks": {
       "trial": {
-        "name": "Pack Prueba",
+        "name": "Consulta Visual",
         "price": "Gratis",
-        "photos": "1 foto",
-        "feature1": "1 foto editada",
-        "feature2": "Muestra de calidad",
+        "photos": "Auditoría",
+        "feature1": "Análisis de imagen actual",
+        "feature2": "Propuesta de mejora",
         "feature3": "Sin compromiso",
-        "cta": "Solicitar Gratis"
+        "cta": "Solicitar Auditoría"
       },
       "basic": {
-        "name": "Pack Básico",
-        "price": "10€",
-        "photos": "5 fotos",
-        "feature1": "5 fotos editadas",
-        "feature2": "Hasta 3 re-ediciones por foto",
-        "feature3": "Entrega 24-48h",
-        "cta": "Contactar"
+        "name": "Pack Corporativo",
+        "price": "350€",
+        "photos": "Reportaje Completo",
+        "feature1": "Media jornada de sesión",
+        "feature2": "Equipo, local y producto",
+        "feature3": "Entrega 48h",
+        "cta": "Reservar"
       },
       "standard": {
-        "name": "Pack Estándar",
-        "price": "20€",
-        "photos": "10 fotos",
-        "feature1": "10 fotos editadas",
-        "feature2": "Hasta 3 re-ediciones por foto",
-        "feature3": "Entrega 24-48h",
-        "feature4": "Soporte prioritario",
-        "cta": "Contactar"
+        "name": "Pack Inmobiliaria",
+        "price": "150€",
+        "photos": "Por Propiedad",
+        "feature1": "Gran angular HDR",
+        "feature2": "Edición luminosa",
+        "feature3": "Entrega 24h",
+        "feature4": "Listo para publicar",
+        "cta": "Consultar"
       },
       "premium": {
-        "name": "Pack Premium",
-        "price": "35€",
-        "photos": "20 fotos",
-        "feature1": "20 fotos editadas",
-        "feature2": "Hasta 3 re-ediciones por foto",
-        "feature3": "Entrega 24-48h",
+        "name": "Pack A Medida",
+        "price": "Consultar",
+        "photos": "Proyecto Específico",
+        "feature1": "Catálogos / E-commerce",
+        "feature2": "Vídeo corporativo",
+        "feature3": "Planificación creativa",
         "feature4": "Soporte VIP",
         "cta": "Contactar"
       }
     },
-    "footerText": "¿Necesitas algo personalizado o tienes un proyecto especial?",
-    "footerCta": "Cuéntanos y crearemos un presupuesto a medida",
-    "portfolioButton": "📸 VER PORTFOLIO FOTOGRAFÍA",
-    "portfolioButtonShort": "📸 Ver Portfolio",
-    "portfolioDescription": "✨ Ve ejemplos reales de nuestro trabajo fotográfico",
-    "from": "Desde 349€",
-    "vatIncluded": "IVA incluido",
-    "competitivePrice": "Precio más competitivo del mercado",
-    "fullMessage": "IVA incluido | Precio más competitivo del mercado"
+    "footerText": "¿Tienes un proyecto grande o necesitas vídeo?",
+    "footerCta": "Contáctanos para un presupuesto a medida",
+    "portfolioButton": "📸 VER GALERÍA DE TRABAJOS",
+    "portfolioButtonShort": "📸 Ver Galería",
+    "portfolioDescription": "Calidad que se nota. Mira nuestros últimos proyectos.",
+    "from": "Desde 699€",
+    "vatIncluded": "IVA no incluido",
+    "competitivePrice": "Inversión Rentable",
+    "fullMessage": "Precios + IVA | Inversión deducible para tu empresa"
   },
   "photoPacks": {
-    "title": "Fotografía y Edición",
-    "titleHighlight": "Profesional",
-    "subtitle": "Capturamos y transformamos tus fotos con edición profesional. Elige el pack que mejor se adapte a tus necesidades.",
+    "title": "Fotografía Estratégica",
+    "titleHighlight": "Para Empresas",
+    "subtitle": "Activos visuales diseñados para vender, no solo para decorar. Elige la excelencia.",
+    "subBadge": "Fotografía que Vende • Edición High-End • Entrega Rápida",
     "badge": {
-      "text": "Fotos editadas en 2025"
+      "text": "Calidad de Revista"
     },
     "demo": {
-      "before": "Foto Original",
-      "after": "Edición Profesional",
-      "caption": "Dénia, España",
-      "viewBefore": "← Ver Antes",
-      "viewAfter": "Ver Después →"
+      "before": "Foto Móvil",
+      "after": "Foto Profesional",
+      "caption": "La diferencia entre un cliente que pasa y uno que entra.",
+      "viewBefore": "Ver Realidad",
+      "viewAfter": "Ver Potencial",
+      "feature1": "Calidad Publicitaria",
+      "feature2": "Entrega en 48h",
+      "feature3": "Retoque High-End",
+      "cta": "VER PORTFOLIO"
     },
-    "portfolioButton": "📸 VER PORTFOLIO FOTOGRAFÍA",
-    "portfolioButtonShort": "📸 Ver Portfolio",
-    "portfolioDescription": "✨ Ve ejemplos reales de nuestro trabajo fotográfico",
-    "recommendedBadge": "⭐ Recomendado probar",
+    "portfolioButton": "📸 VER CASOS DE ÉXITO",
+    "portfolioButtonShort": "📸 Ver Trabajos",
+    "portfolioDescription": "Imágenes reales de clientes reales.",
+    "recommendedBadge": "⭐ B2B Best Seller",
     "guarantee": {
-      "title": "Garantía 100% Satisfacción",
-      "description": "<strong>¿Primera vez?</strong> Compra sin miedo. Si alguna foto no te convence, <span class='font-bold text-orange-700'>la re-editamos GRATIS hasta 3 veces</span> hasta que te encante. Sin preguntas, sin letra pequeña.",
-      "badge": "Garantía incluida"
+      "title": "Calidad Garantizada",
+      "description": "Si las fotos no elevan la imagen de tu marca, <strong>las repetimos</strong>. Nuestro objetivo es que tengas el mejor material de tu sector.",
+      "badge": "Garantía Profesional"
     },
-    "basic": {
-      "name": "Pack Básico",
-      "price": "14,99€",
-      "photos": "5 fotos editadas",
-      "feature1": "Entrega 24-48h",
-      "cta": "Contactar",
-      "whatsappMessage": "Hola, estoy interesado en el Pack Básico (5 fotos - 14,99€)"
+    "corporate": {
+      "name": "Pack Corporativo",
+      "price": "350€",
+      "photos": "Sesión Media Jornada",
+      "feature1": "Hasta 4 horas de sesión in-situ",
+      "feature2": "Retratos, Instalaciones y Acción",
+      "feature3": "Edición Avanzada (Color y Luz)",
+      "feature4": "Derechos de uso comercial completos",
+      "cta": "Agendar Ahora",
+      "whatsappMessage": "Hola, quiero reservar el Pack Corporativo (350€) para mejorar la imagen de mi empresa."
     },
-    "standard": {
-      "name": "Pack Estándar",
-      "price": "28,99€",
-      "photos": "10 fotos editadas",
-      "feature1": "Entrega 24-48h",
-      "cta": "Contactar",
-      "whatsappMessage": "Hola, estoy interesado en el Pack Estándar (10 fotos - 28,99€)"
+    "custom": {
+      "name": "Pack A Medida",
+      "price": "Consultar",
+      "photos": "Proyecto Específico",
+      "feature1": "Ideal para franquicias o catálogos",
+      "feature2": "Fotografía de producto e-commerce",
+      "feature3": "Vídeo corporativo / Reels",
+      "feature4": "Planificación creativa incluida",
+      "cta": "Pedir Presupuesto",
+      "whatsappMessage": "Hola, tengo un proyecto fotográfico especial y necesito presupuesto."
     },
-    "premium": {
-      "name": "Pack Premium",
-      "price": "52,99€",
-      "photos": "20 fotos editadas",
-      "feature1": "Entrega 24-48h",
-      "cta": "Contactar",
-      "whatsappMessage": "Hola, estoy interesado en el Pack Premium (20 fotos - 52,99€)"
-    },
-    "professional": {
-      "name": "Pack Profesional",
-      "price": "89,99€",
-      "photos": "50 fotos",
-      "feature1": "Entrega 24-48h",
-      "cta": "Contactar",
-      "whatsappMessage": "Hola, estoy interesado en el Pack Profesional (50 fotos - 89,99€)"
-    },
-    "trialMessage": "¿No estás seguro? Podemos crear una muestra gratuita para mostrarte cómo trabajamos",
-    "vatIncluded": "IVA incluido"
+    "trialMessage": "¿Necesitas ver más ejemplos de tu sector? Escríbenos.",
+    "vatIncluded": "+ IVA"
   },
   "whyUs": {
-    "title": "De Gasto a Inversión:<br><span class='text-3xl md:text-4xl lg:text-5xl'>Creamos un Activo Digital que<br><span class='text-orange-500'>Genera Clientes</span></span>",
+    "title": "No Busques Proveedores,<br><span class='text-3xl md:text-4xl lg:text-5xl'>Busca un Socio de<br><span class='text-orange-500'>Crecimiento</span></span>",
     "subtitle": "",
     "reason1": {
-      "title": "Diseño Guiado por Estrategia",
-      "description": "Diseñadores y Marketeros Licenciados. <strong>Construido para convertir (CRO)</strong>. Entregamos un <strong>activo digital estratégico</strong>, no solo una web bonita."
+      "title": "Ingeniería vs. Artesanía",
+      "description": "No usamos plantillas lentas. Escribimos código limpio (React) que Google ama y tus clientes agradecen. <strong>Tu web volará.</strong>"
     },
     "reason2": {
-      "title": "Servicio 100% Local",
-      "description": "<strong>Trato directo</strong>, sin intermediarios. Conocemos tu mercado <strong>(Dénia y Marina Alta)</strong>. Proximidad y compromiso real."
+      "title": "Visión de Negocio",
+      "description": "No solo hacemos fotos bonitas o webs modernas. Entendemos de <strong>embudos de venta, conversión y retención</strong>."
     },
     "reason3": {
-      "title": "Credibilidad Visual al Instante",
-      "description": "Fotografía Profesional Incluida. <strong>Imágenes auténticas (no genéricas)</strong> que generan <strong>confianza inmediata</strong>. Tu marca se verá profesional al instante."
+      "title": "Producción In-House",
+      "description": "Sin subcontratas. El desarrollador y el fotógrafo son los dueños. <strong>Compromiso total</strong> con tu resultado."
     },
     "reason4": {
-      "title": "Plazos de Entrega Garantizados",
-      "description": "<strong>Rapidez Garantizada</strong>. Edición de fotos y seguimiento de proyecto en <strong>24-48 horas</strong>. Cumplimiento de plazos sin sacrificar calidad."
+      "title": "Agilidad Comercial",
+      "description": "Entendemos los tiempos de los negocios. <strong>Entregas rápidas y comunicación fluida</strong> por WhatsApp."
     },
     "reason5": {
-      "title": "Garantía Total de Satisfacción",
-      "description": "<strong>Inversión Protegida</strong>. Garantía 100% Satisfacción. <strong>Re-ediciones GRATIS (hasta 3 veces)</strong> para que ames el resultado."
+      "title": "Inversión Segura",
+      "description": "Trabajamos hasta que el resultado cumpla los estándares de calidad acordados. Tu satisfacción es nuestra reputación."
     },
     "reason6": {
-      "title": "Soporte Post-Lanzamiento",
-      "description": "<strong>Soporte Proactivo</strong> Post-Lanzamiento. Mantenimiento y soporte estratégico continuo. Tu web <strong>siempre segura, actualizada y funcionando</strong> perfectamente."
+      "title": "Escalabilidad",
+      "description": "Nuestras soluciones crecen contigo. Empieza con el Launch Pack y escala a sistemas complejos sin tirar nada a la basura."
     },
     "badges": {
-      "certified": "Garantizado",
-      "topPrice": "Top Precio"
+      "certified": "Certificado",
+      "topPrice": "Alto Valor"
     }
   },
   "portfolio": {
@@ -286,8 +281,8 @@
     "priceTitleHighlight": "Crecimiento Digital",
     "croBadge": "✨ Construido para Convertir (CRO)",
     "initialInvestment": "Inversión Inicial",
-    "priceAmount": "Desde 349€",
-    "priceDisclaimer": "Este es el costo de nuestro Plan Básico. Pida presupuesto para nuestros servicios estratégicos de diseño avanzado con CRO y animaciones fluidas.",
+    "priceAmount": "Desde 699€",
+    "priceDisclaimer": "Este es el costo de nuestro Startup Launch Pack. Pida presupuesto para nuestros servicios estratégicos de diseño avanzado con CRO y animaciones fluidas.",
     "strategicDesign": "Diseño Estratégico",
     "ctaButton": "Solicitar Mi Presupuesto Único",
     "whatsappMessage": "Hola, quiero solicitar mi presupuesto único para una web profesional con diseño estratégico",
@@ -460,44 +455,44 @@
     "badge": "Profesionales licenciados"
   },
   "simplePrice": {
-    "title": "Tu Web Profesional",
-    "subtitle": "Diseño moderno, rápido y optimizado para Google.",
+    "title": "Startup Launch Pack",
+    "subtitle": "La base tecnológica sólida que tu negocio necesita para despegar en digital.",
     "offer": {
-      "title": "Web Profesional",
-      "price": "Desde 349€",
-      "description": "IVA incluido | Precio más competitivo del mercado",
+      "title": "Startup Launch Pack",
+      "price": "Desde 699€",
+      "description": "+ IVA | Inversión única | Pago fraccionado disponible",
       "includes": "¿Qué incluye?",
-      "feature1": "Diseño 100% responsive móvil y tablet",
-      "feature2": "Hasta 3 secciones (Inicio, Servicios, Contacto)",
-      "feature3": "Formulario de contacto y mapa Google",
-      "feature4": "Optimización SEO para búsquedas locales",
-      "feature5": "Dominio y Hosting (primer año incluido)",
-      "feature6": "Galería de fotos profesional",
-      "feature7": "Integración redes sociales",
-      "feature8": "Formación inicial para gestionar tu web",
-      "maintenanceTitle": "Mantenimiento mensual:",
-      "maintenanceText": "Después de crear tu web, ofrecemos un servicio de mantenimiento mensual para mantenerla segura, actualizada y funcionando perfectamente. El coste mensual varía según tus necesidades (actualizaciones, soporte, copias seguridad). ¡Pregúntanos sin compromiso!",
-      "cta": "Solicitar Presupuesto",
-      "whatsappMessage": "Hola, estoy interesado en la Web Profesional desde 349€. ¿Me pueden dar más información?"
+      "feature1": "Web Ultra-Rápida (React/Next.js)",
+      "feature2": "Diseño Premium Personalizado",
+      "feature3": "SEO Técnico (Core Web Vitals)",
+      "feature4": "Copywriting persuasivo base",
+      "feature5": "Dominio y Hosting Pro (1 año)",
+      "feature6": "Integración de WhatsApp y Analytics",
+      "feature7": "Formularios de Captación de Leads",
+      "feature8": "Sesión de formación 1 a 1",
+      "maintenanceTitle": "Mantenimiento 'Tranquilidad':",
+      "maintenanceText": "Nos encargamos de que tu web nunca falle. Seguridad, actualizaciones y pequeños cambios incluidos en nuestros planes de mantenimiento opcionales.",
+      "cta": "Solicitar Consultoría Gratis",
+      "whatsappMessage": "Hola, me interesa el Startup Launch Pack de 699€. ¿Podemos hablar?"
     },
     "benefits": {
-      "title": "¿Por qué necesitas una web?",
-      "benefit1Title": "Más clientes",
-      "benefit1Text": "Aparece en Google cuando busquen tus servicios localmente.",
-      "benefit2Title": "Abierto 24/7",
-      "benefit2Text": "Tu web trabaja para ti incluso cuando estás cerrado.",
-      "benefit3Title": "Imagen profesional",
-      "benefit3Text": "Genera confianza y destaca de la competencia.",
-      "benefit4Title": "Comunicación directa",
-      "benefit4Text": "Muestra ofertas, horarios y novedades al instante.",
-      "benefit5Title": "Es tuya",
-      "benefit5Text": "Tu propio espacio digital, independiente de redes sociales.",
-      "benefit6Title": "Visible en Google",
-      "benefit6Text": "Optimizada para aparecer en Google Maps y búsquedas locales."
+      "title": "¿Por qué esta inversión?",
+      "benefit1Title": "Velocidad = Ventas",
+      "benefit1Text": "Cada segundo de carga extra te cuesta un 20% de clientes. Nosotros eliminamos ese problema.",
+      "benefit2Title": "Imagen de Líder",
+      "benefit2Text": "Tu web transmitirá que eres la mejor opción de la zona, justificando tus precios.",
+      "benefit3Title": "Ahorro a Largo Plazo",
+      "benefit3Text": "Una web bien hecha dura años. Una barata da problemas en meses.",
+      "benefit4Title": "Google te Preferirá",
+      "benefit4Text": "El código limpio posiciona mejor que las plantillas pesadas.",
+      "benefit5Title": "Propiedad Total",
+      "benefit5Text": "No dependes de plataformas que te cobran comisiones por todo.",
+      "benefit6Title": "Soporte Real",
+      "benefit6Text": "Hablamos tu idioma y estamos a un WhatsApp de distancia."
     },
-    "portfolioButton": "🌐 VER EJEMPLOS WEB",
-    "portfolioButtonShort": "🌐 Ver Ejemplos",
-    "portfolioDescription": "Ve ejemplos reales de nuestro trabajo"
+    "portfolioButton": "🌐 VER TECNOLOGÍA EN ACCIÓN",
+    "portfolioButtonShort": "🌐 Ver Webs",
+    "portfolioDescription": "Mira la velocidad de nuestros proyectos"
   },
   "divider": {
     "title": "Tu negocio merece brillar online",
