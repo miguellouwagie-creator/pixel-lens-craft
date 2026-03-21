@@ -12,6 +12,7 @@ const Auth = lazy(() => import("./pages/Auth"));
 const Dashboard = lazy(() => import("./pages/Dashboard"));
 const Portfolio = lazy(() => import("./pages/Portfolio"));
 const PortfolioWebs = lazy(() => import("./pages/PortfolioWebs"));
+const WebDesign = lazy(() => import("./pages/WebDesign"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Legal pages
@@ -31,6 +32,7 @@ const App = () => (
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/portfolio" element={<Portfolio />} />
         <Route path="/portfolio-webs" element={<PortfolioWebs />} />
+        <Route path="/web-design" element={<WebDesign />} />
 
         {/* RUTAS LEGALES OBLIGATORIAS */}
         <Route path="/aviso-legal" element={<LegalNotice />} />
