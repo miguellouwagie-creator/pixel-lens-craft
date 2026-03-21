@@ -20,17 +20,9 @@ export default {
     },
     extend: {
       fontFamily: {
-        // Inter como fuente principal profesional de alto valor
-        sans: [
-          "Inter",
-          "system-ui",
-          "-apple-system",
-          "BlinkMacSystemFont",
-          "Segoe UI",
-          "Roboto",
-          "Arial",
-          "sans-serif",
-        ],
+        headline: ['"Plus Jakarta Sans"', 'sans-serif'],
+        body: ['Inter', 'sans-serif'],
+        label: ['Manrope', 'sans-serif'],
       },
       fontSize: {
         // Sistema de escala tipográfica profesional (ratio 1.25)
@@ -57,58 +49,65 @@ export default {
         black: "900",
       },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
-        cta: {
-          DEFAULT: "hsl(var(--cta))",
-          foreground: "hsl(var(--cta-foreground))",
-        },
-        secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
-        },
-        destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
-        },
-        muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
-        },
-        accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
-        },
-        popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
-        },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
-        sidebar: {
-          DEFAULT: "hsl(var(--sidebar-background))",
-          foreground: "hsl(var(--sidebar-foreground))",
-          primary: "hsl(var(--sidebar-primary))",
-          "primary-foreground": "hsl(var(--sidebar-primary-foreground))",
-          accent: "hsl(var(--sidebar-accent))",
-          "accent-foreground": "hsl(var(--sidebar-accent-foreground))",
-          border: "hsl(var(--sidebar-border))",
-          ring: "hsl(var(--sidebar-ring))",
-        },
+        // Primary — Deep Navy
+        primary: '#06256d',
+        'primary-container': '#253d84',
+        'primary-fixed': '#dce1ff',
+        'primary-fixed-dim': '#b5c4ff',
+        'on-primary': '#ffffff',
+        'on-primary-container': '#95abf9',
+        'on-primary-fixed': '#00164e',
+        'on-primary-fixed-variant': '#2b4289',
+        'inverse-primary': '#b5c4ff',
+        // Secondary — Burnt Orange
+        secondary: '#ae3100',
+        'secondary-container': '#fe6431',
+        'secondary-fixed': '#ffdbd0',
+        'secondary-fixed-dim': '#ffb59f',
+        'on-secondary': '#ffffff',
+        'on-secondary-container': '#5b1500',
+        'on-secondary-fixed': '#3a0a00',
+        'on-secondary-fixed-variant': '#852400',
+        // Tertiary — Dark Teal
+        tertiary: '#182e41',
+        'tertiary-container': '#2f4459',
+        'tertiary-fixed': '#cfe5ff',
+        'tertiary-fixed-dim': '#b3c9e2',
+        'on-tertiary': '#ffffff',
+        'on-tertiary-container': '#9bb1ca',
+        'on-tertiary-fixed': '#051d30',
+        'on-tertiary-fixed-variant': '#34495e',
+        // Surface scale
+        background: '#fcf9f8',
+        surface: '#fcf9f8',
+        'surface-dim': '#dcd9d9',
+        'surface-bright': '#fcf9f8',
+        'surface-container-lowest': '#ffffff',
+        'surface-container-low': '#f6f3f2',
+        'surface-container': '#f0eded',
+        'surface-container-high': '#eae7e7',
+        'surface-container-highest': '#e5e2e1',
+        'surface-variant': '#e5e2e1',
+        'surface-tint': '#445aa3',
+        'on-surface': '#1c1b1b',
+        'on-surface-variant': '#444651',
+        'on-background': '#1c1b1b',
+        'inverse-surface': '#313030',
+        'inverse-on-surface': '#f3f0ef',
+        // Outline
+        outline: '#757682',
+        'outline-variant': '#c5c6d2',
+        // Error
+        error: '#ba1a1a',
+        'error-container': '#ffdad6',
+        'on-error': '#ffffff',
+        'on-error-container': '#93000a',
       },
       borderRadius: {
-        lg: "var(--radius)",
-        md: "calc(var(--radius) - 2px)",
-        sm: "calc(var(--radius) - 4px)",
+        DEFAULT: '0.125rem',
+        lg: '0.25rem',
+        xl: '0.5rem',
+        full: '0.75rem',
       },
       keyframes: {
         "accordion-down": {
