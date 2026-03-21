@@ -1,168 +1,158 @@
-import { Button } from "@/components/ui/button";
-import { Card, CardContent } from "@/components/ui/card";
-import {
-  Check,
-  MessageCircle,
-  Laptop,
-  TrendingUp,
-  Clock,
-  Shield,
-  Users,
-  Zap,
-  Search,
-  Eye,
-  ArrowRight,
-} from "lucide-react";
-import { useTranslation } from "react-i18next";
-import bgImage from "@/assets/PC1.jpg";
+// src/components/SimplePricingSection.tsx
+import { Check, Camera } from "lucide-react";
+
+const whatsappNumber = "34667326300";
+
+const tiers = [
+  {
+    name: "Essential Corporate",
+    price: "€350",
+    description: "Professional headshots and team portraits tailored for modern brands.",
+    features: [
+      "1 Hour on-location session",
+      "Up to 5 team members",
+      "15 High-end retouched photos",
+      "Digital delivery in 48h",
+      "Commercial usage rights",
+    ],
+    featured: false,
+    whatsappMessage: "Hola, me interesa la sesión Essential Corporate",
+  },
+  {
+    name: "Architectural Suite",
+    price: "€650",
+    description: "Highlighting spaces with precise geometry and natural light control.",
+    features: [
+      "Half-day coverage (4 hours)",
+      "Interior & exterior spaces",
+      "Drone/Aerial photography included",
+      "40 High-end retouched photos",
+      "Advanced perspective correction",
+      "Commercial usage rights",
+    ],
+    featured: true,
+    whatsappMessage: "Hola, me interesa la sesión Architectural Suite",
+  },
+  {
+    name: "Cinematic Narrative",
+    price: "€1,200",
+    description: "Full-scale editorial campaigns for product launches and brand storytelling.",
+    features: [
+      "Full-day coverage (8 hours)",
+      "Creative direction & moodboarding",
+      "Multiple locations & setups",
+      "All viable photos (color graded)",
+      "30 High-end magazine retouches",
+      "Full buyout rights",
+    ],
+    featured: false,
+    whatsappMessage: "Hola, me interesa la sesión Cinematic Narrative",
+  },
+];
 
 const SimplePricingSection = () => {
-  const { t } = useTranslation();
-  const whatsappNumber = "34667326300";
-
   return (
-    <div
-      className="py-20 relative"
-      id="packs"
-      style={{
-        backgroundImage: `url(${bgImage})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
-      }}
-    >
-      {/* Overlay oscuro para mantener legibilidad */}
-      <div className="absolute inset-0 bg-black/75 z-0"></div>
-
-      <div className="container mx-auto px-4 relative z-10">
+    <section className="py-24 bg-surface">
+      <div className="max-w-7xl mx-auto px-8">
+        {/* Heading */}
         <div className="text-center mb-16">
-          <div className="inline-flex items-center justify-center w-24 h-24 bg-blue-500 rounded-2xl mb-6 shadow-2xl">
-            <Laptop className="h-12 w-12 text-white" />
-          </div>
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
-            {t("simplePrice.title")}
+          <h2 className="font-headline text-4xl md:text-5xl font-bold text-primary mb-4">
+            Session Packages
           </h2>
-          <p className="text-xl text-blue-200 max-w-3xl mx-auto mb-8">
-            {t("simplePrice.subtitle")}
+          <div className="h-1 w-20 bg-secondary mx-auto mb-6" />
+          <p className="text-on-surface-variant text-lg max-w-2xl mx-auto">
+            Investment options crafted for different scales of visual storytelling.
           </p>
-
-          {/* Botón Ver Ejemplos de Webs */}
-          <div className="mb-8 relative inline-block">
-            <div className="absolute inset-0 bg-gradient-to-r from-blue-400 to-cyan-400 rounded-full blur-xl opacity-40"></div>
-
-            <Button
-              size="lg"
-              className="relative bg-gradient-to-r from-blue-600 to-cyan-600 hover:from-blue-700 hover:to-cyan-700 text-white text-lg px-10 py-7 shadow-2xl hover:shadow-blue-500/60 transform hover:scale-110 transition-all duration-300 border-2 border-blue-400"
-              asChild
-            >
-              <a href="/portfolio-webs" className="flex items-center gap-3">
-                <Eye className="h-6 w-6 animate-bounce" />
-                <span className="hidden md:inline font-bold tracking-wide">
-                  {t("simplePrice.portfolioButton")}
-                </span>
-                <span className="md:hidden font-bold tracking-wide">
-                  {t("simplePrice.portfolioButtonShort")}
-                </span>
-                <ArrowRight className="h-6 w-6" />
-              </a>
-            </Button>
-
-            <p className="text-sm text-blue-300 mt-4 font-semibold">
-              {t("simplePrice.portfolioDescription")}
-            </p>
-          </div>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-12 max-w-7xl mx-auto items-start">
-          <Card className="bg-white/95 backdrop-blur shadow-2xl border-4 border-blue-400">
-            <CardContent className="p-8">
-              <div className="mb-8">
-                <h3 className="text-3xl font-bold text-blue-900 mb-4">
-                  {t("simplePrice.offer.title")}
-                </h3>
-                <div className="flex items-baseline gap-2 mb-2">
-                  <span className="text-5xl font-bold bg-gradient-to-r from-blue-600 to-blue-800 bg-clip-text text-transparent">
-                    {t("simplePrice.offer.price")}
-                  </span>
-                </div>
-                <p className="text-lg text-gray-600">
-                  {t("simplePrice.offer.description")}
-                </p>
-              </div>
+        {/* Pricing grid */}
+        <div className="grid md:grid-cols-3 gap-8 items-start">
+          {tiers.map((tier) => (
+            <div
+              key={tier.name}
+              className={
+                tier.featured
+                  ? "bg-primary text-white scale-105 shadow-2xl rounded-xl p-10 relative"
+                  : "bg-surface-container-lowest border border-outline-variant/20 rounded-xl p-10"
+              }
+            >
+              {/* Most Popular badge */}
+              {tier.featured && (
+                <span className="bg-secondary px-4 py-1 text-white text-[10px] font-bold uppercase tracking-tight rounded-bl-lg absolute top-0 right-0">
+                  Most Popular
+                </span>
+              )}
 
-              <div className="space-y-4 mb-8">
-                <h4 className="font-bold text-gray-900 text-lg mb-4">
-                  {t("simplePrice.offer.includes")}
-                </h4>
-                {[1, 2, 3, 4, 5, 6, 7, 8].map((num) => (
-                  <div key={num} className="flex items-start gap-3">
-                    <div className="bg-blue-100 rounded-full p-1 mt-0.5 flex-shrink-0">
-                      <Check className="h-4 w-4 text-blue-600" />
-                    </div>
-                    <span className="text-gray-700">
-                      {t(`simplePrice.offer.feature${num}`)}
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="bg-blue-50 rounded-lg p-6 mb-8 border-2 border-blue-200">
-                <p className="text-sm text-blue-900 leading-relaxed">
-                  <strong className="block mb-2">
-                    {t("simplePrice.offer.maintenanceTitle")}
-                  </strong>
-                  {t("simplePrice.offer.maintenanceText")}
-                </p>
-              </div>
-
-              <Button
-                className="w-full bg-gradient-to-r from-blue-600 to-blue-700 hover:from-blue-700 hover:to-blue-800 text-white text-lg py-6"
-                asChild
+              <h3
+                className={`font-headline text-xl font-bold mb-2 ${
+                  tier.featured ? "text-white" : "text-primary"
+                }`}
               >
-                <a
-                  href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(t("simplePrice.offer.whatsappMessage"))}`}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center justify-center gap-2"
+                {tier.name}
+              </h3>
+
+              <p
+                className={`text-sm mb-6 ${
+                  tier.featured ? "text-white/70" : "text-on-surface-variant"
+                }`}
+              >
+                {tier.description}
+              </p>
+
+              <div className="mb-8">
+                <span
+                  className={`text-4xl font-headline font-bold ${
+                    tier.featured ? "text-white" : "text-secondary"
+                  }`}
                 >
-                  <MessageCircle className="h-5 w-5" />
-                  {t("simplePrice.offer.cta")}
-                </a>
-              </Button>
-            </CardContent>
-          </Card>
+                  {tier.price}
+                </span>
+                <span
+                  className={`text-sm ml-2 ${
+                    tier.featured ? "text-white/70" : "text-on-surface-variant"
+                  }`}
+                >
+                  / session
+                </span>
+              </div>
 
-          <div className="bg-gradient-to-br from-blue-800/50 to-blue-900/50 rounded-2xl p-8 backdrop-blur border-2 border-blue-300/30">
-            <h3 className="text-3xl font-bold text-white mb-8">
-              {t("simplePrice.benefits.title")}
-            </h3>
+              <ul className="space-y-3 mb-10">
+                {tier.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-3">
+                    <Check
+                      className={`h-4 w-4 mt-0.5 flex-shrink-0 ${
+                        tier.featured ? "text-secondary-fixed" : "text-secondary"
+                      }`}
+                    />
+                    <span
+                      className={`text-sm ${
+                        tier.featured ? "text-white/90" : "text-on-surface-variant"
+                      }`}
+                    >
+                      {feature}
+                    </span>
+                  </li>
+                ))}
+              </ul>
 
-            <div className="space-y-6">
-              {[1, 2, 3, 4, 5, 6].map((num) => (
-                <div key={num} className="flex gap-4">
-                  <div className="bg-blue-500 rounded-xl p-3 h-fit flex-shrink-0">
-                    {num === 1 && <TrendingUp className="h-6 w-6 text-white" />}
-                    {num === 2 && <Clock className="h-6 w-6 text-white" />}
-                    {num === 3 && <Shield className="h-6 w-6 text-white" />}
-                    {num === 4 && <Users className="h-6 w-6 text-white" />}
-                    {num === 5 && <Zap className="h-6 w-6 text-white" />}
-                    {num === 6 && <Search className="h-6 w-6 text-white" />}
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-white mb-2">
-                      {t(`simplePrice.benefits.benefit${num}Title`)}
-                    </h4>
-                    <p className="text-blue-100">
-                      {t(`simplePrice.benefits.benefit${num}Text`)}
-                    </p>
-                  </div>
-                </div>
-              ))}
+              <a
+                href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(tier.whatsappMessage)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={`inline-flex items-center justify-center gap-2 w-full py-3 rounded-md font-label text-sm font-semibold transition-all active:scale-95 ${
+                  tier.featured
+                    ? "bg-secondary text-on-secondary hover:bg-secondary-container"
+                    : "border border-primary text-primary hover:bg-primary hover:text-on-primary"
+                }`}
+              >
+                <Camera className="h-4 w-4" />
+                Book Session
+              </a>
             </div>
-          </div>
+          ))}
         </div>
       </div>
-    </div>
+    </section>
   );
 };
 
