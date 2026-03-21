@@ -138,7 +138,7 @@ All colors MUST be HSL.
 
 @layer base {
   * {
-    @apply border-border;
+    border-color: hsl(var(--border));
   }
 
   /* Configuración base de tipografía profesional con Inter */
@@ -336,10 +336,11 @@ main>div {
 .perspective-grid-item {
   transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
+
 .perspective-grid-item:hover {
   transform: scale(1.02);
 }
 
 .text-shadow-hero {
-  text-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
+  text-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
