@@ -1,153 +1,146 @@
-import { Link } from "react-router-dom";
-import { ArrowLeft, MessageCircle } from "lucide-react";
-import { useTranslation } from "react-i18next";
-import { Button } from "@/components/ui/button";
+// src/pages/Portfolio.tsx
 import { useState } from "react";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
+import About from "@/components/About";
+import { ArrowUpRight } from "lucide-react";
+import { showcaseProjects, ProjectCategory } from "@/data/showcaseData";
+import ScrollToTop from "@/components/ScrollToTop";
 
-// Importar imágenes desde assets
-import sinEditar1 from "@/assets/sin-editar-1.jpeg";
-import editada1 from "@/assets/editada-1.jpeg";
-import sinEditar2 from "@/assets/sin-editar-2.jpeg";
-import editada2 from "@/assets/editada-2.png";
-import sinEditar3 from "@/assets/sin-editar-3.jpeg";
-import editada3 from "@/assets/editada-3.png";
-import sinEditar4 from "@/assets/sin-editar-4.jpeg";
-import editada4 from "@/assets/editada-4.png";
-import sinEditar5 from "@/assets/sin-editar-5.jpg";
-import editada5 from "@/assets/editada-5.jpg";
-import sinEditar6 from "@/assets/sin-editar-6.jpg";
-import editada6 from "@/assets/editada-6.jpg";
-import sinEditar8 from "@/assets/sin-editar-8.jpeg";
-import editada8 from "@/assets/editada-8.png";
-import sinEditar9 from "@/assets/sin-editar-9.jpeg";
-import editada9 from "@/assets/editada-9.png";
-import sinEditar10 from "@/assets/sin-editar-10.jpeg";
-import editada10 from "@/assets/editada-10.png";
+type FilterType = "all" | ProjectCategory;
 
-const portfolioImages = [
-  { before: sinEditar1, after: editada1, id: 1 },
-  { before: sinEditar2, after: editada2, id: 2 },
-  { before: sinEditar3, after: editada3, id: 3 },
-  { before: sinEditar4, after: editada4, id: 4 },
-  { before: sinEditar5, after: editada5, id: 5 },
-  { before: sinEditar6, after: editada6, id: 6 },
-  { before: sinEditar8, after: editada8, id: 8 },
-  { before: sinEditar9, after: editada9, id: 9 },
-  { before: sinEditar10, after: editada10, id: 10 },
+const filters: { id: FilterType; label: string }[] = [
+  { id: "all", label: "All Works" },
+  { id: "web", label: "Web Design" },
+  { id: "photography", label: "Photography" },
+  { id: "branding", label: "Brand Identity" },
 ];
 
-const ImageComparison = ({ before, after, id }: { before: string; after: string; id: number }) => {
-  const [showAfter, setShowAfter] = useState(false);
-  const { t } = useTranslation();
+const Portfolio = () => {
+  const [activeFilter, setActiveFilter] = useState<FilterType>("all");
+
+  const filteredProjects = showcaseProjects.filter(
+    (p) => activeFilter === "all" || p.category === activeFilter
+  );
 
   return (
-    <div className="relative rounded-xl overflow-hidden shadow-2xl border-4 border-white hover:border-orange-500 transition-all duration-300 bg-white group">
-      <div className="relative aspect-[4/3]">
-        {/* Imagen "Antes" */}
-        <img
-          src={before}
-          alt={`Antes ${id}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${showAfter ? 'opacity-0' : 'opacity-100'}`}
-        />
-        {/* Imagen "Después" */}
-        <img
-          src={after}
-          alt={`Después ${id}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${showAfter ? 'opacity-100' : 'opacity-0'}`}
-        />
-        
-        {/* Etiquetas */}
-        {!showAfter && (
-          <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-md text-sm font-bold">
-            {t("portfolioGallery.beforeLabel")}
+    <div className="min-h-screen bg-surface">
+      <Header />
+
+      <main className="relative">
+        {/* Editorial page header */}
+        <header className="pt-32 pb-16 px-8 max-w-7xl mx-auto">
+          <span className="font-label text-secondary tracking-widest uppercase text-xs font-bold mb-4 block">
+            Showcase
+          </span>
+          <h1 className="font-headline text-5xl md:text-7xl font-extrabold tracking-tighter text-primary mb-6">
+            The Curated <span className="text-secondary">Archives.</span>
+          </h1>
+          <p className="text-on-surface-variant text-lg leading-relaxed font-body max-w-2xl">
+            Explore our intersection of technical precision and visual storytelling.
+            Each project is a testament to intentional design and cinematic aesthetics.
+          </p>
+        </header>
+
+        {/* Filter bar */}
+        <section className="px-8 max-w-7xl mx-auto mb-16">
+          <div className="flex flex-wrap gap-3">
+            {filters.map((filter) => (
+              <button
+                key={filter.id}
+                onClick={() => setActiveFilter(filter.id)}
+                className={`font-label text-sm font-semibold rounded-full px-6 py-2.5 transition-all duration-300 ${
+                  activeFilter === filter.id
+                    ? "bg-primary text-on-primary shadow-md"
+                    : "bg-surface-container-low text-on-surface/70 hover:bg-surface-container-high hover:text-primary"
+                }`}
+              >
+                {filter.label}
+              </button>
+            ))}
           </div>
-        )}
-        {showAfter && (
-          <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-md text-sm font-bold">
-            {t("portfolioGallery.afterLabel")}
+        </section>
+
+        {/* Asymmetric masonry grid (12 columns) */}
+        <section className="px-8 max-w-7xl mx-auto mb-32">
+          {filteredProjects.length === 0 ? (
+            <div className="py-20 text-center">
+              <p className="text-on-surface-variant text-lg">No projects found in this category yet.</p>
+            </div>
+          ) : (
+            <div className="grid grid-cols-1 md:grid-cols-12 auto-rows-[300px] gap-6">
+              {filteredProjects.map((project, index) => {
+                // Alternating pattern via CSS classes based on project span or index
+                // Large = col-span-8, Medium = col-span-6, Small = col-span-4
+                let colSpan = "md:col-span-4";
+                let rowSpan = "row-span-1";
+
+                if (project.span === "large") {
+                  colSpan = "md:col-span-8";
+                  rowSpan = "md:row-span-2";
+                } else if (project.span === "medium") {
+                  colSpan = "md:col-span-6";
+                  rowSpan = "md:row-span-1";
+                } else if (project.span === "small") {
+                  colSpan = "md:col-span-4";
+                  rowSpan = "md:row-span-1";
+                }
+
+                return (
+                  <div
+                    key={project.id}
+                    className={`group relative overflow-hidden rounded-xl ${colSpan} ${rowSpan} bg-surface-container-low`}
+                  >
+                    <img
+                      src={project.imageUrl}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                      loading="lazy"
+                    />
+                    
+                    <div className="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                    
+                    <div className="absolute bottom-6 left-6 right-6 p-6 md:p-8 bg-surface-container-lowest/95 backdrop-blur-md rounded-xl translate-y-4 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 shadow-xl flex justify-between items-end">
+                      <div>
+                        <span className="block text-secondary text-xs font-bold tracking-widest uppercase mb-2">
+                          {project.category}
+                        </span>
+                        <h3 className="font-headline text-2xl font-bold text-primary">
+                          {project.title}
+                        </h3>
+                      </div>
+                      {(project.span === "large" || project.span === "medium") && (
+                        <div className="w-10 h-10 rounded-full bg-secondary/10 flex items-center justify-center text-secondary group-hover:bg-secondary group-hover:text-white transition-colors">
+                          <ArrowUpRight className="h-5 w-5" />
+                        </div>
+                      )}
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+          )}
+        </section>
+
+        {/* Editorial section */}
+        <div className="border-t border-outline-variant/20 pt-16 mb-16">
+          <div className="px-8 max-w-7xl mx-auto text-center mb-8">
+            <span className="font-label text-primary tracking-widest uppercase text-xs font-bold">
+              The Genesis
+            </span>
+            <h2 className="font-headline text-3xl font-bold text-primary mt-2">
+              We believe in intentional design.
+            </h2>
           </div>
-        )}
-        
-        {/* Botón para alternar */}
-        <button
-          onClick={() => setShowAfter(!showAfter)}
-          className="absolute bottom-4 right-4 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-bold shadow-lg transition-all transform hover:scale-105 text-sm"
-        >
-          {showAfter ? "← Antes" : "Después →"}
-        </button>
-      </div>
+          <About />
+        </div>
+
+      </main>
+
+      <Footer />
+      <ScrollToTop />
     </div>
   );
 };
 
-const PortfolioPage = () => {
-  const { t } = useTranslation();
-  const whatsappNumber = "34667326300";
-  const whatsappMessage = t("portfolioGallery.ctaButton");
-
-  return (
-    <>
-      {/* Encabezado */}
-      <header className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-orange-100 hover:text-white transition-colors mb-6"
-          >
-            <ArrowLeft size={20} />
-            {t("portfolioGallery.backButton")}
-          </Link>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">{t("portfolioGallery.title")}</h1>
-          <p className="text-lg md:text-xl text-orange-100 max-w-2xl mx-auto">
-            {t("portfolioGallery.subtitle")}
-          </p>
-        </div>
-      </header>
-
-      {/* Galería de Comparación - 3 columnas */}
-      <main className="py-16 md:py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {portfolioImages.map((image) => (
-              <ImageComparison
-                key={image.id}
-                before={image.before}
-                after={image.after}
-                id={image.id}
-              />
-            ))}
-          </div>
-        </div>
-      </main>
-
-      {/* Sección de Llamada a la Acción (CTA) */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            {t("portfolioGallery.ctaTitle")}
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            {t("portfolioGallery.ctaSubtitle")}
-          </p>
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white text-lg px-10 py-7 shadow-2xl hover:shadow-orange-500/60 transform hover:scale-105 transition-all"
-            asChild
-          >
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3"
-            >
-              <MessageCircle className="h-6 w-6" />
-              <span className="font-bold">{t("portfolioGallery.ctaButton")}</span>
-            </a>
-          </Button>
-        </div>
-      </section>
-    </>
-  );
-};
-
-export default PortfolioPage;
+export default Portfolio;
