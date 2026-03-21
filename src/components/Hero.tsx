@@ -1,110 +1,60 @@
 // src/components/Hero.tsx
-import React from "react";
-import { CheckCircle2, Award } from "lucide-react";
-import { useTranslation } from "react-i18next";
-import heroVideo from "@/assets/Fondo Vid.mp4";
+import { Link } from "react-router-dom";
+import heroImage from "@/assets/hero-image.jpg";
 
 const Hero = () => {
-  const { t } = useTranslation();
-
   return (
-    <section
-      id="hero-section"
-      className="sticky top-0 h-screen flex items-center overflow-hidden pt-32 md:pt-36"
-      style={{ zIndex: 0 }}
-    >
-      <video
-        autoPlay
-        loop
-        muted
-        playsInline
-        className="hero-video-background"
-        src={heroVideo}
-      >
-        Tu navegador no soporta el tag de video.
-      </video>
-
+    <section className="relative h-screen w-full flex items-center overflow-hidden pt-16">
+      {/* Background image */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 z-0"
         style={{
-          background:
-            "linear-gradient(to right, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0.4) 50%, rgba(0, 0, 0, 0.2) 70%)",
+          backgroundImage: `url(${heroImage})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center",
+          filter: "grayscale(100%) brightness(0.85)",
         }}
-      ></div>
+      />
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="max-w-xl lg:max-w-2xl">
-          <div className="text-white animate-fade-in-up">
-            <h1
-              className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight tracking-tight"
-              style={{
-                textShadow: "2px 4px 8px rgba(0, 0, 0, 0.6)",
-              }}
-            >
-              {t("hero.title")}
-              <br />
-              <span className="text-cta">& {t("hero.titleHighlight")}</span>
-            </h1>
+      {/* Gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-r from-background via-background/40 to-transparent" />
 
-            <p
-              className="text-2xl md:text-3xl mb-6 text-white font-medium"
-              style={{
-                textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)",
-              }}
-            >
-              {t("hero.subtitle")}
-            </p>
+      {/* Content */}
+      <div className="relative z-10 max-w-7xl mx-auto px-8 w-full">
+        <span className="block text-secondary tracking-[0.2em] text-xs font-bold uppercase mb-4">
+          THE CINEMATIC ARCHITECT
+        </span>
 
-            <p
-              className="text-lg md:text-xl mb-10 text-white leading-relaxed"
-              style={{
-                textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)",
-              }}
-            >
-              {t("hero.description")}
-            </p>
+        <h1 className="font-headline text-6xl md:text-8xl font-extrabold text-primary leading-[0.95] mb-6">
+          Precision meets
+          <br />
+          Artistry.
+        </h1>
 
-            {/* Beneficios (3 puntos) */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 max-w-md lg:max-w-lg">
-              <div className="flex items-center gap-2">
-                <CheckCircle2
-                  className="h-5 w-5 text-cta flex-shrink-0"
-                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}
-                />
-                <span
-                  className="text-white font-medium text-sm"
-                  style={{ textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)" }}
-                >
-                  {t("hero.benefit1")}
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <CheckCircle2
-                  className="h-5 w-5 text-cta flex-shrink-0"
-                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}
-                />
-                <span
-                  className="text-white font-medium text-sm"
-                  style={{ textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)" }}
-                >
-                  {t("hero.benefit2")}
-                </span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Award
-                  className="h-5 w-5 text-cta flex-shrink-0"
-                  style={{ filter: "drop-shadow(0 2px 4px rgba(0,0,0,0.4))" }}
-                />
-                <span
-                  className="text-white font-medium text-sm"
-                  style={{ textShadow: "1px 2px 4px rgba(0, 0, 0, 0.5)" }}
-                >
-                  {t("hero.benefit3")}
-                </span>
-              </div>
-            </div>
-          </div>
+        <p className="text-on-surface-variant text-lg max-w-lg mb-10 leading-relaxed">
+          We craft digital experiences and editorial imagery that elevate brands
+          beyond the ordinary. Every pixel, every frame — intentional.
+        </p>
+
+        <div className="flex gap-6 flex-wrap">
+          <Link
+            to="/portfolio"
+            className="inline-flex items-center bg-secondary text-on-secondary px-8 py-4 rounded-md font-label text-sm font-semibold hover:bg-secondary-container transition-all active:scale-95"
+          >
+            Explore Works
+          </Link>
+          <Link
+            to="/#service-selector"
+            className="inline-flex items-center border border-outline-variant/20 text-primary px-8 py-4 rounded-md font-label text-sm font-semibold hover:bg-surface-container transition-all active:scale-95"
+          >
+            Our Process
+          </Link>
         </div>
+      </div>
+
+      {/* Decorative metadata */}
+      <div className="absolute bottom-12 left-8 hidden md:block font-label text-[10px] tracking-widest uppercase opacity-50 text-on-surface-variant">
+        ISO 100 · f/2.8 · SHUTTER 1/250s · PIXELENS CORE V2.4
       </div>
     </section>
   );
