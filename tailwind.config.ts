@@ -102,6 +102,22 @@ export default {
         'error-container': '#ffdad6',
         'on-error': '#ffffff',
         'on-error-container': '#93000a',
+        
+        // Shadcn UI aliases
+        foreground: '#1c1b1b',
+        'muted': '#f6f3f2',
+        'muted-foreground': '#444651',
+        'accent': '#fe6431',
+        'accent-foreground': '#ffffff',
+        'destructive': '#ba1a1a',
+        'destructive-foreground': '#ffffff',
+        'card': '#ffffff',
+        'card-foreground': '#1c1b1b',
+        'popover': '#ffffff',
+        'popover-foreground': '#1c1b1b',
+        'border': '#c5c6d2',
+        'input': '#c5c6d2',
+        'ring': '#06256d',
       },
       borderRadius: {
         DEFAULT: '0.125rem',
