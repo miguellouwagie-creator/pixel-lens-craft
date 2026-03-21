@@ -14,6 +14,7 @@ const Portfolio = lazy(() => import("./pages/Portfolio"));
 const PortfolioWebs = lazy(() => import("./pages/PortfolioWebs"));
 const WebDesign = lazy(() => import("./pages/WebDesign"));
 const Photography = lazy(() => import("./pages/Photography"));
+const Contact = lazy(() => import("./pages/Contact"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 
 // Legal pages
@@ -35,6 +36,7 @@ const App = () => (
         <Route path="/portfolio-webs" element={<PortfolioWebs />} />
         <Route path="/web-design" element={<WebDesign />} />
         <Route path="/photography" element={<Photography />} />
+        <Route path="/contact" element={<Contact />} />
 
         {/* RUTAS LEGALES OBLIGATORIAS */}
         <Route path="/aviso-legal" element={<LegalNotice />} />
