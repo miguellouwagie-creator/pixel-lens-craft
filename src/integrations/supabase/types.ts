@@ -238,7 +238,13 @@ export type Database = {
       [_ in never]: never
     }
     Functions: {
-      [_ in never]: never
+      request_photo_re_edit: {
+        Args: {
+          p_photo_id: string
+          p_notes: string
+        }
+        Returns: undefined
+      }
     }
     Enums: {
       [_ in never]: never

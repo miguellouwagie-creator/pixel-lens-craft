@@ -63,18 +63,17 @@ const UploadSection = () => {
 
         if (uploadError) throw uploadError;
 
-        // Get public URL
-        const { data: { publicUrl } } = supabase.storage
-          .from('original-photos')
-          .getPublicUrl(fileName);
+        // Store the storage path (not a full URL) so we can generate
+        // fresh signed URLs on demand in the gallery
+        const storagePath = fileName;
 
-        // Create photo record
+        // Create photo record with the storage path
         const { error: photoError } = await supabase
           .from('photos')
           .insert({
             order_id: orderId,
             user_id: user.id,
-            original_url: publicUrl,
+            original_url: storagePath,
             notes: notes,
             status: 'uploaded'
           });

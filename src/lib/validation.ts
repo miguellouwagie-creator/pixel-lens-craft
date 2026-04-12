@@ -46,7 +46,7 @@ export const nameSchema = z
  */
 export const signUpSchema = z.object({
     email: emailSchema,
-    password: weakPasswordSchema, // Using weak schema for now
+    password: passwordSchema,
     fullName: nameSchema,
 });
 
