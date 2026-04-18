@@ -1,0 +1,869 @@
+# MASTER.md — Studio Pixelens Redesign Specification
+
+> **Single source of truth** del rediseño completo de studiopixelens.com.
+> Todo brief O.D.A. hacia Antigravity debe partir de este documento.
+> Si un brief contradice el MASTER, el MASTER gana.
+>
+> **Coexistencia obligatoria con otros documentos del repo:**
+> - `AGENT.md`: instrucciones operativas para cualquier agente IA en el repo.
+>   Vive en la raíz. Se lee SIEMPRE junto a MASTER.md.
+> - `CLAUDE.md`: scoped a auditoría de seguridad puntual. No guía el rediseño.
+>
+> Donde MASTER.md y AGENT.md difieran, la sección 1.6 "Reconciliación con AGENT.md"
+> fija la resolución aplicable.
+
+---
+
+## 0. Meta
+
+| Campo | Valor |
+|---|---|
+| Proyecto | Studio Pixelens Redesign v2 |
+| Nombre interno | Pixel Lens Craft (según CLAUDE.md) |
+| Nombre público | Studio Pixelens |
+| Owner | Miguel Louwagie Sapena |
+| Versión | 1.1 (Apr 18, 2026) — incorpora AGENT.md |
+| Estado | Draft, pendiente de validación humana |
+| Deadline interno | May 15, 2026 (2 semanas antes de mudanza a Basilea) |
+| Deadline duro | May 31, 2026 |
+| Timezone base | Europe/Madrid |
+| Repo branch trabajo | `redesign/v2-framer-base` (creada desde `dev`) |
+| Dominio producción | studiopixelens.com |
+| Dominio staging | studiopixelens-v2.pages.dev (Cloudflare Pages) |
+
+---
+
+## 1. Project Overview
+
+### 1.1 Misión
+
+Reescribir la UI completa de studiopixelens.com aplicando una síntesis entre dos direcciones complementarias: la **disciplina estructural** de Framer (motion-first, tipografía grande, jerarquía limpia, layouts impecables) y el **alma editorial/luxury** exigida por AGENT.md (personalidad fotográfica y cinematográfica, refinamiento de revista, tratamiento premium de imágenes). Todo ello preservando la identidad cromática naranja-azul de la marca y manteniendo el módulo de portfolio actual intacto.
+
+### 1.2 Scope (dos sprints secuenciales)
+
+**SPRINT 1 (en curso, Apr 18 – May 15):** capa pública.
+- Home, Servicios, Sobre, Contacto, Legal (privacidad, cookies, términos)
+- Portfolio preservado verbatim
+- SEO, performance, i18n paridad
+
+**SPRINT 2 (post-Basilea, Jun 15 en adelante):** capa autenticada.
+- Login / registro (`/auth` ya existe en el repo)
+- Selección de paquetes
+- Upload de fotos
+- Tracking de órdenes
+- Sistema de re-ediciones
+- Vista de historial
+
+### 1.3 Non-goals
+
+- No migrar a otro framework (mantiene Vite + React + TypeScript)
+- No cambiar de backend (Supabase se queda)
+- No rehacer GSAP ni portfolio (lift-and-shift)
+- No añadir features nuevas. Solo rediseño.
+- No cambiar URLs públicas (preservar SEO)
+- No cambiar modelo de pricing ni lógica de negocio
+- No migrar la librería de motion (GSAP se queda, pese a mención en AGENT.md)
+
+### 1.4 Decisiones cerradas
+
+1. Stack actual se mantiene íntegro.
+2. Orange se convierte en `--primary`, Blue en `--accent/--secondary`. Flip completo.
+3. Dark mode pasa a ser el modo por defecto. Light mode sigue disponible via `next-themes`.
+4. Portfolio es intocable. Se importa como módulo aislado con sus dependencias.
+5. Host destino: Cloudflare Pages.
+6. Ejecución en Antigravity con extensión Claude Code. Planificación en claude.ai Pro.
+7. Branch de trabajo: `redesign/v2-framer-base` creada desde `dev`. Nunca desde `main`.
+8. Librería de motion única: GSAP 3.13.
+9. Tipografía: pairing Playfair Display (display) + Inter (body/UI). Resolución de conflicto con AGENT.md.
+
+### 1.5 Dirección estética: "Editorial Structural"
+
+El rediseño no es Framer puro ni revista editorial pura. Es una síntesis deliberada:
+
+| Capa | Inspiración | Manifestación |
+|---|---|---|
+| Layout y grid | Framer | Disciplina estructural, generoso whitespace, jerarquía clara |
+| Motion | Framer | Entradas orquestadas, reveals en scroll, hover intencional |
+| Tipografía | AGENT.md editorial | Playfair Display en H1/H2, Inter en body |
+| Color | Identidad propia | Naranja vibrante primary + azul accent sobre fondo oscuro |
+| Tratamiento fotográfico | AGENT.md cinematográfico | Full-bleed, vignette sutil, overlays con gradiente |
+| Composición | AGENT.md | Asimetría puntual, grid-breaking en hero, diagonal flow donde aporte |
+
+**Anti-patrones prohibidos** (de AGENT.md, se adoptan íntegros):
+- Gradiente purple/blue sobre blanco.
+- Cards shadcn con `shadow-md` por defecto sin modificar.
+- Hero centrado con título + subtítulo + botón verde (patrón SaaS genérico).
+- Iconos Lucide sueltos sin integración en un sistema visual coherente.
+- Sección "Features" con 3 columnas icono + texto.
+
+### 1.6 Reconciliación con AGENT.md
+
+AGENT.md vive en la raíz del repo y es leído automáticamente por Claude Code. Para evitar instrucciones contradictorias a los agentes, esta tabla fija las resoluciones:
+
+| Tema | AGENT.md dice | MASTER.md resuelve | Justificación |
+|---|---|---|---|
+| Tipografía | "NEVER use Inter" | Playfair Display H1/H2 + Inter body/UI | Compromiso que honra editorial en cabeceras críticas sin sacrificar clean UI y performance |
+| Motion library | "Use the Motion library" | GSAP se mantiene | GSAP está en package.json, portfolio depende. Mención de AGENT.md se interpreta como concepto |
+| Branch | `dev` working, nunca `main` | Cumplido. Branch rebuild creada desde `dev` | Sin conflicto |
+| Tone | Professional, elegant, bold | Adoptado literal | Sin conflicto |
+| Composición | Asimétrica, grid-breaking | Adoptado | Sin conflicto |
+| LCP | < 2.5s | < 2.5s techo, < 2.0s objetivo | Alineado con matiz |
+
+Si un agente detecta conflicto adicional no listado aquí, debe parar y escalar a Miguel antes de actuar.
+
+---
+
+## 2. Brand Identity
+
+### 2.1 Nombre y claim
+
+- **Nombre público:** Studio Pixelens
+- **Nombre interno repo:** Pixel Lens Craft
+- **Claim hero (ES):** Transformamos la imagen digital de tu negocio
+- **Claim hero (EN):** Digital identity crafted with precision
+- **Descripción corta:** Agencia digital local especializada en páginas web y fotografía profesional para PYMEs de Dénia, Jávea, Ondara y la Marina Alta.
+
+### 2.2 Tone of voice
+
+Adoptado de AGENT.md con precisión:
+
+- **Professional, elegant, bold.**
+- Transmite **artistic confidence, not generic polish**.
+- Directo, técnicamente preciso, sin jerga vacía ni marketing inflado.
+- Orientado a resultados, respeta el tiempo del cliente (PYME, no puede perder horas).
+
+### 2.3 Idiomas soportados
+
+- Español (es_ES): idioma principal.
+- Inglés (en): secundario. Paridad de contenido obligatoria.
+
+Stack ya incluye `i18next` + `react-i18next` + carpeta `src/i18n/`. No se añaden idiomas en Sprint 1.
+
+---
+
+## 3. Design System
+
+### 3.1 Color Tokens
+
+Todos los valores en HSL (obligatorio por convención actual).
+
+#### Light mode (`:root`)
+
+| Token | Valor HSL | Hex aprox | Rol |
+|---|---|---|---|
+| `--background` | `220 20% 98%` | `#F7F8FA` | Fondo dominante 60% |
+| `--foreground` | `217 19% 27%` | `#384457` | Texto principal |
+| `--primary` | `20 91% 48%` | `#EA550B` | **NARANJA. CTAs, acciones primarias, energía** |
+| `--primary-foreground` | `0 0% 100%` | `#FFFFFF` | Texto sobre naranja |
+| `--accent` | `221 68% 33%` | `#1B3F8D` | **AZUL. Acentos, badges, iconos, tech** |
+| `--accent-foreground` | `0 0% 100%` | `#FFFFFF` | Texto sobre azul |
+| `--secondary` | `221 68% 33%` | `#1B3F8D` | Alias de accent para compat shadcn |
+| `--secondary-foreground` | `0 0% 100%` | `#FFFFFF` | |
+| `--muted` | `220 14% 94%` | `#EDF0F4` | Fondos suaves |
+| `--muted-foreground` | `220 9% 40%` | `#5C6470` | Texto secundario (contraste AA) |
+| `--card` | `0 0% 100%` | `#FFFFFF` | Tarjetas |
+| `--card-foreground` | `217 19% 27%` | `#384457` | |
+| `--border` | `220 13% 91%` | `#E2E6EC` | Bordes sutiles |
+| `--input` | `220 13% 91%` | `#E2E6EC` | Inputs |
+| `--ring` | `20 91% 48%` | `#EA550B` | Focus ring (naranja) |
+| `--destructive` | `0 84.2% 60.2%` | `#EF4444` | Errores |
+| `--radius` | `0.5rem` | — | Radio base |
+
+#### Dark mode (`.dark`, **default**)
+
+| Token | Valor HSL | Hex aprox | Rol |
+|---|---|---|---|
+| `--background` | `220 30% 6%` | `#0B0F16` | Fondo oscuro editorial |
+| `--foreground` | `0 0% 98%` | `#FAFAFA` | Texto principal |
+| `--primary` | `20 91% 52%` | `#EE6818` | Naranja ligeramente más brillante |
+| `--primary-foreground` | `0 0% 100%` | `#FFFFFF` | |
+| `--accent` | `221 68% 55%` | `#3A63C5` | Azul más claro para contraste |
+| `--accent-foreground` | `0 0% 100%` | `#FFFFFF` | |
+| `--secondary` | `221 50% 20%` | `#1A2A4A` | |
+| `--secondary-foreground` | `0 0% 98%` | `#FAFAFA` | |
+| `--muted` | `220 20% 12%` | `#181D26` | |
+| `--muted-foreground` | `220 9% 65%` | `#9DA4B0` | |
+| `--card` | `220 25% 9%` | `#11161F` | |
+| `--card-foreground` | `0 0% 98%` | `#FAFAFA` | |
+| `--border` | `220 20% 16%` | `#212733` | |
+| `--input` | `220 20% 16%` | `#212733` | |
+| `--ring` | `20 91% 52%` | `#EE6818` | |
+| `--destructive` | `0 62.8% 45%` | `#BA3232` | |
+
+#### Gradients
+
+| Token | Definición | Uso |
+|---|---|---|
+| `--gradient-primary` | `linear-gradient(135deg, hsl(var(--primary)), hsl(20 91% 55%))` | CTAs premium |
+| `--gradient-accent` | `linear-gradient(135deg, hsl(var(--accent)), hsl(221 68% 45%))` | Secciones tech |
+| `--gradient-hero` | `linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--accent)) 100%)` | Hero principal |
+
+Prohibición explícita (AGENT.md): gradientes purple/blue sobre fondo claro. Prohibido sin excepciones.
+
+#### Shadows
+
+| Token | Definición |
+|---|---|
+| `--shadow-soft` | `0 2px 8px hsla(var(--accent), 0.08)` |
+| `--shadow-medium` | `0 4px 16px hsla(var(--accent), 0.12)` |
+| `--shadow-strong` | `0 8px 24px hsla(var(--accent), 0.16)` |
+| `--shadow-primary-glow` | `0 0 32px hsla(var(--primary), 0.35)` (solo dark mode, uso moderado) |
+
+Regla adicional: **nunca usar `shadow-md` de shadcn sin modificar**. Toda card debe tener shadow custom coherente.
+
+### 3.2 Typography
+
+**Pairing editorial + sans-serif limpio:**
+
+- **Display (H1, H2):** Playfair Display. Weights 600, 700, 900. Serif de alto contraste, personalidad editorial. Añadir a `index.html`:
+  ```html
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet" />
+  ```
+
+- **Body y UI (H3+, párrafos, botones, nav, inputs):** Inter. Weights 400-900. Ya cargada.
+
+**Configuración Tailwind:**
+
+```ts
+fontFamily: {
+  sans: ["Inter", "system-ui", "-apple-system", /* ... */],
+  display: ["'Playfair Display'", "Georgia", "serif"],
+}
+```
+
+**Reglas de uso:**
+- H1 único por página. Weight 900. `font-display`. Tracking `-0.02em`.
+- H2 secciones principales. Weight 700. `font-display`.
+- H3-H6: Inter. Weight 600-700.
+- Body: Inter weight 400, line-height 1.6-1.7.
+- Max width párrafo: 65ch.
+
+**Prohibiciones:**
+- No uppercase abuse (solo badges y botones pequeños).
+- No italics en body.
+- No fuentes decorativas adicionales.
+
+**Nota conflicto AGENT.md:** AGENT.md prohíbe Inter categóricamente. Esta especificación usa Playfair Display (recomendada por AGENT.md) en H1/H2 y mantiene Inter en el resto. Resolución en sección 1.6.
+
+### 3.3 Spacing & Layout
+
+- Container: ya definido (padding 2rem, max 1400px en 2xl).
+- Section padding vertical: `py-20 md:py-28 lg:py-32`.
+- Grid default: 12 columnas.
+- Gap estándar entre cards: `gap-6 lg:gap-8`.
+
+**Principios de composición (AGENT.md):**
+- Asimetría en hero y about (no todo centrado).
+- Overlapping puntual (foto que sobresale de card, título que rompe columna).
+- Grid-breaking en momentos clave.
+- Generous negative space en hero y about.
+- Full-bleed photography donde sea relevante.
+
+### 3.4 Motion Principles
+
+**Librería única:** GSAP 3.13 + `@gsap/react`.
+
+**Resolución AGENT.md:** "Use the Motion library" se interpreta como referencia conceptual, no librería específica. GSAP se mantiene.
+
+**Reglas:**
+1. Máximo 2 tipos de animación por página.
+2. Duración 300-600ms. Nunca superar 800ms.
+3. Easing estándar: `cubic-bezier(0.4, 0, 0.2, 1)`.
+4. Respetar `prefers-reduced-motion` siempre.
+5. Si una animación rompe LCP o CLS, se elimina.
+6. No micro-interacciones sin propósito.
+
+**Patrones canónicos (AGENT.md):**
+- Entrada de página orquestada con stagger `animation-delay`.
+- Hover states sorpresivos en botones, portfolio cards, CTAs.
+- Scroll-triggered reveals en secciones largas.
+- Scroll horizontal del showcase se mantiene (portfolio).
+
+### 3.5 Components (shadcn/ui baseline)
+
+Instalados. Core confirmado en uso:
+- `Button`, `Card`, `Input`, `Textarea`, `Label`, `Form`
+- `Dialog`, `AlertDialog`, `Sheet`, `Drawer` (vaul)
+- `Navigation Menu`, `Dropdown Menu`
+- `Toast` (sonner + radix-toast)
+- `Tabs`, `Accordion`, `Separator`
+- `Badge`, `Avatar`, `Tooltip`, `Popover`
+- `Select`, `Checkbox`, `Radio Group`, `Switch`
+
+Acción Fase 2: auditar uso real con `depcheck`, eliminar huérfanos. Target reducción bundle >= 40KB gzip.
+
+### 3.6 Variantes personalizadas obligatorias
+
+**Button:**
+- `primary`: naranja sólido, blanco.
+- `accent`: azul sólido, blanco.
+- `outline-primary`: borde naranja, transparente.
+- `ghost-accent`: texto azul, hover fondo azul 10%.
+
+**Card variant `feature`:** fondo `--card`, borde sutil custom (no `shadow-md`), hover elevación `--shadow-medium`, translateY(-2px).
+
+### 3.7 Iconografía
+
+- **Lucide React** única librería.
+- Tamaño default 20px. Hero 24-32px.
+- Stroke width 1.75.
+- **Nunca iconos sueltos sin integrar** en sistema visual coherente.
+
+### 3.8 Tratamiento fotográfico (AGENT.md)
+
+- Fotos del portfolio con tratamiento cinematográfico: overlay sutil, vignette ligera, gradient-on-hover.
+- Full-bleed edge-to-edge donde posible.
+- Nunca fondo sólido plano: texture sutil, grain overlay, mesh gradient o shadows dramáticos.
+- Imágenes con `aspect-ratio` fijo en CSS (anti-CLS).
+
+---
+
+## 4. Content Inventory
+
+### 4.1 Servicios
+
+| Servicio | Resumen | Target |
+|---|---|---|
+| Diseño Web Profesional | Páginas web modernas, rápidas, responsive, SEO | PYMEs Marina Alta |
+| Fotografía Corporativa | Empresas, producto, inmobiliaria, personal branding | Negocios locales |
+| Desarrollo a Medida | React, aplicaciones web, integraciones | Clientes técnicos |
+| Edición Fotográfica (SaaS) | Paquetes por volumen, re-ediciones incluidas | Fotógrafos, ecommerce |
+
+### 4.2 Paquetes edición (Supabase `photo_packages`)
+
+| Paquete | Fotos | Precio/foto | Total | Descuento |
+|---|---|---|---|---|
+| Pack Prueba | 1 | 0.00 € | 0.00 € | — |
+| Pack Básico | 5 | 2.00 € | 10.00 € | 0% |
+| Pack Estándar | 10 | 1.80 € | 18.00 € | 10% |
+| Pack Premium | 20 | 1.50 € | 30.00 € | 25% |
+| Pack Profesional | 50 | 1.20 € | 60.00 € | 40% |
+
+Hasta 3 re-ediciones gratuitas por foto.
+
+### 4.3 SEO actual (preservar + ampliar)
+
+| Campo | Valor |
+|---|---|
+| Title actual | Studio Pixelens - Fotografía Profesional & Desarrollo Web |
+| Description | Studio Pixelens: Diseño web y fotografía profesional en Dénia. Elevamos la imagen de tu empresa con webs rápidas y fotos impactantes. ¡Contacta hoy! |
+| Keywords primarias | fotografía profesional España, diseño web pymes, fotógrafo corporativo, agencia web Dénia, diseño web Dénia, fotografía empresarial Marina Alta |
+| Canonical | https://studiopixelens.com |
+| OG locale | es_ES |
+| Twitter site | @studiopixelens |
+
+---
+
+## 5. Technical Architecture
+
+### 5.1 Stack confirmado
+
+**Runtime y build:**
+- Node.js 20 LTS
+- Vite 5.4 + `@vitejs/plugin-react-swc`
+- TypeScript 5.8 (**zero `any` policy**)
+- ESLint 9 + typescript-eslint
+- `vite-plugin-compression`
+
+**UI:**
+- React 18.3
+- Tailwind CSS 3.4 + `tailwindcss-animate` + `@tailwindcss/typography`
+- shadcn/ui (Radix completo)
+- `lucide-react`
+- `next-themes`
+
+**Motion:**
+- GSAP 3.13 + `@gsap/react`
+
+**Formularios y validación:**
+- `react-hook-form` 7.61
+- `zod` 3.25
+- `@hookform/resolvers` 3.10
+- `dompurify` 3.3
+
+**Data y estado:**
+- `@tanstack/react-query` 5.83
+- `@supabase/supabase-js` 2.75
+
+**Routing:**
+- `react-router-dom` 6.30
+
+**i18n:**
+- `i18next` 25.6 + `react-i18next` 16
+
+**Testing:**
+- Playwright (ya montado, puerto dev 5173)
+- Runner: `python scripts/with_server.py --server "npm run dev" --port 5173 -- python your_test.py`
+
+**Otros:**
+- `sonner`, `date-fns`, `react-compare-image`, `embla-carousel-react`, `class-variance-authority`, `clsx`, `tailwind-merge`
+
+### 5.2 Estructura de carpetas
+
+```
+/
+├── docs/
+│   ├── MASTER.md
+│   ├── PROGRESS.md
+│   ├── CONTEXT_BRIEF.md
+│   ├── INVENTORY.md         ← output Fase 0
+│   ├── CONTENT.md           ← output Fase 2
+│   ├── MIGRATION.md         ← output Fase 2
+│   └── PORTFOLIO_SPEC.md    ← output Fase 2
+├── AGENT.md                 ← instrucciones agente IA, convive con MASTER
+├── CLAUDE.md                ← auditoría seguridad puntual
+├── public/
+├── scripts/                 ← Playwright runners
+│   └── with_server.py
+├── src/
+│   ├── main.tsx
+│   ├── App.tsx
+│   ├── index.css            ← tokens globales
+│   ├── components/
+│   │   ├── ui/              ← shadcn
+│   │   ├── layout/
+│   │   ├── sections/
+│   │   └── portfolio/       ← MÓDULO PRESERVADO
+│   ├── pages/
+│   │   ├── Home.tsx
+│   │   ├── Services.tsx
+│   │   ├── Portfolio.tsx
+│   │   ├── About.tsx
+│   │   ├── Contact.tsx
+│   │   ├── Auth.tsx         ← existente, Sprint 2 lo rediseña
+│   │   ├── Styleguide.tsx
+│   │   └── legal/
+│   ├── contexts/
+│   │   └── AuthContext.tsx  ← existente, Sprint 1 no toca
+│   ├── integrations/
+│   │   └── supabase/        ← cliente + types generados
+│   ├── hooks/
+│   │   └── useSecureNavigation.ts  ← existente
+│   ├── lib/
+│   │   ├── utils.ts
+│   │   ├── supabase.ts
+│   │   ├── security.ts      ← existente, auditado CLAUDE.md
+│   │   ├── validation.ts    ← existente, auditado CLAUDE.md
+│   │   └── motion.ts        ← variants GSAP, Fase 6
+│   ├── i18n/
+│   │   └── locales/
+│   ├── data/
+│   └── types/
+├── supabase/
+│   ├── config.toml
+│   └── migrations/          ← CONGELADO durante Sprint 1
+├── index.html
+├── tailwind.config.ts
+├── vite.config.ts
+├── tsconfig.json
+├── package.json
+└── components.json
+```
+
+### 5.3 Routing map
+
+| Path | Componente | Sprint | Público | Descripción |
+|---|---|---|---|---|
+| `/` | `Home` | 1 | Sí | Landing principal |
+| `/servicios` | `Services` | 1 | Sí | Detalle de 4 servicios |
+| `/portfolio` | `Portfolio` | 1 | Sí | Módulo preservado |
+| `/sobre` | `About` | 1 | Sí | Quiénes somos |
+| `/contacto` | `Contact` | 1 | Sí | Formulario + datos |
+| `/legal/privacidad` | `Privacy` | 1 | Sí | RGPD |
+| `/legal/cookies` | `Cookies` | 1 | Sí | Política cookies |
+| `/legal/terminos` | `Terms` | 1 | Sí | Términos |
+| `/styleguide` | `Styleguide` | 1 | Solo dev | Validación DS |
+| `/auth` | `Auth` | 2 | Sí | Login / registro (ya existe) |
+| `/dashboard` | `Dashboard` | 2 | Auth | Hub cliente |
+| `/dashboard/paquetes` | `Packages` | 2 | Auth | Selección |
+| `/dashboard/subir` | `Upload` | 2 | Auth | Upload |
+| `/dashboard/pedidos` | `Orders` | 2 | Auth | Historial |
+| `/dashboard/pedidos/:id` | `OrderDetail` | 2 | Auth | Detalle |
+
+**Durante Sprint 1**: `/auth` y `/dashboard/*` existen pero redirigen al home con "Próximamente". Marcar `noindex` en `robots.txt`.
+
+### 5.4 State management
+
+- Estado servidor: React Query. Stale-while-revalidate.
+- Estado local UI: useState / useReducer.
+- Contextos: tema (next-themes) y auth (`AuthContext.tsx`).
+- Forms: React Hook Form + Zod.
+
+### 5.5 Backend Supabase (Sprint 1)
+
+Sprint 1 solo lee `photo_packages`. No toca producción.
+
+Cliente en `src/integrations/supabase/`. Env vars: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`.
+
+### 5.6 Schema Supabase (referencia)
+
+Tablas: `profiles`, `photo_packages`, `orders`, `photos`, `re_edit_requests`.
+
+Buckets: `original-photos`, `edited-photos` (privados, folder-scoped por UUID).
+
+Funciones SECURITY DEFINER: `handle_new_user()`, `update_updated_at_column()`, `request_photo_re_edit(UUID, TEXT)` con `SELECT FOR UPDATE`.
+
+Seguridad aplicada (migración `20260412184100`): UPDATE en `photos` restringido a `notes`. Trigger `enforce_photo_update_restrictions` bloquea modificación de campos críticos.
+
+**Congelación Sprint 1:** no modificar `supabase/migrations/` ni `src/integrations/supabase/`.
+
+---
+
+## 6. Feature Specifications
+
+### 6.1 Home
+
+**Estructura (con asimetría, no 3 columnas genéricas):**
+1. Hero con claim en Playfair Display weight 900, subclaim Inter, CTA primario naranja + CTA outline. Fondo oscuro gradient. Composición asimétrica.
+2. Teaser servicios: **prohibido grid 2x2 o 4 cols idénticas**. Layout editorial con tamaños variables, o lista con fotos intercaladas.
+3. Portfolio teaser: 3-4 proyectos con tratamiento full-bleed y overlay.
+4. "Por qué elegirnos": **prohibido 3 cols icono+texto**. Bloques narrativos alternados izq/der con foto de apoyo.
+5. Teaser paquetes edición (tabla elegante, sin precios detallados).
+6. CTA final fondo naranja sólido.
+7. Footer.
+
+**Motion:** fade-in-up orquestado en hero con stagger, reveal on scroll en cards.
+
+### 6.2 Services
+
+- Hero editorial.
+- 4 bloques alternados izq/der con imagen + copy + CTA.
+- Tabla detallada paquetes edición.
+- FAQ con accordion.
+- CTA contacto.
+
+### 6.3 Portfolio (PRESERVADO VERBATIM)
+
+Regla absoluta: no tocar lógica, animaciones, estructura.
+
+Tareas permitidas Sprint 1:
+- Wrapper con Nav/Footer globales.
+- Remapear solo colores primary/accent a nuevos tokens.
+- Documentar en `PORTFOLIO_SPEC.md`.
+
+Efectos actuales:
+- `#hero-section` sticky con video background
+- `.horizontal-showcase` scroll horizontal desktop + scroll-snap mobile
+- `.project-card` con will-change y backface-visibility
+- Scrollbar oculto funcional
+
+**Contenido textual (AGENT.md):** cada proyecto con descripción mínimo 150 palabras, no solo fotos. Geolocalización cuando aplique. Internal linking al servicio correspondiente.
+
+### 6.4 About
+
+- Hero con foto del equipo en tratamiento editorial full-bleed.
+- Narrativa en bloques alternados.
+- Stack visual (logos o badges).
+- Contacto rápido.
+
+### 6.5 Contact
+
+Formulario con React Hook Form + Zod + DOMPurify:
+- Nombre (min 2), email, teléfono (opcional), mensaje (min 20).
+- Sanitización obligatoria.
+- Target submit: **pendiente** Q01 (AGENT.md sugiere WhatsApp).
+- Estados: idle, loading, success (sonner), error.
+
+Validación cliente obligatoria antes de enviar o abrir WhatsApp.
+
+### 6.6 Legal
+
+Privacy, Cookies, Terms. Layout `LegalLayout` con `prose`.
+
+---
+
+## 7. Migration Plan
+
+### 7.1 Clasificación
+
+| Categoría | Regla | Aplicable a |
+|---|---|---|
+| PRESERVAR VERBATIM | 1:1 | Portfolio, migraciones SQL, AuthContext, security.ts, validation.ts |
+| REBUILD CON NUEVO DS | UI nueva, datos mantenidos | Hero, cards servicios, nav, footer, formularios |
+| REFACTOR PARCIAL | Lógica + JSX nuevo | Componentes complejos con UI pobre |
+| DESCARTAR | Eliminar | shadcn huérfanos, código muerto |
+
+### 7.2 Auditoría deps (Fase 2)
+
+`npx depcheck` + eliminación. Target bundle gzip por ruta < 250 KB.
+
+### 7.3 i18n paridad
+
+Diff `es.json` vs `en.json` = 0 en claves antes de cerrar Sprint 1.
+
+---
+
+## 8. SEO & Performance
+
+### 8.1 Meta tags
+
+Librería: `react-helmet-async` en Fase 7.
+
+**Title format obligatorio (AGENT.md):** `[Primary Keyword] | Studio Pixelens`
+
+Ejemplos:
+- Home: `Fotografía Profesional y Diseño Web | Studio Pixelens`
+- Servicios: `Servicios de Diseño Web y Fotografía | Studio Pixelens`
+- Portfolio: `Portfolio de Proyectos | Studio Pixelens`
+
+Length 50-60 chars. Primary keyword primero. Único por página.
+
+**Meta description:** 150-160 chars, CTA implícito, nunca duplicada.
+
+### 8.2 Heading structure
+
+- Un solo `<h1>` por página con keyword primaria.
+- Jerarquía H1 → H2 → H3 sin saltos.
+
+### 8.3 Imágenes
+
+- WebP obligatorio para nuevas.
+- `alt` descriptivo con keyword natural.
+- `loading="lazy"` below-the-fold.
+- File names descriptivos: `fotografia-corporativa-empresa.webp`.
+- `aspect-ratio` CSS (anti-CLS).
+
+### 8.4 Schema.org
+
+- Home: `LocalBusiness`.
+- Contact: `LocalBusiness` con datos exactos.
+- Portfolio items: `ImageGallery` o `CreativeWork`.
+- Services: `Service`.
+- Global: `Organization`.
+
+Validar en https://search.google.com/test/rich-results antes de launch.
+
+### 8.5 Sitemap y robots
+
+- `public/sitemap.xml` rutas públicas.
+- `public/robots.txt` con `noindex` para `/dashboard/*` y `/auth`.
+
+### 8.6 Core Web Vitals
+
+| Métrica | Target | Notas |
+|---|---|---|
+| LCP | < 2.5s techo, < 2.0s objetivo | Hero images riesgo principal |
+| INP | < 200ms | Evitar main-thread blocking |
+| CLS | < 0.1 | `aspect-ratio` en imágenes |
+| Lighthouse Performance | >= 92 | |
+| Lighthouse SEO | >= 95 | |
+| Lighthouse Accessibility | >= 95 | |
+| Lighthouse Best Practices | >= 95 | |
+
+### 8.7 Issues conocidos (AGENT.md)
+
+- SPA React Router: verificar `index.html` tiene base meta tags y cada ruta actualiza `<title>` dinámicamente con Helmet.
+- Sitemap.xml no existe: crear en Fase 7.
+- `/dashboard` y `/auth` noindex obligatorio.
+
+---
+
+## 9. Testing Infrastructure
+
+### 9.1 Stack
+
+Playwright ya montado. Python scripts en `scripts/`.
+
+### 9.2 Cuándo correr tests (obligatorio)
+
+- Cambios en navegación (`Nav.tsx`, `Header.tsx`).
+- Cambios en flujos form (`ContactForm.tsx`, `Auth.tsx`).
+- Cambios de rutas (`App.tsx`).
+- Antes de cualquier PR `redesign/v2-framer-base` → `dev`.
+
+### 9.3 Cómo correr
+
+```bash
+python scripts/with_server.py --server "npm run dev" --port 5173 -- python your_test.py
+```
+
+### 9.4 Patrón base
+
+```python
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+    browser = p.chromium.launch(headless=True)
+    page = browser.new_page()
+    page.goto('http://localhost:5173')
+    page.wait_for_load_state('networkidle')
+    # ...
+    browser.close()
+```
+
+### 9.5 Tests mínimos
+
+1. Navigation: links Header cargan sin 404.
+2. Contact form: valida campos vacíos antes de enviar.
+3. Auth flow: login con credenciales erróneas muestra error sin crashear.
+4. Responsive: screenshot 375px y 1440px en homepage.
+
+### 9.6 Reglas
+
+- Selectores descriptivos: `role=`, `text=`, IDs. Nunca XPath frágil.
+- Screenshots dev en `/tmp/`, nunca commitear.
+- Correr `--help` de scripts antes de crear nuevos.
+
+---
+
+## 10. Security & Compliance
+
+### 10.1 Supabase RLS
+
+Bien configurado. No tocar Sprint 1. Auditoría completa en CLAUDE.md pre-launch Sprint 2.
+
+### 10.2 Input sanitization
+
+- Todo input pasa por Zod.
+- Renderizado HTML pasa por DOMPurify.
+- Prohibido `dangerouslySetInnerHTML` sin sanitizar.
+
+### 10.3 TypeScript estricto
+
+- **Cero `any`**.
+- Tipos generados Supabase o inferencia Zod.
+- `strict: true` en tsconfig.
+
+### 10.4 Variables de entorno
+
+- Keys en `.env.local` (git-ignored).
+- Prefijo `VITE_` solo si va al bundle.
+- **Nada sensible en source code**: teléfonos, emails, keys, IDs. Todo via `import.meta.env.VITE_*`.
+
+### 10.5 GDPR
+
+- Banner cookies granular (necesarias, analytics, marketing).
+- Privacidad en footer.
+- Borrado de cuenta en Sprint 2.
+
+### 10.6 CSP headers
+
+```
+default-src 'self'
+img-src 'self' data: https:
+font-src 'self' https://fonts.gstatic.com
+connect-src 'self' https://*.supabase.co
+style-src 'self' 'unsafe-inline' https://fonts.googleapis.com
+```
+
+---
+
+## 11. Deployment
+
+### 11.1 Cloudflare Pages
+
+- Framework: Vite
+- Build: `npm run build`
+- Output: `dist`
+- Node: 20
+- Env vars: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`
+
+### 11.2 Dominios
+
+- Staging: `studiopixelens-v2.pages.dev`
+- Prod: `studiopixelens.com` (cambiar DNS solo post G7)
+
+### 11.3 Git flow
+
+```
+main            (producción)
+  ↑ PR tras G7
+dev             (integración)
+  ↑ PR tras Sprint completo
+redesign/v2-framer-base  (trabajo del rediseño)
+```
+
+### 11.4 Commit convention (AGENT.md)
+
+Formato obligatorio: `type: short description`
+
+Tipos:
+- `feat:` nueva feature
+- `fix:` corrección
+- `chore:` mantenimiento, config
+- `style:` estilo sin lógica
+- `refactor:` refactor sin cambio funcional
+- `docs:` documentación
+
+Ejemplos:
+- `feat: add Playfair Display to typography system`
+- `docs(progress): complete Phase 0 inventory`
+- `refactor: extract motion variants to lib/motion.ts`
+
+Un commit por tarea. Mensajes concisos.
+
+### 11.5 Rollback
+
+- Cloudflare Pages mantiene histórico. Rollback 1 clic.
+- Tag pre-launch: `v1.0-pre-redesign` en `main` actual.
+
+---
+
+## 12. Quality Gates
+
+| Gate | Criterio | Responsable |
+|---|---|---|
+| G0 | INVENTORY.md refleja repo sin omisiones | Miguel |
+| G1 | Docs satélites coherentes entre sí y con MASTER | Miguel |
+| G2 | MIGRATION.md clasifica 100% componentes públicos | Miguel |
+| G3 | `/styleguide` renderiza primitivos ambos modos, tipografía validada | Miguel + revisión visual |
+| G4 | Todas rutas navegables, Nav/Footer 3 viewports | Miguel |
+| G5 | Cada página pasa side-by-side. Portfolio 100% idéntico. | Miguel |
+| G6 | Motion coherente, CWV verdes, Playwright pasa | Miguel + Lighthouse + Playwright |
+| G7 | Lighthouse >=92, redirects 301, i18n paridad, schema validado | Miguel |
+
+---
+
+## 13. Decisions Log
+
+| # | Fecha | Decisión | Razón | Revisable |
+|---|---|---|---|---|
+| D01 | 2026-04-18 | Rebuild UI + preservación lógica | Stack sólido | No |
+| D02 | 2026-04-18 | Orange primary, Blue accent | Flip de marca | En G3 |
+| D03 | 2026-04-18 | Dark mode default | Editorial + energía color | En G3 |
+| D04 | 2026-04-18 | GSAP única librería motion | Ya instalada, portfolio depende | No |
+| D05 | 2026-04-18 | Cloudflare Pages host | Ya es el actual | No |
+| D06 | 2026-04-18 | Sprint 1 público, Sprint 2 dashboard | Deadline Basilea | No |
+| D07 | 2026-04-18 | Docs: MASTER + PROGRESS + 4 satélites | Minimiza ruido contexto | No |
+| D08 | 2026-04-18 | Antigravity ejecución, Project planificación | Doble vía | No |
+| D09 | 2026-04-18 | Sonnet 4.6 default, Opus 4.6 fases críticas | Balance coste/precisión | En ejecución |
+| D10 | 2026-04-18 | Branch `redesign/v2-framer-base` desde `dev` | Respeta convención AGENT.md | No |
+| D11 | 2026-04-18 | Typography: Playfair Display H1/H2 + Inter body/UI | Resolución conflicto AGENT.md vs Inter | En G3 |
+| D12 | 2026-04-18 | Dirección "Editorial Structural": Framer layout + editorial soul | Síntesis AGENT.md + visión Framer | En G3 |
+| D13 | 2026-04-18 | Commit format `type: description` estilo AGENT.md | Consistencia con convención repo | No |
+| D14 | 2026-04-18 | Playwright tests obligatorios en cambios Nav, Forms, Routes | Política AGENT.md | No |
+
+### Pendientes de cerrar
+
+| # | Pendiente | Bloquea | Quién resuelve |
+|---|---|---|---|
+| Q01 | Target formulario contacto (WhatsApp per AGENT.md, o email, o Supabase) | Fase 5.4 | Miguel |
+| Q02 | Confirmar dark mode default | Fase 3 | Miguel |
+| Q03 | Confirmar flip orange→primary | Fase 3 | Miguel |
+| Q04 | About existente o redactar desde cero | Fase 5.3 | Miguel |
+| Q05 | Banner cookies en repo actual | Fase 5 legal | Auditoría Fase 2 |
+| Q06 | Confirmar pairing Playfair + Inter, o alternativa | Fase 3 | Miguel |
+| Q07 | Confirmar "Editorial Structural" o pivot | Fase 3 | Miguel |
+| Q08 | Formato WhatsApp en Contact (sugerido AGENT.md) | Fase 5.4 | Miguel |
+
+---
+
+## 14. Glossary
+
+- **DS:** Design System.
+- **CWV:** Core Web Vitals.
+- **RLS:** Row Level Security (Supabase).
+- **SECURITY DEFINER:** función PostgreSQL con permisos del creador.
+- **O.D.A.:** Objective, Data, Architecture.
+- **Sprint 1 / Sprint 2:** capa pública / autenticada.
+- **AGENT.md:** instrucciones permanentes agentes IA del repo.
+- **CLAUDE.md:** contexto auditoría seguridad puntual.
+
+---
+
+## 15. Change log
+
+| Versión | Fecha | Autor | Cambios |
+|---|---|---|---|
+| 1.0 | 2026-04-18 | Miguel + Claude Opus 4.7 | Documento inicial |
+| 1.1 | 2026-04-18 | Miguel + Claude Opus 4.7 | Integración AGENT.md y CLAUDE.md. Resolución conflictos tipografía, motion, branch. Dirección "Editorial Structural". Secciones 9 (testing), 10.3-10.4 (TS/env), 11.4 (commits). D10-D14 y Q06-Q08. |
