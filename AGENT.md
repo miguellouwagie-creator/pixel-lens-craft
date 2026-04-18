@@ -28,7 +28,7 @@ directives. Current resolved conflicts:
 If you detect a new conflict not listed in MASTER.md section 1.6, stop and
 escalate to Miguel before acting.
 
-`CLAUDE.md` is scoped to security audit tasks only. Do not apply its
+`/docs/SECURITY_AUDIT.md` is scoped to security audit tasks only. Do not apply its
 "Senior Security Auditor" role outside explicit audit requests.
 
 ---
