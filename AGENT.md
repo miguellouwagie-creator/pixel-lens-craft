@@ -6,6 +6,33 @@
 
 ---
 
+## ⚠️ Priority reading order for AI agents
+
+This repository uses a layered documentation system. When working on the
+redesign project (branch `redesign/v2-framer-base`), follow this order:
+
+1. **`/docs/MASTER.md`** — complete redesign specification. Highest authority.
+2. **`/docs/PROGRESS.md`** — live project state, phase tracker, decisions log.
+3. **`/docs/CONTEXT_BRIEF.md`** — project history and working protocol.
+4. **`AGENT.md`** (this file) — operational conventions (commits, testing,
+   TypeScript, SEO, anti-patterns). Still active but subordinated to MASTER.md
+   in cases of conflict.
+
+Where `AGENT.md` and `MASTER.md` conflict on the redesign project, see
+`/docs/MASTER.md` section 1.6 "Reconciliación con AGENT.md" for resolved
+directives. Current resolved conflicts:
+- Typography: Playfair Display + Inter pairing (not "NEVER Inter")
+- Motion library: GSAP (not a "Motion" library import)
+- LCP target: under 2.5s ceiling, 2.0s objective
+
+If you detect a new conflict not listed in MASTER.md section 1.6, stop and
+escalate to Miguel before acting.
+
+`CLAUDE.md` is scoped to security audit tasks only. Do not apply its
+"Senior Security Auditor" role outside explicit audit requests.
+
+---
+
 ## 🧭 Project Context
 
 **Studio Pixelens** is a professional photography and web design agency based
