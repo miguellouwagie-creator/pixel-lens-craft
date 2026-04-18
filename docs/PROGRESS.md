@@ -11,11 +11,11 @@
 
 ## Current status
 
-- **Fase actual:** Pre-arranque
-- **Siguiente fase:** Fase 0 (Inventario)
+- **Fase actual:** Pre-arranque **cerrado**. Bloque A completo al 100%.
+- **Siguiente fase:** Fase 0 (Inventario). Primera fase con Claude Code activo en Antigravity.
 - **Próximo gate:** G0
-- **Siguiente acción inmediata:** completar Bloque A (copiar docs canónicos a `docs/` en branch `redesign/v2-framer-base`, commit, push) y preparar brief O.D.A. para Fase 0
-- **Última actualización:** 2026-04-18 por Miguel + Claude Opus 4.7 (Bloque A housekeeping ejecutado)
+- **Siguiente acción inmediata:** abrir chat nuevo en el Project "Studio Pixelens Redesign" para arrancar Fase 0, pedir brief O.D.A. para Claude Code que genere `docs/INVENTORY.md`.
+- **Última actualización:** 2026-04-18 por Miguel + Claude Opus 4.7 (cierre Bloque A, descarte cinematic-v2)
 
 ---
 
@@ -23,8 +23,8 @@
 
 | Fase | Nombre | Estado | Gate | Fecha inicio | Fecha cierre | Horas reales | Notas |
 |---|---|---|---|---|---|---|---|
-| Pre | Pre-arranque | 🟡 En curso | — | 2026-04-18 | — | — | Bloque A housekeeping parcial. Branch `redesign/v2-framer-base` creada. Tag `v1.0-pre-redesign` en `abe5b99`. |
-| 0 | Inventario | ⬜ Pendiente | G0 | — | — | — | Brief O.D.A. por diseñar |
+| Pre | Pre-arranque | ✅ Completa | — | 2026-04-18 | 2026-04-18 | ~7h | Bloque A cerrado. Repo operativo en `C:\dev\pixel-lens-craft`. Branch `redesign/v2-framer-base` publicada en origin con docs canónicos v1.1/v1.2/v1.1 en commit `f37e5ed`. Tags `v1.0-pre-redesign` y `v0.1-cinematic-v2-abandoned` subidos. Branches residuales limpiadas. |
+| 0 | Inventario | ⬜ Pendiente | G0 | — | — | — | Brief O.D.A. por diseñar en chat nuevo. Output esperado: `docs/INVENTORY.md`. |
 | 1 | Sistema documental | ⬜ Pendiente | G1 | — | — | — | — |
 | 2 | Auditoría técnica | ⬜ Pendiente | G2 | — | — | — | — |
 | 3 | Design system build | ⬜ Pendiente | G3 | — | — | — | Crítico: flip colores + dark default + pairing Playfair/Inter |
@@ -86,10 +86,10 @@ Outputs:
 - `/docs/PROGRESS.md` v1.1 (este archivo)
 - `/docs/CONTEXT_BRIEF.md` v1.1 (coexistencia con AGENT.md documentada)
 
-### 2026-04-18 (noche) — Bloque A housekeeping
+### 2026-04-18 (noche) — Bloque A housekeeping y cierre pre-arranque
 
 **Canal:** claude.ai chat (Opus 4.7) + PowerShell local (Miguel)
-**Duración:** ~1.5h
+**Duración:** ~3h
 
 Contexto de arranque:
 - Repo local en `C:\Users\migue\Dropbox\PC\Downloads\Proyectos Antigravity\pixel-lens-craft`, dentro de Dropbox. Setup incompatible con git por file locks y races.
@@ -115,28 +115,45 @@ Sincronización de `dev` con `main`:
 - `git merge main --ff-only` exitoso: 9 archivos actualizados, incluyendo `.claude/commands/security-audit.md`, `AGENT.md`, `docs/SECURITY_AUDIT.md`, componentes dashboard, validación, migración de seguridad Supabase `20260412184100`.
 - Push de `dev` actualizada: `bb4d6c2..abe5b99`.
 
-Creación de branch de rediseño:
+Creación de branch de rediseño y commit inicial:
 - `git checkout -b redesign/v2-framer-base` desde `dev` actualizada.
-- Branch actual: `redesign/v2-framer-base`. Pendiente: copiar docs canónicos a `docs/`, commit, push inicial.
+- Copia de `MASTER.md` v1.1, `PROGRESS.md` v1.2 y `CONTEXT_BRIEF.md` v1.1 desde Downloads a `docs/` vía `Copy-Item`.
+- Commit `f37e5ed`: "docs: add MASTER v1.1, PROGRESS v1.2 and CONTEXT_BRIEF v1.1 as canonical project documentation". 3 archivos, 1372 insertions.
+- Push inicial de `redesign/v2-framer-base` a origin con `-u` (upstream configurado).
+- Warnings de CRLF esperables en Windows (no bloqueantes). Configurado `git config --global core.autocrlf true` para silenciarlos en futuros commits.
+
+Limpieza de branch residual:
+- `git push origin --delete git-checkout--b-redesign/v2-framer-base` exitoso.
+- `git fetch --all --prune` para eliminar referencia local.
+
+Descubrimiento y descarte de rediseño previo abandonado:
+- `git remote show origin` reveló branch no prevista: `redesign/cinematic-v2`.
+- Investigación del historial: 20 commits fechados 2026-03-21, autor Miguel, con rediseño completo (Home, Services, Web Design, Photography, Portfolio, Contact, routing, design system tokens). Finalizaba con fixes de build y deploy (shadcn `@apply`, BOM en `_redirects`, Supabase env vars).
+- Auditoría del deployment público `https://redesign-cinematic-v2.pixel-lens-craft.pages.dev/`: solo sirve HTML fallback, sin React montado. Confirma diagnóstico de owner ("no está en funcionamiento").
+- Owner confirma intención de descartar: rediseño previo hecho hace semanas, estética "Cinematic Architect" incompatible con nueva dirección "Editorial Structural".
+- Tag anotado de salvaguarda: `v0.1-cinematic-v2-abandoned` sobre último commit `046ea3b`, pusheado a origin. Permite rescate futuro por SHA aunque la branch se borre.
+- `git push origin --delete redesign/cinematic-v2` exitoso.
+- Pendiente manual: despublicar deployment en Cloudflare Pages.
 
 Hallazgos documentados:
 - Commit `bc910f7` nunca se subió a origin (descartado en reset local). Tag `backup/bc910f7-pre-reset` solo existe en copia Dropbox ahora obsoleta, aceptable porque contenido ya está en `a2b4a2c`.
 - Mensaje del commit remoto `a2b4a2c` es honesto y describe correctamente el cambio. Mensaje del descartado `bc910f7` era engañoso (hablaba de rename que nunca hizo). Cicatriz evitada.
 - Rename real de `CLAUDE.md` a `docs/SECURITY_AUDIT.md` sí ejecutado ahora en `ebfe87b`, con mensaje honesto.
 - Copia Dropbox pendiente de renombrar a `pixel-lens-craft-DEPRECATED-NO-USAR` como backup de seguridad. Borrado recomendado tras 2 semanas sin incidencias.
+- Deployment Cloudflare Pages de cinematic-v2 activo, pendiente despublicar manualmente desde dashboard.
 
-Outputs:
+Outputs finales de la sesión:
 - `main` en `abe5b99` con tag `v1.0-pre-redesign`, sincronizada con `origin/main`.
 - `dev` en `abe5b99`, sincronizada con `origin/dev`.
-- Branch `redesign/v2-framer-base` creada desde `dev`, aún sin commits propios.
+- `redesign/v2-framer-base` en `f37e5ed` (HEAD), con docs canónicos completos, publicada en origin.
+- Tag `v0.1-cinematic-v2-abandoned` en origin como rescate del rediseño previo descartado.
 - Repo operativo en `C:\dev\pixel-lens-craft`, fuera de Dropbox.
+- Tres branches en origin: `main`, `dev`, `redesign/v2-framer-base`. Dos tags: `v1.0-pre-redesign`, `v0.1-cinematic-v2-abandoned`.
 
 Próximo paso concreto:
-- Copiar `MASTER.md`, `PROGRESS.md`, `CONTEXT_BRIEF.md` desde el knowledge del Project a `docs/` en branch `redesign/v2-framer-base`.
-- Commit `docs: add MASTER, PROGRESS and CONTEXT_BRIEF v1.1 as canonical project documentation`.
-- Push inicial de `redesign/v2-framer-base` a origin.
-- Limpieza de branch residual `git-checkout--b-redesign/v2-framer-base`.
-- Cierre de Bloque A. Arranque de Fase 0 con brief O.D.A. para Claude Code.
+- Abrir chat nuevo en el Project "Studio Pixelens Redesign" para Fase 0.
+- Pedir brief O.D.A. para Claude Code en Antigravity que genere `docs/INVENTORY.md`.
+- Tareas manuales pendientes no bloqueantes: despublicar deployment Cloudflare Pages de cinematic-v2, renombrar carpeta Dropbox vieja.
 
 ---
 
@@ -162,6 +179,9 @@ Próximo paso concreto:
 | D16 | 2026-04-18 | Renombrar CLAUDE.md a docs/SECURITY_AUDIT.md | Coherencia con estructura documental (/docs/), mantener scope "auditoría seguridad puntual" claro por nombre | No |
 | D17 | 2026-04-18 | Mover repo local de Dropbox a C:\dev\pixel-lens-craft vía clone fresco | Git + carpetas sincronizadas en nube son incompatibles: file locks, races, corrupción potencial de .git/ | No |
 | D18 | 2026-04-18 | Descartar commit local bc910f7 vía reset --hard origin/main, preservando vía tag backup local | Commit duplicaba funcionalmente a a2b4a2c remoto con mensaje engañoso. Mejor historia limpia en remoto | No |
+| D19 | 2026-04-18 | Descartar branch `redesign/cinematic-v2` (rediseño previo marzo 2026) con tag de salvaguarda `v0.1-cinematic-v2-abandoned` pusheado a origin antes de borrar | Owner confirma: rediseño previo no funcional, estética "Cinematic Architect" incompatible con "Editorial Structural" decidida para v2-framer-base. Tag preserva historia completa para rescate eventual por SHA | No |
+| D20 | 2026-04-18 | Despublicar deployment Cloudflare Pages de cinematic-v2 (URL `redesign-cinematic-v2.pixel-lens-craft.pages.dev`) manualmente desde dashboard | Evitar confusión con producción, prevenir que URL pública activa muestre proyecto abandonado. Acción manual pendiente, no urgente | No |
+| D21 | 2026-04-18 | Actualización de PROGRESS.md al cierre de cada fase (post-Gate), no durante fase | Evitar churn de descargas/resubidas, mantener sincronización limpia entre local, origin y knowledge del Project | En ejecución |
 
 ---
 
@@ -202,7 +222,7 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | LCP mobile 4G | <2.5s techo, <2.0s objetivo | — | — |
 | CLS | <0.1 | — | — |
 | INP | <200 ms | — | — |
-| Horas acumuladas proyecto | — | 5.5 | 2026-04-18 |
+| Horas acumuladas proyecto | — | 7 | 2026-04-18 |
 
 ---
 
@@ -218,7 +238,7 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 - [ ] Playwright suite completa pasa en preview antes de cambiar DNS
 - [ ] Schema.org validado en rich-results test (Home, Contact, Portfolio)
 - [ ] Renombrar o borrar carpeta `C:\Users\migue\Dropbox\...\pixel-lens-craft` (copia Dropbox obsoleta) tras confirmar que nada del rediseño depende de ella
-- [ ] Borrar branch residual `git-checkout--b-redesign/v2-framer-base` en origin tras cierre de Bloque A
+- [ ] Despublicar deployment Cloudflare Pages de branch `redesign/cinematic-v2` (URL `redesign-cinematic-v2.pixel-lens-craft.pages.dev`) desde dashboard Cloudflare
 
 ---
 
@@ -229,3 +249,4 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | 1.0 | 2026-04-18 | Miguel + Claude Opus 4.7 | Documento inicial |
 | 1.1 | 2026-04-18 | Miguel + Claude Opus 4.7 | Sesión 18-abril tarde añadida. D10-D14 incorporadas. Q06-Q08 añadidas. Metrics ajustadas a targets AGENT.md. Post-launch ampliado con Playwright y schema validation. |
 | 1.2 | 2026-04-18 | Miguel + Claude Opus 4.7 | Sesión Bloque A housekeeping añadida. D15-D18 incorporadas (puntero AGENT.md, rename CLAUDE.md, mudanza fuera de Dropbox, descarte bc910f7). Phase tracker actualizado con referencias a commits `a2b4a2c`, `ebfe87b`, `abe5b99` y tag `v1.0-pre-redesign`. Post-launch ampliado con limpieza de copia Dropbox y branch residual. Horas acumuladas a 5.5. |
+| 1.3 | 2026-04-18 | Miguel + Claude Opus 4.7 | Cierre oficial Bloque A. D19 (descarte cinematic-v2 con tag salvaguarda), D20 (despublicar Cloudflare Pages), D21 (protocolo actualización PROGRESS.md por gate). Phase tracker: Pre-arranque ✅ completa, Fase 0 siguiente. Commit `f37e5ed` de docs canónicos registrado. Tag `v0.1-cinematic-v2-abandoned` añadido. Sesión noche ampliada con descubrimiento, auditoría y descarte de rediseño previo. Post-launch actualizado con despublicación Cloudflare. Branch residual `git-checkout--b-redesign/v2-framer-base` retirada del post-launch (ya ejecutada). Horas acumuladas a 7. |
