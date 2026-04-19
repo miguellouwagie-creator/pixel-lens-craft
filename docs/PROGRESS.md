@@ -11,11 +11,11 @@
 
 ## Current status
 
-- **Fase actual:** Pre-arranque **cerrado**. Bloque A completo. Intermedio opcional (evaluación pack getdesign/framer) **cerrado**.
-- **Siguiente fase:** Fase 0 (Inventario). Primera fase con Claude Code activo en Antigravity.
-- **Próximo gate:** G0
-- **Siguiente acción inmediata:** arrancar Fase 0 en Antigravity con el brief O.D.A. ya diseñado. Output esperado: `docs/INVENTORY.md`.
-- **Última actualización:** 2026-04-18 por Miguel + Claude Opus 4.7 (evaluación getdesign/framer, extracción V1-V7, descarte global del pack)
+- **Fase actual:** Fase 0 (Inventario) **completada**. INVENTORY.md generado (770 líneas) y commiteado en `902b906`. Gate G0 validado por owner.
+- **Siguiente fase:** Fase 1 (Sistema documental). Se ejecuta en claude.ai Project con Opus 4.7, no en Antigravity.
+- **Próximo gate:** G1
+- **Siguiente acción inmediata:** abrir sesión estratégica en claude.ai Project para arrancar Fase 1. Outputs previstos: `docs/PORTFOLIO_SPEC.md`, `docs/CONTENT.md`, posible `docs/MIGRATION.md` inicial.
+- **Última actualización:** 2026-04-19 por Miguel + Claude Opus 4.7 (cierre Fase 0, D26-D28, MASTER v1.3, PROGRESS v1.5, CONTEXT_BRIEF v1.3).
 
 ---
 
@@ -24,7 +24,7 @@
 | Fase | Nombre | Estado | Gate | Fecha inicio | Fecha cierre | Horas reales | Notas |
 |---|---|---|---|---|---|---|---|
 | Pre | Pre-arranque | ✅ Completa | — | 2026-04-18 | 2026-04-18 | ~7h | Bloque A cerrado. Repo operativo en `C:\dev\pixel-lens-craft`. Branch `redesign/v2-framer-base` publicada en origin con docs canónicos v1.1/v1.2/v1.1 en commit `f37e5ed`. Tags `v1.0-pre-redesign` y `v0.1-cinematic-v2-abandoned` subidos. Branches residuales limpiadas. |
-| 0 | Inventario | ⬜ Pendiente | G0 | — | — | — | Brief O.D.A. por diseñar en chat nuevo. Output esperado: `docs/INVENTORY.md`. |
+| 0 | Inventario | ✅ Completa | G0 ✓ | 2026-04-19 | 2026-04-19 | ~2h | Ejecutada en Antigravity con Claude Code (Sonnet 4.6, Effort Medium). Commit `902b906`. INVENTORY.md 770 líneas con §0-§18. 21 hallazgos en §16 consolidados como deuda técnica en MASTER §7.4 (DT-01 a DT-14). G0 validado por owner. |
 | 1 | Sistema documental | ⬜ Pendiente | G1 | — | — | — | — |
 | 2 | Auditoría técnica | ⬜ Pendiente | G2 | — | — | — | — |
 | 3 | Design system build | ⬜ Pendiente | G3 | — | — | — | Crítico: flip colores + dark default + pairing Playfair/Inter |
@@ -197,6 +197,57 @@ Próximo paso concreto:
 - Nota operativa: MASTER.md v1.2 se commiteó por separado antes del cierre de este intermedio. El segundo commit sincroniza PROGRESS.md y CONTEXT_BRIEF.md con las decisiones ya archivadas en MASTER.
 - Arrancar Fase 0 en Antigravity con el brief O.D.A. ya diseñado, sin cambios.
 
+### 2026-04-19 — Fase 0 (Inventario) ejecutada y cerrada
+
+**Canales:** Antigravity (Claude Code, Sonnet 4.6, Effort Medium) + claude.ai chat (Opus 4.7) para validación y docs sync.
+**Duración:** ~2h Antigravity + ~1h chat.
+
+Pre-arranque:
+- Sync de MASTER.md v1.2 + PROGRESS.md v1.4 + CONTEXT_BRIEF.md v1.2 en repo (commit `4150925`) y en Project claude.ai.
+- Sandbox `C:\dev\getdesign-sandbox` borrado.
+- Apertura de proyecto en Antigravity sobre `C:\dev\pixel-lens-craft`.
+- Sanity check: `pwd`, `git branch`, `git rev-parse HEAD` confirman working dir, branch `redesign/v2-framer-base` y commit `4150925`.
+
+Ejecución Antigravity:
+- Brief O.D.A. de Fase 0 pegado en sesión Claude Code.
+- Efectos: lectura de AGENT.md, MASTER.md, PROGRESS.md, CONTEXT_BRIEF.md antes de actuar. Recorrido exhaustivo de `src/`, `public/`, `supabase/migrations/`, `docs/`, `src/i18n/locales/`, archivos de configuración de raíz.
+- Comandos autorizados: `grep`, `find`, `cat`, `wc`, `python3 -c` para parsear JSON, `npm outdated`, `sed | sort | uniq`. Aprobación manual comando por comando ("1 Yes" puntual, nunca "allow for project").
+- Rechazo único: primer intento de commit con heredoc y `Co-Authored-By: Claude`. Reformulado a mensaje exacto del brief. Ver nota operativa abajo.
+- Cuota llegó al 94% al final. Commit y push completados dentro del margen.
+
+Outputs Antigravity:
+- `docs/INVENTORY.md` 770 líneas, 18 secciones según brief.
+- Commit `902b906` con mensaje `docs(progress): add initial repository inventory (Phase 0)`, pusheado a `origin/redesign/v2-framer-base`.
+
+Validación del gate G0:
+- Owner valida visualmente INVENTORY.md en GitHub. §0-§18 presentes con contenido. §16 con 21 subsecciones de flagging detalladas. §17 refleja estructura real y señala que `src/components/portfolio/` no existe.
+- G0 cerrado.
+
+Hallazgos críticos de INVENTORY §16 que generaron decisiones:
+- §16.1: puerto dev 8080, debería ser 5173. → Q09 → D26.
+- §16.12: `src/components/portfolio/` no existe. → Q10 → D27.
+- §16.2, §16.5: deuda técnica (teléfono hardcoded, 14+ any). → D28.
+- Además §16 saca a la luz 11 items adicionales de deuda técnica no mapeados previamente (assets_backup, .bak, scripts/ ausente, ThemeProvider no wired, rutas App.tsx divergentes, env var mismatch, i18n switch no funcional, console.error, componentes huérfanos, import muerto, paquete instalado sin usar, nombre de archivo anómalo, migración UUID).
+
+Decisiones tomadas en chat claude.ai tras revisión de INVENTORY:
+- **D26**: puerto dev unificado en 5173. Resolución en Fase 3 (DT-03).
+- **D27**: portfolio es módulo distribuido. Fase 1 genera `PORTFOLIO_SPEC.md` con lista exacta de archivos.
+- **D28**: deuda técnica tratada progresivamente durante rediseño. Tabla consolidada en MASTER §7.4 con 14 items (DT-01 a DT-14). No fase dedicada.
+
+Nota operativa archivada (para futuras sesiones Antigravity):
+- Claude Code en Antigravity tiende a añadir `Co-Authored-By: Claude` al commit message. AGENT.md no lo contempla y ensucia historia. Siempre forzar mensaje exacto del brief sin firma de coautoría.
+- Aprobación comando por comando con "1 Yes" puntual funcionó bien. Evitar "allow for project" mantiene control granular.
+
+Outputs finales de la sesión (post-commit de cierre Fase 0):
+- `docs/MASTER.md` v1.3: §5.2 alineada con repo real, §5.3 con estado actual vs objetivo, §5.5 corregida, §6.3 redefinida, §7.1 con lista concreta, §7.4 nueva con 14 items DT, D26-D28 en §13, Q09-Q10 cerradas.
+- `docs/PROGRESS.md` v1.5: phase tracker Fase 0 ✅, sesión 2026-04-19 añadida, D26-D28 en decisions log, Q09-Q10 cerradas, horas acumuladas actualizadas.
+- `docs/CONTEXT_BRIEF.md` v1.3: sección 3.13 hallazgos post-Fase 0 añadida, riesgo 10 sobre gap entre MASTER ideal y repo real.
+
+Próximo paso concreto:
+- Commit único con los 3 archivos: `docs: close Phase 0 with INVENTORY (902b906), resolve Q09-Q10 (D26-D28)`.
+- Sync al Project en claude.ai.
+- Abrir sesión nueva en claude.ai Project (Opus 4.7) para diseñar Fase 1. Outputs previstos: `PORTFOLIO_SPEC.md` y `CONTENT.md`.
+
 ---
 
 ## Decisions log
@@ -228,6 +279,9 @@ Próximo paso concreto:
 | D23 | 2026-04-18 | Rechazo explícito de pill CTAs 100px radius. Mantener `--radius: 0.5rem` default | Pills son look SaaS consumer. Desalinean con dirección Editorial Structural §1.5. MASTER §3.9 documenta rechazo razonado | En G3 si evidencia nueva |
 | D24 | 2026-04-18 | No copiar `DESIGN.md` al repo (ni root ni /docs/). Aportes extraídos viven solo en MASTER §3.9 | Evitar tercer documento de instrucciones compitiendo con AGENT.md y MASTER.md. Única fuente de verdad: MASTER | No |
 | D25 | 2026-04-18 | Adoptar OpenType features de Inter globalmente: cv01, cv05, cv09, cv11, ss03, ss07 | Aporte V2 puro sin coste. Refinamiento tipográfico sutil que casa con dirección editorial | No |
+| D26 | 2026-04-19 | Unificar puerto dev en 5173. Modificar `vite.config.ts` en Fase 3 como parte de DT-03 | AGENT.md y scripts existentes ya asumen 5173. Default de Vite. Coste: 1 línea. Origen: Q09 tras INVENTORY §16.1 | No |
+| D27 | 2026-04-19 | Portfolio es módulo distribuido sin carpeta propia. Fase 1 genera `PORTFOLIO_SPEC.md` con lista exacta de archivos preservados verbatim | INVENTORY §16.12 confirma ausencia de `src/components/portfolio/`. Entry real en `src/pages/Portfolio.tsx` con dependencias dispersas. Resolución Q10 | No |
+| D28 | 2026-04-19 | Deuda técnica preexistente tratada progresivamente. Tabla en MASTER §7.4 con 14 items DT-01 a DT-14 y fase de resolución asignada | Rediseño tocará los archivos afectados. Fase dedicada de saneamiento = trabajo doble. Coste marginal de limpiar al reescribir es ~0 | No |
 
 ---
 
@@ -253,6 +307,8 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | Q06 | Confirmar pairing tipográfico Playfair + Inter, o preferencia distinta | 3 | 2026-04-18 | Pendiente |
 | Q07 | Confirmar "Editorial Structural" como dirección estética, o pivot a Framer puro / editorial puro | 3 | 2026-04-18 | Pendiente |
 | Q08 | Formato WhatsApp en Contact (AGENT.md lo sugiere como target) | 5.4 | 2026-04-18 | Pendiente |
+| Q09 | Puerto dev 8080 vs 5173 | 0 → 3 | 2026-04-19 | **Resuelta** → D26 (5173 estándar) |
+| Q10 | `src/components/portfolio/` no existe como carpeta | 1 | 2026-04-19 | **Resuelta** → D27 (módulo distribuido, Fase 1 lo consolida en `PORTFOLIO_SPEC.md`) |
 
 ---
 
@@ -268,7 +324,7 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | LCP mobile 4G | <2.5s techo, <2.0s objetivo | — | — |
 | CLS | <0.1 | — | — |
 | INP | <200 ms | — | — |
-| Horas acumuladas proyecto | — | 8 | 2026-04-18 |
+| Horas acumuladas proyecto | — | 11 | 2026-04-19 |
 
 ---
 
@@ -297,3 +353,4 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | 1.2 | 2026-04-18 | Miguel + Claude Opus 4.7 | Sesión Bloque A housekeeping añadida. D15-D18 incorporadas (puntero AGENT.md, rename CLAUDE.md, mudanza fuera de Dropbox, descarte bc910f7). Phase tracker actualizado con referencias a commits `a2b4a2c`, `ebfe87b`, `abe5b99` y tag `v1.0-pre-redesign`. Post-launch ampliado con limpieza de copia Dropbox y branch residual. Horas acumuladas a 5.5. |
 | 1.3 | 2026-04-18 | Miguel + Claude Opus 4.7 | Cierre oficial Bloque A. D19 (descarte cinematic-v2 con tag salvaguarda), D20 (despublicar Cloudflare Pages), D21 (protocolo actualización PROGRESS.md por gate). Phase tracker: Pre-arranque ✅ completa, Fase 0 siguiente. Commit `f37e5ed` de docs canónicos registrado. Tag `v0.1-cinematic-v2-abandoned` añadido. Sesión noche ampliada con descubrimiento, auditoría y descarte de rediseño previo. Post-launch actualizado con despublicación Cloudflare. Branch residual `git-checkout--b-redesign/v2-framer-base` retirada del post-launch (ya ejecutada). Horas acumuladas a 7. |
 | 1.4 | 2026-04-18 | Miguel + Claude Opus 4.7 | Intermedio opcional cerrado: evaluación pack `getdesign/framer`. Sesión noche-2 añadida con contexto, ejecución en sandbox, análisis de conflictos, decisión final. D22 (descarte global del pack), D23 (rechazo pills 100px), D24 (no copiar DESIGN.md al repo), D25 (OpenType Inter global). Current status actualizado con cierre de intermedio. Horas acumuladas a 8. MASTER.md v1.2 referenciado como commit anterior a este sync. |
+| 1.5 | 2026-04-19 | Miguel + Claude Opus 4.7 | Cierre Fase 0. Sesión 2026-04-19 añadida con ejecución Antigravity (Sonnet 4.6), validación G0, hallazgos INVENTORY §16 (21 items). Phase tracker Fase 0 ✅ con commit `902b906` y 770 líneas. D26 (puerto 5173), D27 (portfolio distribuido), D28 (deuda técnica progresiva con 14 items DT en MASTER §7.4). Q09 y Q10 resueltas. Horas acumuladas a 11. Nota operativa archivada sobre Co-Authored-By en Antigravity. |

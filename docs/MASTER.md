@@ -22,7 +22,7 @@
 | Nombre interno | Pixel Lens Craft (según CLAUDE.md) |
 | Nombre público | Studio Pixelens |
 | Owner | Miguel Louwagie Sapena |
-| Versión | 1.2 (Apr 18, 2026) — evaluación getdesign/framer integrada |
+| Versión | 1.3 (Apr 19, 2026) — cierre Fase 0, D26-D28, §5.2 alineada con repo real, §7.4 deuda técnica |
 | Estado | Draft, pendiente de validación humana |
 | Deadline interno | May 15, 2026 (2 semanas antes de mudanza a Basilea) |
 | Deadline duro | May 31, 2026 |
@@ -479,67 +479,77 @@ Hasta 3 re-ediciones gratuitas por foto.
 
 ### 5.2 Estructura de carpetas
 
+**Estructura actual del repo (verificada en Fase 0, INVENTORY.md §3):**
+
 ```
 /
 ├── docs/
 │   ├── MASTER.md
 │   ├── PROGRESS.md
 │   ├── CONTEXT_BRIEF.md
-│   ├── INVENTORY.md         ← output Fase 0
-│   ├── CONTENT.md           ← output Fase 2
-│   ├── MIGRATION.md         ← output Fase 2
-│   └── PORTFOLIO_SPEC.md    ← output Fase 2
+│   ├── INVENTORY.md         ← output Fase 0 ✓
+│   ├── SECURITY_AUDIT.md    ← ex-CLAUDE.md renombrado (D16)
+│   └── [pendientes]: CONTENT.md, MIGRATION.md, PORTFOLIO_SPEC.md (output Fase 1/2)
 ├── AGENT.md                 ← instrucciones agente IA, convive con MASTER
-├── CLAUDE.md                ← auditoría seguridad puntual
 ├── public/
-├── scripts/                 ← Playwright runners
-│   └── with_server.py
 ├── src/
 │   ├── main.tsx
 │   ├── App.tsx
 │   ├── index.css            ← tokens globales
 │   ├── components/
-│   │   ├── ui/              ← shadcn
-│   │   ├── layout/
-│   │   ├── sections/
-│   │   └── portfolio/       ← MÓDULO PRESERVADO
+│   │   ├── ui/              ← shadcn (48 primitivos)
+│   │   ├── dashboard/       ← Sprint 2, no tocar
+│   │   └── [custom directos, sin subcarpetas portfolio/layout/sections]
 │   ├── pages/
-│   │   ├── Home.tsx
-│   │   ├── Services.tsx
-│   │   ├── Portfolio.tsx
-│   │   ├── About.tsx
-│   │   ├── Contact.tsx
+│   │   ├── Index.tsx (home)
+│   │   ├── Portfolio.tsx    ← entry del módulo portfolio distribuido
 │   │   ├── Auth.tsx         ← existente, Sprint 2 lo rediseña
-│   │   ├── Styleguide.tsx
-│   │   └── legal/
+│   │   ├── Dashboard.tsx    ← Sprint 2
+│   │   └── legal/           ← Privacidad.tsx, Cookies.tsx, AvisoLegal.tsx, LegalNotice.tsx
 │   ├── contexts/
 │   │   └── AuthContext.tsx  ← existente, Sprint 1 no toca
 │   ├── integrations/
-│   │   └── supabase/        ← cliente + types generados
+│   │   └── supabase/        ← client.ts + types.ts generados
 │   ├── hooks/
 │   │   └── useSecureNavigation.ts  ← existente
 │   ├── lib/
 │   │   ├── utils.ts
-│   │   ├── supabase.ts
-│   │   ├── security.ts      ← existente, auditado CLAUDE.md
-│   │   ├── validation.ts    ← existente, auditado CLAUDE.md
-│   │   └── motion.ts        ← variants GSAP, Fase 6
+│   │   ├── security.ts      ← existente, auditado SECURITY_AUDIT.md
+│   │   └── validation.ts    ← existente, auditado SECURITY_AUDIT.md
 │   ├── i18n/
-│   │   └── locales/
-│   ├── data/
-│   └── types/
+│   │   ├── config.ts
+│   │   └── locales/         ← es.json, en.json
+│   └── data/
 ├── supabase/
 │   ├── config.toml
 │   └── migrations/          ← CONGELADO durante Sprint 1
 ├── index.html
 ├── tailwind.config.ts
-├── vite.config.ts
+├── vite.config.ts           ← puerto actual 8080, corregir a 5173 en Fase 3 (D26)
 ├── tsconfig.json
 ├── package.json
 └── components.json
 ```
 
+**Divergencias conocidas con la estructura original planteada en MASTER v1.2:**
+
+| Planteado en v1.2 | Realidad (Fase 0) | Resolución |
+|---|---|---|
+| `scripts/with_server.py` | No existe | Crear antes de Fase 6 (motion/tests). §7.4 DT-04 |
+| `src/components/portfolio/` como carpeta | No existe. Portfolio distribuido en `pages/Portfolio.tsx` + varios componentes sueltos (HorizontalShowcase, ProjectCard, WebPortfolioShowcase, StickyScrollSection) | D27. `PORTFOLIO_SPEC.md` enumera archivos exactos en Fase 1 |
+| `src/components/layout/` y `src/components/sections/` | No existen como subcarpetas. Todo plano en `src/components/` | Mantener estructura plana actual, no reorganizar en Sprint 1 |
+| `src/lib/supabase.ts` | No existe. Cliente real en `src/integrations/supabase/client.ts` | Sin acción, eliminar referencia. §16.10 de INVENTORY |
+| `src/lib/motion.ts` | No existe | Crear en Fase 6 cuando se centralice motion |
+| `src/types/` | No existe. Sin tipos custom globales | Crear en Fase 2 o 3 si surge necesidad real |
+
+**Artefactos a limpiar (§16 INVENTORY, §7.4 deuda técnica):**
+- `src/assets_backup/` (18 archivos con espacios, compromete bundle)
+- `*.bak`, `*.backup`, `*.temp` en componentes e i18n/
+- `src/assetsFotos Portfolio` (nombre anómalo, verificar)
+
 ### 5.3 Routing map
+
+**Objetivo Sprint 1** (tabla objetivo, rutas finales tras Fase 4):
 
 | Path | Componente | Sprint | Público | Descripción |
 |---|---|---|---|---|
@@ -559,6 +569,15 @@ Hasta 3 re-ediciones gratuitas por foto.
 | `/dashboard/pedidos` | `Orders` | 2 | Auth | Historial |
 | `/dashboard/pedidos/:id` | `OrderDetail` | 2 | Auth | Detalle |
 
+**Estado actual (Fase 0, INVENTORY §16.8):** `App.tsx` no implementa esta tabla. Divergencias:
+- `/servicios`, `/sobre`, `/contacto` no existen como páginas (el home actual los tiene como secciones scroll).
+- `/styleguide` no existe.
+- Legal implementado en `/privacidad`, `/cookies`, `/aviso-legal` (paths distintos).
+- Dashboard usa un único `/dashboard` con tabs internas, no sub-rutas.
+- Ruta extra `/portfolio-webs` presente.
+
+**Resolución:** Fase 4 (esqueleto y rutas) reestructura `App.tsx` a la tabla objetivo. Redirects 301 desde paths antiguos a paths nuevos en Fase 7 para preservar SEO.
+
 **Durante Sprint 1**: `/auth` y `/dashboard/*` existen pero redirigen al home con "Próximamente". Marcar `noindex` en `robots.txt`.
 
 ### 5.4 State management
@@ -572,7 +591,9 @@ Hasta 3 re-ediciones gratuitas por foto.
 
 Sprint 1 solo lee `photo_packages`. No toca producción.
 
-Cliente en `src/integrations/supabase/`. Env vars: `VITE_SUPABASE_URL`, `VITE_SUPABASE_ANON_KEY`.
+Cliente en `src/integrations/supabase/client.ts`. Env vars reales (verificadas en INVENTORY §16.9): `VITE_SUPABASE_URL`, `VITE_SUPABASE_PUBLISHABLE_KEY`.
+
+> Nota: versiones previas de MASTER documentaban `VITE_SUPABASE_ANON_KEY`. El código real usa `VITE_SUPABASE_PUBLISHABLE_KEY`. Valor funcional equivalente, nombre distinto. Mantenemos el nombre del código. `.env.example` debe reflejarlo.
 
 ### 5.6 Schema Supabase (referencia)
 
@@ -611,20 +632,30 @@ Seguridad aplicada (migración `20260412184100`): UPDATE en `photos` restringido
 - FAQ con accordion.
 - CTA contacto.
 
-### 6.3 Portfolio (PRESERVADO VERBATIM)
+### 6.3 Portfolio (PRESERVADO VERBATIM, módulo distribuido)
 
-Regla absoluta: no tocar lógica, animaciones, estructura.
+**Realidad estructural (D27, confirmada en INVENTORY §16.12):** el portfolio no es una carpeta `src/components/portfolio/`. Es un módulo distribuido con entry en `src/pages/Portfolio.tsx` y dependencias esparcidas en `src/components/`.
 
-Tareas permitidas Sprint 1:
-- Wrapper con Nav/Footer globales.
-- Remapear solo colores primary/accent a nuevos tokens.
-- Documentar en `PORTFOLIO_SPEC.md`.
+**Archivos identificados como parte del módulo portfolio (lista preliminar, Fase 1 la consolida en `PORTFOLIO_SPEC.md`):**
+- `src/pages/Portfolio.tsx` (entry)
+- `src/components/HorizontalShowcase.tsx`
+- `src/components/StickyScrollSection.tsx`
+- `src/components/ProjectCard.tsx`
+- `src/components/WebPortfolioShowcase.tsx`
+- Posibles adicionales: confirmación exhaustiva en Fase 1 vía trazado de imports.
 
-Efectos actuales:
-- `#hero-section` sticky con video background
-- `.horizontal-showcase` scroll horizontal desktop + scroll-snap mobile
-- `.project-card` con will-change y backface-visibility
-- Scrollbar oculto funcional
+**Regla absoluta:** no tocar lógica, animaciones, estructura interna. Mientras `PORTFOLIO_SPEC.md` no exista, cualquier archivo importado directa o indirectamente por `Portfolio.tsx` queda preservado verbatim.
+
+**Tareas permitidas Sprint 1:**
+- Wrapper con Nav/Footer globales nuevos (envolver, no modificar).
+- Remapear solo colores primary/accent a nuevos tokens del §3.1 (via variables CSS, no reescritura).
+- Documentar dependencias en `PORTFOLIO_SPEC.md` (output Fase 1).
+
+**Efectos actuales (conservar):**
+- `#hero-section` sticky con video background.
+- `.horizontal-showcase` scroll horizontal desktop + scroll-snap mobile.
+- `.project-card` con will-change y backface-visibility.
+- Scrollbar oculto funcional.
 
 **Contenido textual (AGENT.md):** cada proyecto con descripción mínimo 150 palabras, no solo fotos. Geolocalización cuando aplique. Internal linking al servicio correspondiente.
 
@@ -657,10 +688,10 @@ Privacy, Cookies, Terms. Layout `LegalLayout` con `prose`.
 
 | Categoría | Regla | Aplicable a |
 |---|---|---|
-| PRESERVAR VERBATIM | 1:1 | Portfolio, migraciones SQL, AuthContext, security.ts, validation.ts |
+| PRESERVAR VERBATIM | 1:1, no modificar lógica | Módulo portfolio distribuido (ver §6.3 y futuro `PORTFOLIO_SPEC.md`), `supabase/migrations/`, `src/contexts/AuthContext.tsx`, `src/integrations/supabase/`, `src/lib/security.ts`, `src/lib/validation.ts`, `src/hooks/useSecureNavigation.ts` |
 | REBUILD CON NUEVO DS | UI nueva, datos mantenidos | Hero, cards servicios, nav, footer, formularios |
 | REFACTOR PARCIAL | Lógica + JSX nuevo | Componentes complejos con UI pobre |
-| DESCARTAR | Eliminar | shadcn huérfanos, código muerto |
+| DESCARTAR | Eliminar | shadcn huérfanos, código muerto (candidatos en §7.4 DT-07) |
 
 ### 7.2 Auditoría deps (Fase 2)
 
@@ -669,6 +700,31 @@ Privacy, Cookies, Terms. Layout `LegalLayout` con `prose`.
 ### 7.3 i18n paridad
 
 Diff `es.json` vs `en.json` = 0 en claves antes de cerrar Sprint 1.
+
+Contador actual de claves: ver INVENTORY §11. Switch de idioma no funcional hoy (INVENTORY §16.17), DT-09 lo resuelve.
+
+### 7.4 Deuda técnica preexistente a sanear (D28)
+
+Tabla consolidada de items identificados en Fase 0 (INVENTORY §16) con fase de resolución asignada. Cada item se marca como resuelto cuando el trabajo de su fase lo elimine de forma natural. No se crea fase dedicada de saneamiento.
+
+| ID | Descripción | Fuente | Resolver en | Estado |
+|---|---|---|---|---|
+| DT-01 | `"34667326300"` hardcoded en 7 archivos (ContactForm, CTASection, Footer, FormSection, Header, PricingSection, Portfolio). Extraer a `VITE_WHATSAPP_NUMBER` | INVENTORY §16.2, AGENT.md §⚙️ | Fase 5 (rediseño de cada componente afectado) | Abierto |
+| DT-02 | 14+ `any` explícitos en AuthContext, ContactForm, dashboard/*, processData.ts, useSecureNavigation | INVENTORY §16.5, MASTER §10.3 | Los de Sprint 1 en Fase 5 al reescribir; los de dashboard/ en Sprint 2 | Abierto |
+| DT-03 | Puerto dev `vite.config.ts: 8080` debe ser 5173 (D26) | INVENTORY §16.1, MASTER §9.3 | Fase 3 (design system + config global) | Abierto |
+| DT-04 | Directorio `scripts/` no existe. `scripts/with_server.py` referenciado por AGENT.md y MASTER §9.3 no existe. Tests Playwright no ejecutables | INVENTORY §16.6 | Antes de Fase 6 (primera fase que requiere tests) | Abierto |
+| DT-05 | `src/assets_backup/` con 18 archivos duplicados comprometidos en git. Añadir a `.gitignore` y ejecutar `git rm -r --cached` | INVENTORY §16.3 | Fase 2 (auditoría técnica) | Abierto |
+| DT-06 | Archivos `.bak`, `.backup`, `.temp` comprometidos en git (7 archivos en components/ e i18n/) | INVENTORY §16.4 | Fase 2 | Abierto |
+| DT-07 | Componentes potencialmente huérfanos: `CTASection`, `GuaranteesSection`, `Process`, `Services`, `SimplePricingSection`. `SimplePricingSection` duplica `PricingSection` | INVENTORY §16.14, §16.15 | Fase 2 (verificación con depcheck antes de eliminar) | Abierto |
+| DT-08 | `ThemeProvider` de `next-themes` no está wired en `main.tsx`/`App.tsx`. Dark mode default de §3.1 no operativo | INVENTORY §16.7, MASTER §3 | Fase 3 (design system build) | Abierto |
+| DT-09 | `getStoredLanguage()` en `src/i18n/config.ts` siempre retorna `"es"`. Switch a EN no funcional | INVENTORY §16.17, MASTER §2.3 | Fase 7 (SEO/launch) o antes si bloquea paridad i18n | Abierto |
+| DT-10 | `console.error()` activo en `GallerySection` (3 ocurrencias) y `useSecureNavigation` (2). `vite.config.ts` los elimina en build pero contaminan dev | INVENTORY §16.16 | Sprint 2 (archivos en dashboard) | Abierto |
+| DT-11 | `LegalNotice.tsx` importa `useTranslation` sin usarlo | INVENTORY §16.19 | Fase 5 (rediseño Legal) | Abierto |
+| DT-12 | `react-compare-image` instalado pero no usado. `Portfolio.tsx` implementa comparación manualmente | INVENTORY §16.18 | Fase 2 (depcheck decide si eliminar paquete) | Abierto |
+| DT-13 | Archivo/directorio anómalo `src/assetsFotos Portfolio` (nombre con espacios, sin extensión) | INVENTORY §16.20 | Fase 2 (verificar manualmente qué es) | Abierto |
+| DT-14 | Primera migración Supabase con nombre UUID sin descripción semántica (`20251010085309_18845f8a-...sql`) | INVENTORY §16.21 | Sin acción (migraciones congeladas Sprint 1) | Aceptado |
+
+**Principio operativo:** cada PR que toque un archivo listado arriba debe cerrar el item correspondiente como parte del trabajo, no como tarea separada. Esto evita el coste de una fase de saneamiento dedicada.
 
 ---
 
@@ -913,6 +969,9 @@ Un commit por tarea. Mensajes concisos.
 | D14 | 2026-04-18 | Playwright tests obligatorios en cambios Nav, Forms, Routes | Política AGENT.md | No |
 | D22 | 2026-04-18 | Evaluado pack `getdesign add framer`. Descartado como dirección global por conflicto estructural (flip color C1, tipografía de pago C3, filosofía product-forward vs editorial C4, "no imagery" vs portfolio fotográfico C5). Adoptados 7 aportes técnicos neutrales en §3.9 (V1-V7) | Pack entrega descripción literal de framer.com, producto de naturaleza distinta a Studio Pixelens. Adopción global implicaría reabrir D02, D03, D11, D12 y contradecir AGENT.md. Aportes técnicos puntuales sí suman sin coste conceptual | No |
 | D23 | 2026-04-18 | Mantener `--radius: 0.5rem` (8px) default en CTAs. Rechazo explícito de pill CTAs 100px radius | Pills 100px son look SaaS consumer. Desalinean con dirección Editorial Structural de §1.5 que busca coherencia con referencias tipo Monocle / NYT / editorial luxury | En G3 si evidencia nueva |
+| D26 | 2026-04-19 | Unificar puerto dev en 5173. Modificar `vite.config.ts` en Fase 3 (DT-03) | AGENT.md §🧪 y `scripts/with_server.py` ya asumen 5173. Default de Vite. Coste: 1 línea. Alternativa (cambiar MASTER/AGENT/scripts a 8080) tiene coste mayor sin beneficio | No |
+| D27 | 2026-04-19 | Portfolio es módulo distribuido (no carpeta `src/components/portfolio/`). Entry: `src/pages/Portfolio.tsx`. Dependencias dispersas en `src/components/`. Fase 1 consolida lista en `PORTFOLIO_SPEC.md` | INVENTORY §16.12 confirma ausencia de la carpeta. Estructura real emergió durante Fase 0. Mientras no exista PORTFOLIO_SPEC.md, regla operativa: cualquier archivo referenciado por Portfolio.tsx directa o indirectamente queda preservado verbatim | No |
+| D28 | 2026-04-19 | Deuda técnica preexistente tratada progresivamente durante rediseño, no en fase dedicada. Tabla consolidada en §7.4 con 14 items (DT-01 a DT-14) y fase de resolución asignada a cada uno | Rediseño ya va a tocar los archivos afectados. Saneamiento separado = trabajo doble. Coste marginal de limpiar al reescribir es prácticamente cero | No |
 
 ### Pendientes de cerrar
 
@@ -926,6 +985,8 @@ Un commit por tarea. Mensajes concisos.
 | Q06 | Confirmar pairing Playfair + Inter, o alternativa | Fase 3 | Miguel |
 | Q07 | Confirmar "Editorial Structural" o pivot | Fase 3 | Miguel |
 | Q08 | Formato WhatsApp en Contact (sugerido AGENT.md) | Fase 5.4 | Miguel |
+| ~~Q09~~ | ~~Puerto dev 8080 vs 5173~~ | ~~Fase 0~~ | **Resuelta 2026-04-19** → D26 (5173) |
+| ~~Q10~~ | ~~`src/components/portfolio/` no existe~~ | ~~Fase 1~~ | **Resuelta 2026-04-19** → D27 (módulo distribuido) |
 
 ---
 
@@ -949,3 +1010,4 @@ Un commit por tarea. Mensajes concisos.
 | 1.0 | 2026-04-18 | Miguel + Claude Opus 4.7 | Documento inicial |
 | 1.1 | 2026-04-18 | Miguel + Claude Opus 4.7 | Integración AGENT.md y CLAUDE.md. Resolución conflictos tipografía, motion, branch. Dirección "Editorial Structural". Secciones 9 (testing), 10.3-10.4 (TS/env), 11.4 (commits). D10-D14 y Q06-Q08. |
 | 1.2 | 2026-04-18 | Miguel + Claude Opus 4.7 | Evaluación pack getdesign/framer. Nueva sección §3.9 con 7 aportes técnicos V1-V7. Updates quirúrgicos en §3.1 (shadows con `--shadow-ring-accent` y multi-layer `--shadow-strong`) y §3.2 (OpenType features de Inter). D22-D23 añadidas en §13. Pack descartado como dirección global, razonamiento archivado. |
+| 1.3 | 2026-04-19 | Miguel + Claude Opus 4.7 | Cierre Fase 0. §5.2 reescrita con estructura real del repo + tabla de divergencias vs v1.2 (scripts/, portfolio/, layout/, sections/, lib/supabase.ts, lib/motion.ts, types/ inexistentes). §5.3 ampliada con estado actual vs objetivo de rutas. §5.5 corregida (VITE_SUPABASE_PUBLISHABLE_KEY). §6.3 redefinida como módulo distribuido. §7.1 preservación verbatim con lista concreta. Nueva §7.4 Deuda técnica con 14 items DT-01 a DT-14. D26-D28 en §13. Q09-Q10 cerradas. |

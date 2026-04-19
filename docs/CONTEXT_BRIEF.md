@@ -156,7 +156,7 @@ Formato: `type: description` con tipos `feat`, `fix`, `chore`, `style`, `refacto
 
 ### 3.11 Tests Playwright obligatorios
 
-En cambios que afectan navegación, formularios o rutas. Infraestructura ya existe en `scripts/`. Puerto dev 5173.
+En cambios que afectan navegación, formularios o rutas. Puerto dev 5173 (a unificar en Fase 3 per D26 y DT-03; actualmente `vite.config.ts` usa 8080). Infraestructura `scripts/with_server.py` pendiente de crear antes de Fase 6 (DT-04).
 
 ### 3.12 Modelo y tool por fase
 
@@ -172,6 +172,23 @@ En cambios que afectan navegación, formularios o rutas. Infraestructura ya exis
 | 5.5 Portfolio lift | Antigravity | Opus 4.6 | Delicado, sin margen de error |
 | 6 Motion | Antigravity | Sonnet 4.6 | Estándar |
 | 7 SEO/perf | Antigravity | Opus 4.6 + Sonnet | Decisiones + ejecución |
+
+### 3.13 Hallazgos post-Fase 0 y reconciliación con la realidad del repo
+
+Fase 0 (ejecutada 2026-04-19, commit `902b906`, INVENTORY.md 770 líneas) reveló que MASTER.md v1.2 idealizaba estructuras que no existen en el repo. Decisiones D26-D28 formalizan la reconciliación:
+
+- **D26 (puerto dev)**: unificación en 5173. `vite.config.ts` actual usa 8080. Corrección de 1 línea en Fase 3 como parte de DT-03.
+- **D27 (portfolio distribuido)**: `src/components/portfolio/` no existe. El módulo vive en `src/pages/Portfolio.tsx` + N componentes dispersos. Fase 1 genera `PORTFOLIO_SPEC.md` con lista exacta.
+- **D28 (deuda técnica progresiva)**: 14 items identificados (DT-01 a DT-14) en MASTER §7.4. Se resuelven al reescribir cada archivo durante rediseño. No fase dedicada de saneamiento.
+
+**Implicación operativa para agentes IA:** MASTER v1.3 §5.2 es ahora descriptiva del repo real, no aspiracional. Si un agente detecta una divergencia entre la descripción y el repo, la verificación con el repo gana (MASTER §1.6 ya cubre resolución de conflictos AGENT.md/MASTER.md, añadir aquí que la realidad del código gana sobre idealizaciones documentales).
+
+### 3.14 Nota operativa para sesiones en Antigravity
+
+Archivada tras Fase 0:
+- **Co-Authored-By en commits**: Claude Code tiende a añadirlo automáticamente. AGENT.md no lo contempla. Forzar mensaje exacto del brief sin firma de coautoría de modelos IA.
+- **Aprobación de comandos**: usar siempre "1 Yes" puntual, nunca "allow for project". La fricción de aprobar 30-50 comandos en una fase de inventario es aceptable. La alternativa es perder control sobre escrituras.
+- **Cuota Pro**: Fase 0 consumió ~94% de una ventana de 5h. Fases posteriores pueden requerir más de una ventana. Planificar puntos de pausa con commit parcial.
 
 ---
 
@@ -251,6 +268,7 @@ Cuando Claude Code abre el repo en Antigravity, lee AGENT.md antes que nada. Las
 7. **AGENT.md contradiciendo MASTER.md.** Si emerge un conflicto no previsto en sección 1.6, Claude Code puede actuar contra criterio. Mitigación: revisar sección 1.6 ante cualquier comportamiento inesperado.
 8. **Zero `any` no se respeta.** Si se cuela un `any` en código nuevo, la auditoría de seguridad Sprint 2 falla. Revisar en cada PR.
 9. **Herramientas CLI prescriptivas sin jerarquía clara.** CLIs tipo `getdesign`, `shadcn` o equivalentes pueden generar archivos de instrucciones (.md prescriptivos) que competirían con AGENT.md y MASTER.md §3 por ser fuente de verdad de diseño para coding agents. Mitigación: antes de correr cualquier CLI de este tipo, verificar si genera archivos prescriptivos o aditivos. Si prescriptivos, pasar por evaluación (como se hizo con getdesign/framer en sesión 18-abril noche-2) antes de copiar nada al repo. Decisión D24 formaliza: ningún documento de diseño entra al repo fuera de MASTER §3 y sus anexos controlados.
+10. **Divergencia silenciosa entre MASTER y realidad del repo.** Fase 0 demostró que MASTER v1.2 idealizaba estructuras ausentes (scripts/, portfolio/, layout/, sections/, lib/motion.ts, lib/supabase.ts, types/) y documentaba env vars que no coinciden con el código. Riesgo: si agentes IA ejecutan briefs basados en MASTER sin cross-checkear con el repo, tomarán decisiones sobre ficciones. Mitigación: 1) MASTER v1.3 §5.2 ahora es descriptiva del repo real + tabla de divergencias. 2) Fases futuras que creen archivos nuevos (scripts/, PORTFOLIO_SPEC.md) deben actualizar MASTER §5.2 en el mismo commit. 3) Regla operativa añadida: cuando realidad del código y descripción documental difieran, la realidad gana y dispara actualización del documento.
 
 ---
 
@@ -272,3 +290,4 @@ Cuando Claude Code abre el repo en Antigravity, lee AGENT.md antes que nada. Las
 | 1.0 | 2026-04-18 | Miguel + Claude Opus 4.7 | Documento inicial para mudanza a Project |
 | 1.1 | 2026-04-18 | Miguel + Claude Opus 4.7 | Sección 1.4 (AGENT.md y CLAUDE.md como priors). Sección 3.7 refinada a Editorial Structural. Añadidas 3.8-3.11 (pairing tipográfico, branch `dev`, commits, Playwright). 6.4 coexistencia con AGENT.md. Riesgo 7-8 añadidos. |
 | 1.2 | 2026-04-18 | Miguel + Claude Opus 4.7 | Riesgo 9 añadido sobre herramientas CLI prescriptivas. Contexto: evaluación y descarte global de `getdesign/framer` en sesión noche-2 del 18-abril (ver MASTER §3.9 y PROGRESS D22-D25). |
+| 1.3 | 2026-04-19 | Miguel + Claude Opus 4.7 | §3.11 actualizada (puerto real 8080, scripts/ pendiente). §3.13 nueva: hallazgos post-Fase 0 y reconciliación con repo (D26-D28). §3.14 nueva: notas operativas Antigravity (Co-Authored-By, aprobaciones, cuota). Riesgo 10 sobre divergencia MASTER vs realidad del repo. |
