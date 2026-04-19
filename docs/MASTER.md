@@ -22,7 +22,7 @@
 | Nombre interno | Pixel Lens Craft (según CLAUDE.md) |
 | Nombre público | Studio Pixelens |
 | Owner | Miguel Louwagie Sapena |
-| Versión | 1.1 (Apr 18, 2026) — incorpora AGENT.md |
+| Versión | 1.2 (Apr 18, 2026) — evaluación getdesign/framer integrada |
 | Estado | Draft, pendiente de validación humana |
 | Deadline interno | May 15, 2026 (2 semanas antes de mudanza a Basilea) |
 | Deadline duro | May 31, 2026 |
@@ -202,14 +202,18 @@ Prohibición explícita (AGENT.md): gradientes purple/blue sobre fondo claro. Pr
 
 #### Shadows
 
-| Token | Definición |
-|---|---|
-| `--shadow-soft` | `0 2px 8px hsla(var(--accent), 0.08)` |
-| `--shadow-medium` | `0 4px 16px hsla(var(--accent), 0.12)` |
-| `--shadow-strong` | `0 8px 24px hsla(var(--accent), 0.16)` |
-| `--shadow-primary-glow` | `0 0 32px hsla(var(--primary), 0.35)` (solo dark mode, uso moderado) |
+| Token | Definición | Uso |
+|---|---|---|
+| `--shadow-soft` | `0 2px 8px hsla(var(--accent), 0.08)` | Elevación baja, hover sutil |
+| `--shadow-medium` | `0 4px 16px hsla(var(--accent), 0.12)` | Cards estándar |
+| `--shadow-strong` | `0 0.5px 0 0.5px hsla(0, 0%, 100%, 0.1), 0 10px 30px hsla(220, 30%, 0%, 0.25)` | Elevated cards, multi-layer con highlight superior + ambient profundo (aporte V7 de getdesign) |
+| `--shadow-ring-accent` | `0 0 0 1px hsla(var(--accent), 0.15)` | Containment de cards y bordered surfaces sobre fondo oscuro (aporte V3 de getdesign) |
+| `--shadow-primary-glow` | `0 0 32px hsla(var(--primary), 0.35)` | Solo dark mode, uso moderado en CTAs premium |
 
-Regla adicional: **nunca usar `shadow-md` de shadcn sin modificar**. Toda card debe tener shadow custom coherente.
+Reglas adicionales:
+- **Nunca usar `shadow-md` de shadcn sin modificar**. Toda card debe tener shadow custom coherente.
+- `--shadow-ring-accent` es la técnica canónica para delinear cards sobre fondos oscuros sin bordes sólidos. Usa el color accent (azul) a opacidad 0.15 para crear contención visible pero no agresiva.
+- `--shadow-strong` incorpora multi-layer: un highlight blanco sutil en el top edge simula luz incidente, el ambient profundo da sensación de flotación. No usar en cards estándar, reservar para elementos con jerarquía alta.
 
 ### 3.2 Typography
 
@@ -237,6 +241,18 @@ fontFamily: {
 - H3-H6: Inter. Weight 600-700.
 - Body: Inter weight 400, line-height 1.6-1.7.
 - Max width párrafo: 65ch.
+
+**OpenType features en Inter (aporte V2 de getdesign):**
+
+Todo uso de Inter en body y UI activa explícitamente las siguientes features:
+
+```css
+body, .font-sans {
+  font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07";
+}
+```
+
+Efecto: glifos alternativos más refinados (a, g, l, 0, %, &), separación estilística en números y caracteres técnicos. Subtle pero acumulativo, aporta pulido editorial a texto pequeño sin coste perceptual. Aplicable globalmente en `src/index.css` dentro de la regla base.
 
 **Prohibiciones:**
 - No uppercase abuse (solo badges y botones pequeños).
@@ -315,6 +331,69 @@ Acción Fase 2: auditar uso real con `depcheck`, eliminar huérfanos. Target red
 - Full-bleed edge-to-edge donde posible.
 - Nunca fondo sólido plano: texture sutil, grain overlay, mesh gradient o shadows dramáticos.
 - Imágenes con `aspect-ratio` fijo en CSS (anti-CLS).
+
+### 3.9 Anexos técnicos adoptados de getdesign/framer
+
+El 18-abril-2026 se evaluó el pack `npx getdesign@latest add framer`. El pack entrega un único `DESIGN.md` prescriptivo que describe literalmente framer.com como sitio web. Se descartó como dirección global por conflicto estructural con la identidad de Studio Pixelens (ver D22 en §13). Se extrajeron 7 aportes técnicos neutrales que se integran aquí sin reabrir decisiones cerradas.
+
+#### V1. Escala de spacing canónica
+
+Base 8px. Escala permitida en px:
+
+```
+1, 2, 3, 4, 5, 6, 8, 10, 12, 15, 20, 30, 35
+```
+
+Valores fuera de esta escala requieren justificación. Tailwind config ya soporta valores arbitrarios, la escala aplica a decisiones de spacing no automatizadas. Section padding sigue la regla existente `py-20 md:py-28 lg:py-32` (que ya encaja: 80px / 112px / 128px, todos múltiplos o variaciones coherentes).
+
+#### V2. OpenType features en Inter
+
+Integrado en §3.2.
+
+#### V3. Ring shadows para containment
+
+Integrado en §3.1 como `--shadow-ring-accent`. Patrón canónico para cards sobre fondos oscuros.
+
+#### V4. Scale transition value en hover de cards
+
+Valor canónico para hover scale de cards interactivas: `transform: scale(0.985)` en press, `scale(1.0)` en rest, `translateY(-2px)` en hover (ya en MASTER §3.6 card variant `feature`).
+
+Framer usa `scale(0.85)` para interacciones de press más agresivas. Ajustado a `0.985` por coherencia con la dirección editorial más contenida. No adoptar el 0.85 literal.
+
+#### V5. Principio "dense within, spacious between"
+
+Componentes internos con spacing ajustado (line-height tight en displays, padding mínimo dentro de cards). Espacio externo (entre secciones, entre bloques) generoso y aireado. Aplicar en:
+- Hero: título comprimido (line-height 0.9-1.0, tracking negativo) dentro de un bloque con section padding amplio.
+- Cards: padding interno 15-24px, gap entre cards `gap-6 lg:gap-8`.
+- Secciones: `py-20 md:py-28 lg:py-32` como mínimo.
+
+#### V6. Border radius por tipo de elemento
+
+Escala canónica:
+
+| Elemento | Radius |
+|---|---|
+| Micro-elementos, precision edges | 1px |
+| Small UI (badges, thumbnails) | 4-6px |
+| Inputs, buttons estándar | 8px (`--radius` default) |
+| Cards, product screenshots | 10-12px |
+| Large containers, feature cards | 15-20px |
+| Navigation pills secundarias | 30-40px |
+
+**Rechazo explícito:** pills 100px radius en CTAs principales (D23). La dirección Editorial Structural de MASTER §1.5 rechaza el look SaaS-pill moderno en favor de radios moderados que leen mejor en contexto editorial.
+
+#### V7. Multi-layer shadow para elevated cards
+
+Integrado en §3.1 como `--shadow-strong`. Highlight blanco 0.5px top edge + ambient oscuro 10px 30px.
+
+#### Lo NO adoptado del pack (razonado en D22)
+
+- **`#000000` puro como fondo**: MASTER §3.1 mantiene `220 30% 6%` (`#0B0F16`) azulado oscuro. El negro puro es agresivo y plano, el azulado editorial da profundidad cinematográfica.
+- **Framer Blue `#0099ff` como accent único**: colisión directa con el flip naranja/azul de D02. Naranja es primary y no se renuncia.
+- **GT Walsheim**: tipografía de pago innecesaria. Playfair Display cumple el rol display con más personalidad editorial y es gratis.
+- **"No decorative imagery, no icons"**: incompatible con portfolio fotográfico cinematográfico y con sistema Lucide de §3.7. Se rechaza.
+- **Pills 100px en CTAs**: ver V6 y D23.
+- **Prohibición de gradientes**: MASTER §3.1 define 3 gradientes controlados. Se mantienen.
 
 ---
 
@@ -832,6 +911,8 @@ Un commit por tarea. Mensajes concisos.
 | D12 | 2026-04-18 | Dirección "Editorial Structural": Framer layout + editorial soul | Síntesis AGENT.md + visión Framer | En G3 |
 | D13 | 2026-04-18 | Commit format `type: description` estilo AGENT.md | Consistencia con convención repo | No |
 | D14 | 2026-04-18 | Playwright tests obligatorios en cambios Nav, Forms, Routes | Política AGENT.md | No |
+| D22 | 2026-04-18 | Evaluado pack `getdesign add framer`. Descartado como dirección global por conflicto estructural (flip color C1, tipografía de pago C3, filosofía product-forward vs editorial C4, "no imagery" vs portfolio fotográfico C5). Adoptados 7 aportes técnicos neutrales en §3.9 (V1-V7) | Pack entrega descripción literal de framer.com, producto de naturaleza distinta a Studio Pixelens. Adopción global implicaría reabrir D02, D03, D11, D12 y contradecir AGENT.md. Aportes técnicos puntuales sí suman sin coste conceptual | No |
+| D23 | 2026-04-18 | Mantener `--radius: 0.5rem` (8px) default en CTAs. Rechazo explícito de pill CTAs 100px radius | Pills 100px son look SaaS consumer. Desalinean con dirección Editorial Structural de §1.5 que busca coherencia con referencias tipo Monocle / NYT / editorial luxury | En G3 si evidencia nueva |
 
 ### Pendientes de cerrar
 
@@ -867,3 +948,4 @@ Un commit por tarea. Mensajes concisos.
 |---|---|---|---|
 | 1.0 | 2026-04-18 | Miguel + Claude Opus 4.7 | Documento inicial |
 | 1.1 | 2026-04-18 | Miguel + Claude Opus 4.7 | Integración AGENT.md y CLAUDE.md. Resolución conflictos tipografía, motion, branch. Dirección "Editorial Structural". Secciones 9 (testing), 10.3-10.4 (TS/env), 11.4 (commits). D10-D14 y Q06-Q08. |
+| 1.2 | 2026-04-18 | Miguel + Claude Opus 4.7 | Evaluación pack getdesign/framer. Nueva sección §3.9 con 7 aportes técnicos V1-V7. Updates quirúrgicos en §3.1 (shadows con `--shadow-ring-accent` y multi-layer `--shadow-strong`) y §3.2 (OpenType features de Inter). D22-D23 añadidas en §13. Pack descartado como dirección global, razonamiento archivado. |

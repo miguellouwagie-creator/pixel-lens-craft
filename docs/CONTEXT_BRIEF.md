@@ -250,6 +250,7 @@ Cuando Claude Code abre el repo en Antigravity, lee AGENT.md antes que nada. Las
 6. **Supabase schema cambia.** Congelar `supabase/` durante Sprint 1.
 7. **AGENT.md contradiciendo MASTER.md.** Si emerge un conflicto no previsto en sección 1.6, Claude Code puede actuar contra criterio. Mitigación: revisar sección 1.6 ante cualquier comportamiento inesperado.
 8. **Zero `any` no se respeta.** Si se cuela un `any` en código nuevo, la auditoría de seguridad Sprint 2 falla. Revisar en cada PR.
+9. **Herramientas CLI prescriptivas sin jerarquía clara.** CLIs tipo `getdesign`, `shadcn` o equivalentes pueden generar archivos de instrucciones (.md prescriptivos) que competirían con AGENT.md y MASTER.md §3 por ser fuente de verdad de diseño para coding agents. Mitigación: antes de correr cualquier CLI de este tipo, verificar si genera archivos prescriptivos o aditivos. Si prescriptivos, pasar por evaluación (como se hizo con getdesign/framer en sesión 18-abril noche-2) antes de copiar nada al repo. Decisión D24 formaliza: ningún documento de diseño entra al repo fuera de MASTER §3 y sus anexos controlados.
 
 ---
 
@@ -270,3 +271,4 @@ Cuando Claude Code abre el repo en Antigravity, lee AGENT.md antes que nada. Las
 |---|---|---|---|
 | 1.0 | 2026-04-18 | Miguel + Claude Opus 4.7 | Documento inicial para mudanza a Project |
 | 1.1 | 2026-04-18 | Miguel + Claude Opus 4.7 | Sección 1.4 (AGENT.md y CLAUDE.md como priors). Sección 3.7 refinada a Editorial Structural. Añadidas 3.8-3.11 (pairing tipográfico, branch `dev`, commits, Playwright). 6.4 coexistencia con AGENT.md. Riesgo 7-8 añadidos. |
+| 1.2 | 2026-04-18 | Miguel + Claude Opus 4.7 | Riesgo 9 añadido sobre herramientas CLI prescriptivas. Contexto: evaluación y descarte global de `getdesign/framer` en sesión noche-2 del 18-abril (ver MASTER §3.9 y PROGRESS D22-D25). |

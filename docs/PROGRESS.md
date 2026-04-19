@@ -11,11 +11,11 @@
 
 ## Current status
 
-- **Fase actual:** Pre-arranque **cerrado**. Bloque A completo al 100%.
+- **Fase actual:** Pre-arranque **cerrado**. Bloque A completo. Intermedio opcional (evaluación pack getdesign/framer) **cerrado**.
 - **Siguiente fase:** Fase 0 (Inventario). Primera fase con Claude Code activo en Antigravity.
 - **Próximo gate:** G0
-- **Siguiente acción inmediata:** abrir chat nuevo en el Project "Studio Pixelens Redesign" para arrancar Fase 0, pedir brief O.D.A. para Claude Code que genere `docs/INVENTORY.md`.
-- **Última actualización:** 2026-04-18 por Miguel + Claude Opus 4.7 (cierre Bloque A, descarte cinematic-v2)
+- **Siguiente acción inmediata:** arrancar Fase 0 en Antigravity con el brief O.D.A. ya diseñado. Output esperado: `docs/INVENTORY.md`.
+- **Última actualización:** 2026-04-18 por Miguel + Claude Opus 4.7 (evaluación getdesign/framer, extracción V1-V7, descarte global del pack)
 
 ---
 
@@ -155,6 +155,48 @@ Próximo paso concreto:
 - Pedir brief O.D.A. para Claude Code en Antigravity que genere `docs/INVENTORY.md`.
 - Tareas manuales pendientes no bloqueantes: despublicar deployment Cloudflare Pages de cinematic-v2, renombrar carpeta Dropbox vieja.
 
+### 2026-04-18 (noche-2) — Evaluación pack getdesign/framer
+
+**Canal:** claude.ai chat (Opus 4.7) + PowerShell local (Miguel)
+**Duración:** ~1h
+
+Contexto:
+- Miguel propone ejecutar `npx getdesign@latest add framer` antes de Fase 0 para integrar una referencia visual al MASTER.md.
+- Hipótesis inicial: el pack instalaría componentes o tokens que complementarían el Design System.
+- Realidad descubierta: `getdesign` es un CLI que genera un único archivo `DESIGN.md` prescriptivo, compite con AGENT.md y MASTER.md §3 por ser fuente de verdad de diseño para coding agents.
+
+Ejecución:
+- Sandbox creado en `C:\dev\getdesign-sandbox` con `npm init -y` para evitar contaminación del repo.
+- Ejecutado `npx getdesign@latest add framer`. Versión descargada: `getdesign@0.6.3`.
+- Output: `DESIGN.md` en raíz + `framer/DESIGN.md` idéntico como copia.
+
+Análisis en profundidad del contenido:
+- `DESIGN.md` describe literalmente framer.com como sitio web, no una dirección genérica adaptable.
+- Matriz de 10 puntos de comparación con MASTER.md. Resultado: 4 conflictos irresolubles (accent color, tipografía de pago GT Walsheim, filosofía product-forward vs editorial, "no imagery" vs portfolio fotográfico), 4 conflictos resolubles/menores, 2 aportes puros sin coste.
+- Riesgo identificado: si se copiara `DESIGN.md` al repo, Claude Code en Antigravity lo leería junto a AGENT.md y MASTER.md sin jerarquía clara. Receta para decisiones incoherentes. Mismo problema que AGENT.md vs MASTER v1.0 en sesión anterior.
+
+Decisión:
+- Descarte global del pack (D22).
+- Extracción quirúrgica de 7 aportes técnicos neutrales (V1-V7) anexados a MASTER §3.9.
+- Updates quirúrgicos en §3.1 (shadows con `--shadow-ring-accent` y multi-layer `--shadow-strong`) y §3.2 (OpenType features de Inter).
+- Rechazo explícito de pills 100px en CTAs (D23).
+- No se copia `DESIGN.md` al repo. Sandbox se borra.
+
+Outputs:
+- `docs/MASTER.md` v1.2 con §3.9, updates en §3.1 y §3.2, D22-D23 en §13.
+- `docs/PROGRESS.md` v1.4 con esta sesión, D22-D25.
+- `docs/CONTEXT_BRIEF.md` v1.2 con riesgo 9 (herramientas CLI prescriptivas).
+
+Lección operativa archivada:
+- Antes de correr CLIs que prometen "design system inspirado en X", verificar si generan archivos **prescriptivos** (instrucciones para agentes, conflicto potencial con AGENT.md + MASTER) o **aditivos** (código, tokens, components, puramente sumativos).
+- El valor de este ejercicio no es el output del pack. Es haber verificado que no aporta dirección global y extraído 7 nuggets técnicos reales.
+
+Próximo paso concreto:
+- Sandbox `C:\dev\getdesign-sandbox` pendiente de borrar (`Remove-Item -Recurse -Force`).
+- Commit de los 3 archivos actualizados en `redesign/v2-framer-base` con mensaje: `docs: integrate getdesign/framer technical takeaways, discard global direction (D22-D25)`.
+- Nota operativa: MASTER.md v1.2 se commiteó por separado antes del cierre de este intermedio. El segundo commit sincroniza PROGRESS.md y CONTEXT_BRIEF.md con las decisiones ya archivadas en MASTER.
+- Arrancar Fase 0 en Antigravity con el brief O.D.A. ya diseñado, sin cambios.
+
 ---
 
 ## Decisions log
@@ -182,6 +224,10 @@ Próximo paso concreto:
 | D19 | 2026-04-18 | Descartar branch `redesign/cinematic-v2` (rediseño previo marzo 2026) con tag de salvaguarda `v0.1-cinematic-v2-abandoned` pusheado a origin antes de borrar | Owner confirma: rediseño previo no funcional, estética "Cinematic Architect" incompatible con "Editorial Structural" decidida para v2-framer-base. Tag preserva historia completa para rescate eventual por SHA | No |
 | D20 | 2026-04-18 | Despublicar deployment Cloudflare Pages de cinematic-v2 (URL `redesign-cinematic-v2.pixel-lens-craft.pages.dev`) manualmente desde dashboard | Evitar confusión con producción, prevenir que URL pública activa muestre proyecto abandonado. Acción manual pendiente, no urgente | No |
 | D21 | 2026-04-18 | Actualización de PROGRESS.md al cierre de cada fase (post-Gate), no durante fase | Evitar churn de descargas/resubidas, mantener sincronización limpia entre local, origin y knowledge del Project | En ejecución |
+| D22 | 2026-04-18 | Descarte global del pack `getdesign add framer`. Extracción quirúrgica de 7 aportes técnicos neutrales (V1-V7) a MASTER §3.9 | Pack describe literalmente framer.com como sitio web. 4 conflictos irresolubles con Studio Pixelens: flip color naranja/azul (C1), Playfair vs GT Walsheim de pago (C3), filosofía product-forward vs editorial cinematográfico (C4), "no imagery" vs portfolio fotográfico (C5). Adopción global implicaría reabrir D02, D03, D11, D12 | No |
+| D23 | 2026-04-18 | Rechazo explícito de pill CTAs 100px radius. Mantener `--radius: 0.5rem` default | Pills son look SaaS consumer. Desalinean con dirección Editorial Structural §1.5. MASTER §3.9 documenta rechazo razonado | En G3 si evidencia nueva |
+| D24 | 2026-04-18 | No copiar `DESIGN.md` al repo (ni root ni /docs/). Aportes extraídos viven solo en MASTER §3.9 | Evitar tercer documento de instrucciones compitiendo con AGENT.md y MASTER.md. Única fuente de verdad: MASTER | No |
+| D25 | 2026-04-18 | Adoptar OpenType features de Inter globalmente: cv01, cv05, cv09, cv11, ss03, ss07 | Aporte V2 puro sin coste. Refinamiento tipográfico sutil que casa con dirección editorial | No |
 
 ---
 
@@ -222,7 +268,7 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | LCP mobile 4G | <2.5s techo, <2.0s objetivo | — | — |
 | CLS | <0.1 | — | — |
 | INP | <200 ms | — | — |
-| Horas acumuladas proyecto | — | 7 | 2026-04-18 |
+| Horas acumuladas proyecto | — | 8 | 2026-04-18 |
 
 ---
 
@@ -250,3 +296,4 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | 1.1 | 2026-04-18 | Miguel + Claude Opus 4.7 | Sesión 18-abril tarde añadida. D10-D14 incorporadas. Q06-Q08 añadidas. Metrics ajustadas a targets AGENT.md. Post-launch ampliado con Playwright y schema validation. |
 | 1.2 | 2026-04-18 | Miguel + Claude Opus 4.7 | Sesión Bloque A housekeeping añadida. D15-D18 incorporadas (puntero AGENT.md, rename CLAUDE.md, mudanza fuera de Dropbox, descarte bc910f7). Phase tracker actualizado con referencias a commits `a2b4a2c`, `ebfe87b`, `abe5b99` y tag `v1.0-pre-redesign`. Post-launch ampliado con limpieza de copia Dropbox y branch residual. Horas acumuladas a 5.5. |
 | 1.3 | 2026-04-18 | Miguel + Claude Opus 4.7 | Cierre oficial Bloque A. D19 (descarte cinematic-v2 con tag salvaguarda), D20 (despublicar Cloudflare Pages), D21 (protocolo actualización PROGRESS.md por gate). Phase tracker: Pre-arranque ✅ completa, Fase 0 siguiente. Commit `f37e5ed` de docs canónicos registrado. Tag `v0.1-cinematic-v2-abandoned` añadido. Sesión noche ampliada con descubrimiento, auditoría y descarte de rediseño previo. Post-launch actualizado con despublicación Cloudflare. Branch residual `git-checkout--b-redesign/v2-framer-base` retirada del post-launch (ya ejecutada). Horas acumuladas a 7. |
+| 1.4 | 2026-04-18 | Miguel + Claude Opus 4.7 | Intermedio opcional cerrado: evaluación pack `getdesign/framer`. Sesión noche-2 añadida con contexto, ejecución en sandbox, análisis de conflictos, decisión final. D22 (descarte global del pack), D23 (rechazo pills 100px), D24 (no copiar DESIGN.md al repo), D25 (OpenType Inter global). Current status actualizado con cierre de intermedio. Horas acumuladas a 8. MASTER.md v1.2 referenciado como commit anterior a este sync. |
