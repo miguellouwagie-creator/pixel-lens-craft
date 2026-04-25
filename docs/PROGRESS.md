@@ -11,11 +11,11 @@
 
 ## Current status
 
-- **Fase actual:** Fase 1 (Sistema documental) **completada**. CONTENT.md y MIGRATION.md generados. MASTER.md actualizado a v1.4 (pivote D31). PROGRESS.md y CONTEXT_BRIEF.md sincronizados. Pendiente commit de cierre y validación humana del Gate G1.
-- **Siguiente fase:** Fase 2 (Auditoría técnica). Ejecuta en Antigravity con Claude Code (Sonnet 4.6, Effort Medium). Entregables: depcheck output, eliminación de archivos huérfanos `.bak/.backup/.temp` y `src/assets_backup/`, creación de `scripts/with_server.py`, validación de paquetes huérfanos.
-- **Próximo gate:** G1 (validación humana de CONTENT.md + MIGRATION.md + MASTER v1.4 + PROGRESS v1.6 + CONTEXT_BRIEF v1.4).
-- **Siguiente acción inmediata:** Miguel copia los 5 archivos al repo, hace commit único `docs: close Phase 1 with content + migration, pivot scope (D29-D32)`, sincroniza al Project claude.ai, y valida G1.
-- **Última actualización:** 2026-04-19 por Miguel + Claude Opus 4.7 (cierre Fase 1, D29-D32, MASTER v1.4, PROGRESS v1.6, CONTEXT_BRIEF v1.4, CONTENT.md v1.0, MIGRATION.md v1.0).
+- **Fase actual:** Fase 2 (Auditoría técnica) **completada**. DT-04, DT-05, DT-06, DT-13 cerrados. depcheck auditado. Dossier de huérfanos documentado en PHASE2_REPORT.md. INVENTORY.md y PROGRESS.md actualizados. Pendiente validación humana del Gate G2.
+- **Siguiente fase:** Fase 3 (Design system build). Crítica: flip colores, dark mode default, pairing Playfair/Inter, ThemeProvider wired. Requiere validación estética previa por owner (D32).
+- **Próximo gate:** G2 (validación humana: scripts/with_server.py funcional + artefactos git saneados + PHASE2_REPORT.md completo).
+- **Siguiente acción inmediata:** Miguel valida G2 (revisar los 5 commits de Fase 2 en GitHub). Luego abre sesión en claude.ai Project para diseñar brief O.D.A. de Fase 3.
+- **Última actualización:** 2026-04-25 por Claude Code (Sonnet 4.6) en Antigravity (cierre Fase 2).
 
 ---
 
@@ -26,7 +26,7 @@
 | Pre | Pre-arranque | ✅ Completa | — | 2026-04-18 | 2026-04-18 | ~7h | Bloque A cerrado. Repo operativo en `C:\dev\pixel-lens-craft`. Branch `redesign/v2-framer-base` publicada en origin con docs canónicos v1.1/v1.2/v1.1 en commit `f37e5ed`. Tags `v1.0-pre-redesign` y `v0.1-cinematic-v2-abandoned` subidos. Branches residuales limpiadas. |
 | 0 | Inventario | ✅ Completa | G0 ✓ | 2026-04-19 | 2026-04-19 | ~2h | Ejecutada en Antigravity con Claude Code (Sonnet 4.6, Effort Medium). Commit `902b906`. INVENTORY.md 770 líneas con §0-§18. 21 hallazgos en §16 consolidados como deuda técnica en MASTER §7.4 (DT-01 a DT-14). G0 validado por owner. |
 | 1 | Sistema documental | ✅ Completa | G1 (pendiente validación) | 2026-04-19 | 2026-04-19 | ~6h | Ejecutada en claude.ai Project (Opus 4.7). Outputs: CONTENT.md v1.0 (45 KB, copy ES + draft EN para Home + /portfolio + /portfolio-webs + chrome global, 10 anti-patrones, keys huérfanas, diff conceptual), MIGRATION.md v1.0 (clasificación archivo por archivo: 16 CREAR + 12 REBUILD + 6 REFACTOR + 13 DESCARTAR + 14 PRESERVAR). Pivote D31 (rediseño UI completo de portfolios). D29-D32 registradas. Q01-Q04 y Q06-Q08 cerradas. MASTER v1.4, PROGRESS v1.6, CONTEXT_BRIEF v1.4 sincronizados. |
-| 2 | Auditoría técnica | ⬜ Pendiente | G2 | — | — | — | Antigravity Sonnet 4.6, ~2-3h. Depcheck, limpieza archivos huérfanos, creación scripts/with_server.py, resolución DT-04, DT-05, DT-06, DT-13. |
+| 2 | Auditoría técnica | ✅ Completa | G2 (pendiente validación) | 2026-04-25 | 2026-04-25 | ~2h | Antigravity Sonnet 4.6. DT-04 (`f0743c7`), DT-13 (`f802256`), DT-06 (`a77f245`), DT-05 (`ddce38a`), depcheck + grep huérfanos (`81a2bed`). Cierre documental en commit de cierre. |
 | 3 | Design system build | ⬜ Pendiente | G3 | — | — | — | Crítico: flip colores + dark default + pairing Playfair/Inter |
 | 4 | Esqueleto y rutas | ⬜ Pendiente | G4 | — | — | — | — |
 | 5 | Migración contenido + portfolio | ⬜ Pendiente | G5 | — | — | — | Subfases 5.1-5.5 |
@@ -248,6 +248,47 @@ Próximo paso concreto:
 - Sync al Project en claude.ai.
 - Abrir sesión nueva en claude.ai Project (Opus 4.7) para diseñar Fase 1. Outputs previstos: `PORTFOLIO_SPEC.md` y `CONTENT.md`.
 
+### 2026-04-25 — Fase 2 (Auditoría técnica) ejecutada y cerrada
+
+**Canal:** Antigravity (Claude Code, Sonnet 4.6, Effort Medium)
+**Duración:** ~2h
+
+Documentos canónicos leídos antes de actuar: AGENT.md, MASTER.md (§5.2, §7.4, §9.3), INVENTORY.md (§16.3, §16.4, §16.6, §16.14, §16.15, §16.20), MIGRATION.md (§7, §8), PROGRESS.md.
+
+Ejecución por bloques:
+
+**Bloque 1 — DT-04 (`f0743c7`):** Creado `scripts/with_server.py` con firma completa del brief (levanta servidor, poll readiness, ejecuta comando, mata servidor con SIGTERM + SIGKILL fallback, exit code del comando). Smoke test pasado: `python -m http.server 5173` como servidor ligero → HTTP 200, exit 0. `--help` validado. Nota: DT-03 (cambio puerto 8080 → 5173 en vite.config.ts) es Fase 3; la invocación con `npm run dev` funcionará post DT-03.
+
+**Bloque 2 — DT-13 (`f802256`):** Investigado `src/assetsFotos Portfolio`. Hallazgo: archivo ASCII de 2 bytes (solo CRLF), no directorio. Cero referencias en source (`grep assetsFotos` → 0 matches). Eliminado con `git rm`.
+
+**Bloque 3 — DT-06 (`a77f245`):** Los 7 archivos `.bak/.backup/.temp` confirmados (exactamente los de INVENTORY §16.4). `git rm` de los 7. `.gitignore` actualizado con patrones `*.bak`, `*.backup`, `*.temp`.
+
+**Bloque 4 — DT-05 (`ddce38a`):** Verificado cero imports de `assets_backup` en source. `git rm -r --cached src/assets_backup/` desindexó 27 archivos (18 reportados en INVENTORY + imágenes adicionales). Archivos conservados en disco. `.gitignore` actualizado con `src/assets_backup/`.
+
+**Bloque 5+6 — depcheck + grep huérfanos (`81a2bed`):** `depcheck --json` ejecutado. Un falso positivo real: `react-compare-image` (uso confirmado en Fase 5.5 por MIGRATION.md). Tres falsos positivos de tooling: `@tailwindcss/typography`, `autoprefixer`, `postcss` (plugins Vite/PostCSS). Grep de huérfanos: CTASection, GuaranteesSection, Process, Services, SimplePricingSection confirmados sin imports activos. FloatingElements solo importado por HorizontalShowcase (también DESCARTAR). Dossier completo en `docs/PHASE2_REPORT.md`.
+
+Hallazgos adicionales:
+- `node_modules` no estaba instalado al inicio. `npm install` ejecutado.
+- depcheck no disponible via npx; instalado como devDep temporal, desinstalado tras audit.
+- `src/assets_backup/` tenía 27 archivos (INVENTORY reportaba 18 — posible discrepancia en el recuento original).
+
+Outputs de Fase 2:
+- `scripts/with_server.py` (nuevo)
+- `docs/PHASE2_REPORT.md` (nuevo)
+- `.gitignore` actualizado (3 patrones + 1 directorio)
+- `docs/INVENTORY.md` actualizado (DT-04, DT-05, DT-06, DT-13, DT-07 marcados)
+- `docs/PROGRESS.md` actualizado (esta sesión)
+
+Commits Fase 2:
+| Commit | Mensaje |
+|---|---|
+| `f0743c7` | `chore(scripts): add with_server.py runner for playwright (DT-04)` |
+| `f802256` | `chore(assets): remove orphaned src/assetsFotos Portfolio directory (DT-13)` |
+| `a77f245` | `chore(repo): remove tracked .bak/.backup/.temp artifacts (DT-06)` |
+| `ddce38a` | `chore(repo): untrack src/assets_backup from git (DT-05)` |
+| `81a2bed` | `docs(phase2): add depcheck audit report (Fase 2)` |
+| (cierre) | `docs(phase2): close phase 2, update inventory and progress` |
+
 ### 2026-04-19 (tarde) — Fase 1 (Sistema documental) ejecutada y cerrada
 
 **Canal:** claude.ai Project (Opus 4.7, ventana extendida)
@@ -384,7 +425,7 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | LCP mobile 4G | <2.5s techo, <2.0s objetivo | — | — |
 | CLS | <0.1 | — | — |
 | INP | <200 ms | — | — |
-| Horas acumuladas proyecto | — | 17 | 2026-04-19 |
+| Horas acumuladas proyecto | — | 19 | 2026-04-25 |
 
 ---
 

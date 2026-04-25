@@ -638,18 +638,22 @@ Viola AGENT.md §⚙️ regla 4: "no sensitive data in source code". Debe ir a `
 
 ### 16.3 src/assets_backup/ comprometido en git
 
-El directorio `src/assets_backup/` contiene 18 archivos duplicados con espacios en los nombres (`Editada 1.jpeg`, etc.). Añade peso innecesario al clone y al bundle si Vite los procesa. Debería estar en `.gitignore`.
+~~El directorio `src/assets_backup/` contiene 18 archivos duplicados con espacios en los nombres (`Editada 1.jpeg`, etc.). Añade peso innecesario al clone y al bundle si Vite los procesa. Debería estar en `.gitignore`.~~
+
+**✅ Resuelto en Fase 2, commit `ddce38a` (2026-04-25).** `git rm -r --cached src/assets_backup/` ejecutado (27 archivos desindexados). `.gitignore` actualizado con `src/assets_backup/`. Archivos conservados en disco.
 
 ### 16.4 Archivos .bak, .backup, .temp en git
 
-Archivos de trabajo comprometidos en el repositorio:
-- `src/components/ContactForm.tsx.bak`
-- `src/components/Footer.tsx.bak`
-- `src/components/Header.tsx.backup`
-- `src/components/Hero.tsx.backup`
-- `src/i18n/locales/es.json.backup`
-- `src/i18n/locales/en.json.temp`
-- `src/i18n/locales/es.json.temp`
+~~Archivos de trabajo comprometidos en el repositorio:~~
+~~- `src/components/ContactForm.tsx.bak`~~
+~~- `src/components/Footer.tsx.bak`~~
+~~- `src/components/Header.tsx.backup`~~
+~~- `src/components/Hero.tsx.backup`~~
+~~- `src/i18n/locales/es.json.backup`~~
+~~- `src/i18n/locales/en.json.temp`~~
+~~- `src/i18n/locales/es.json.temp`~~
+
+**✅ Resuelto en Fase 2, commit `a77f245` (2026-04-25).** Los 7 archivos eliminados con `git rm`. `.gitignore` actualizado con patrones `*.bak`, `*.backup`, `*.temp`.
 
 ### 16.5 Violaciones zero-any policy (14+ ocurrencias)
 
@@ -665,7 +669,9 @@ Archivos de trabajo comprometidos en el repositorio:
 
 ### 16.6 scripts/ no existe en el repositorio
 
-AGENT.md §🧪 y MASTER §9.3 referencian `scripts/with_server.py` (runner Playwright). El directorio `scripts/` no está en el repo. Los tests automatizados no son ejecutables sin crear este archivo.
+~~AGENT.md §🧪 y MASTER §9.3 referencian `scripts/with_server.py` (runner Playwright). El directorio `scripts/` no está en el repo. Los tests automatizados no son ejecutables sin crear este archivo.~~
+
+**✅ Resuelto en Fase 2, commit `f0743c7` (2026-04-25).** `scripts/with_server.py` creado. Smoke test pasado contra http://localhost:5173 (200, exit 0). Ver PHASE2_REPORT.md §2.
 
 ### 16.7 next-themes instalado pero ThemeProvider no wired
 
@@ -711,7 +717,9 @@ MASTER §5.2 describe `src/components/portfolio/` como "MÓDULO PRESERVADO". No 
 
 ### 16.14 Componentes potencialmente huérfanos
 
-No se encontraron importaciones activas de: `CTASection.tsx`, `GuaranteesSection.tsx`, `Process.tsx`, `Services.tsx`, `SimplePricingSection.tsx`. Candidatos a código muerto. Verificar con depcheck en Fase 2.
+~~No se encontraron importaciones activas de: `CTASection.tsx`, `GuaranteesSection.tsx`, `Process.tsx`, `Services.tsx`, `SimplePricingSection.tsx`. Candidatos a código muerto. Verificar con depcheck en Fase 2.~~
+
+**✅ Auditado en Fase 2 (2026-04-25). Ver PHASE2_REPORT.md §3.** Confirmados como huérfanos: CTASection, GuaranteesSection, Process, Services, SimplePricingSection. FloatingElements: huérfano diferido (único import es HorizontalShowcase, también DESCARTAR). Dossier completo listo para ejecución en Fase 5.1. NO eliminar hasta Fase 5.1.
 
 ### 16.15 SimplePricingSection.tsx duplica PricingSection.tsx
 
@@ -738,7 +746,9 @@ El paquete `react-compare-image` está instalado pero `Portfolio.tsx` implementa
 
 ### 16.20 Archivo sin extensión: "assetsFotos Portfolio"
 
-El árbol `src/` incluye `src/assetsFotos Portfolio` sin extensión. Puede ser un directorio con espacios en el nombre o un archivo mal nombrado. Requiere verificación manual.
+~~El árbol `src/` incluye `src/assetsFotos Portfolio` sin extensión. Puede ser un directorio con espacios en el nombre o un archivo mal nombrado. Requiere verificación manual.~~
+
+**✅ Resuelto en Fase 2, commit `f802256` (2026-04-25).** Verificado: era un archivo de texto ASCII de 2 bytes (solo CRLF). Sin referencias en ningún archivo fuente. Eliminado con `git rm`.
 
 ### 16.21 Primera migración con nombre UUID
 
