@@ -11,11 +11,11 @@
 
 ## Current status
 
-- **Fase actual:** Fase 0 (Inventario) **completada**. INVENTORY.md generado (770 líneas) y commiteado en `902b906`. Gate G0 validado por owner.
-- **Siguiente fase:** Fase 1 (Sistema documental). Se ejecuta en claude.ai Project con Opus 4.7, no en Antigravity.
-- **Próximo gate:** G1
-- **Siguiente acción inmediata:** abrir sesión estratégica en claude.ai Project para arrancar Fase 1. Outputs previstos: `docs/PORTFOLIO_SPEC.md`, `docs/CONTENT.md`, posible `docs/MIGRATION.md` inicial.
-- **Última actualización:** 2026-04-19 por Miguel + Claude Opus 4.7 (cierre Fase 0, D26-D28, MASTER v1.3, PROGRESS v1.5, CONTEXT_BRIEF v1.3).
+- **Fase actual:** Fase 1 (Sistema documental) **completada**. CONTENT.md y MIGRATION.md generados. MASTER.md actualizado a v1.4 (pivote D31). PROGRESS.md y CONTEXT_BRIEF.md sincronizados. Pendiente commit de cierre y validación humana del Gate G1.
+- **Siguiente fase:** Fase 2 (Auditoría técnica). Ejecuta en Antigravity con Claude Code (Sonnet 4.6, Effort Medium). Entregables: depcheck output, eliminación de archivos huérfanos `.bak/.backup/.temp` y `src/assets_backup/`, creación de `scripts/with_server.py`, validación de paquetes huérfanos.
+- **Próximo gate:** G1 (validación humana de CONTENT.md + MIGRATION.md + MASTER v1.4 + PROGRESS v1.6 + CONTEXT_BRIEF v1.4).
+- **Siguiente acción inmediata:** Miguel copia los 5 archivos al repo, hace commit único `docs: close Phase 1 with content + migration, pivot scope (D29-D32)`, sincroniza al Project claude.ai, y valida G1.
+- **Última actualización:** 2026-04-19 por Miguel + Claude Opus 4.7 (cierre Fase 1, D29-D32, MASTER v1.4, PROGRESS v1.6, CONTEXT_BRIEF v1.4, CONTENT.md v1.0, MIGRATION.md v1.0).
 
 ---
 
@@ -25,8 +25,8 @@
 |---|---|---|---|---|---|---|---|
 | Pre | Pre-arranque | ✅ Completa | — | 2026-04-18 | 2026-04-18 | ~7h | Bloque A cerrado. Repo operativo en `C:\dev\pixel-lens-craft`. Branch `redesign/v2-framer-base` publicada en origin con docs canónicos v1.1/v1.2/v1.1 en commit `f37e5ed`. Tags `v1.0-pre-redesign` y `v0.1-cinematic-v2-abandoned` subidos. Branches residuales limpiadas. |
 | 0 | Inventario | ✅ Completa | G0 ✓ | 2026-04-19 | 2026-04-19 | ~2h | Ejecutada en Antigravity con Claude Code (Sonnet 4.6, Effort Medium). Commit `902b906`. INVENTORY.md 770 líneas con §0-§18. 21 hallazgos en §16 consolidados como deuda técnica en MASTER §7.4 (DT-01 a DT-14). G0 validado por owner. |
-| 1 | Sistema documental | ⬜ Pendiente | G1 | — | — | — | — |
-| 2 | Auditoría técnica | ⬜ Pendiente | G2 | — | — | — | — |
+| 1 | Sistema documental | ✅ Completa | G1 (pendiente validación) | 2026-04-19 | 2026-04-19 | ~6h | Ejecutada en claude.ai Project (Opus 4.7). Outputs: CONTENT.md v1.0 (45 KB, copy ES + draft EN para Home + /portfolio + /portfolio-webs + chrome global, 10 anti-patrones, keys huérfanas, diff conceptual), MIGRATION.md v1.0 (clasificación archivo por archivo: 16 CREAR + 12 REBUILD + 6 REFACTOR + 13 DESCARTAR + 14 PRESERVAR). Pivote D31 (rediseño UI completo de portfolios). D29-D32 registradas. Q01-Q04 y Q06-Q08 cerradas. MASTER v1.4, PROGRESS v1.6, CONTEXT_BRIEF v1.4 sincronizados. |
+| 2 | Auditoría técnica | ⬜ Pendiente | G2 | — | — | — | Antigravity Sonnet 4.6, ~2-3h. Depcheck, limpieza archivos huérfanos, creación scripts/with_server.py, resolución DT-04, DT-05, DT-06, DT-13. |
 | 3 | Design system build | ⬜ Pendiente | G3 | — | — | — | Crítico: flip colores + dark default + pairing Playfair/Inter |
 | 4 | Esqueleto y rutas | ⬜ Pendiente | G4 | — | — | — | — |
 | 5 | Migración contenido + portfolio | ⬜ Pendiente | G5 | — | — | — | Subfases 5.1-5.5 |
@@ -248,6 +248,62 @@ Próximo paso concreto:
 - Sync al Project en claude.ai.
 - Abrir sesión nueva en claude.ai Project (Opus 4.7) para diseñar Fase 1. Outputs previstos: `PORTFOLIO_SPEC.md` y `CONTENT.md`.
 
+### 2026-04-19 (tarde) — Fase 1 (Sistema documental) ejecutada y cerrada
+
+**Canal:** claude.ai Project (Opus 4.7, ventana extendida)
+**Duración:** ~6h acumuladas en sesiones del 19-abril
+
+Contexto:
+- Fase 0 cerrada con INVENTORY.md commiteado en `902b906` y Gate G0 validado.
+- Owner aporta archivos del repo a la sesión: `Index.tsx`, `Portfolio.tsx`, `PortfolioWebs.tsx`, `WebPortfolioShowcase.tsx`, `Hero.tsx`, `Header.tsx`, `HorizontalShowcase.tsx`, `StickyScrollSection.tsx`, `WhyUs.tsx`, `About.tsx`, `Testimonials.tsx`, `FormSection.tsx`, `ServiceSelector.tsx`, `PricingSection.tsx`, `Footer.tsx`, locales `es.json` y `en.json`.
+- Owner declara explícitamente eliminación del deadline duro May 31. Proyecto orientado a aprendizaje, ritmo dictado por ventanas de cuota Pro y validación humana.
+
+Acciones principales:
+- Auditoría visual completa de la UI actual de las páginas públicas.
+- Diseño conceptual de Home en 8 bloques editoriales (Hero, Servicios, Casos web, Trabajo fotográfico, Cómo trabajamos, Quiénes somos, Testimonios, Contacto).
+- Diseño conceptual de /portfolio en 4 bloques (Header, Intro contextual, Galería con `react-compare-image`, Cierre).
+- Diseño conceptual de /portfolio-webs en 4 bloques (Header, Intro metodológica, 3 casos de estudio editorial, Cierre).
+- Validación conceptual por owner (Niveles 1+2+3 confirmados).
+- Owner aplica criterio de Claude en 3 detalles: equipo (Opción A1 fotos individuales apiladas), ServiceSelector (layout editorial nuevo, no split-screen), Golden Coast Charter (mantener si hay captura, descartar si no).
+- Audit de honestidad: Claude detecta y declara contenido inventado en su propia propuesta (Stripe en TropiDenia, tiempos de edición "20-40 min", software Lightroom+Photoshop). Owner confirma instrucción de "usar lo que está puesto en la web".
+- 4 micro-decisiones de honestidad cerradas por owner: D31.1 (quitar +40% TropiDenia), D31.2 (quitar tag WordPress BVS), D31.3 (descripción única por caso web), D31.4 (Bloque B /portfolio reducido sin números).
+- Owner confirma descarte de Golden Coast Charter (no se encuentra captura usable).
+
+Pivote de scope (D31):
+- Diagnóstico: la "preservación verbatim" del portfolio original (D01) chocaba con la dirección Editorial Structural. Mantener `HorizontalShowcase`, `WebPortfolioShowcase` con sus gradientes naranja-rojo, glow blur y FloatingElements 3D habría reproducido el problema "Frankenstein" identificado al inicio del proyecto.
+- Decisión D31: rediseño UI completo de `/portfolio` y `/portfolio-webs`. Se preserva solo lógica reutilizable (módulos técnicos en `src/integrations/`, `src/lib/`, `src/contexts/`, `src/hooks/`). Componentes UI antiguos pasan a DESCARTAR.
+- Coste: ~9h adicionales de Antigravity en Fase 5.5 vs el "lift-and-shift" original. Beneficio: coherencia editorial completa.
+
+Generación de docs satélites Fase 1:
+- `CONTENT.md` v1.0 (45 KB): copy completo ES + draft EN para Home (8 bloques), /portfolio (4 bloques), /portfolio-webs (4 bloques), chrome global (Header, Footer, WhatsApp). 10 anti-patrones de copy. Keys i18n nuevas (~110), modificadas (~55), eliminadas (~62). Diff conceptual con copy actual. Validación pendiente (traducción EN, captions concretos por imagen, datos confirmados de email/horario).
+- `MIGRATION.md` v1.0 (23 KB): clasificación archivo por archivo. 16 CREAR (subcomponentes Home + portfolio + portfolio-webs + datos + scripts/with_server.py + lib/motion.ts), 12 REBUILD (Hero, Header, Footer, FormSection, Testimonials, Index.tsx, Portfolio.tsx, PortfolioWebs.tsx, locales, etc.), 6 REFACTOR (NotFound, WhatsAppButton, PageLoader, SectionDivider, páginas legales, ContactForm), 13 DESCARTAR (ServiceSelector, HorizontalShowcase, FloatingElements, StickyScrollSection, PricingSection, SimplePricingSection, WhyUs, About antiguo, WebPortfolioShowcase, ProjectCard, showcaseData, processData, huérfanos confirmados), 14 PRESERVAR (lógica intocable). Orden ejecución Fase 5 en 4 subfases (5.1, 5.2, 5.4, 5.5).
+
+Sincronización docs canónicos:
+- MASTER.md v1.3 → v1.4: §0 sin deadline, §1.2 sin fechas duras, §1.3 non-goal portfolio marcado obsoleto, §1.4 puntos 4 obsoleto + 10-12 añadidos con D29-D31, §6.3 reescrita completamente bajo D31 (rediseño UI completo, no más "preservación verbatim"), §7.1 clasificación con CREAR + DIFERIR, §7.4 con DT-15 (huérfanas i18n) + estado "plan confirmado" en items con resolución natural, §13 D29-D32, Q01-Q04 + Q06-Q08 cerradas, §15 changelog.
+- PROGRESS.md v1.5 → v1.6 (este archivo): phase tracker Fase 1 ✅, sesión 19-abril tarde añadida, D29-D32 en decisions log, Q01-Q04+Q06-Q08 cerradas en preguntas abiertas, horas acumuladas actualizadas a 17.
+- CONTEXT_BRIEF.md v1.3 → v1.4: sección 3.15 nueva (pivote D31 y protocolo D32), riesgo 11 sobre validación estética pre-Antigravity.
+
+Hallazgos archivados en este sesión:
+- WhyUs.tsx tiene número WhatsApp distinto del resto del sitio (`34634408043` vs `34667326300`). Bug pre-existente, se cierra al DESCARTAR el componente en Fase 5.1.
+- `react-compare-image` ya instalado pero no usado. Se aprovecha en `PortfolioGallery.tsx` (Bloque C de /portfolio) y en `HomePhotoShowcase.tsx` (Bloque 4 de Home). Cierra DT-12.
+- Componentes huérfanos de INVENTORY §16.14 (CTASection, GuaranteesSection, Process, Services, SimplePricingSection) confirmados como DESCARTAR en MIGRATION.md §7. Cierra DT-07 plan.
+- Keys i18n huérfanas adicionales detectadas: `portfolioShowcase.goldencoast.*` (7 keys, nunca renderizadas) + `photoPacks.trial/basic/standard/premium.*` (reemplazadas por corporate/realestate/events/gastronomy/custom). Nuevo DT-15 añadido a MASTER §7.4.
+
+Outputs finales de la sesión (pre-commit de cierre Fase 1):
+- `docs/MASTER.md` v1.4
+- `docs/PROGRESS.md` v1.6 (este)
+- `docs/CONTEXT_BRIEF.md` v1.4
+- `docs/CONTENT.md` v1.0 (nuevo)
+- `docs/MIGRATION.md` v1.0 (nuevo)
+
+Próximo paso concreto:
+- Miguel descarga los 5 archivos del Project, los copia a `docs/` en el repo local `C:\dev\pixel-lens-craft`.
+- Commit único: `docs: close Phase 1 with content + migration, pivot scope (D29-D32)`.
+- Push a `origin/redesign/v2-framer-base`.
+- Sync al Project claude.ai (knowledge actualizado).
+- Validación humana del Gate G1.
+- Apertura de sesión nueva en claude.ai Project para diseñar brief O.D.A. de Fase 2 (Antigravity Sonnet 4.6: depcheck, limpieza huérfanos, creación scripts/with_server.py).
+
 ---
 
 ## Decisions log
@@ -282,6 +338,10 @@ Próximo paso concreto:
 | D26 | 2026-04-19 | Unificar puerto dev en 5173. Modificar `vite.config.ts` en Fase 3 como parte de DT-03 | AGENT.md y scripts existentes ya asumen 5173. Default de Vite. Coste: 1 línea. Origen: Q09 tras INVENTORY §16.1 | No |
 | D27 | 2026-04-19 | Portfolio es módulo distribuido sin carpeta propia. Fase 1 genera `PORTFOLIO_SPEC.md` con lista exacta de archivos preservados verbatim | INVENTORY §16.12 confirma ausencia de `src/components/portfolio/`. Entry real en `src/pages/Portfolio.tsx` con dependencias dispersas. Resolución Q10 | No |
 | D28 | 2026-04-19 | Deuda técnica preexistente tratada progresivamente. Tabla en MASTER §7.4 con 14 items DT-01 a DT-14 y fase de resolución asignada | Rediseño tocará los archivos afectados. Fase dedicada de saneamiento = trabajo doble. Coste marginal de limpiar al reescribir es ~0 | No |
+| D29 | 2026-04-19 | Confirmación consolidada dirección estética: dark mode default + flip naranja primary / azul accent + pairing Playfair Display H1/H2 + Inter body/UI + dirección "Editorial Structural". Cierra Q02, Q03, Q06, Q07 | Owner valida sin cambios la propuesta inicial tras revisión completa del trabajo de Fase 1. No hay evidencia que reabra D02, D03, D11, D12. Confirmación necesaria antes de Fase 3 (Design System build) | No |
+| D30 | 2026-04-19 | Target del formulario de contacto: WhatsApp como canal primario via `wa.me/{VITE_WHATSAPP_NUMBER}` con mensaje pre-formateado, email `studiopixelens@gmail.com` como fallback secundario. Supabase descartado como target. Cierra Q01 y Q08 | Coherente con AGENT.md que sugiere WhatsApp. Mantiene freeze de `supabase/` durante Sprint 1. Email visible aporta opción para usuarios que prefieren canal asincrónico | No |
+| D31 | 2026-04-19 | **Pivote de scope**: rediseño UI completo de `/portfolio` y `/portfolio-webs`. Supersede el non-goal "no rehacer portfolio" de §1.3 y la regla "preservación verbatim" de D01 en lo relativo a UI. Sub-decisiones: D31.1 quitar claim "+40%" TropiDenia (no verificable), D31.2 quitar tag "WordPress" BVS (incoherente con stack declarado), D31.3 descripción única por caso web (no bicolumna Problema/Solución), D31.4 Bloque B /portfolio reducido sin números | Auditoría visual durante Fase 1 mostró que la UI actual del portfolio (gradientes naranja-rojo, glow effects, FloatingElements 3D, layout SaaS) choca frontalmente con dirección Editorial Structural. Mantenerla reproducía el problema "Frankenstein" identificado al inicio. D31.1-D31.4 priorizan honestidad sobre claims comerciales no verificables | No |
+| D32 | 2026-04-19 | Protocolo: validación estética por owner en chat antes de pasar brief O.D.A. crítico de UI a Antigravity. Aplicable a Fase 3 (Design System) y Fase 5 (rediseño página por página) | Cinematic-v2 abandonado (D19) demostró el coste de ejecutar UI compleja sin validación previa. Una conversación de 30 minutos en chat ahorra 4-6 horas de Antigravity rehechas. Aplica solo a UI: tareas técnicas mecánicas no requieren esta validación | En G3 si proceso rompe |
 
 ---
 
@@ -299,16 +359,16 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 
 | # | Pregunta | Bloquea fase | Fecha planteada | Respuesta |
 |---|---|---|---|---|
-| Q01 | Target del formulario de contacto (WhatsApp per AGENT.md, email, o tabla Supabase nueva) | 5.4 | 2026-04-18 | Pendiente |
-| Q02 | Confirmar dark mode como default | 3 | 2026-04-18 | Pendiente |
-| Q03 | Confirmar flip orange→primary, blue→accent | 3 | 2026-04-18 | Pendiente |
-| Q04 | ¿About actual existe con copy propio, o redactar desde cero? | 5.3 | 2026-04-18 | Pendiente |
+| Q01 | Target del formulario de contacto (WhatsApp per AGENT.md, email, o tabla Supabase nueva) | 5.4 | 2026-04-18 | **Resuelta 2026-04-19** → D30 (WhatsApp `wa.me/{VITE_WHATSAPP_NUMBER}` primario + email `studiopixelens@gmail.com` fallback) |
+| Q02 | Confirmar dark mode como default | 3 | 2026-04-18 | **Resuelta 2026-04-19** → D29 (confirmado) |
+| Q03 | Confirmar flip orange→primary, blue→accent | 3 | 2026-04-18 | **Resuelta 2026-04-19** → D29 (confirmado) |
+| Q04 | ¿About actual existe con copy propio, o redactar desde cero? | 5.3 | 2026-04-18 | **Resuelta 2026-04-19** → CONTENT.md §3.6 (redactado nuevo, fusiona About + WhyUs en `home.about.*` con trust signals integrados) |
 | Q05 | ¿Banner de cookies existente en el repo? | 5 legal | 2026-04-18 | Pendiente (auditar en Fase 2) |
-| Q06 | Confirmar pairing tipográfico Playfair + Inter, o preferencia distinta | 3 | 2026-04-18 | Pendiente |
-| Q07 | Confirmar "Editorial Structural" como dirección estética, o pivot a Framer puro / editorial puro | 3 | 2026-04-18 | Pendiente |
-| Q08 | Formato WhatsApp en Contact (AGENT.md lo sugiere como target) | 5.4 | 2026-04-18 | Pendiente |
+| Q06 | Confirmar pairing tipográfico Playfair + Inter, o preferencia distinta | 3 | 2026-04-18 | **Resuelta 2026-04-19** → D29 (confirmado) |
+| Q07 | Confirmar "Editorial Structural" como dirección estética, o pivot a Framer puro / editorial puro | 3 | 2026-04-18 | **Resuelta 2026-04-19** → D29 (confirmado) |
+| Q08 | Formato WhatsApp en Contact (AGENT.md lo sugiere como target) | 5.4 | 2026-04-18 | **Resuelta 2026-04-19** → D30 (`wa.me/{VITE_WHATSAPP_NUMBER}` con mensaje prefilled `common.whatsapp.prefilledMessage`) |
 | Q09 | Puerto dev 8080 vs 5173 | 0 → 3 | 2026-04-19 | **Resuelta** → D26 (5173 estándar) |
-| Q10 | `src/components/portfolio/` no existe como carpeta | 1 | 2026-04-19 | **Resuelta** → D27 (módulo distribuido, Fase 1 lo consolida en `PORTFOLIO_SPEC.md`) |
+| Q10 | `src/components/portfolio/` no existe como carpeta | 1 | 2026-04-19 | **Resuelta** → D27 (módulo distribuido, ahora reorganizado en subdirectorios temáticos por D31) |
 
 ---
 
@@ -324,7 +384,7 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | LCP mobile 4G | <2.5s techo, <2.0s objetivo | — | — |
 | CLS | <0.1 | — | — |
 | INP | <200 ms | — | — |
-| Horas acumuladas proyecto | — | 11 | 2026-04-19 |
+| Horas acumuladas proyecto | — | 17 | 2026-04-19 |
 
 ---
 
@@ -354,3 +414,4 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | 1.3 | 2026-04-18 | Miguel + Claude Opus 4.7 | Cierre oficial Bloque A. D19 (descarte cinematic-v2 con tag salvaguarda), D20 (despublicar Cloudflare Pages), D21 (protocolo actualización PROGRESS.md por gate). Phase tracker: Pre-arranque ✅ completa, Fase 0 siguiente. Commit `f37e5ed` de docs canónicos registrado. Tag `v0.1-cinematic-v2-abandoned` añadido. Sesión noche ampliada con descubrimiento, auditoría y descarte de rediseño previo. Post-launch actualizado con despublicación Cloudflare. Branch residual `git-checkout--b-redesign/v2-framer-base` retirada del post-launch (ya ejecutada). Horas acumuladas a 7. |
 | 1.4 | 2026-04-18 | Miguel + Claude Opus 4.7 | Intermedio opcional cerrado: evaluación pack `getdesign/framer`. Sesión noche-2 añadida con contexto, ejecución en sandbox, análisis de conflictos, decisión final. D22 (descarte global del pack), D23 (rechazo pills 100px), D24 (no copiar DESIGN.md al repo), D25 (OpenType Inter global). Current status actualizado con cierre de intermedio. Horas acumuladas a 8. MASTER.md v1.2 referenciado como commit anterior a este sync. |
 | 1.5 | 2026-04-19 | Miguel + Claude Opus 4.7 | Cierre Fase 0. Sesión 2026-04-19 añadida con ejecución Antigravity (Sonnet 4.6), validación G0, hallazgos INVENTORY §16 (21 items). Phase tracker Fase 0 ✅ con commit `902b906` y 770 líneas. D26 (puerto 5173), D27 (portfolio distribuido), D28 (deuda técnica progresiva con 14 items DT en MASTER §7.4). Q09 y Q10 resueltas. Horas acumuladas a 11. Nota operativa archivada sobre Co-Authored-By en Antigravity. |
+| 1.6 | 2026-04-19 | Miguel + Claude Opus 4.7 | Cierre Fase 1 (Sistema documental). Sesión 2026-04-19 (tarde) añadida: auditoría visual UI actual, diseño conceptual Home (8 bloques), /portfolio (4 bloques), /portfolio-webs (4 bloques), validación owner Niveles 1-3, audit de honestidad (claims inventados detectados y corregidos), 4 micro-decisiones D31.1-D31.4. Pivote D31 (rediseño UI completo portfolios). Outputs: CONTENT.md v1.0 (45 KB), MIGRATION.md v1.0 (23 KB). Phase tracker Fase 1 ✅. D29 (consolidación dirección estética), D30 (WhatsApp + email fallback), D31 (pivote scope), D32 (validación estética pre-Antigravity). Q01-Q04, Q06-Q08 resueltas. DT-15 añadido (huérfanas i18n). Horas acumuladas a 17. |

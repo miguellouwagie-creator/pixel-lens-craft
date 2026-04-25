@@ -190,13 +190,42 @@ Archivada tras Fase 0:
 - **Aprobación de comandos**: usar siempre "1 Yes" puntual, nunca "allow for project". La fricción de aprobar 30-50 comandos en una fase de inventario es aceptable. La alternativa es perder control sobre escrituras.
 - **Cuota Pro**: Fase 0 consumió ~94% de una ventana de 5h. Fases posteriores pueden requerir más de una ventana. Planificar puntos de pausa con commit parcial.
 
+### 3.15 Hallazgos Fase 1 y pivote de scope (D31, D32)
+
+Cierre 2026-04-19. Tres lecciones operativas de la sesión Fase 1:
+
+**Pivote D31: rediseño UI completo de portfolios.**
+- La regla original "preservación verbatim del portfolio" (D01 + §1.3 non-goal) asumía que la UI actual era aceptable. La auditoría visual durante Fase 1 mostró lo contrario: gradientes naranja-rojo, glow effects, FloatingElements 3D, layout SaaS 2019-2021. Inconsistente con la dirección "Editorial Structural" del resto del rediseño.
+- Decisión: rediseño UI completo de `/portfolio` y `/portfolio-webs`. Se preserva solo lógica reutilizable (módulos técnicos en `src/integrations/`, `src/lib/`, `src/contexts/`, `src/hooks/`). Ver MASTER §6.3 v1.4 y MIGRATION.md.
+- Coste: ~9h adicionales de Antigravity en Fase 5.5. Beneficio: coherencia editorial completa.
+- **Lección operativa para futuros proyectos**: la "preservación verbatim" como decisión de scope debe revisarse después de auditoría visual del módulo a preservar, no antes. Una decisión de preservación basada solo en stack técnico ("funciona, no migrar") puede chocar con la dirección estética cuando emerge.
+
+**Honestidad de copy: anti-patrón de claims comerciales no verificables.**
+- Durante Fase 1 emergieron varios claims pre-existentes en el copy actual sin sustento verificable: `+40% más ingresos` en TropiDenia, `+200 empresas impulsadas`, tag `WordPress` en BVS contradiciendo el discurso React-only.
+- Decisión D31.1-D31.4 + CONTENT.md §7 anti-patrón #4: no se incluyen métricas ni claims sin captura, contrato o fuente pública. Sustantivo > adjetivo. Hechos > superlativos.
+- **Lección operativa**: cuando el rediseño copia el copy del existente, el rediseño hereda los problemas del existente. Auditar copy antiguo con la misma severidad que código antiguo.
+
+**Protocolo D32: validación estética pre-Antigravity.**
+- El rediseño abandonado `redesign/cinematic-v2` (D19) costó tiempo porque ejecutó UI sin validación previa. Estética "Cinematic Architect" no encajaba con el resto del proyecto, descubierta solo tras 20 commits.
+- Decisión D32: cualquier brief O.D.A. crítico de UI requiere visto bueno conceptual de Miguel en chat antes de ejecutar en Antigravity. Bloques completos validados verbalmente antes de pasar a código.
+- Aplicable a Fase 3 (Design System) y Fase 5 (rediseño página por página). No aplica a tareas técnicas mecánicas (depcheck, config, scripts).
+- Coste: ~30 min de chat por subfase. Beneficio: evitar 4-6h de Antigravity rehechas.
+
+### 3.16 Eliminación de deadline duro
+
+El 19-abril-2026 owner declara explícitamente que el proyecto pasa a régimen de aprendizaje sin deadline duro.
+
+- Fechas anteriores eliminadas: ya no aplica May 15 (interno) ni May 31 (mudanza Basilea).
+- Ritmo dictado por: ventanas de cuota Pro 5h, validación humana entre fases, respeto a tiempo paralelo del owner.
+- Implicación para sesiones futuras: Claude no presiona por velocidad. Claude prioriza calidad de output, validación de owner, y aprendizaje técnico explícito cuando aplique.
+
 ---
 
 ## 4. Constraints personales relevantes del owner
 
 - **Timezone:** Europe/Madrid.
-- **Deadline hard:** 31 mayo 2026. Mudanza a Basilea el 1 de junio.
-- **Deadline objetivo:** 15 mayo 2026.
+- **Deadline:** sin deadline duro (revisado 2026-04-19, sección 3.16). Proyecto orientado a aprendizaje pragmático.
+- **Mudanza:** Miguel se muda a Basilea el 1 de junio. La mudanza no es deadline del proyecto, pero sí condiciona ritmo (semanas previas con menor disponibilidad).
 - **Disponibilidad semanal estimada:** 6-10 horas útiles.
 - **Paralelo:** Máster ENEB en curso con entregables.
 - **Suscripción Claude:** Pro 20 €/mes, ventana 5h.
@@ -269,6 +298,7 @@ Cuando Claude Code abre el repo en Antigravity, lee AGENT.md antes que nada. Las
 8. **Zero `any` no se respeta.** Si se cuela un `any` en código nuevo, la auditoría de seguridad Sprint 2 falla. Revisar en cada PR.
 9. **Herramientas CLI prescriptivas sin jerarquía clara.** CLIs tipo `getdesign`, `shadcn` o equivalentes pueden generar archivos de instrucciones (.md prescriptivos) que competirían con AGENT.md y MASTER.md §3 por ser fuente de verdad de diseño para coding agents. Mitigación: antes de correr cualquier CLI de este tipo, verificar si genera archivos prescriptivos o aditivos. Si prescriptivos, pasar por evaluación (como se hizo con getdesign/framer en sesión 18-abril noche-2) antes de copiar nada al repo. Decisión D24 formaliza: ningún documento de diseño entra al repo fuera de MASTER §3 y sus anexos controlados.
 10. **Divergencia silenciosa entre MASTER y realidad del repo.** Fase 0 demostró que MASTER v1.2 idealizaba estructuras ausentes (scripts/, portfolio/, layout/, sections/, lib/motion.ts, lib/supabase.ts, types/) y documentaba env vars que no coinciden con el código. Riesgo: si agentes IA ejecutan briefs basados en MASTER sin cross-checkear con el repo, tomarán decisiones sobre ficciones. Mitigación: 1) MASTER v1.3 §5.2 ahora es descriptiva del repo real + tabla de divergencias. 2) Fases futuras que creen archivos nuevos (scripts/, PORTFOLIO_SPEC.md) deben actualizar MASTER §5.2 en el mismo commit. 3) Regla operativa añadida: cuando realidad del código y descripción documental difieran, la realidad gana y dispara actualización del documento.
+11. **Validación humana como cuello de botella en proceso D32.** El protocolo D32 (validación estética en chat antes de Antigravity) introduce un paso síncrono que depende de la disponibilidad de Miguel. Si una sesión arranca sin validación previa pendiente cerrada, el trabajo se paraliza. Mitigación: 1) cada cierre de sesión deja explícitamente lo siguiente que requiere validación, en lenguaje claro y con preguntas concretas. 2) Si una decisión estética no es crítica (ej. radius de un componente secundario), Claude puede ejecutar con criterio propio y marcar para revisión post-hoc, no bloquear. 3) D32 aplica a UI crítica (Home, portfolios, Header, Footer), no a cada decisión menor. 4) Si owner no responde en 48h y el trabajo no es crítico, Claude puede actuar con criterio archivado y abrir Q nueva si emerge duda.
 
 ---
 
@@ -291,3 +321,4 @@ Cuando Claude Code abre el repo en Antigravity, lee AGENT.md antes que nada. Las
 | 1.1 | 2026-04-18 | Miguel + Claude Opus 4.7 | Sección 1.4 (AGENT.md y CLAUDE.md como priors). Sección 3.7 refinada a Editorial Structural. Añadidas 3.8-3.11 (pairing tipográfico, branch `dev`, commits, Playwright). 6.4 coexistencia con AGENT.md. Riesgo 7-8 añadidos. |
 | 1.2 | 2026-04-18 | Miguel + Claude Opus 4.7 | Riesgo 9 añadido sobre herramientas CLI prescriptivas. Contexto: evaluación y descarte global de `getdesign/framer` en sesión noche-2 del 18-abril (ver MASTER §3.9 y PROGRESS D22-D25). |
 | 1.3 | 2026-04-19 | Miguel + Claude Opus 4.7 | §3.11 actualizada (puerto real 8080, scripts/ pendiente). §3.13 nueva: hallazgos post-Fase 0 y reconciliación con repo (D26-D28). §3.14 nueva: notas operativas Antigravity (Co-Authored-By, aprobaciones, cuota). Riesgo 10 sobre divergencia MASTER vs realidad del repo. |
+| 1.4 | 2026-04-19 | Miguel + Claude Opus 4.7 | Cierre Fase 1. §3.15 nueva: pivote D31 (rediseño UI completo portfolios) + lecciones operativas (preservación verbatim revisable post-auditoría visual, anti-patrón claims comerciales no verificables, protocolo D32 de validación pre-Antigravity). §3.16 nueva: eliminación de deadline duro (proyecto orientado a aprendizaje, sin May 15 ni May 31). §4 actualizada eliminando deadlines obsoletos, mantiene mudanza como factor de ritmo no como deadline. Riesgo 11 sobre validación humana D32 como cuello de botella, con mitigación de 4 puntos. |
