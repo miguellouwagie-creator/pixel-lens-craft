@@ -64,3 +64,4 @@ yarn-error.log*
 *.bak
 *.backup
 *.temp
+src/assets_backup/
