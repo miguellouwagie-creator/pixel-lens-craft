@@ -19,6 +19,11 @@ const LegalNotice = lazy(() => import("./pages/legal/LegalNotice"));
 const PrivacyPolicy = lazy(() => import("./pages/legal/PrivacyPolicy"));
 const CookiesPolicy = lazy(() => import("./pages/legal/CookiesPolicy"));
 
+// Dev-only: design system styleguide
+const Styleguide = import.meta.env.DEV
+  ? lazy(() => import("./pages/Styleguide"))
+  : null;
+
 const App = () => (
   <TooltipProvider>
     <Toaster />
@@ -36,6 +41,10 @@ const App = () => (
         <Route path="/aviso-legal" element={<LegalNotice />} />
         <Route path="/privacidad" element={<PrivacyPolicy />} />
         <Route path="/cookies" element={<CookiesPolicy />} />
+
+        {import.meta.env.DEV && Styleguide && (
+          <Route path="/styleguide" element={<Styleguide />} />
+        )}
 
         <Route path="*" element={<NotFound />} />
       </Routes>
