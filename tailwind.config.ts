@@ -20,33 +20,42 @@ export default {
     },
     extend: {
       fontFamily: {
-        // Inter como fuente principal profesional de alto valor
         sans: [
           "Inter",
           "system-ui",
           "-apple-system",
           "BlinkMacSystemFont",
-          "Segoe UI",
+          "'Segoe UI'",
           "Roboto",
-          "Arial",
           "sans-serif",
         ],
+        display: ["'Playfair Display'", "Georgia", "serif"],
       },
       fontSize: {
-        // Sistema de escala tipográfica profesional (ratio 1.25)
-        xs: ["0.75rem", { lineHeight: "1rem" }], // 12px
-        sm: ["0.875rem", { lineHeight: "1.25rem" }], // 14px
-        base: ["1rem", { lineHeight: "1.5rem" }], // 16px - CUERPO
-        lg: ["1.125rem", { lineHeight: "1.75rem" }], // 18px
-        xl: ["1.25rem", { lineHeight: "1.75rem" }], // 20px
-        "2xl": ["1.5rem", { lineHeight: "2rem" }], // 24px
-        "3xl": ["1.875rem", { lineHeight: "2.25rem" }], // 30px - H3
-        "4xl": ["2.25rem", { lineHeight: "2.5rem" }], // 36px - H2
-        "5xl": ["3rem", { lineHeight: "1.2" }], // 48px - H1
-        "6xl": ["3.75rem", { lineHeight: "1.2" }], // 60px
-        "7xl": ["4.5rem", { lineHeight: "1.1" }], // 72px
-        "8xl": ["6rem", { lineHeight: "1.1" }], // 96px
-        "9xl": ["8rem", { lineHeight: "1" }], // 128px
+        // Tailwind default scale preserved (xs-9xl) + DS scale 1.333 (h1-eyebrow)
+        xs: ["0.75rem", { lineHeight: "1rem" }],
+        sm: ["0.875rem", { lineHeight: "1.25rem" }],
+        base: ["1rem", { lineHeight: "1.5rem" }],
+        lg: ["1.125rem", { lineHeight: "1.75rem" }],
+        xl: ["1.25rem", { lineHeight: "1.75rem" }],
+        "2xl": ["1.5rem", { lineHeight: "2rem" }],
+        "3xl": ["1.875rem", { lineHeight: "2.25rem" }],
+        "4xl": ["2.25rem", { lineHeight: "2.5rem" }],
+        "5xl": ["3rem", { lineHeight: "1.2" }],
+        "6xl": ["3.75rem", { lineHeight: "1.2" }],
+        "7xl": ["4.5rem", { lineHeight: "1.1" }],
+        "8xl": ["6rem", { lineHeight: "1.1" }],
+        "9xl": ["8rem", { lineHeight: "1" }],
+        // DS scale 1.333 (perfect fourth). H6 intentionally outside scale (D33-F2): eyebrow/label role.
+        "h1": ["clamp(2.75rem, 6vw + 1rem, 5.5rem)", { lineHeight: "1.0", letterSpacing: "-0.02em", fontWeight: "900" }],
+        "h2": ["clamp(2.25rem, 4vw + 1rem, 3.75rem)", { lineHeight: "1.05", letterSpacing: "-0.015em", fontWeight: "700" }],
+        "h3": ["clamp(1.75rem, 3vw + 0.75rem, 2.75rem)", { lineHeight: "1.15", letterSpacing: "-0.01em", fontWeight: "700" }],
+        "h4": ["1.875rem", { lineHeight: "1.25", letterSpacing: "0", fontWeight: "700" }],
+        "h5": ["1.4rem", { lineHeight: "1.35", letterSpacing: "0", fontWeight: "600" }],
+        "h6": ["1.05rem", { lineHeight: "1.4", letterSpacing: "0.01em", fontWeight: "600" }],
+        "body": ["1rem", { lineHeight: "1.65", letterSpacing: "0" }],
+        "prose-editorial": ["1.0625rem", { lineHeight: "1.7", letterSpacing: "0" }],
+        "eyebrow": ["0.75rem", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "600" }],
       },
       fontWeight: {
         normal: "400",
@@ -85,6 +94,14 @@ export default {
         accent: {
           DEFAULT: "hsl(var(--accent))",
           foreground: "hsl(var(--accent-foreground))",
+        },
+        success: {
+          DEFAULT: "hsl(var(--success))",
+          foreground: "hsl(var(--success-foreground))",
+        },
+        warning: {
+          DEFAULT: "hsl(var(--warning))",
+          foreground: "hsl(var(--warning-foreground))",
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
