@@ -9,74 +9,51 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    /* Pixel & Lens Digital Brand Colors */
-    /* Dominant (60% approx) */
+    /* Base */
     --background: 220 20% 98%;
-    /* Light Grayish Blue */
     --foreground: 217 19% 27%;
-    /* Dark Desaturated Blue */
 
+    /* Primary (orange) */
+    --primary: 20 91% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Accent (blue) */
+    --accent: 221 68% 33%;
+    --accent-foreground: 0 0% 100%;
+    --secondary: 221 68% 33%;
+    --secondary-foreground: 0 0% 100%;
+
+    /* Surfaces */
+    --muted: 220 14% 94%;
+    --muted-foreground: 220 9% 40%;
     --card: 0 0% 100%;
-    /* White */
     --card-foreground: 217 19% 27%;
-    /* Dark Desaturated Blue */
-
     --popover: 0 0% 100%;
     --popover-foreground: 217 19% 27%;
 
-    /* Brand (30% approx) */
-    --primary: 221 68% 33%;
-    /* Strong Blue */
-    --primary-foreground: 0 0% 100%;
-    /* White */
+    /* Borders / Inputs */
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 20 91% 48%;
 
-    /* Accent (10% approx) */
-    --cta: 20 91% 48%;
-    /* Vivid Orange */
-    --cta-foreground: 0 0% 100%;
-    /* White */
-    --accent: 20 91% 48%;
-    /* Same as CTA for simplicity */
-    --accent-foreground: 0 0% 100%;
-
-    /* Neutrals & Functional */
-    --secondary: 220 20% 98%;
-    /* Same as background */
-    --secondary-foreground: 217 19% 27%;
-    /* Same as foreground */
-
-    --muted: 220 20% 98%;
-    /* Same as background */
-    /* MODIFICADO: Oscurecido para mejorar contraste AA (de 46% a 40%) */
-    --muted-foreground: 220 9% 40%;
-    /* Grayish Blue - Contrast Ratio > 4.5:1 on background */
-
+    /* Estados semanticos (D33) */
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
+    --success: 142 45% 36%;
+    --success-foreground: 0 0% 100%;
+    --warning: 45 92% 48%;
+    --warning-foreground: 220 30% 6%;
 
-    --border: 220 13% 91%;
-    /* Light Gray */
-    --input: 220 13% 91%;
-    --ring: 221 68% 33%;
-    /* Primary Blue */
+    /* INFO no existe como token. Usar --accent. */
 
+    /* Radius */
     --radius: 0.5rem;
-
-    /* Custom gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(221, 68%, 45%));
-    --gradient-hero: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(221, 68%, 25%) 100%);
-    --gradient-cta: linear-gradient(135deg, hsl(var(--cta)), hsl(20, 91%, 55%));
-
-    /* Shadows */
-    --shadow-soft: 0 2px 8px hsla(var(--primary), 0.08);
-    --shadow-medium: 0 4px 16px hsla(var(--primary), 0.12);
-    --shadow-strong: 0 8px 24px hsla(var(--primary), 0.16);
 
     /* Transitions */
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-fast: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
 
-    /* Sidebar - Assuming specific use, keeping separate */
+    /* Sidebar */
     --sidebar-background: 0 0% 98%;
     --sidebar-foreground: 240 5.3% 26.1%;
     --sidebar-primary: 240 5.9% 10%;
@@ -85,44 +62,40 @@ All colors MUST be HSL.
     --sidebar-accent-foreground: 240 5.9% 10%;
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
+
+    /* OpenType features (D25) - universal inheritance */
+    font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07";
   }
 
   .dark {
-    --background: 221 68% 8%;
+    --background: 220 30% 6%;
     --foreground: 0 0% 98%;
 
-    --card: 221 68% 8%;
-    --card-foreground: 0 0% 98%;
-
-    --popover: 221 68% 8%;
-    --popover-foreground: 0 0% 98%;
-
-    --primary: 221 68% 33%;
-    /* Keep primary same or adjust lighter if needed */
+    --primary: 20 91% 52%;
     --primary-foreground: 0 0% 100%;
 
-    --cta: 20 91% 48%;
-    /* Keep cta same */
-    --cta-foreground: 0 0% 100%;
-
-    --secondary: 221 68% 15%;
+    --accent: 221 68% 55%;
+    --accent-foreground: 0 0% 100%;
+    --secondary: 221 50% 20%;
     --secondary-foreground: 0 0% 98%;
 
-    --muted: 221 68% 15%;
-    /* Muted foreground already has decent contrast in dark mode */
+    --muted: 220 20% 12%;
     --muted-foreground: 220 9% 65%;
+    --card: 220 25% 9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 220 25% 9%;
+    --popover-foreground: 0 0% 98%;
 
-    --accent: 20 91% 48%;
-    /* Keep accent same */
-    --accent-foreground: 0 0% 100%;
+    --border: 220 20% 16%;
+    --input: 220 20% 16%;
+    --ring: 20 91% 52%;
 
-    --destructive: 0 62.8% 30.6%;
+    --destructive: 0 62.8% 45%;
     --destructive-foreground: 0 0% 98%;
-
-    --border: 221 68% 15%;
-    --input: 221 68% 15%;
-    --ring: 221 68% 50%;
-    /* Lighter ring for dark mode */
+    --success: 142 40% 50%;
+    --success-foreground: 220 30% 6%;
+    --warning: 45 92% 58%;
+    --warning-foreground: 220 30% 6%;
 
     /* Sidebar Dark */
     --sidebar-background: 240 5.9% 10%;
@@ -134,6 +107,32 @@ All colors MUST be HSL.
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  :root,
+  .dark {
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(20 91% 55%));
+    --gradient-accent: linear-gradient(135deg, hsl(var(--accent)), hsl(221 68% 45%));
+
+    /* Variante A (default operativo) */
+    --gradient-hero: radial-gradient(
+      ellipse 80% 60% at 70% 20%,
+      hsla(var(--accent), 0.10),
+      transparent 70%
+    );
+
+    /* Variante B (solo para A/B en /styleguide) */
+    --gradient-hero-tight: radial-gradient(
+      ellipse 50% 40% at 70% 20%,
+      hsla(var(--accent), 0.13),
+      transparent 70%
+    );
+
+    --shadow-soft: 0 2px 8px hsla(var(--accent), 0.08);
+    --shadow-medium: 0 4px 16px hsla(var(--accent), 0.12);
+    --shadow-strong: 0 0.5px 0 0.5px hsla(0, 0%, 100%, 0.1), 0 10px 30px hsla(220, 30%, 0%, 0.25);
+    --shadow-ring-accent: 0 0 0 1px hsla(var(--accent), 0.15);
+    --shadow-primary-glow: 0 0 40px hsla(var(--primary), 0.18);
+  }
 }
 
 @layer base {
@@ -144,9 +143,37 @@ All colors MUST be HSL.
   /* Configuración base de tipografía profesional con Inter */
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-feature-settings: 'kern' 1, 'liga' 1;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Playfair en dark usa weight 800 provisionalmente (D33-6).
+     A/B contra 900 se valida en /styleguide antes de cierre G3. */
+  .dark h1,
+  .dark .font-display.text-h1 {
+    font-weight: 800;
+  }
+
+  /* Patron canonico: outline en interactivos */
+  *:focus-visible {
+    outline: 2px solid hsl(var(--ring));
+    outline-offset: 2px;
+    border-radius: inherit;
+  }
+
+  /* Inputs: ring inset doble para que no choque con border */
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: none;
+    box-shadow:
+      0 0 0 2px hsl(var(--background)),
+      0 0 0 4px hsl(var(--ring));
+  }
+
+  /* Anular :focus (sin -visible) en componentes que lo aplican literal */
+  *:focus:not(:focus-visible) {
+    outline: none;
   }
 
   html {
@@ -191,6 +218,16 @@ All colors MUST be HSL.
   /* Links */
   a {
     @apply transition-colors duration-200;
+  }
+}
+
+@layer components {
+  /* Lista cerrada de uso (D33-F4): home.about.body, home.hero.subtitle, portfolio case descriptions, legal pages */
+  .prose-editorial {
+    font-size: 1.0625rem;
+    line-height: 1.7;
+    letter-spacing: 0;
+    max-width: 65ch;
   }
 }
 
