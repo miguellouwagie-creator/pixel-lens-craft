@@ -7,7 +7,7 @@ import compression from "vite-plugin-compression";
 export default defineConfig({
   server: {
     host: "0.0.0.0", // <--- ESTO ES LO QUE ARREGLA EL ERROR DE CONEXIÓN
-    port: 8080,
+    port: 5173,
     allowedHosts: true,
   },
 
