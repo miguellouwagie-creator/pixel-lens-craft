@@ -158,19 +158,24 @@ Todos los valores en HSL (obligatorio por convención actual).
 | `--background` | `220 20% 98%` | `#F7F8FA` | Fondo dominante 60% |
 | `--foreground` | `217 19% 27%` | `#384457` | Texto principal |
 | `--primary` | `20 91% 48%` | `#EA550B` | **NARANJA. CTAs, acciones primarias, energía** |
-| `--primary-foreground` | `0 0% 100%` | `#FFFFFF` | Texto sobre naranja |
-| `--accent` | `221 68% 33%` | `#1B3F8D` | **AZUL. Acentos, badges, iconos, tech** |
+| `--primary-foreground` | `220 30% 8%` | `#0E121B` | Texto oscuro sobre naranja (D33-7) |
+| `--accent` | `221 68% 33%` | `#1B3F8D` | **AZUL. Acentos, badges, iconos, tech, info** |
 | `--accent-foreground` | `0 0% 100%` | `#FFFFFF` | Texto sobre azul |
 | `--secondary` | `221 68% 33%` | `#1B3F8D` | Alias de accent para compat shadcn |
 | `--secondary-foreground` | `0 0% 100%` | `#FFFFFF` | |
 | `--muted` | `220 14% 94%` | `#EDF0F4` | Fondos suaves |
-| `--muted-foreground` | `220 9% 40%` | `#5C6470` | Texto secundario (contraste AA) |
+| `--muted-foreground` | `220 9% 40%` | `#5C6470` | Texto secundario (contraste AAA) |
 | `--card` | `0 0% 100%` | `#FFFFFF` | Tarjetas |
 | `--card-foreground` | `217 19% 27%` | `#384457` | |
 | `--border` | `220 13% 91%` | `#E2E6EC` | Bordes sutiles |
 | `--input` | `220 13% 91%` | `#E2E6EC` | Inputs |
 | `--ring` | `20 91% 48%` | `#EA550B` | Focus ring (naranja) |
 | `--destructive` | `0 84.2% 60.2%` | `#EF4444` | Errores |
+| `--destructive-foreground` | `0 0% 100%` | `#FFFFFF` | |
+| `--success` | `142 45% 36%` | `#345B47` | **NUEVO (D33-1).** Verde sobrio, validaciones positivas |
+| `--success-foreground` | `0 0% 100%` | `#FFFFFF` | |
+| `--warning` | `45 92% 48%` | `#EFB80E` | **NUEVO (D33-1).** Ámbar hue 45, distinguible de primary hue 20 |
+| `--warning-foreground` | `220 30% 8%` | `#0E121B` | Texto oscuro sobre ámbar |
 | `--radius` | `0.5rem` | — | Radio base |
 
 #### Dark mode (`.dark`, **default**)
@@ -180,7 +185,7 @@ Todos los valores en HSL (obligatorio por convención actual).
 | `--background` | `220 30% 6%` | `#0B0F16` | Fondo oscuro editorial |
 | `--foreground` | `0 0% 98%` | `#FAFAFA` | Texto principal |
 | `--primary` | `20 91% 52%` | `#EE6818` | Naranja ligeramente más brillante |
-| `--primary-foreground` | `0 0% 100%` | `#FFFFFF` | |
+| `--primary-foreground` | `220 30% 8%` | `#0E121B` | Texto oscuro sobre naranja (D33-7) |
 | `--accent` | `221 68% 55%` | `#3A63C5` | Azul más claro para contraste |
 | `--accent-foreground` | `0 0% 100%` | `#FFFFFF` | |
 | `--secondary` | `221 50% 20%` | `#1A2A4A` | |
@@ -193,6 +198,30 @@ Todos los valores en HSL (obligatorio por convención actual).
 | `--input` | `220 20% 16%` | `#212733` | |
 | `--ring` | `20 91% 52%` | `#EE6818` | |
 | `--destructive` | `0 62.8% 45%` | `#BA3232` | |
+| `--destructive-foreground` | `0 0% 98%` | `#FAFAFA` | |
+| `--success` | `142 40% 50%` | `#5DA67F` | **NUEVO (D33-1)** |
+| `--success-foreground` | `220 30% 6%` | `#0B0F16` | |
+| `--warning` | `45 92% 58%` | `#F4B649` | **NUEVO (D33-1)** |
+| `--warning-foreground` | `220 30% 6%` | `#0B0F16` | |
+
+> `--info` no existe como token. Se reusa `--accent` (azul) para mensajes informativos. Decisión D33-1.
+
+#### Tabla de contraste WCAG validada (Fase 3 sub-tarea 1, dark mode)
+
+Mediciones reales del Contrast Checker en `/styleguide` con tokens finales post-hot-fix:
+
+| Par | Ratio | Rating | Uso recomendado |
+|---|---|---|---|
+| `--foreground` / `--background` | 18.52:1 | AAA | Texto principal sin restricciones |
+| `--muted-foreground` / `--background` | 7.65:1 | AAA | Texto secundario sin restricciones |
+| `--card-foreground` / `--card` | 17.49:1 | AAA | Texto en cards sin restricciones |
+| `--primary` / `--background` | 6.00:1 | AA | Surfaces accent (CTAs, badges, icons) o large text. **NO** body text |
+| `--primary-foreground` / `--primary` | 5.80:1 | AA | Texto sobre superficies naranja. Cualquier tamaño normal |
+| `--accent` / `--background` | 4.17:1 | AA Large | **Solo** superficies grandes. NO texto de párrafo |
+| `--accent-foreground` / `--accent` | 4.64:1 | AA | Texto sobre azul, cualquier tamaño normal |
+| `--destructive-foreground` / `--destructive` | 5.77:1 | AA | Texto sobre rojo, cualquier tamaño normal |
+| `--success-foreground` / `--success` | 7.34:1 | AAA | Texto sobre verde sin restricciones |
+| `--warning-foreground` / `--warning` | 11.96:1 | AAA | Texto sobre ámbar sin restricciones |
 
 #### Gradients
 
@@ -200,7 +229,9 @@ Todos los valores en HSL (obligatorio por convención actual).
 |---|---|---|
 | `--gradient-primary` | `linear-gradient(135deg, hsl(var(--primary)), hsl(20 91% 55%))` | CTAs premium |
 | `--gradient-accent` | `linear-gradient(135deg, hsl(var(--accent)), hsl(221 68% 45%))` | Secciones tech |
-| `--gradient-hero` | `linear-gradient(135deg, hsl(var(--background)) 0%, hsl(var(--accent)) 100%)` | Hero principal |
+| `--gradient-hero` | `radial-gradient(ellipse 50% 40% at 70% 20%, hsla(var(--accent), 0.13), transparent 70%)` | Hero principal. **Variante B confirmada en G3 parcial** (D33-2). Anchor off-center top-right, asimetría coherente con AGENT.md |
+
+> **Nota operativa:** durante Fase 3 sub-tarea 1, `/styleguide` contiene ambas variantes A (80%×60% al 10%) y B (50%×40% al 13%) como referencia visual. La variante A se mantiene en código como `--gradient-hero` por defecto hasta que se construya el Hero en Fase 5, momento en que se aplicará la variante B definitiva. La aplicación física del cambio se difiere para evitar commits de última hora durante Fase 3.
 
 Prohibición explícita (AGENT.md): gradientes purple/blue sobre fondo claro. Prohibido sin excepciones.
 
@@ -212,51 +243,137 @@ Prohibición explícita (AGENT.md): gradientes purple/blue sobre fondo claro. Pr
 | `--shadow-medium` | `0 4px 16px hsla(var(--accent), 0.12)` | Cards estándar |
 | `--shadow-strong` | `0 0.5px 0 0.5px hsla(0, 0%, 100%, 0.1), 0 10px 30px hsla(220, 30%, 0%, 0.25)` | Elevated cards, multi-layer con highlight superior + ambient profundo (aporte V7 de getdesign) |
 | `--shadow-ring-accent` | `0 0 0 1px hsla(var(--accent), 0.15)` | Containment de cards y bordered surfaces sobre fondo oscuro (aporte V3 de getdesign) |
-| `--shadow-primary-glow` | `0 0 32px hsla(var(--primary), 0.35)` | Solo dark mode, uso moderado en CTAs premium |
+| `--shadow-primary-glow` | `0 0 40px hsla(var(--primary), 0.18)` | **Restringido (D33-3).** Solo CTA hero principal (uno por página) y CTA de cierre de sección final |
 
 Reglas adicionales:
 - **Nunca usar `shadow-md` de shadcn sin modificar**. Toda card debe tener shadow custom coherente.
 - `--shadow-ring-accent` es la técnica canónica para delinear cards sobre fondos oscuros sin bordes sólidos. Usa el color accent (azul) a opacidad 0.15 para crear contención visible pero no agresiva.
 - `--shadow-strong` incorpora multi-layer: un highlight blanco sutil en el top edge simula luz incidente, el ambient profundo da sensación de flotación. No usar en cards estándar, reservar para elementos con jerarquía alta.
+- **`--shadow-primary-glow` uso prohibido en**: outline-primary, ghost-accent, botones secundarios, botones dentro de cards, badges, links inline.
+
+#### Focus states canónicos
+
+Patrón global aplicado en `src/index.css` dentro de `@layer base` (cierra brecha B6):
+
+```css
+*:focus-visible {
+  outline: 2px solid hsl(var(--ring));
+  outline-offset: 2px;
+  border-radius: inherit;
+}
+
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: none;
+  box-shadow:
+    0 0 0 2px hsl(var(--background)),
+    0 0 0 4px hsl(var(--ring));
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+```
+
+Reglas:
+- Solo `:focus-visible`, nunca `:focus` solo. Evita rings con click de mouse.
+- Inputs usan ring inset doble (background + ring) para no chocar con el border.
+- Validado en `/styleguide` Fase 3 sub-tarea 1 con test manual de Tab.
 
 ### 3.2 Typography
 
 **Pairing editorial + sans-serif limpio:**
 
-- **Display (H1, H2):** Playfair Display. Weights 600, 700, 900. Serif de alto contraste, personalidad editorial. Añadir a `index.html`:
-  ```html
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;900&display=swap" rel="stylesheet" />
-  ```
+- **Display (H1, H2):** Playfair Display. Weights 700, 800, 900.
+- **Body y UI (H3+, párrafos, botones, nav, inputs):** Inter. Weights 400-900.
 
-- **Body y UI (H3+, párrafos, botones, nav, inputs):** Inter. Weights 400-900. Ya cargada.
+**Carga en `index.html`** (con preload para reducir FOUT):
 
-**Configuración Tailwind:**
+```html
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap" />
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800;900&display=swap" rel="stylesheet" />
+```
+
+`font-display: swap` se mantiene como estrategia. Optimización con `size-adjust` / `ascent-override` queda diferida a Fase 6 si Lighthouse marca CLS > 0.05 atribuible a FOUT.
+
+**Configuración Tailwind (`tailwind.config.ts > theme.extend`):**
 
 ```ts
 fontFamily: {
-  sans: ["Inter", "system-ui", "-apple-system", /* ... */],
+  sans: ["Inter", "system-ui", "-apple-system", "BlinkMacSystemFont", "'Segoe UI'", "Roboto", "sans-serif"],
   display: ["'Playfair Display'", "Georgia", "serif"],
+},
+
+fontSize: {
+  // Escala 1.333 (perfect fourth, D33-5). H6 fuera de escala intencional (D33-F2): rol eyebrow/label.
+  // Columna px nominal de referencia (md). clamp() es la fuente de verdad para H1-H3.
+  "h1": ["clamp(2.75rem, 6vw + 1rem, 5.5rem)", { lineHeight: "1.0", letterSpacing: "-0.02em", fontWeight: "900" }],
+  "h2": ["clamp(2.25rem, 4vw + 1rem, 3.75rem)", { lineHeight: "1.05", letterSpacing: "-0.015em", fontWeight: "700" }],
+  "h3": ["clamp(1.75rem, 3vw + 0.75rem, 2.75rem)", { lineHeight: "1.15", letterSpacing: "-0.01em", fontWeight: "700" }],
+  "h4": ["1.875rem", { lineHeight: "1.25", letterSpacing: "0", fontWeight: "700" }],
+  "h5": ["1.4rem", { lineHeight: "1.35", letterSpacing: "0", fontWeight: "600" }],
+  "h6": ["1.05rem", { lineHeight: "1.4", letterSpacing: "0.01em", fontWeight: "600" }],
+  "body": ["1rem", { lineHeight: "1.65", letterSpacing: "0" }],
+  "prose-editorial": ["1.0625rem", { lineHeight: "1.7", letterSpacing: "0" }],
+  "eyebrow": ["0.75rem", { lineHeight: "1.4", letterSpacing: "0.05em", fontWeight: "600" }],
 }
 ```
 
-**Reglas de uso:**
-- H1 único por página. Weight 900. `font-display`. Tracking `-0.02em`.
-- H2 secciones principales. Weight 700. `font-display`.
-- H3-H6: Inter. Weight 600-700.
-- Body: Inter weight 400, line-height 1.6-1.7.
-- Max width párrafo: 65ch.
+**Tabla resumen de tamaños y rasgos** (validados en `/styleguide` G3 parcial):
 
-**OpenType features en Inter (aporte V2 de getdesign):**
+| Nivel | Tamaño nominal (md) | clamp / responsive | line-height | letter-spacing | weight | Family |
+|---|---|---|---|---|---|---|
+| H1 | 88px | `clamp(2.75rem, 6vw + 1rem, 5.5rem)` | 1.0 | -0.02em | 900 light / **800 dark** | Playfair Display |
+| H2 | 60px | `clamp(2.25rem, 4vw + 1rem, 3.75rem)` | 1.05 | -0.015em | 700 | Playfair Display |
+| H3 | 44px | `clamp(1.75rem, 3vw + 0.75rem, 2.75rem)` | 1.15 | -0.01em | 700 | Inter |
+| H4 | 30px | breakpoint Tailwind (`md:`/`lg:`) | 1.25 | 0 | 700 | Inter |
+| H5 | 22.4px | breakpoint Tailwind | 1.35 | 0 | 600 | Inter |
+| H6 (eyebrow/label) | 16.8px | breakpoint Tailwind | 1.4 | 0.01em | 600 | Inter |
+| body | 16px | fijo | 1.65 | 0 | 400 | Inter |
+| `.prose-editorial` | 17px | fijo | 1.7 | 0 | 400 | Inter |
+| eyebrow | 12px | fijo | 1.4 | 0.05em | 600 | Inter |
 
-Todo uso de Inter en body y UI activa explícitamente las siguientes features:
+**Override Playfair en dark mode** (D33-6, decidido tras A/B en `/styleguide` G3 parcial):
 
 ```css
-body, .font-sans {
+.dark h1,
+.dark .font-display.text-h1 {
+  font-weight: 800;
+}
+```
+
+Razón: weight 900 en dark satura visualmente cuando convive con CTA naranja, subtítulos Inter y otros elementos. Weight 800 mantiene presencia editorial sin ahogar elementos circundantes. Light mode sigue en 900 (default Tailwind, sin override).
+
+**OpenType features Inter (D25 + B13):**
+
+`font-feature-settings` en `:root` para herencia universal:
+
+```css
+:root {
   font-feature-settings: "cv01", "cv05", "cv09", "cv11", "ss03", "ss07";
 }
 ```
 
-Efecto: glifos alternativos más refinados (a, g, l, 0, %, &), separación estilística en números y caracteres técnicos. Subtle pero acumulativo, aporta pulido editorial a texto pequeño sin coste perceptual. Aplicable globalmente en `src/index.css` dentro de la regla base.
+Efecto: glifos alternativos más refinados (a, g, l, 0, %, &), separación estilística en números y caracteres técnicos. Subtle pero acumulativo, aporta pulido editorial a texto pequeño sin coste perceptual. H3-H6 (Inter) heredan automáticamente. H1-H2 (Playfair) ignoran las features sin coste.
+
+**`.prose-editorial` aplicación (D33-F4, lista cerrada):**
+
+Solo en estos contextos. Ampliar la lista requiere D nueva.
+
+- `home.about.body` (descripción larga sección About en home).
+- `home.hero.subtitle` (subtítulo del hero, si supera 2 líneas).
+- Descripciones de casos en `/portfolio` y `/portfolio-webs` (campo `case.description`).
+- Cuerpo de páginas legales (`/legal/*`).
+
+Resto del sitio: `text-body` (16px).
+
+**Reglas de uso (síntesis):**
+- H1 único por página.
+- Max width párrafo: 65ch.
+- Body 17px (`.prose-editorial`) reservado a párrafos largos.
 
 **Prohibiciones:**
 - No uppercase abuse (solo badges y botones pequeños).
@@ -742,6 +859,7 @@ Tabla consolidada de items identificados en Fase 0 (INVENTORY §16) con fase de 
 | DT-13 | Archivo/directorio anómalo `src/assetsFotos Portfolio` (nombre con espacios, sin extensión) | INVENTORY §16.20 | Fase 2 (verificar manualmente qué es) | ✅ Resuelto en Fase 2, commit `f802256` (era archivo ASCII de 2 bytes, sin refs) |
 | DT-14 | Primera migración Supabase con nombre UUID sin descripción semántica (`20251010085309_18845f8a-...sql`) | INVENTORY §16.21 | Sin acción (migraciones congeladas Sprint 1) | Aceptado |
 | DT-15 | Keys i18n huérfanas: `portfolioShowcase.goldencoast.*` (7 keys) y `photoPacks.trial/basic/standard/premium.*` nunca renderizadas | CONTENT.md §9.1, sesión Fase 1 | Fase 5.1 (REBUILD de `es.json` y `en.json`) | Abierto, plan confirmado |
+| DT-16 | Token `--cta` huérfano en `tailwind.config.ts`. Referencia a una CSS var inexistente. No rompe TS ni build, pero riesgo de uso sin efecto en componentes nuevos | Detectado por Antigravity en Fase 3 sub-tarea 1 (cierre G3 parcial) | Fase 3 sub-tarea 2 (variantes shadcn): limpiar al migrar variantes Button | Abierto, plan confirmado |
 
 **Principio operativo:** cada PR que toque un archivo listado arriba debe cerrar el item correspondiente como parte del trabajo, no como tarea separada. Esto evita el coste de una fase de saneamiento dedicada.
 
@@ -995,6 +1113,7 @@ Un commit por tarea. Mensajes concisos.
 | D30 | 2026-04-19 | Target del formulario de contacto: WhatsApp como canal primario via `wa.me/{VITE_WHATSAPP_NUMBER}` con mensaje pre-formateado, email `studiopixelens@gmail.com` como fallback secundario visible. Supabase descartado como target. Cierra Q01 y Q08 | Coherente con AGENT.md que sugiere WhatsApp. Mantiene freeze de `supabase/` durante Sprint 1 (no añadir tablas de contactos). Email visible aporta opción para usuarios que prefieren canal asincrónico | No |
 | D31 | 2026-04-19 | **Pivote de scope**: rediseño UI completo de `/portfolio` y `/portfolio-webs`. Supersede el non-goal "no rehacer portfolio" de §1.3 y la regla "preservación verbatim" de D01 en lo relativo a UI. Se preserva solo lógica reutilizable. Sub-decisiones: D31.1 quitar claim "+40%" TropiDenia (no verificable), D31.2 quitar tag "WordPress" BVS (incoherente con stack declarado), D31.3 descripción única por caso web (no bicolumna Problema/Solución), D31.4 Bloque B /portfolio reducido sin números | Auditoría visual durante Fase 1 mostró que la UI actual del portfolio (gradientes naranja-rojo, glow effects, FloatingElements 3D, layout SaaS) choca frontalmente con dirección Editorial Structural. Mantenerla reproducía el problema "Frankenstein" identificado al inicio. Mejor coherencia editorial completa que preservación parcial incoherente. D31.1-D31.4 priorizan honestidad sobre claims comerciales no verificables | No |
 | D32 | 2026-04-19 | Protocolo: validación estética por owner en chat antes de pasar brief O.D.A. crítico de UI a Antigravity. Aplicable a Fase 3 (Design System) y Fase 5 (rediseño página por página) | Cinematic-v2 abandonado (D19) demostró el coste de ejecutar UI compleja sin validación previa. Una conversación de 30 minutos en chat ahorra 4-6 horas de Antigravity rehechas. Aplica solo a UI: tareas técnicas mecánicas (depcheck, config, scripts) no requieren esta validación | En G3 si proceso rompe |
+| D33 | 2026-04-30 | **Afinamiento Design System (cierre Fase 3 sub-tarea 1).** 7 sub-decisiones validadas en chat antes de brief y confirmadas en `/styleguide` con G3 parcial: D33-1 estados semánticos `--success` (142 45% 36% / 142 40% 50%) + `--warning` (hue 45 ámbar para diferenciar de primary hue 20), `--info` no existe como token (alias `--accent`). D33-2 `--gradient-hero` reformulado de linear 135deg a radial elíptico off-center; variante final B 50%×40% al 13% (validada en A/B `/styleguide`). D33-3 `--shadow-primary-glow` capped a opacidad 0.18 y blur 40px, restricción de uso a CTA hero y cierre de sección. D33-4 tamaño base body 16px global, `.prose-editorial` 17px en lista cerrada de aplicaciones. D33-5 ratio modular 1.333 (perfect fourth) con `clamp()` en H1-H3 y breakpoints en H4-H6, H6 fuera de escala como rol eyebrow/label. D33-6 Playfair H1 dark = weight 800 fijo (validado en A/B `/styleguide`), light mode mantiene 900. D33-7 `--primary-foreground` cambiado de blanco (3.23:1 AA Large) a `220 30% 8%` (5.80:1 AA), patrón editorial dark text on warm surface | Cierra brechas detectadas en pre-brief: B1 (estados sin token), B3 (gradient genérico), B4 (glow excesivo), B5 (escala body), B7-B11 (tipografía sin escala), B13 (font-features alcance). Validación G3 parcial en `/styleguide` confirma todos los cambios visualmente y mediante Contrast Checker en runtime. Mejora real medida: `--primary-foreground/--primary` de 3.23:1 a 5.80:1 (AA Large → AA), elimina fail accesibilidad en CTA primary | En G3 final si evidencia visual nueva durante sub-tareas 2-3 |
 
 ### Pendientes de cerrar
 
@@ -1035,3 +1154,4 @@ Un commit por tarea. Mensajes concisos.
 | 1.2 | 2026-04-18 | Miguel + Claude Opus 4.7 | Evaluación pack getdesign/framer. Nueva sección §3.9 con 7 aportes técnicos V1-V7. Updates quirúrgicos en §3.1 (shadows con `--shadow-ring-accent` y multi-layer `--shadow-strong`) y §3.2 (OpenType features de Inter). D22-D23 añadidas en §13. Pack descartado como dirección global, razonamiento archivado. |
 | 1.3 | 2026-04-19 | Miguel + Claude Opus 4.7 | Cierre Fase 0. §5.2 reescrita con estructura real del repo + tabla de divergencias vs v1.2 (scripts/, portfolio/, layout/, sections/, lib/supabase.ts, lib/motion.ts, types/ inexistentes). §5.3 ampliada con estado actual vs objetivo de rutas. §5.5 corregida (VITE_SUPABASE_PUBLISHABLE_KEY). §6.3 redefinida como módulo distribuido. §7.1 preservación verbatim con lista concreta. Nueva §7.4 Deuda técnica con 14 items DT-01 a DT-14. D26-D28 en §13. Q09-Q10 cerradas. |
 | 1.4 | 2026-04-19 | Miguel + Claude Opus 4.7 | Cierre Fase 1. **Pivote de scope D31:** /portfolio y /portfolio-webs entran en rediseño UI completo. §0 deadline eliminado (proyecto orientado a aprendizaje). §1.2 sin fechas duras. §1.3 non-goal "no rehacer portfolio" marcado obsoleto. §1.4 punto 4 marcado obsoleto, añadidos puntos 10-12 con D29-D31 confirmadas. §6.3 reescrita completamente como rediseño UI (no más "preservación verbatim"). §7.1 clasificación actualizada con CREAR + DIFERIR como nuevas categorías y referencias a MIGRATION.md. §7.4 actualizada con DT-15 (huérfanas i18n) + estado "plan confirmado" en items con resolución natural ya prevista. §13 D29 (confirmación dark mode + flip + tipografía + Editorial Structural), D30 (WhatsApp + email fallback), D31 (pivote scope con sub-decisiones D31.1-D31.4), D32 (validación estética pre-Antigravity). Q01-Q04, Q06-Q08 cerradas. CONTENT.md y MIGRATION.md añadidos al sistema documental. |
+| 1.5 | 2026-04-30 | Miguel + Claude Opus 4.7 | Cierre G3 parcial (Fase 3 sub-tarea 1). §3.1 Color Tokens reescrita completa: `--primary-foreground` = `220 30% 8%` en ambos modos (D33-7), nuevos tokens `--success` y `--warning` (D33-1) con hue 45 ámbar para diferenciar de primary, `--gradient-hero` reformulado a radial off-center variante B (D33-2), `--shadow-primary-glow` opacidad 0.18 con restricción de uso (D33-3), tabla de contraste WCAG validada con mediciones reales del Contrast Checker, focus states canónicos `:focus-visible` documentados (B6). §3.2 Typography reescrita completa: escala 1.333 con `clamp()` en H1-H3 + breakpoints en H4-H6 (D33-5), tabla completa de tamaños/line-heights/tracking/weights validados en `/styleguide`, override Playfair weight 800 en dark mode (D33-6), `.prose-editorial` con lista cerrada de uso (D33-F4), `font-feature-settings` movido a `:root` para herencia universal (B13), preload de Playfair weights en `index.html`. §7.4 nueva entrada DT-16 (token `--cta` huérfano detectado por Antigravity, resolución en sub-tarea 2). §13 nueva entrada D33 con sub-decisiones D33-1 a D33-7. |

@@ -11,11 +11,11 @@
 
 ## Current status
 
-- **Fase actual:** Fase 2 (Auditoría técnica) **completada**. DT-04, DT-05, DT-06, DT-13 cerrados. depcheck auditado. Dossier de huérfanos documentado en PHASE2_REPORT.md. INVENTORY.md y PROGRESS.md actualizados. Pendiente validación humana del Gate G2.
-- **Siguiente fase:** Fase 3 (Design system build). Crítica: flip colores, dark mode default, pairing Playfair/Inter, ThemeProvider wired. Requiere validación estética previa por owner (D32).
-- **Próximo gate:** G2 (validación humana: scripts/with_server.py funcional + artefactos git saneados + PHASE2_REPORT.md completo).
-- **Siguiente acción inmediata:** Miguel valida G2 (revisar los 5 commits de Fase 2 en GitHub). Luego abre sesión en claude.ai Project para diseñar brief O.D.A. de Fase 3.
-- **Última actualización:** 2026-04-25 por Claude Code (Sonnet 4.6) en Antigravity (cierre Fase 2).
+- **Fase actual:** Fase 3 (Design System build) **sub-tarea 1 completada**. G3 parcial firmado tras validación visual de `/styleguide` (palette, contrast checker, typography, A/B Playfair, A/B gradient, focus states). 9 commits en `redesign/v2-framer-base` (8 del brief inicial + 1 hot-fix). Tokens cromáticos light + dark con D33 aplicada, tipografía 1.333 validada, A/B decididas (Playfair 800 dark, Gradient B), DT-03 y DT-08 cerrados, DT-16 abierto.
+- **Siguiente fase:** Fase 3 sub-tarea 2 (variantes shadcn Button + Card + Input + ThemeProvider con script anti-flash + limpieza DT-16). Brief O.D.A. pendiente de redacción tras push de los 9 commits.
+- **Próximo gate:** G3 final (cierre Fase 3 completa, tras sub-tareas 2 y 3). Sub-tarea 3 = chrome global Header + Footer skeleton.
+- **Siguiente acción inmediata:** Miguel ejecuta `git push origin redesign/v2-framer-base` para subir los 9 commits a GitHub. Tras push, se redacta brief O.D.A. de sub-tarea 2 en claude.ai Project.
+- **Última actualización:** 2026-04-30 por Claude Opus 4.7 en claude.ai Project (cierre G3 parcial).
 
 ---
 
@@ -27,7 +27,7 @@
 | 0 | Inventario | ✅ Completa | G0 ✓ | 2026-04-19 | 2026-04-19 | ~2h | Ejecutada en Antigravity con Claude Code (Sonnet 4.6, Effort Medium). Commit `902b906`. INVENTORY.md 770 líneas con §0-§18. 21 hallazgos en §16 consolidados como deuda técnica en MASTER §7.4 (DT-01 a DT-14). G0 validado por owner. |
 | 1 | Sistema documental | ✅ Completa | G1 (pendiente validación) | 2026-04-19 | 2026-04-19 | ~6h | Ejecutada en claude.ai Project (Opus 4.7). Outputs: CONTENT.md v1.0 (45 KB, copy ES + draft EN para Home + /portfolio + /portfolio-webs + chrome global, 10 anti-patrones, keys huérfanas, diff conceptual), MIGRATION.md v1.0 (clasificación archivo por archivo: 16 CREAR + 12 REBUILD + 6 REFACTOR + 13 DESCARTAR + 14 PRESERVAR). Pivote D31 (rediseño UI completo de portfolios). D29-D32 registradas. Q01-Q04 y Q06-Q08 cerradas. MASTER v1.4, PROGRESS v1.6, CONTEXT_BRIEF v1.4 sincronizados. |
 | 2 | Auditoría técnica | ✅ Completa | G2 (pendiente validación) | 2026-04-25 | 2026-04-25 | ~2h | Antigravity Sonnet 4.6. DT-04 (`f0743c7`), DT-13 (`f802256`), DT-06 (`a77f245`), DT-05 (`ddce38a`), depcheck + grep huérfanos (`81a2bed`). Cierre documental en commit de cierre. |
-| 3 | Design system build | ⬜ Pendiente | G3 | — | — | — | Crítico: flip colores + dark default + pairing Playfair/Inter |
+| 3 | Design system build | 🟡 En curso | G3 (parcial firmado sub-tarea 1, final pendiente sub-tareas 2+3) | 2026-04-26 | — | ~5h sub-tarea 1 | Sub-tarea 1 completa: 9 commits en `redesign/v2-framer-base` (`0e16891`, `7fb2031`, `c228ce8`, `3f12cb0`, `82d798c`, `c162df3`, `5c4e089`, `36bdc00`, `<HASH-HOTFIX>`). DT-03 y DT-08 cerrados. DT-16 abierto. D33-1 a D33-7 registradas. A/B Playfair 800 dark y Gradient B confirmadas en `/styleguide`. Pendiente sub-tareas 2 (variantes shadcn) y 3 (chrome global) |
 | 4 | Esqueleto y rutas | ⬜ Pendiente | G4 | — | — | — | — |
 | 5 | Migración contenido + portfolio | ⬜ Pendiente | G5 | — | — | — | Subfases 5.1-5.5 |
 | 6 | Motion unificado | ⬜ Pendiente | G6 | — | — | — | GSAP únicamente |
@@ -345,6 +345,57 @@ Próximo paso concreto:
 - Validación humana del Gate G1.
 - Apertura de sesión nueva en claude.ai Project para diseñar brief O.D.A. de Fase 2 (Antigravity Sonnet 4.6: depcheck, limpieza huérfanos, creación scripts/with_server.py).
 
+
+### 2026-04-26 a 2026-04-30 — Fase 3 sub-tarea 1 (Design System build)
+
+**Canal:** claude.ai Project (Opus 4.7) + Antigravity (Claude Code Sonnet 4.6, Effort Medium)
+**Duración:** ~5h acumulado entre planificación, ejecución y validación
+
+**Contexto:**
+G2 validado (commit `35ec2d3`). Knowledge sincronizado al cierre Fase 2. Aplicación de protocolo D32: validación estética por owner antes de brief O.D.A. a Antigravity. La sub-tarea 1 cubre tokens cromáticos + tipografía + `/styleguide` MVP. Sub-tareas 2 (variantes shadcn) y 3 (chrome global) quedan para próximos briefs.
+
+**Acciones de planificación (claude.ai Project):**
+- Auditoría pre-brief en chat: 6 brechas en color (B1-B6) + 7 brechas en tipografía (B7-B13) detectadas en MASTER §3.1 y §3.2 v1.4.
+- Owner valida 6 decisiones de afinamiento: estados semánticos sí + sin info, gradient hero radial, glow 0.18, body 16px + prose-editorial 17px, ratio 1.333, Playfair A/B en styleguide.
+- Segunda ronda de cierre: 4 puntos de fricción (warning hue 45, H6 fuera de escala, columna px nominal, `.prose-editorial` lista cerrada) + 5 brechas técnicas resueltas (focus states, line-heights, tracking, font-display, font-feature-settings global).
+- Brief O.D.A. ejecutable redactado: 8 steps secuenciales con commits separados, criterios de aceptación G3 parcial, valores HSL exactos, tabla tipográfica completa, plantillas de componentes `/styleguide`.
+
+**Acciones de ejecución (Antigravity):**
+- 8 commits sub-tarea 1 en orden: `0e16891` ThemeProvider wired (DT-08), `7fb2031` puerto 5173 (DT-03), `c228ce8` preload Playfair, `3f12cb0` tokens DS light + dark, `82d798c` escala tipográfica, `c162df3` `/styleguide` MVP con palette + contrast + typography + A/B, `5c4e089` ruta dev-only, `36bdc00` test Playwright dark default + toggle.
+- Notas de implementación de Antigravity: inversión de tokens confirmada (esperado), token `--cta` huérfano detectado en `tailwind.config.ts` (registrado como DT-16, resolución sub-tarea 2), build de prod sin Styleguide validado (grep en `dist/`), `tsc --noEmit` limpio.
+
+**Acciones de validación (owner sobre `/styleguide`):**
+- Dark default sin flash confirmado.
+- Toggle dark/light funcional.
+- Color Palette completa renderiza tokens con HSL + hex en ambos modos.
+- Contrast Checker mide ratios en runtime: detección de problema crítico — `--primary-foreground/--primary` = 3.23:1 (AA Large), no apto para body text de Button variante primary que se construye en sub-tarea 2.
+- Typography Scale validada visualmente: H1 88px clamp con weight 800 dark, H2 60px clamp con weight 700, H3-H6 con tamaños/line-heights/tracking correctos, H6 como eyebrow fuera de escala.
+- A/B Playfair weight dark: decidido weight **800** (Variante A) por mayor versatilidad compositiva y evitación de hairlines en pantallas no-Retina. Light mantiene 900.
+- A/B Gradient hero: decidido **Variante B 50%×40% al 13%** por mayor presencia visual y coherencia con asimetría editorial. Variante A descartada por demasiado wash ambiental indeciso.
+- Focus states con Tab confirmados: outline visible en `:focus-visible`, no en click de mouse.
+- Estados semánticos: warning ámbar (hue 45) inequívocamente distinguible de primary naranja (hue 20).
+
+**Hot-fix post-validación (commit `<HASH-HOTFIX>`):**
+- `--primary-foreground` cambiado de `0 0% 100%` a `220 30% 8%` en ambos modos. Sube ratio de 3.23:1 (AA Large) a 5.80:1 (AA). Elimina fail accesibilidad de Button variante primary antes de sub-tarea 2.
+- Nota del Contrast Checker reescrita: distingue AA pass (6.00:1) de AAA fail correctamente, orienta uso correcto del token.
+- `tsc --noEmit` limpio, test Playwright sigue pasando.
+
+**Decisión documental sobre el ratio:**
+Aceptado AA (5.80:1) como estado final de cierre G3 parcial. Forzar AAA (oscurecer foreground a `220 30% 4%` para llegar a ~7.5:1) implicaba pesadez visual y desalineación con otros pares en AA del sistema (`--accent-foreground/--accent` 4.64, `--destructive-foreground/--destructive` 5.77). El sistema queda coherente con todos los pares de superficie en AA y todos los pares de texto principal en AAA.
+
+**Outputs:**
+- 9 commits en `redesign/v2-framer-base` (local, pendientes de push manual).
+- `/styleguide` operativo en dev (`http://localhost:5173/styleguide`), 404 en prod build.
+- `tests/styleguide.spec.py` Playwright pasa.
+- D33 con sub-decisiones D33-1 a D33-7 registrada.
+- DT-03 y DT-08 cerrados. DT-16 nuevo abierto.
+
+**G3 parcial firmado:** sí, con AA en `--primary-foreground/--primary`. G3 final pendiente de sub-tareas 2 (shadcn variants) y 3 (chrome global).
+
+**Pendiente operativo inmediato:**
+- Miguel ejecuta `git push origin redesign/v2-framer-base` para subir los 9 commits.
+- Tras push, claude.ai Project redacta brief O.D.A. de sub-tarea 2.
+- Switch físico de `--gradient-hero` a Variante B no se aplica ahora; se hará en Fase 5 cuando se construya el Hero. Mientras tanto `/styleguide` mantiene ambas variantes A y B como referencia.
 ---
 
 ## Decisions log
@@ -383,6 +434,7 @@ Próximo paso concreto:
 | D30 | 2026-04-19 | Target del formulario de contacto: WhatsApp como canal primario via `wa.me/{VITE_WHATSAPP_NUMBER}` con mensaje pre-formateado, email `studiopixelens@gmail.com` como fallback secundario. Supabase descartado como target. Cierra Q01 y Q08 | Coherente con AGENT.md que sugiere WhatsApp. Mantiene freeze de `supabase/` durante Sprint 1. Email visible aporta opción para usuarios que prefieren canal asincrónico | No |
 | D31 | 2026-04-19 | **Pivote de scope**: rediseño UI completo de `/portfolio` y `/portfolio-webs`. Supersede el non-goal "no rehacer portfolio" de §1.3 y la regla "preservación verbatim" de D01 en lo relativo a UI. Sub-decisiones: D31.1 quitar claim "+40%" TropiDenia (no verificable), D31.2 quitar tag "WordPress" BVS (incoherente con stack declarado), D31.3 descripción única por caso web (no bicolumna Problema/Solución), D31.4 Bloque B /portfolio reducido sin números | Auditoría visual durante Fase 1 mostró que la UI actual del portfolio (gradientes naranja-rojo, glow effects, FloatingElements 3D, layout SaaS) choca frontalmente con dirección Editorial Structural. Mantenerla reproducía el problema "Frankenstein" identificado al inicio. D31.1-D31.4 priorizan honestidad sobre claims comerciales no verificables | No |
 | D32 | 2026-04-19 | Protocolo: validación estética por owner en chat antes de pasar brief O.D.A. crítico de UI a Antigravity. Aplicable a Fase 3 (Design System) y Fase 5 (rediseño página por página) | Cinematic-v2 abandonado (D19) demostró el coste de ejecutar UI compleja sin validación previa. Una conversación de 30 minutos en chat ahorra 4-6 horas de Antigravity rehechas. Aplica solo a UI: tareas técnicas mecánicas no requieren esta validación | En G3 si proceso rompe |
+| D33 | 2026-04-30 | **Afinamiento Design System (cierre Fase 3 sub-tarea 1).** 7 sub-decisiones D33-1 a D33-7: estados semánticos `--success`/`--warning` con `--info` alias de `--accent`, `--gradient-hero` radial off-center variante B, glow 0.18 restringido, body 16px + `.prose-editorial` 17px lista cerrada, ratio 1.333 con H6 fuera de escala, Playfair 800 dark / 900 light, `--primary-foreground` `220 30% 8%` (5.80:1 AA) | Cierra brechas pre-brief y mejora ratio AA Large → AA en par crítico CTA. Validación G3 parcial en `/styleguide` con Contrast Checker | En G3 final si evidencia nueva |
 
 ---
 
@@ -456,3 +508,4 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | 1.4 | 2026-04-18 | Miguel + Claude Opus 4.7 | Intermedio opcional cerrado: evaluación pack `getdesign/framer`. Sesión noche-2 añadida con contexto, ejecución en sandbox, análisis de conflictos, decisión final. D22 (descarte global del pack), D23 (rechazo pills 100px), D24 (no copiar DESIGN.md al repo), D25 (OpenType Inter global). Current status actualizado con cierre de intermedio. Horas acumuladas a 8. MASTER.md v1.2 referenciado como commit anterior a este sync. |
 | 1.5 | 2026-04-19 | Miguel + Claude Opus 4.7 | Cierre Fase 0. Sesión 2026-04-19 añadida con ejecución Antigravity (Sonnet 4.6), validación G0, hallazgos INVENTORY §16 (21 items). Phase tracker Fase 0 ✅ con commit `902b906` y 770 líneas. D26 (puerto 5173), D27 (portfolio distribuido), D28 (deuda técnica progresiva con 14 items DT en MASTER §7.4). Q09 y Q10 resueltas. Horas acumuladas a 11. Nota operativa archivada sobre Co-Authored-By en Antigravity. |
 | 1.6 | 2026-04-19 | Miguel + Claude Opus 4.7 | Cierre Fase 1 (Sistema documental). Sesión 2026-04-19 (tarde) añadida: auditoría visual UI actual, diseño conceptual Home (8 bloques), /portfolio (4 bloques), /portfolio-webs (4 bloques), validación owner Niveles 1-3, audit de honestidad (claims inventados detectados y corregidos), 4 micro-decisiones D31.1-D31.4. Pivote D31 (rediseño UI completo portfolios). Outputs: CONTENT.md v1.0 (45 KB), MIGRATION.md v1.0 (23 KB). Phase tracker Fase 1 ✅. D29 (consolidación dirección estética), D30 (WhatsApp + email fallback), D31 (pivote scope), D32 (validación estética pre-Antigravity). Q01-Q04, Q06-Q08 resueltas. DT-15 añadido (huérfanas i18n). Horas acumuladas a 17. |
+| 1.7 | 2026-04-30 | Miguel + Claude Opus 4.7 | Cierre Fase 3 sub-tarea 1 (G3 parcial firmado). Sesión 2026-04-26 a 2026-04-30 añadida con detalle completo: planificación en chat (6 brechas color + 7 tipografía + 4 puntos de fricción + 5 brechas técnicas), ejecución Antigravity (8 commits + 1 hot-fix), validación visual `/styleguide` (palette + contrast + typography + A/B + focus + estados), decisiones A/B finales (Playfair 800 dark, Gradient B), aceptación AA en `--primary-foreground/--primary` post-hot-fix. Phase tracker Fase 3 a 🟡 En curso con 9 hashes. D33 registrada. DT-16 nuevo abierto, DT-03 y DT-08 cerrados. Horas acumuladas a ~22 (≈19 + 3-5 sub-tarea 1, estimación pendiente de medición precisa). |
