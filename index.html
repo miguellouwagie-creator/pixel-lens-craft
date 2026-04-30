@@ -1,6 +1,26 @@
 <!doctype html>
 <html lang="es">
   <head>
+    <script>
+      (function() {
+        try {
+          var stored = localStorage.getItem('theme');
+          // Default to dark if no preference. Matches next-themes defaultTheme="dark".
+          var theme = stored || 'dark';
+          if (theme === 'dark') {
+            document.documentElement.classList.add('dark');
+          } else if (theme === 'system') {
+            if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+              document.documentElement.classList.add('dark');
+            }
+          }
+          // If theme === 'light', nothing added (light mode = class absent).
+        } catch (e) {
+          // localStorage unavailable (privacy mode, etc.). Fallback: apply dark default.
+          document.documentElement.classList.add('dark');
+        }
+      })();
+    </script>
     <meta charset="UTF-8" />
 
     <meta name="msvalidate.01" content="37D548D0461E48678CC9D50D9FACF7FF" />
