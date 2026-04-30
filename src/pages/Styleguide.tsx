@@ -3,6 +3,9 @@ import { ColorPalette } from "@/components/styleguide/ColorPalette";
 import { ContrastChecker } from "@/components/styleguide/ContrastChecker";
 import { TypographyScale } from "@/components/styleguide/TypographyScale";
 import { ABTest } from "@/components/styleguide/ABTest";
+import { HeadingShowcase } from "@/components/styleguide/HeadingShowcase";
+import { ButtonsFormal } from "@/components/styleguide/ButtonsFormal";
+import { FeatureCardShowcase } from "@/components/styleguide/FeatureCardShowcase";
 
 function ThemeToggle() {
   const { theme, setTheme } = useTheme();
@@ -24,7 +27,7 @@ export default function Styleguide() {
         <div className="max-w-7xl mx-auto flex items-center justify-between">
           <div>
             <h1 className="text-lg font-bold text-foreground">Studio Pixelens — Design System</h1>
-            <p className="text-xs text-muted-foreground">Fase 3 sub-tarea 1 — dev only</p>
+            <p className="text-xs text-muted-foreground">Fase 3 sub-tarea 2 — dev only</p>
           </div>
           <ThemeToggle />
         </div>
@@ -44,35 +47,16 @@ export default function Styleguide() {
         {/* 4. A/B Tests */}
         <ABTest />
 
-        {/* 5. Buttons preview */}
-        <section>
-          <h2 className="text-h3 font-bold mb-4">Buttons Preview (placeholder)</h2>
-          <p className="text-sm text-muted-foreground mb-6">
-            Variantes shadcn formales se construyen en sub-tarea 2. Esto es preview de tokens.
-          </p>
-          <div className="flex flex-wrap gap-4">
-            <button
-              className="px-5 py-2.5 rounded-lg bg-primary text-primary-foreground font-semibold text-sm transition-all"
-              style={{ boxShadow: "var(--shadow-primary-glow)" }}
-            >
-              CTA Primary (glow)
-            </button>
-            <button className="px-5 py-2.5 rounded-lg bg-accent text-accent-foreground font-semibold text-sm">
-              Accent
-            </button>
-            <button className="px-5 py-2.5 rounded-lg border border-primary text-primary bg-transparent font-semibold text-sm">
-              Outline Primary
-            </button>
-            <button className="px-5 py-2.5 rounded-lg text-accent font-semibold text-sm">
-              Ghost Accent
-            </button>
-          </div>
-          <p className="mt-3 text-xs text-warning">
-            Restriccion: --shadow-primary-glow solo aplica a CTA hero principal (uno por pagina) y CTA de cierre de seccion final.
-          </p>
-        </section>
+        {/* 5. Headings */}
+        <HeadingShowcase />
 
-        {/* 6. Semantic States */}
+        {/* 6. Buttons (formal) */}
+        <ButtonsFormal />
+
+        {/* 7. Feature Cards */}
+        <FeatureCardShowcase />
+
+        {/* 8. Semantic States */}
         <section>
           <h2 className="text-h3 font-bold mb-4">Semantic States</h2>
           <p className="text-sm text-muted-foreground mb-6">
