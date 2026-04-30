@@ -141,6 +141,13 @@ export default {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
       },
+      boxShadow: {
+        "soft": "var(--shadow-soft)",
+        "medium": "var(--shadow-medium)",
+        "strong": "var(--shadow-strong)",
+        "ring-accent": "var(--shadow-ring-accent)",
+        "primary-glow": "var(--shadow-primary-glow)",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

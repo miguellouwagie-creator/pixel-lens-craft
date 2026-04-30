@@ -24,6 +24,16 @@ const buttonVariants = cva(
         // MODIFICADO: Ajustado hover de ghost para usar colores neutros y asegurar contraste
         ghost: "hover:bg-secondary hover:text-secondary-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+
+        // DS variants (D34):
+        primary:
+          "bg-primary text-primary-foreground hover:bg-primary/90 active:scale-[0.985] transition-all",
+        accent:
+          "bg-accent text-accent-foreground hover:bg-accent/90 active:scale-[0.985] transition-all",
+        "outline-primary":
+          "border-2 border-primary text-primary bg-transparent hover:bg-primary/10 active:scale-[0.985] transition-all",
+        "ghost-accent":
+          "text-accent bg-transparent hover:bg-accent/10 active:scale-[0.985] transition-all",
       },
       size: {
         default: "h-11 px-6 py-3", // text-sm (14pt) - requires bold for 3:1 contrast
@@ -44,14 +54,24 @@ export interface ButtonProps
   extends React.ButtonHTMLAttributes<HTMLButtonElement>,
     VariantProps<typeof buttonVariants> {
   asChild?: boolean;
+  /** Applies --shadow-primary-glow. Only for variant='primary'. Restricted to hero CTA and section-close CTA (D33-3). */
+  glow?: boolean;
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, glow = false, ...props }, ref) => {
     const Comp = asChild ? Slot : "button";
+
+    if (glow && variant !== "primary") {
+      console.warn("Button: glow={true} only applies to variant='primary'. Ignored.");
+    }
+
     return (
       <Comp
-        className={cn(buttonVariants({ variant, size, className }))}
+        className={cn(
+          buttonVariants({ variant, size, className }),
+          glow && variant === "primary" && "shadow-primary-glow"
+        )}
         ref={ref}
         {...props}
       />
