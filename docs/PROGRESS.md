@@ -11,11 +11,11 @@
 
 ## Current status
 
-- **Fase actual:** Fase 3 (Design System build) **sub-tarea 1 completada**. G3 parcial firmado tras validación visual de `/styleguide` (palette, contrast checker, typography, A/B Playfair, A/B gradient, focus states). 9 commits en `redesign/v2-framer-base` (8 del brief inicial + 1 hot-fix). Tokens cromáticos light + dark con D33 aplicada, tipografía 1.333 validada, A/B decididas (Playfair 800 dark, Gradient B), DT-03 y DT-08 cerrados, DT-16 abierto.
-- **Siguiente fase:** Fase 3 sub-tarea 2 (variantes shadcn Button + Card + Input + ThemeProvider con script anti-flash + limpieza DT-16). Brief O.D.A. pendiente de redacción tras push de los 9 commits.
-- **Próximo gate:** G3 final (cierre Fase 3 completa, tras sub-tareas 2 y 3). Sub-tarea 3 = chrome global Header + Footer skeleton.
-- **Siguiente acción inmediata:** Miguel ejecuta `git push origin redesign/v2-framer-base` para subir los 9 commits a GitHub. Tras push, se redacta brief O.D.A. de sub-tarea 2 en claude.ai Project.
-- **Última actualización:** 2026-04-30 por Claude Opus 4.7 en claude.ai Project (cierre G3 parcial).
+- **Fase actual:** Fase 3 (Design System build) **sub-tarea 2 completada**. G3 parcial sub-tarea 2 firmado tras validación visual de `/styleguide` (Headings + Buttons formales + Feature Cards + anti-flash en `/`). 6 commits en `redesign/v2-framer-base` (local, no pusheados). Componentes DS encapsulados: `<Heading>`, Button con 4 variantes custom + glow, `FeatureCard`. Anti-flash script aplicado. DT-16 re-clasificado a Fase 5 tras grep de seguridad.
+- **Siguiente fase:** Fase 3 sub-tarea 3 (chrome global Header + Footer skeleton funcional con i18n ES/EN + WhatsApp button real D30). Brief O.D.A. en preparación.
+- **Próximo gate:** G3 final (cierre Fase 3 completa, tras sub-tarea 3).
+- **Siguiente acción inmediata:** Miguel ejecuta `git push origin redesign/v2-framer-base` para subir los 6 commits sub-tarea 2 + commit de docs. Tras push, se redacta brief O.D.A. de sub-tarea 3 en claude.ai Project.
+- **Última actualización:** 2026-04-30 por Claude Opus 4.7 en claude.ai Project (cierre G3 parcial sub-tarea 2).
 
 ---
 
@@ -27,7 +27,7 @@
 | 0 | Inventario | ✅ Completa | G0 ✓ | 2026-04-19 | 2026-04-19 | ~2h | Ejecutada en Antigravity con Claude Code (Sonnet 4.6, Effort Medium). Commit `902b906`. INVENTORY.md 770 líneas con §0-§18. 21 hallazgos en §16 consolidados como deuda técnica en MASTER §7.4 (DT-01 a DT-14). G0 validado por owner. |
 | 1 | Sistema documental | ✅ Completa | G1 (pendiente validación) | 2026-04-19 | 2026-04-19 | ~6h | Ejecutada en claude.ai Project (Opus 4.7). Outputs: CONTENT.md v1.0 (45 KB, copy ES + draft EN para Home + /portfolio + /portfolio-webs + chrome global, 10 anti-patrones, keys huérfanas, diff conceptual), MIGRATION.md v1.0 (clasificación archivo por archivo: 16 CREAR + 12 REBUILD + 6 REFACTOR + 13 DESCARTAR + 14 PRESERVAR). Pivote D31 (rediseño UI completo de portfolios). D29-D32 registradas. Q01-Q04 y Q06-Q08 cerradas. MASTER v1.4, PROGRESS v1.6, CONTEXT_BRIEF v1.4 sincronizados. |
 | 2 | Auditoría técnica | ✅ Completa | G2 (pendiente validación) | 2026-04-25 | 2026-04-25 | ~2h | Antigravity Sonnet 4.6. DT-04 (`f0743c7`), DT-13 (`f802256`), DT-06 (`a77f245`), DT-05 (`ddce38a`), depcheck + grep huérfanos (`81a2bed`). Cierre documental en commit de cierre. |
-| 3 | Design system build | 🟡 En curso | G3 (parcial firmado sub-tarea 1, final pendiente sub-tareas 2+3) | 2026-04-26 | — | ~5h sub-tarea 1 | Sub-tarea 1 completa: 9 commits en `redesign/v2-framer-base` (`0e16891`, `7fb2031`, `c228ce8`, `3f12cb0`, `82d798c`, `c162df3`, `5c4e089`, `36bdc00`, `<HASH-HOTFIX>`). DT-03 y DT-08 cerrados. DT-16 abierto. D33-1 a D33-7 registradas. A/B Playfair 800 dark y Gradient B confirmadas en `/styleguide`. Pendiente sub-tareas 2 (variantes shadcn) y 3 (chrome global) |
+| 3 | Design system build | 🟡 En curso | G3 (parcial firmado sub-tareas 1+2, final pendiente sub-tarea 3) | 2026-04-26 | — | ~7-8h sub-tareas 1+2 | Sub-tareas 1 y 2 completas: 17 commits totales en `redesign/v2-framer-base` (11 sub-tarea 1 pushed + 6 sub-tarea 2 en local). DT-03 y DT-08 cerrados. DT-16 re-clasificado a Fase 5 tras grep (uso vivo en 15 archivos legacy). D33 y D34 registradas. Sub-tarea 3 pendiente: chrome global Header + Footer con i18n + WhatsApp |
 | 4 | Esqueleto y rutas | ⬜ Pendiente | G4 | — | — | — | — |
 | 5 | Migración contenido + portfolio | ⬜ Pendiente | G5 | — | — | — | Subfases 5.1-5.5 |
 | 6 | Motion unificado | ⬜ Pendiente | G6 | — | — | — | GSAP únicamente |
@@ -396,6 +396,62 @@ Aceptado AA (5.80:1) como estado final de cierre G3 parcial. Forzar AAA (oscurec
 - Miguel ejecuta `git push origin redesign/v2-framer-base` para subir los 9 commits.
 - Tras push, claude.ai Project redacta brief O.D.A. de sub-tarea 2.
 - Switch físico de `--gradient-hero` a Variante B no se aplica ahora; se hará en Fase 5 cuando se construya el Hero. Mientras tanto `/styleguide` mantiene ambas variantes A y B como referencia.
+
+### 2026-04-30 — Fase 3 sub-tarea 2 (Design System: Heading + Buttons + FeatureCard + anti-flash)
+
+**Canal:** claude.ai Project (Opus 4.7) + Antigravity (Claude Code Sonnet 4.6, Effort Medium)
+**Duración:** ~2-3h acumulado entre planificación, ejecución y validación
+
+**Contexto:**
+G3 parcial sub-tarea 1 firmado el mismo día. Owner confirma 4 decisiones de scope: Heading como componente semántico encapsulado (Q1=A), limpieza DT-16 incluida (Q2=A, terminó re-clasificada), scope intermedio Button + FeatureCard sin Input (Q3=B), script anti-flash incluido (Q4=sí).
+
+**Acciones de planificación (claude.ai Project):**
+- Brief O.D.A. de 8 steps redactado tras 4 decisiones de scope.
+- Step 5 explícitamente protegido con grep antes de eliminar `--cta`. Brief instruye "si grep devuelve resultados, parar y reportar".
+- Test Playwright nuevo definido: verificar `class="dark"` en `domcontentloaded`, no solo después de hidratación.
+
+**Acciones de ejecución (Antigravity):**
+
+| Step | Hash | Resultado |
+|---|---|---|
+| 1: anti-flash script en `index.html` | `57676e4` | ✅ |
+| 2: `Heading` semántico (`level + visualLevel + eyebrow`) | `9684c0f` | ✅ |
+| 3: Button 4 variantes custom + prop `glow` + boxShadow tokens | `adc8b02` | ✅ |
+| 4: `FeatureCard` wrapper | `1648246` | ✅ |
+| 5: Limpieza DT-16 | — | ⛔ Bloqueado por grep |
+| 6: `/styleguide` extendido (3 nuevas secciones) | `4e94da3` | ✅ |
+| 7: Test Playwright anti-flash timing | `9eb2f2e` | ✅ |
+| 8: Verificación final | — | ✅ Todos los checks |
+
+**Bloqueo en Step 5 — DT-16 re-clasificado:**
+Grep encontró 15 archivos legacy usando `--cta` o `bg-cta` activamente: About, Hero, Footer, Services, Header, Testimonials, ProjectCard, FormSection, PackagesSection, GallerySection, UploadSection, Auth, NotFound, button.tsx + propia config. Antigravity paró según protocolo del brief y reportó. Owner decidió Opción A: diferir limpieza a Fase 5 cuando los componentes legacy se reescriban (coherente con D28). DT-16 re-clasificado en MASTER §7.4 con razón documental clara: cataloging error en sub-tarea 1, era token activo no huérfano.
+
+**Acciones de validación (owner sobre `/styleguide`):**
+- **Headings:** H1 a H6 con tamaños y family correctos. `visualLevel` confirmado (`h2` con tamaño H1). Eyebrow con uppercase + tracking en `level={6}`. ✓
+- **Buttons formales:** 4 variantes etiquetadas correctamente. Texto oscuro sobre primary (D33-7 aplicado). Hover y active observables. Observación O1: glow visualmente imperceptible entre los dos botones primary lado a lado, posible por proximidad o overflow del contenedor styleguide. Observación O2: estado `disabled` sobre primary se ve marrón por `disabled:opacity-50` default shadcn (comportamiento estándar, no regresión).
+- **Feature Cards:** 3 cards con shadow-ring-accent. Card 2 (`static`) sin lift confirmado. Card 3 demuestra Heading con override visualLevel. ✓
+- **Anti-flash en `/`:** ventana privada, 5 recargas. Sin flash blanco confirmado. ✓
+- **Tests Playwright:** ambos pasan (`tests/styleguide.spec.py` legacy + `tests/anti_flash.spec.py` nuevo).
+- **Build prod:** limpio, sin Styleguide en `dist/`, `tsc --noEmit` sin errores.
+
+**Decisiones documentales:**
+- D34 con sub-decisiones D34-1 a D34-5 registradas en MASTER §13.
+- O1 (glow imperceptible) y O2 (disabled marrón) registradas como observaciones no bloqueantes en D34. Validación real de glow se difiere a primer CTA hero en Fase 5.
+- §3.6 corregido: `primary: naranja sólido, blanco` → `naranja sólido, texto oscuro` (coherencia con D33-7).
+- DT-16 re-clasificado con narrativa de cataloging error.
+
+**Outputs:**
+- 6 commits en `redesign/v2-framer-base` (local, pendientes de push manual).
+- 4 archivos nuevos: `heading.tsx`, `feature-card.tsx`, `HeadingShowcase.tsx`, `ButtonsFormal.tsx`, `FeatureCardShowcase.tsx`, `tests/anti_flash.spec.py`.
+- 3 archivos modificados: `button.tsx` (variants custom), `index.html` (anti-flash + preconnect), `Styleguide.tsx` (3 secciones nuevas + reordenado).
+- D34 registrada. DT-16 re-clasificado.
+
+**G3 parcial sub-tarea 2 firmado:** sí, con 2 observaciones no bloqueantes (O1 glow, O2 disabled). G3 final pendiente de sub-tarea 3.
+
+**Pendiente operativo inmediato:**
+- Miguel ejecuta `git push origin redesign/v2-framer-base` (6 commits sub-tarea 2 + commit de docs).
+- Tras push, claude.ai Project redacta brief O.D.A. de sub-tarea 3 (chrome global Header + Footer con i18n + WhatsApp).
+
 ---
 
 ## Decisions log
@@ -435,6 +491,7 @@ Aceptado AA (5.80:1) como estado final de cierre G3 parcial. Forzar AAA (oscurec
 | D31 | 2026-04-19 | **Pivote de scope**: rediseño UI completo de `/portfolio` y `/portfolio-webs`. Supersede el non-goal "no rehacer portfolio" de §1.3 y la regla "preservación verbatim" de D01 en lo relativo a UI. Sub-decisiones: D31.1 quitar claim "+40%" TropiDenia (no verificable), D31.2 quitar tag "WordPress" BVS (incoherente con stack declarado), D31.3 descripción única por caso web (no bicolumna Problema/Solución), D31.4 Bloque B /portfolio reducido sin números | Auditoría visual durante Fase 1 mostró que la UI actual del portfolio (gradientes naranja-rojo, glow effects, FloatingElements 3D, layout SaaS) choca frontalmente con dirección Editorial Structural. Mantenerla reproducía el problema "Frankenstein" identificado al inicio. D31.1-D31.4 priorizan honestidad sobre claims comerciales no verificables | No |
 | D32 | 2026-04-19 | Protocolo: validación estética por owner en chat antes de pasar brief O.D.A. crítico de UI a Antigravity. Aplicable a Fase 3 (Design System) y Fase 5 (rediseño página por página) | Cinematic-v2 abandonado (D19) demostró el coste de ejecutar UI compleja sin validación previa. Una conversación de 30 minutos en chat ahorra 4-6 horas de Antigravity rehechas. Aplica solo a UI: tareas técnicas mecánicas no requieren esta validación | En G3 si proceso rompe |
 | D33 | 2026-04-30 | **Afinamiento Design System (cierre Fase 3 sub-tarea 1).** 7 sub-decisiones D33-1 a D33-7: estados semánticos `--success`/`--warning` con `--info` alias de `--accent`, `--gradient-hero` radial off-center variante B, glow 0.18 restringido, body 16px + `.prose-editorial` 17px lista cerrada, ratio 1.333 con H6 fuera de escala, Playfair 800 dark / 900 light, `--primary-foreground` `220 30% 8%` (5.80:1 AA) | Cierra brechas pre-brief y mejora ratio AA Large → AA en par crítico CTA. Validación G3 parcial en `/styleguide` con Contrast Checker | En G3 final si evidencia nueva |
+| D34 | 2026-04-30 | **Patrones de componentes DS (Fase 3 sub-tarea 2).** D34-1 `<Heading>` semántico con visualLevel + eyebrow. D34-2 Button + 4 variants custom + prop glow vía CVA. D34-3 FeatureCard como wrapper. D34-4 script anti-flash en `<head>`. D34-5 DT-16 re-clasificado a Fase 5 tras grep (15 archivos legacy usan `--cta`). Observaciones O1 (glow imperceptible en styleguide) y O2 (disabled marrón) no bloqueantes | Componentes encapsulados → invariantes DS protegidos. Wrapper Card → respeta upstream. Anti-flash defensivo. Re-clasificación DT-16 coherente con D28 | En G3 final si evidencia visual nueva |
 
 ---
 
@@ -509,3 +566,4 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | 1.5 | 2026-04-19 | Miguel + Claude Opus 4.7 | Cierre Fase 0. Sesión 2026-04-19 añadida con ejecución Antigravity (Sonnet 4.6), validación G0, hallazgos INVENTORY §16 (21 items). Phase tracker Fase 0 ✅ con commit `902b906` y 770 líneas. D26 (puerto 5173), D27 (portfolio distribuido), D28 (deuda técnica progresiva con 14 items DT en MASTER §7.4). Q09 y Q10 resueltas. Horas acumuladas a 11. Nota operativa archivada sobre Co-Authored-By en Antigravity. |
 | 1.6 | 2026-04-19 | Miguel + Claude Opus 4.7 | Cierre Fase 1 (Sistema documental). Sesión 2026-04-19 (tarde) añadida: auditoría visual UI actual, diseño conceptual Home (8 bloques), /portfolio (4 bloques), /portfolio-webs (4 bloques), validación owner Niveles 1-3, audit de honestidad (claims inventados detectados y corregidos), 4 micro-decisiones D31.1-D31.4. Pivote D31 (rediseño UI completo portfolios). Outputs: CONTENT.md v1.0 (45 KB), MIGRATION.md v1.0 (23 KB). Phase tracker Fase 1 ✅. D29 (consolidación dirección estética), D30 (WhatsApp + email fallback), D31 (pivote scope), D32 (validación estética pre-Antigravity). Q01-Q04, Q06-Q08 resueltas. DT-15 añadido (huérfanas i18n). Horas acumuladas a 17. |
 | 1.7 | 2026-04-30 | Miguel + Claude Opus 4.7 | Cierre Fase 3 sub-tarea 1 (G3 parcial firmado). Sesión 2026-04-26 a 2026-04-30 añadida con detalle completo: planificación en chat (6 brechas color + 7 tipografía + 4 puntos de fricción + 5 brechas técnicas), ejecución Antigravity (8 commits + 1 hot-fix), validación visual `/styleguide` (palette + contrast + typography + A/B + focus + estados), decisiones A/B finales (Playfair 800 dark, Gradient B), aceptación AA en `--primary-foreground/--primary` post-hot-fix. Phase tracker Fase 3 a 🟡 En curso con 9 hashes. D33 registrada. DT-16 nuevo abierto, DT-03 y DT-08 cerrados. Horas acumuladas a ~22 (≈19 + 3-5 sub-tarea 1, estimación pendiente de medición precisa). |
+| 1.8 | 2026-04-30 | Miguel + Claude Opus 4.7 | Cierre Fase 3 sub-tarea 2 (G3 parcial sub-tarea 2 firmado). Sesión 2026-04-30 añadida con detalle: planificación con 4 decisiones de scope (Q1-Q4), ejecución Antigravity 6/7 steps con bloqueo correcto en Step 5 por grep, re-clasificación de DT-16 a Fase 5, validación visual completa con observaciones O1 (glow) y O2 (disabled). Phase tracker Fase 3 con 17 commits totales (11 sub-tarea 1 pushed + 6 sub-tarea 2 local). D34 registrada (D34-1 a D34-5). MASTER §3.6 corregido (primary text oscuro, no blanco). Horas acumuladas a ~24-25 (estimación). |
