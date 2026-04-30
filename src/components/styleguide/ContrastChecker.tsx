@@ -117,7 +117,9 @@ export function ContrastChecker() {
         </table>
       </div>
       <p className="mt-3 text-xs text-muted-foreground">
-        Note: --primary/background will FAIL AA for small text (orange on dark). Use --primary only for surfaces (buttons, badges), not body text.
+        Note: <code>--primary/--background</code> passes AA (6.00:1) for normal text but fails AAA. Use{" "}
+        <code>--primary</code> as surface accent (CTAs, badges, icons) or for large text only. For body
+        text use <code>--foreground</code> or <code>--muted-foreground</code>.
       </p>
     </section>
   );

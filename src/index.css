@@ -15,7 +15,7 @@ All colors MUST be HSL.
 
     /* Primary (orange) */
     --primary: 20 91% 48%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 220 30% 8%;
 
     /* Accent (blue) */
     --accent: 221 68% 33%;
@@ -72,7 +72,7 @@ All colors MUST be HSL.
     --foreground: 0 0% 98%;
 
     --primary: 20 91% 52%;
-    --primary-foreground: 0 0% 100%;
+    --primary-foreground: 220 30% 8%;
 
     --accent: 221 68% 55%;
     --accent-foreground: 0 0% 100%;
