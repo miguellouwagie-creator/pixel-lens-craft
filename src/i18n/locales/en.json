@@ -410,6 +410,35 @@
       "photography": "Business Photography",
       "seo": "Local SEO",
       "maintenance": "Web Maintenance"
+    },
+    "tagline": "Professional websites and strategic photography for SMBs in Marina Alta.",
+    "social": {
+      "instagramUrl": "https://instagram.com/studiopixelens",
+      "linkedinUrl": "https://linkedin.com/company/studiopixelens"
+    },
+    "col": {
+      "services": {
+        "title": "Services",
+        "web": "Web Design",
+        "photo": "Photography"
+      },
+      "resources": {
+        "title": "Resources",
+        "portfolio": "Portfolio",
+        "portfolioWebs": "Web Portfolio"
+      },
+      "contact": {
+        "title": "Contact",
+        "email": "studiopixelens@gmail.com",
+        "phone": "+34 XXX XXX XXX",
+        "cta": "Start your project"
+      }
+    },
+    "rightsReserved": "All rights reserved.",
+    "legal": {
+      "privacy": "Privacy",
+      "cookies": "Cookies",
+      "terms": "Terms of Use"
     }
   },
   "testimonials": {
@@ -436,7 +465,21 @@
   },
   "header": {
     "tagline": "Web & Photography",
-    "badge": "Licensed professionals"
+    "badge": "Licensed professionals",
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "openMobileNav": "Open menu"
+  },
+  "common": {
+    "whatsapp": {
+      "cta": "WhatsApp",
+      "prefilledMessage": "Hi, I'd like more information about Studio Pixelens services."
+    }
   },
   "simplePrice": {
     "title": "Startup Launch Pack",

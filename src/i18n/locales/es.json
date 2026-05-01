@@ -426,6 +426,35 @@
       "photography": "Fotografía de Negocio",
       "seo": "SEO Local",
       "maintenance": "Mantenimiento Web"
+    },
+    "tagline": "Páginas web profesionales y fotografía estratégica para PYMEs de la Marina Alta.",
+    "social": {
+      "instagramUrl": "https://instagram.com/studiopixelens",
+      "linkedinUrl": "https://linkedin.com/company/studiopixelens"
+    },
+    "col": {
+      "services": {
+        "title": "Servicios",
+        "web": "Diseño Web",
+        "photo": "Fotografía"
+      },
+      "resources": {
+        "title": "Recursos",
+        "portfolio": "Portfolio",
+        "portfolioWebs": "Portfolio Webs"
+      },
+      "contact": {
+        "title": "Contacto",
+        "email": "studiopixelens@gmail.com",
+        "phone": "+34 XXX XXX XXX",
+        "cta": "Empieza tu proyecto"
+      }
+    },
+    "rightsReserved": "Todos los derechos reservados.",
+    "legal": {
+      "privacy": "Privacidad",
+      "cookies": "Cookies",
+      "terms": "Aviso Legal"
     }
   },
   "testimonials": {
@@ -452,7 +481,21 @@
   },
   "header": {
     "tagline": "Web & Fotografía",
-    "badge": "Profesionales licenciados"
+    "badge": "Profesionales licenciados",
+    "nav": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "portfolio": "Portfolio",
+      "about": "Nosotros",
+      "contact": "Contacto"
+    },
+    "openMobileNav": "Abrir menú"
+  },
+  "common": {
+    "whatsapp": {
+      "cta": "WhatsApp",
+      "prefilledMessage": "Hola, me gustaría más información sobre los servicios de Studio Pixelens."
+    }
   },
   "simplePrice": {
     "title": "Startup Launch Pack",
