@@ -5,6 +5,8 @@ import { Suspense, lazy } from "react";
 import { Routes, Route } from "react-router-dom";
 import ScrollToTop from "@/components/ScrollToTop";
 import PageLoader from "@/components/PageLoader";
+import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
 // Lazy load pages
 const Index = lazy(() => import("./pages/Index"));
@@ -24,6 +26,16 @@ const Styleguide = import.meta.env.DEV
   ? lazy(() => import("./pages/Styleguide"))
   : null;
 
+function PublicLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="flex min-h-screen flex-col">
+      <Header />
+      <main className="flex-1">{children}</main>
+      <Footer />
+    </div>
+  );
+}
+
 const App = () => (
   <TooltipProvider>
     <Toaster />
@@ -31,22 +43,25 @@ const App = () => (
     <ScrollToTop />
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        <Route path="/" element={<Index />} />
-        <Route path="/auth" element={<Auth />} />
-        <Route path="/dashboard" element={<Dashboard />} />
-        <Route path="/portfolio" element={<Portfolio />} />
-        <Route path="/portfolio-webs" element={<PortfolioWebs />} />
+        {/* Index and PortfolioWebs have legacy Header/Footer internally -- double chrome is intentional until Phase 5 rewrites */}
+        <Route path="/" element={<PublicLayout><Index /></PublicLayout>} />
+        <Route path="/portfolio" element={<PublicLayout><Portfolio /></PublicLayout>} />
+        <Route path="/portfolio-webs" element={<PublicLayout><PortfolioWebs /></PublicLayout>} />
 
         {/* RUTAS LEGALES OBLIGATORIAS */}
-        <Route path="/aviso-legal" element={<LegalNotice />} />
-        <Route path="/privacidad" element={<PrivacyPolicy />} />
-        <Route path="/cookies" element={<CookiesPolicy />} />
+        <Route path="/aviso-legal" element={<PublicLayout><LegalNotice /></PublicLayout>} />
+        <Route path="/privacidad" element={<PublicLayout><PrivacyPolicy /></PublicLayout>} />
+        <Route path="/cookies" element={<PublicLayout><CookiesPolicy /></PublicLayout>} />
+
+        {/* Auth and Dashboard: own layout, no PublicLayout */}
+        <Route path="/auth" element={<Auth />} />
+        <Route path="/dashboard" element={<Dashboard />} />
 
         {import.meta.env.DEV && Styleguide && (
-          <Route path="/styleguide" element={<Styleguide />} />
+          <Route path="/styleguide" element={<PublicLayout><Styleguide /></PublicLayout>} />
         )}
 
-        <Route path="*" element={<NotFound />} />
+        <Route path="*" element={<PublicLayout><NotFound /></PublicLayout>} />
       </Routes>
     </Suspense>
   </TooltipProvider>
