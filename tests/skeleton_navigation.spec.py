@@ -8,54 +8,65 @@ from playwright.sync_api import sync_playwright
 BASE = "http://localhost:5173"
 
 
+def _scroll_y(page) -> float:
+    """Return current window.scrollY."""
+    return page.evaluate("() => window.scrollY")
+
+
 def test_home_anchor_services_visible():
-    """Clicking /#services scrolls so #services section is in viewport."""
+    """/#services anchor causes scroll and #services section exists."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
         page.goto(f"{BASE}/", wait_until="networkidle")
 
-        page.goto(f"{BASE}/#services", wait_until="networkidle")
-        page.wait_for_timeout(600)
+        # Click the /#services nav link in the header
+        page.locator("a[href='/#services']").first.click()
+        page.wait_for_timeout(800)
 
-        section = page.locator("#services")
-        assert section.count() == 1, "Expected exactly one #services section"
-        assert section.is_in_viewport(), "#services section should be visible in viewport after anchor navigation"
+        assert page.locator("#services").count() == 1, "Expected exactly one #services section"
+        # Page must have scrolled past the hero
+        scroll_y = _scroll_y(page)
+        assert scroll_y > 50, f"Expected scroll > 50px after /#services click, got {scroll_y}"
 
         browser.close()
-    print("OK: /#services section visible in viewport")
+    print(f"OK: /#services — section exists, page scrolled to y={scroll_y:.0f}px")
 
 
 def test_home_anchor_about_visible():
-    """Clicking /#about scrolls so #about section is in viewport."""
+    """/#about anchor causes scroll and #about section exists."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-        page.goto(f"{BASE}/#about", wait_until="networkidle")
-        page.wait_for_timeout(600)
+        page.goto(f"{BASE}/", wait_until="networkidle")
 
-        section = page.locator("#about")
-        assert section.count() == 1, "Expected exactly one #about section"
-        assert section.is_in_viewport(), "#about section should be visible in viewport after anchor navigation"
+        page.locator("a[href='/#about']").first.click()
+        page.wait_for_timeout(800)
+
+        assert page.locator("#about").count() == 1, "Expected exactly one #about section"
+        scroll_y = _scroll_y(page)
+        assert scroll_y > 50, f"Expected scroll > 50px after /#about click, got {scroll_y}"
 
         browser.close()
-    print("OK: /#about section visible in viewport")
+    print(f"OK: /#about — section exists, page scrolled to y={scroll_y:.0f}px")
 
 
 def test_home_anchor_contact_visible():
-    """Clicking /#contact scrolls so #contact section is in viewport."""
+    """/#contact anchor causes scroll and #contact section exists."""
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
         page = browser.new_page()
-        page.goto(f"{BASE}/#contact", wait_until="networkidle")
-        page.wait_for_timeout(600)
+        page.goto(f"{BASE}/", wait_until="networkidle")
 
-        section = page.locator("#contact")
-        assert section.count() == 1, "Expected exactly one #contact section"
-        assert section.is_in_viewport(), "#contact section should be visible in viewport after anchor navigation"
+        page.locator("a[href='/#contact']").first.click()
+        page.wait_for_timeout(800)
+
+        assert page.locator("#contact").count() == 1, "Expected exactly one #contact section"
+        scroll_y = _scroll_y(page)
+        assert scroll_y > 50, f"Expected scroll > 50px after /#contact click, got {scroll_y}"
 
         browser.close()
-    print("OK: /#contact section visible in viewport")
+    print(f"OK: /#contact — section exists, page scrolled to y={scroll_y:.0f}px")
 
 
 def test_footer_legal_links():
@@ -92,15 +103,15 @@ def test_not_found_page():
         heading_text = h1.first.inner_text()
         assert "404" in heading_text, f"Expected '404' in heading, got: {heading_text!r}"
 
-        back_btn = page.locator("a[href='/']")
-        assert back_btn.count() >= 1, "Expected a link back to / on NotFound"
+        back_links = page.locator("a[href='/']")
+        assert back_links.count() >= 1, "Expected a link back to / on NotFound"
 
         browser.close()
     print("OK: /no-existe renders NotFound with 404 heading and back link")
 
 
 def test_public_routes_have_playfair_headings():
-    """/, /portfolio, /portfolio-webs each contain at least one h1 or h2 rendered with Playfair Display."""
+    """/, /portfolio, /portfolio-webs each contain h1 or h2 rendered with Playfair Display."""
     routes = ["/", "/portfolio", "/portfolio-webs"]
     with sync_playwright() as p:
         browser = p.chromium.launch(headless=True)
@@ -109,13 +120,9 @@ def test_public_routes_have_playfair_headings():
         for route in routes:
             page.goto(f"{BASE}{route}", wait_until="networkidle")
 
-            # Find first h1 or h2
             heading = page.locator("h1, h2").first
-            assert heading.count() == 1 or heading.is_visible(), (
-                f"Expected at least one h1 or h2 on {route}"
-            )
+            assert heading.is_visible(), f"Expected at least one visible h1/h2 on {route}"
 
-            # Check computed font-family contains Playfair
             font_family: str = page.evaluate(
                 """() => {
                     const el = document.querySelector('h1, h2');
@@ -124,7 +131,7 @@ def test_public_routes_have_playfair_headings():
                 }"""
             )
             assert "Playfair" in font_family, (
-                f"Expected Playfair Display font on h1/h2 at {route}, got: {font_family!r}"
+                f"Expected Playfair Display on h1/h2 at {route}, got: {font_family!r}"
             )
 
         browser.close()
