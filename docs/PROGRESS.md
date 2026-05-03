@@ -11,11 +11,11 @@
 
 ## Current status
 
-- **Fase actual:** **Fase 3 (Design System build) COMPLETA** ✅. G3 final firmado tras validación 20/20 puntos en `/styleguide` y `/`. 25 commits totales en `redesign/v2-framer-base` (18 pushed previos + 7 sub-tarea 3 + 1 ajustes manuales = 26 esperados tras commit de docs y push final).
-- **Siguiente fase:** **Fase 4 (Esqueleto y rutas)** 🟡. Construcción del esqueleto de rutas públicas (Home wireframe, Portfolio entry, PortfolioWebs entry, páginas legales con contenido placeholder, NotFound rediseñada). Brief O.D.A. pendiente de redacción tras push.
-- **Próximo gate:** **G4** (esqueleto navegable end-to-end con secciones Home en wireframe + rutas /portfolio y /portfolio-webs accesibles desde nav real, sin contenido final aún).
-- **Siguiente acción inmediata:** Miguel ejecuta `git push origin redesign/v2-framer-base` para subir los 8 commits sub-tarea 3 + commit de docs. Tras push, se redacta brief O.D.A. de Fase 4 en claude.ai Project.
-- **Última actualización:** 2026-04-30 por Claude Opus 4.7 en claude.ai Project (cierre Fase 3 completa).
+- **Fase actual:** **Fase 4 (Esqueleto y rutas) COMPLETA** ✅. G4 firmado 14/14 puntos por owner el 2026-05-03. 8 commits Fase 4 (b38e56a a 4d42340) en `redesign/v2-framer-base`, total acumulado 35 commits locales pendientes de push.
+- **Siguiente fase:** **Fase 5 (Migración contenido + portfolio)** ⬜. Subfases 5.1 a 5.5 según `MIGRATION.md`. Apertura en chat nuevo del Project tras push y subida de docs v1.8/v1.10.
+- **Próximo gate:** **G5** (cada página pasa side-by-side, copy real de CONTENT.md aplicado, componentes legacy DESCARTADOS según MIGRATION.md).
+- **Siguiente acción inmediata:** Miguel sube MASTER v1.8 y PROGRESS v1.10 al Project Knowledge, ejecuta `git push origin redesign/v2-framer-base` (35 commits + 1 commit de docs).
+- **Última actualización:** 2026-05-03 por Claude Opus 4.7 en claude.ai Project (cierre Fase 4).
 
 ---
 
@@ -28,8 +28,8 @@
 | 1 | Sistema documental | ✅ Completa | G1 (pendiente validación) | 2026-04-19 | 2026-04-19 | ~6h | Ejecutada en claude.ai Project (Opus 4.7). Outputs: CONTENT.md v1.0 (45 KB, copy ES + draft EN para Home + /portfolio + /portfolio-webs + chrome global, 10 anti-patrones, keys huérfanas, diff conceptual), MIGRATION.md v1.0 (clasificación archivo por archivo: 16 CREAR + 12 REBUILD + 6 REFACTOR + 13 DESCARTAR + 14 PRESERVAR). Pivote D31 (rediseño UI completo de portfolios). D29-D32 registradas. Q01-Q04 y Q06-Q08 cerradas. MASTER v1.4, PROGRESS v1.6, CONTEXT_BRIEF v1.4 sincronizados. |
 | 2 | Auditoría técnica | ✅ Completa | G2 (pendiente validación) | 2026-04-25 | 2026-04-25 | ~2h | Antigravity Sonnet 4.6. DT-04 (`f0743c7`), DT-13 (`f802256`), DT-06 (`a77f245`), DT-05 (`ddce38a`), depcheck + grep huérfanos (`81a2bed`). Cierre documental en commit de cierre. |
 | 3 | Design system build | ✅ Completa | G3 (final firmado) | 2026-04-26 | 2026-04-30 | ~10-12h totales | 26 commits totales en `redesign/v2-framer-base`: sub-tarea 1 (11 commits hasta `0fd21cd`), sub-tarea 2 (7 commits hasta `365f563`), sub-tarea 3 (8 commits hasta `8b0bcc1` + commit docs cierre). DT-03, DT-08 cerrados. DT-16 re-clasificado a Fase 5. D29, D33, D34, D35 registradas. Tokens DS validados con tabla WCAG real. Componentes encapsulados (Heading, Button + 4 variants + glow, FeatureCard, Header, Footer, LanguageToggle, WhatsAppButton, MobileNav). i18n ES/EN operativo. Anti-flash defensivo. WhatsApp con número real |
-| 4 | Esqueleto y rutas | 🟡 En curso | G4 | 2026-04-30 | — | — | Apertura tras G3 final. Construcción de rutas públicas con contenido placeholder/wireframe. Aprovecha PublicLayout (Header + Footer chrome global) ya integrado en sub-tarea 3 |
-| 5 | Migración contenido + portfolio | ⬜ Pendiente | G5 | — | — | — | Subfases 5.1-5.5 |
+| 4 | Esqueleto y rutas | ✅ Completa | G4 ✓ | 2026-04-30 | 2026-05-03 | ~3-4h | Antigravity Sonnet 4.6 Effort Medium. 8 commits b38e56a a 4d42340. Q10=A, Q11=B, Q12=A ejecutadas. P2 disparada (copy legal real preservado). DT-11 cerrado. D36 con sub-decisiones D36-1 a D36-5 registradas. Validación owner 14/14 puntos en navegador local |
+| 5 | Migración contenido + portfolio | 🟡 En curso | G5 | 2026-05-03 | — | — | Subfases 5.1-5.5 según MIGRATION.md. Aplica copy real de CONTENT.md, DESCARTA componentes legacy, REBUILD del módulo portfolio distribuido |
 | 6 | Motion unificado | ⬜ Pendiente | G6 | — | — | — | GSAP únicamente |
 | 7 | SEO, perf, launch | ⬜ Pendiente | G7 | — | — | — | — |
 
@@ -516,6 +516,72 @@ Protocolo de 20 puntos en 4 bloques:
 - Nav anchors `/#services`, `/#about`, `/#contact` no funcionan aún porque las secciones no existen. Funcionarán automáticamente cuando Fase 4 cree las secciones placeholder en Home.
 - Logo real cuando se tenga: overwrite de `public/logo.svg`. Sin tocar código.
 
+### 2026-05-03 — Fase 4 (Esqueleto y rutas, G4 firmado)
+
+**Canal:** claude.ai Project (Opus 4.7) + Antigravity (Claude Code Sonnet 4.6, Effort Medium)
+**Duración:** ~3-4h acumulado entre planificación, ejecución y validación
+
+**Contexto:**
+G3 final firmado tras 27 commits pusheados a origin. Owner confirma 3 decisiones de scope: Q10=A (eliminar chrome legacy en Index.tsx y PortfolioWebs.tsx), Q11=B (placeholder estructurado con lorem ipsum), Q12=A (legales con lorem técnico, contenido legal real difiere a pre-launch).
+
+**Acciones de planificación (claude.ai Project):**
+- Brief O.D.A. de 8 steps redactado tras Q10+Q11+Q12 confirmadas.
+- Detectadas dos tensiones documentales en revisión previa al brief: T1 Q10=A supersede D35-6, T2 §5.3 listaba /servicios, /sobre, /contacto que el chrome global ya implementaba como anchors. Ambas absorbidas como D36-1 y D36-2 al cierre.
+- 7 protecciones stop-and-report definidas, con énfasis en P2 (copy legal real), P4 (no crear i18n keys), P6 (no importar legacy), P7 (no insertar copy real de CONTENT.md).
+- Test Playwright nuevo definido: skeleton_navigation con asserts sobre anchors, footer legal links, NotFound y headings Playfair en rutas públicas.
+
+**Acciones de ejecución (Antigravity):**
+
+| Step | Hash | Resultado |
+|---|---|---|
+| 1: Index.tsx placeholder + chrome cleanup | `b38e56a` | ✅ |
+| 2: PortfolioWebs.tsx placeholder + chrome cleanup | `1f09197` | ✅ |
+| 3: Portfolio.tsx placeholder | `f2586e0` | ✅ |
+| 4: Legales prose-editorial | `434897e` | ⚠️ P2 disparada, copy real preservado |
+| 5: NotFound rediseño DS | `cf76de6` | ✅ |
+| 6: App.tsx verificación + comentario obsoleto | `43d6a00` | ✅ |
+| 7a: Test Playwright (versión rota) | `2507eb7` | ❌ API mal usada (locator.is_in_viewport no existe en sync API 1.59) |
+| 7b: Test Playwright (versión final) + fix ScrollToTop | `4d42340` | ✅ Suite pasa 6/6 |
+| 8: Verificación final | — | ✅ npm run build + tsc --noEmit limpios |
+
+**Desviaciones documentadas:**
+- D1 commit duplicado Step 7. Lección operativa: futuros briefs requieren `git commit --amend` antes de continuar si un commit deja CI rojo, no commit nuevo encima.
+- D2 commit Step 7b incluye fix ScrollToTop. ScrollToTop.tsx no estaba en lista blindada (solo `src/components/layout/*` lo está). Cambio funcionalmente necesario para cumplir objetivo 5 del brief (anchors operativos). Packaging mejorable. Registrado como D36-4 con lección operativa para futuros briefs.
+- D3 mensaje commit Step 4 ajustado a la realidad (`prose-editorial layout` en lugar de `lorem ipsum placeholder` por P2 disparada).
+
+**Protección 2 (copy legal real existente) disparada correctamente:**
+Las 3 páginas legales contenían copy redactado real con NIF, GDPR, LSSI. Antigravity preservó copy íntegro y aplicó solo cambio de layout a prose-editorial. DT-11 cerrado en el mismo commit (eliminado import useTranslation huérfano). Implicación documentada: LanguageToggle no traduce el cuerpo legal porque está hard-coded en ES. Aceptado hasta Fase 7 (pre-launch).
+
+**Acciones de validación (owner sobre navegador local):**
+
+Protocolo de 14 puntos en bloques:
+- **Bloque 1 Rendering:** 8 secciones Home, 4 bloques /portfolio, 4 bloques /portfolio-webs, 3 legales, NotFound rediseñada. 5/5 SÍ.
+- **Bloque 2 Chrome:** cero `<header>` o `<footer>` duplicados verificado vía `document.querySelectorAll('header').length === 1` en 3 rutas. 1/1 SÍ.
+- **Bloque 3 Navegación:** anchors Header desde / + desde /portfolio (caso cross-route), footer legal links, language toggle ES↔EN con `<html lang>` actualizado, WhatsApp con número real, mobile drawer 375px. 5/5 SÍ.
+- **Bloque 4 Build & tests:** npm run build, tsc --noEmit, tests Playwright skeleton_navigation 6/6. 3/3 SÍ confirmados por reporte Antigravity.
+
+**Resultado: G4 firmado con 14/14 puntos.** Fase 4 cerrada.
+
+**Outputs:**
+- 8 commits en `redesign/v2-framer-base` (local, pendientes de push manual junto con commit de docs).
+- Archivos modificados: `Index.tsx`, `Portfolio.tsx`, `PortfolioWebs.tsx`, `PrivacyPolicy.tsx`, `CookiesPolicy.tsx`, `LegalNotice.tsx`, `NotFound.tsx`, `App.tsx`, `ScrollToTop.tsx`.
+- Archivo nuevo: `tests/skeleton_navigation.spec.py`.
+- D36 registrada con sub-decisiones D36-1 a D36-5. DT-11 cerrado.
+
+**Pendiente operativo inmediato:**
+- Miguel sube MASTER v1.8 + PROGRESS v1.10 al Project Knowledge.
+- Miguel ejecuta `git push origin redesign/v2-framer-base` (35 commits + commit de docs).
+- Apertura de Fase 5 en chat nuevo del Project con brief O.D.A. para subfase 5.1 (Home REBUILD).
+
+**Notas para Fase 5:**
+- Componentes legacy en `src/components/` siguen como código muerto temporal (no importados en placeholders Fase 4). DESCARTE controlado per MIGRATION.md §3-7 en subfases 5.1-5.5.
+- Lorem ipsum hard-coded en placeholders se sustituye por copy real de CONTENT.md más keys i18n nuevas en cada subfase.
+- DT-15 (keys huérfanas i18n) se cierra en 5.1 con REBUILD de es.json/en.json.
+- DT-12 (react-compare-image) se cierra en 5.5 (PortfolioGallery + HomePhotoShowcase).
+- DT-16 (token --cta) se cierra naturalmente al reescribir cada componente legacy.
+- ScrollToTop.tsx queda como referencia para futuros briefs: clasificar componentes shared explícitamente en "Archivos en scope" o "Archivos blindados".
+
+
 ---
 
 ## Decisions log
@@ -557,6 +623,7 @@ Protocolo de 20 puntos en 4 bloques:
 | D33 | 2026-04-30 | **Afinamiento Design System (cierre Fase 3 sub-tarea 1).** 7 sub-decisiones D33-1 a D33-7: estados semánticos `--success`/`--warning` con `--info` alias de `--accent`, `--gradient-hero` radial off-center variante B, glow 0.18 restringido, body 16px + `.prose-editorial` 17px lista cerrada, ratio 1.333 con H6 fuera de escala, Playfair 800 dark / 900 light, `--primary-foreground` `220 30% 8%` (5.80:1 AA) | Cierra brechas pre-brief y mejora ratio AA Large → AA en par crítico CTA. Validación G3 parcial en `/styleguide` con Contrast Checker | En G3 final si evidencia nueva |
 | D34 | 2026-04-30 | **Patrones de componentes DS (Fase 3 sub-tarea 2).** D34-1 `<Heading>` semántico con visualLevel + eyebrow. D34-2 Button + 4 variants custom + prop glow vía CVA. D34-3 FeatureCard como wrapper. D34-4 script anti-flash en `<head>`. D34-5 DT-16 re-clasificado a Fase 5 tras grep (15 archivos legacy usan `--cta`). Observaciones O1 (glow imperceptible en styleguide) y O2 (disabled marrón) no bloqueantes | Componentes encapsulados → invariantes DS protegidos. Wrapper Card → respeta upstream. Anti-flash defensivo. Re-clasificación DT-16 coherente con D28 | En G3 final si evidencia visual nueva |
 | D35 | 2026-04-30 | **Chrome global funcional (Fase 3 sub-tarea 3, G3 final).** D35-1 Header sticky con backdrop-blur, 5 nav items, LanguageToggle, WhatsApp, MobileNav drawer. D35-2 Footer 4 columnas con bottom bar legal, solo Instagram (sin LinkedIn por decisión owner). D35-3 i18n ES/EN cableado con `i18next-browser-languagedetector` (fix bug `getStoredLanguage`). D35-4 WhatsApp con número real (34667326300) y mensaje pre-formateado. D35-5 legal routes alineadas con realidad del repo. D35-6 doble chrome aceptado hasta Fase 5. D35-7 logo SVG placeholder | Componentes layout reusables, i18n verdadero, fix latente cerrado, defensa producción. Validación G3 final 20/20 puntos | Próxima revisión en Fase 4 |
+| D36 | 2026-05-03 | **Cierre Fase 4 (G4 firmado 14/14).** Cinco sub-decisiones: D36-1 avance limpieza chrome legacy Index.tsx + PortfolioWebs.tsx (supersede D35-6). D36-2 modelo definitivo anchors-in-Home: rutas /servicios, /sobre, /contacto descartadas, viven como anchors /#services, /#about, /#contact. D36-3 placeholder strategy lorem hard-coded sin keys i18n para Fase 4. D36-4 extensión ScrollToTop.tsx para hash navigation (decisión correcta sobre componente no blindado, lección operativa registrada). D36-5 copy legal real preservado por P2, DT-11 cerrado al paso | Fase 4 ejecutada limpia: 8 commits, build limpio, tsc limpio, 6/6 tests pasan, 14/14 validación owner. Lección operativa D36-4: futuros briefs deben listar componentes shared (ScrollToTop, PageLoader, SectionDivider) explícitamente | No |
 
 ---
 
@@ -633,3 +700,4 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | 1.7 | 2026-04-30 | Miguel + Claude Opus 4.7 | Cierre Fase 3 sub-tarea 1 (G3 parcial firmado). Sesión 2026-04-26 a 2026-04-30 añadida con detalle completo: planificación en chat (6 brechas color + 7 tipografía + 4 puntos de fricción + 5 brechas técnicas), ejecución Antigravity (8 commits + 1 hot-fix), validación visual `/styleguide` (palette + contrast + typography + A/B + focus + estados), decisiones A/B finales (Playfair 800 dark, Gradient B), aceptación AA en `--primary-foreground/--primary` post-hot-fix. Phase tracker Fase 3 a 🟡 En curso con 9 hashes. D33 registrada. DT-16 nuevo abierto, DT-03 y DT-08 cerrados. Horas acumuladas a ~22 (≈19 + 3-5 sub-tarea 1, estimación pendiente de medición precisa). |
 | 1.8 | 2026-04-30 | Miguel + Claude Opus 4.7 | Cierre Fase 3 sub-tarea 2 (G3 parcial sub-tarea 2 firmado). Sesión 2026-04-30 añadida con detalle: planificación con 4 decisiones de scope (Q1-Q4), ejecución Antigravity 6/7 steps con bloqueo correcto en Step 5 por grep, re-clasificación de DT-16 a Fase 5, validación visual completa con observaciones O1 (glow) y O2 (disabled). Phase tracker Fase 3 con 17 commits totales (11 sub-tarea 1 pushed + 6 sub-tarea 2 local). D34 registrada (D34-1 a D34-5). MASTER §3.6 corregido (primary text oscuro, no blanco). Horas acumuladas a ~24-25 (estimación). |
 | 1.9 | 2026-04-30 | Miguel + Claude Opus 4.7 | Cierre Fase 3 completa (G3 final firmado). Sesión 2026-04-30 sub-tarea 3 añadida con detalle: planificación con Q5+Q6 confirmadas, ejecución Antigravity 7 commits + ajustes manuales del owner para datos reales (Q7-Q9), validación visual 20/20 puntos en 4 bloques. Phase tracker Fase 3 a ✅ Completa con 26 commits totales. Phase tracker Fase 4 abierta a 🟡 En curso. D35 registrada (D35-1 a D35-7). Horas acumuladas a ~28-30 (estimación). |
+| 1.10 | 2026-05-03 | Miguel + Claude Opus 4.7 | Cierre Fase 4 (G4 firmado 14/14). Sesión 2026-05-03 añadida con detalle: planificación con Q10+Q11+Q12 confirmadas, ejecución Antigravity 8 commits con desviaciones D1-D3 documentadas, P2 disparada correctamente, validación owner 14/14 en navegador. Phase tracker Fase 4 ✅ Completa, Fase 5 abierta 🟡. D36 registrada con sub-decisiones D36-1 a D36-5. DT-11 cerrado. Horas acumuladas a ~32-34 (estimación). |
