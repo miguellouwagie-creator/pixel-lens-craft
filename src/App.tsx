@@ -43,7 +43,6 @@ const App = () => (
     <ScrollToTop />
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        {/* Index and PortfolioWebs have legacy Header/Footer internally -- double chrome is intentional until Phase 5 rewrites */}
         <Route path="/" element={<PublicLayout><Index /></PublicLayout>} />
         <Route path="/portfolio" element={<PublicLayout><Portfolio /></PublicLayout>} />
         <Route path="/portfolio-webs" element={<PublicLayout><PortfolioWebs /></PublicLayout>} />
