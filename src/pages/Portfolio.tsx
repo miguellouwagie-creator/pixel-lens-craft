@@ -1,153 +1,89 @@
+// src/pages/Portfolio.tsx — Phase 4 placeholder. Phase 5 replaces with real content.
 import { Link } from "react-router-dom";
-import { ArrowLeft, MessageCircle } from "lucide-react";
-import { useTranslation } from "react-i18next";
+import { Heading } from "@/components/ui/heading";
 import { Button } from "@/components/ui/button";
-import { useState } from "react";
 
-// Importar imágenes desde assets
-import sinEditar1 from "@/assets/sin-editar-1.jpeg";
-import editada1 from "@/assets/editada-1.jpeg";
-import sinEditar2 from "@/assets/sin-editar-2.jpeg";
-import editada2 from "@/assets/editada-2.png";
-import sinEditar3 from "@/assets/sin-editar-3.jpeg";
-import editada3 from "@/assets/editada-3.png";
-import sinEditar4 from "@/assets/sin-editar-4.jpeg";
-import editada4 from "@/assets/editada-4.png";
-import sinEditar5 from "@/assets/sin-editar-5.jpg";
-import editada5 from "@/assets/editada-5.jpg";
-import sinEditar6 from "@/assets/sin-editar-6.jpg";
-import editada6 from "@/assets/editada-6.jpg";
-import sinEditar8 from "@/assets/sin-editar-8.jpeg";
-import editada8 from "@/assets/editada-8.png";
-import sinEditar9 from "@/assets/sin-editar-9.jpeg";
-import editada9 from "@/assets/editada-9.png";
-import sinEditar10 from "@/assets/sin-editar-10.jpeg";
-import editada10 from "@/assets/editada-10.png";
-
-const portfolioImages = [
-  { before: sinEditar1, after: editada1, id: 1 },
-  { before: sinEditar2, after: editada2, id: 2 },
-  { before: sinEditar3, after: editada3, id: 3 },
-  { before: sinEditar4, after: editada4, id: 4 },
-  { before: sinEditar5, after: editada5, id: 5 },
-  { before: sinEditar6, after: editada6, id: 6 },
-  { before: sinEditar8, after: editada8, id: 8 },
-  { before: sinEditar9, after: editada9, id: 9 },
-  { before: sinEditar10, after: editada10, id: 10 },
-];
-
-const ImageComparison = ({ before, after, id }: { before: string; after: string; id: number }) => {
-  const [showAfter, setShowAfter] = useState(false);
-  const { t } = useTranslation();
-
+const Portfolio = () => {
   return (
-    <div className="relative rounded-xl overflow-hidden shadow-2xl border-4 border-white hover:border-orange-500 transition-all duration-300 bg-white group">
-      <div className="relative aspect-[4/3]">
-        {/* Imagen "Antes" */}
-        <img
-          src={before}
-          alt={`Antes ${id}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${showAfter ? 'opacity-0' : 'opacity-100'}`}
-        />
-        {/* Imagen "Después" */}
-        <img
-          src={after}
-          alt={`Después ${id}`}
-          className={`absolute inset-0 w-full h-full object-cover transition-opacity duration-300 ${showAfter ? 'opacity-100' : 'opacity-0'}`}
-        />
-        
-        {/* Etiquetas */}
-        {!showAfter && (
-          <div className="absolute top-4 left-4 bg-red-600 text-white px-3 py-1 rounded-md text-sm font-bold">
-            {t("portfolioGallery.beforeLabel")}
-          </div>
-        )}
-        {showAfter && (
-          <div className="absolute top-4 left-4 bg-green-600 text-white px-3 py-1 rounded-md text-sm font-bold">
-            {t("portfolioGallery.afterLabel")}
-          </div>
-        )}
-        
-        {/* Botón para alternar */}
-        <button
-          onClick={() => setShowAfter(!showAfter)}
-          className="absolute bottom-4 right-4 bg-orange-600 hover:bg-orange-700 text-white px-4 py-2 rounded-lg font-bold shadow-lg transition-all transform hover:scale-105 text-sm"
-        >
-          {showAfter ? "← Antes" : "Después →"}
-        </button>
-      </div>
-    </div>
-  );
-};
-
-const PortfolioPage = () => {
-  const { t } = useTranslation();
-  const whatsappNumber = "34667326300";
-  const whatsappMessage = t("portfolioGallery.ctaButton");
-
-  return (
-    <>
-      {/* Encabezado */}
-      <header className="bg-gradient-to-r from-orange-500 to-red-500 text-white py-16 md:py-24">
-        <div className="container mx-auto px-4 text-center">
-          <Link
-            to="/"
-            className="inline-flex items-center gap-2 text-orange-100 hover:text-white transition-colors mb-6"
-          >
-            <ArrowLeft size={20} />
-            {t("portfolioGallery.backButton")}
-          </Link>
-          <h1 className="text-4xl md:text-6xl font-bold mb-4">{t("portfolioGallery.title")}</h1>
-          <p className="text-lg md:text-xl text-orange-100 max-w-2xl mx-auto">
-            {t("portfolioGallery.subtitle")}
+    <div>
+      {/* ── BLOQUE A · HEADER EDITORIAL ──────────────────────────── */}
+      <section className="py-20 md:py-24">
+        <div className="container mx-auto px-6 md:px-8">
+          <Heading level={6} eyebrow className="mb-4 text-muted-foreground">
+            Portfolio fotográfico
+          </Heading>
+          <Heading level={1} className="mb-6 max-w-3xl">
+            Lorem ipsum imagen que cuenta lo que tienes que contar.
+          </Heading>
+          <p className="text-lg text-muted-foreground max-w-2xl">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore. Duis aute irure dolor
+            in reprehenderit in voluptate velit.
           </p>
         </div>
-      </header>
+      </section>
 
-      {/* Galería de Comparación - 3 columnas */}
-      <main className="py-16 md:py-24 bg-gradient-to-br from-orange-50 via-amber-50 to-orange-100">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {portfolioImages.map((image) => (
-              <ImageComparison
-                key={image.id}
-                before={image.before}
-                after={image.after}
-                id={image.id}
+      {/* ── BLOQUE B · INTRO CONTEXTUAL ──────────────────────────── */}
+      <section className="py-20 md:py-24">
+        <div className="container mx-auto px-6 md:px-8">
+          <div className="max-w-2xl">
+            <Heading level={2} className="mb-6">
+              Lorem ipsum tratamiento editorial de cada imagen.
+            </Heading>
+            <p className="text-muted-foreground mb-4">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
+              enim ad minim veniam, quis nostrud exercitation ullamco laboris
+              nisi ut aliquip ex ea commodo consequat.
+            </p>
+            <p className="text-muted-foreground">
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+              cupidatat non proident, sunt in culpa qui officia deserunt mollit.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      {/* ── BLOQUE C · GALERÍA PLACEHOLDER ───────────────────────── */}
+      <section className="py-20 md:py-24">
+        <div className="container mx-auto px-6 md:px-8">
+          <Heading level={2} className="mb-8">
+            Lorem ipsum galería de trabajo.
+          </Heading>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+            {Array.from({ length: 9 }, (_, i) => (
+              <div
+                key={i}
+                className="aspect-[4/3] w-full bg-muted rounded-lg"
               />
             ))}
           </div>
         </div>
-      </main>
+      </section>
 
-      {/* Sección de Llamada a la Acción (CTA) */}
-      <section className="bg-white py-20">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-4">
-            {t("portfolioGallery.ctaTitle")}
-          </h2>
-          <p className="text-lg text-gray-600 max-w-2xl mx-auto mb-8">
-            {t("portfolioGallery.ctaSubtitle")}
+      {/* ── BLOQUE D · CIERRE + CTA + CROSS-LINK ─────────────────── */}
+      <section className="py-20 md:py-24">
+        <div className="container mx-auto px-6 md:px-8 text-center">
+          <Heading level={2} className="mb-4">
+            Lorem ipsum ¿te gusta lo que ves?
+          </Heading>
+          <p className="text-muted-foreground mb-8 max-w-xl mx-auto">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore.
           </p>
-          <Button
-            size="lg"
-            className="bg-gradient-to-r from-orange-600 to-red-600 hover:from-orange-700 hover:to-red-700 text-white text-lg px-10 py-7 shadow-2xl hover:shadow-orange-500/60 transform hover:scale-105 transition-all"
-            asChild
-          >
-            <a
-              href={`https://wa.me/${whatsappNumber}?text=${encodeURIComponent(whatsappMessage)}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center gap-3"
-            >
-              <MessageCircle className="h-6 w-6" />
-              <span className="font-bold">{t("portfolioGallery.ctaButton")}</span>
-            </a>
-          </Button>
+          <div className="flex flex-wrap gap-4 justify-center">
+            <Button variant="primary" size="lg" glow>
+              Lorem ipsum contactar
+            </Button>
+            <Button variant="outline-primary" size="lg" asChild>
+              <Link to="/portfolio-webs">Ver portfolio web</Link>
+            </Button>
+          </div>
         </div>
       </section>
-    </>
+    </div>
   );
 };
 
-export default PortfolioPage;
+export default Portfolio;
