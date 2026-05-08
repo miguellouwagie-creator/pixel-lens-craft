@@ -1,5 +1,9 @@
 import { useTranslation } from 'react-i18next';
-import ReactCompareImage from 'react-compare-image';
+import {
+  ReactCompareSlider,
+  ReactCompareSliderImage,
+  ReactCompareSliderHandle,
+} from 'react-compare-slider';
 import { Heading } from '@/components/ui/heading';
 import { galleryData } from '@/data/galleryData';
 
@@ -38,15 +42,43 @@ export default function HomePhotoShowcase() {
 
           {/* Slider column */}
           <div className="order-1 lg:order-1 w-full overflow-hidden rounded-sm">
-            <ReactCompareImage
-              leftImage={item.imageBefore}
-              rightImage={item.imageAfter}
-              leftImageLabel={t('home.photoShowcase.labelBefore')}
-              rightImageLabel={t('home.photoShowcase.labelAfter')}
-              sliderLineColor="hsl(var(--primary))"
-              sliderLineWidth={2}
-              handleSize={48}
-            />
+            <div className="relative">
+              <ReactCompareSlider
+                itemOne={
+                  <ReactCompareSliderImage
+                    src={item.imageBefore}
+                    alt={t('home.photoShowcase.labelBefore')}
+                  />
+                }
+                itemTwo={
+                  <ReactCompareSliderImage
+                    src={item.imageAfter}
+                    alt={t('home.photoShowcase.labelAfter')}
+                  />
+                }
+                handle={
+                  <ReactCompareSliderHandle
+                    buttonStyle={{
+                      width: 48,
+                      height: 48,
+                      backgroundColor: 'hsl(var(--primary))',
+                      color: 'hsl(var(--primary-foreground))',
+                      border: 'none',
+                    }}
+                    linesStyle={{
+                      color: 'hsl(var(--primary))',
+                      width: 2,
+                    }}
+                  />
+                }
+              />
+              <span className="pointer-events-none absolute top-4 left-4 z-10 px-3 py-1 text-xs font-medium tracking-wider uppercase bg-background/80 backdrop-blur rounded">
+                {t('home.photoShowcase.labelBefore')}
+              </span>
+              <span className="pointer-events-none absolute top-4 right-4 z-10 px-3 py-1 text-xs font-medium tracking-wider uppercase bg-background/80 backdrop-blur rounded">
+                {t('home.photoShowcase.labelAfter')}
+              </span>
+            </div>
           </div>
 
         </div>
