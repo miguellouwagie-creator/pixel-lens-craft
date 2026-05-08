@@ -1,18 +1,4 @@
 {
-  "hero": {
-    "title": "Páginas Web Profesionales",
-    "titleHighlight": "Fotografía",
-    "subtitle": "Para tu negocio",
-    "description": "Creamos tu activo digital: desarrollo web de alto rendimiento y fotografía estratégica. Comunicación directa, trato personalizado.",
-    "serviceIndexTitle": "¿Qué necesitas potenciar?",
-    "serviceIndexBtn1Text": "Desarrollo Web Premium",
-    "serviceIndexBtn2Text": "Fotografía de Negocio",
-    "ctaWhatsapp": "Contactar por WhatsApp",
-    "ctaServices": "Ver Soluciones",
-    "benefit1": "Auditoría inicial",
-    "benefit2": "Sin permanencia",
-    "benefit3": "Profesionales Licenciados"
-  },
   "nav": {
     "home": "Inicio",
     "services": "Servicios",
@@ -61,7 +47,7 @@
       "price": "Consultar",
       "priceNote": "(Solución Integral)",
       "cta": "Hablar con un Consultor",
-      "badge": "🚀 Mayor ROI"
+      "badge": "Mayor ROI"
     }
   },
   "webDevelopment": {
@@ -112,16 +98,7 @@
     "photoTitle": "Sesiones Fotográficas Corporativas",
     "photoSubtitle": "Deja de usar fotos de stock. Muestra la realidad de tu negocio con calidad editorial.",
     "photoPacks": {
-      "trial": {
-        "name": "Consulta Visual",
-        "price": "Gratis",
-        "photos": "Auditoría",
-        "feature1": "Análisis de imagen actual",
-        "feature2": "Propuesta de mejora",
-        "feature3": "Sin compromiso",
-        "cta": "Solicitar Auditoría"
-      },
-      "basic": {
+      "corporate": {
         "name": "Pack Corporativo",
         "price": "350€",
         "photos": "Reportaje Completo",
@@ -130,17 +107,7 @@
         "feature3": "Entrega 48h",
         "cta": "Reservar"
       },
-      "standard": {
-        "name": "Pack Inmobiliaria",
-        "price": "150€",
-        "photos": "Por Propiedad",
-        "feature1": "Gran angular HDR",
-        "feature2": "Edición luminosa",
-        "feature3": "Entrega 24h",
-        "feature4": "Listo para publicar",
-        "cta": "Consultar"
-      },
-      "premium": {
+      "custom": {
         "name": "Pack A Medida",
         "price": "Consultar",
         "photos": "Proyecto Específico",
@@ -153,8 +120,8 @@
     },
     "footerText": "¿Tienes un proyecto grande o necesitas vídeo?",
     "footerCta": "Contáctanos para un presupuesto a medida",
-    "portfolioButton": "📸 VER GALERÍA DE TRABAJOS",
-    "portfolioButtonShort": "📸 Ver Galería",
+    "portfolioButton": "VER GALERÍA DE TRABAJOS",
+    "portfolioButtonShort": "Ver Galería",
     "portfolioDescription": "Calidad que se nota. Mira nuestros últimos proyectos.",
     "from": "Desde 699€",
     "vatIncluded": "IVA no incluido",
@@ -164,7 +131,7 @@
   "photoPacks": {
     "title": "Fotografía Estratégica",
     "titleHighlight": "Para Empresas",
-    "subtitle": "Activos visuales diseñados para vender, no solo para decorar. Elige la excelencia.",
+    "subtitle": "Activos visuales diseñados para vender, no solo para decorar.",
     "subBadge": "Fotografía que Vende • Edición High-End • Entrega Rápida",
     "badge": {
       "text": "Calidad de Revista"
@@ -180,10 +147,10 @@
       "feature3": "Retoque High-End",
       "cta": "VER PORTFOLIO"
     },
-    "portfolioButton": "📸 VER CASOS DE ÉXITO",
-    "portfolioButtonShort": "📸 Ver Trabajos",
+    "portfolioButton": "VER CASOS DE ÉXITO",
+    "portfolioButtonShort": "Ver Trabajos",
     "portfolioDescription": "Imágenes reales de clientes reales.",
-    "recommendedBadge": "⭐ B2B Best Seller",
+    "recommendedBadge": "B2B Best Seller",
     "guarantee": {
       "title": "Calidad Garantizada",
       "description": "Si las fotos no elevan la imagen de tu marca, <strong>las repetimos</strong>. Nuestro objetivo es que tengas el mejor material de tu sector.",
@@ -214,84 +181,63 @@
     "trialMessage": "¿Necesitas ver más ejemplos de tu sector? Escríbenos.",
     "vatIncluded": "+ IVA"
   },
-  "whyUs": {
-    "title": "No Busques Proveedores,<br><span class='text-3xl md:text-4xl lg:text-5xl'>Busca un Socio de<br><span class='text-orange-500'>Crecimiento</span></span>",
-    "subtitle": "",
-    "reason1": {
-      "title": "Ingeniería vs. Artesanía",
-      "description": "No usamos plantillas lentas. Escribimos código limpio (React) que Google ama y tus clientes agradecen. <strong>Tu web volará.</strong>"
-    },
-    "reason2": {
-      "title": "Visión de Negocio",
-      "description": "No solo hacemos fotos bonitas o webs modernas. Entendemos de <strong>embudos de venta, conversión y retención</strong>."
-    },
-    "reason3": {
-      "title": "Producción In-House",
-      "description": "Sin subcontratas. El desarrollador y el fotógrafo son los dueños. <strong>Compromiso total</strong> con tu resultado."
-    },
-    "reason4": {
-      "title": "Agilidad Comercial",
-      "description": "Entendemos los tiempos de los negocios. <strong>Entregas rápidas y comunicación fluida</strong> por WhatsApp."
-    },
-    "reason5": {
-      "title": "Inversión Segura",
-      "description": "Trabajamos hasta que el resultado cumpla los estándares de calidad acordados. Tu satisfacción es nuestra reputación."
-    },
-    "reason6": {
-      "title": "Escalabilidad",
-      "description": "Nuestras soluciones crecen contigo. Empieza con el Launch Pack y escala a sistemas complejos sin tirar nada a la basura."
-    },
-    "badges": {
-      "certified": "Certificado",
-      "topPrice": "Alto Valor"
-    }
-  },
   "portfolio": {
     "title": "Industrias Con Las Que Trabajamos",
     "subtitle": "Experiencia en múltiples sectores con resultados reales",
     "footerText": "¿Tu sector no aparece? Trabajamos con cualquier tipo de negocio",
     "footerCta": "Cuéntanos Tu Proyecto",
     "webCategory": "Desarrollo Web",
-    "photoCategory": "Fotografía"
-  },
-  "stickyScroll": {
-    "mainTitle": "Tu Web Como",
-    "mainTitleHighlight": "Activo de Negocio",
-    "result1": {
-      "title": "Diseño Estratégico Basado en CRO",
-      "description": "No diseñamos por estética. Cada elemento visual está optimizado para maximizar conversiones mediante técnicas de CRO (Conversion Rate Optimization) respaldadas por psicología del usuario."
-    },
-    "result2": {
-      "title": "Experiencia de Usuario Premium",
-      "description": "Animaciones fluidas, transiciones suaves y microinteracciones que elevan la percepción de valor. Tu web se sentirá como un producto de $5,000+, no una plantilla genérica."
-    },
-    "result3": {
-      "title": "Estrategia de Contenido Incluida",
-      "description": "Textos persuasivos, jerarquía visual clara y llamadas a la acción estratégicamente ubicadas. Cada palabra trabaja para vender tu propuesta de valor."
-    },
-    "process1": {
-      "title": "Análisis y Estrategia",
-      "description": "Estudiamos tu mercado, competencia y audiencia objetivo para crear una estrategia digital ganadora desde el inicio."
-    },
-    "process3": {
-      "title": "Seguimiento Post-Lanzamiento",
-      "description": "No te abandonamos después del lanzamiento. Monitoreamos el rendimiento y optimizamos continuamente para mejorar resultados."
-    },
-    "priceTitle": "Tu Plataforma de",
-    "priceTitleHighlight": "Crecimiento Digital",
-    "croBadge": "✨ Construido para Convertir (CRO)",
-    "initialInvestment": "Inversión Inicial",
-    "priceAmount": "Desde 699€",
-    "priceDisclaimer": "Este es el costo de nuestro Startup Launch Pack. Pida presupuesto para nuestros servicios estratégicos de diseño avanzado con CRO y animaciones fluidas.",
-    "strategicDesign": "Diseño Estratégico",
-    "ctaButton": "Solicitar Mi Presupuesto Único",
-    "whatsappMessage": "Hola, quiero solicitar mi presupuesto único para una web profesional con diseño estratégico",
-    "feature1": "Construido para Convertir\n(CRO)",
-    "feature2": "Animaciones Fluidas\n(Next-Level Design)",
-    "feature3": "Estrategia de Contenido Incluida",
-    "maintenanceTitle": "Mantenimiento Proactivo: Evite Costos Ocultos",
-    "maintenanceDescription": "Después de crear su web, ofrecemos un servicio de mantenimiento mensual para mantenerla segura, actualizada y funcionando perfectamente. Nunca tendrá que llamar a un desarrollador de emergencia. El coste varía según sus necesidades (actualizaciones, soporte, backups). ¡Pregúntanos sin compromiso!",
-    "legalDisclaimer": "Todos los precios incluyen IVA. Dominio y hosting gestionados por separado."
+    "photoCategory": "Fotografía",
+    "gallery": {
+      "heading": "Comparativa antes / después",
+      "labelBefore": "Original",
+      "labelAfter": "Editada",
+      "item1": {
+        "number": "#01",
+        "title": "Retrato corporativo",
+        "caption": "Ajuste de luz natural, piel corregida, fondo limpiado."
+      },
+      "item2": {
+        "number": "#02",
+        "title": "Producto en exterior",
+        "caption": "Recuperación de detalle en sombras, fondo virado para integración editorial."
+      },
+      "item3": {
+        "number": "#03",
+        "title": "Interior inmobiliario",
+        "caption": "Corrección de tonos mixtos de luz, reequilibrio de ventanas quemadas."
+      },
+      "item4": {
+        "number": "#04",
+        "title": "Fachada exterior",
+        "caption": "Ajuste de perspectiva, limpieza de cables y elementos distractores."
+      },
+      "item5": {
+        "number": "#05",
+        "title": "Gastronomía",
+        "caption": "Tratamiento de color en plato, separación figura-fondo intensificada."
+      },
+      "item6": {
+        "number": "#06",
+        "title": "Producto en estudio",
+        "caption": "Fondo uniformado, brillos controlados, detalle de textura resaltado."
+      },
+      "item7": {
+        "number": "#07",
+        "title": "TODO 5.5",
+        "caption": "TODO 5.5"
+      },
+      "item8": {
+        "number": "#08",
+        "title": "TODO 5.5",
+        "caption": "TODO 5.5"
+      },
+      "item9": {
+        "number": "#09",
+        "title": "TODO 5.5",
+        "caption": "TODO 5.5"
+      }
+    }
   },
   "portfolioShowcase": {
     "header": {
@@ -304,16 +250,8 @@
       "tagline": "Presencia digital que transmite confianza al instante",
       "description": "Transformamos su imagen online para reflejar su liderazgo. Más leads cualificados, proyectos más grandes, más autoridad en el sector.",
       "tag1": "Corporativa",
-      "tag2": "WordPress",
-      "tag3": "SEO"
-    },
-    "goldencoast": {
-      "title": "Golden Coast Charter",
-      "tagline": "Plataforma de reservas de embarcaciones de lujo",
-      "description": "Sistema premium que aumenta conversiones y reservas directas. Diseño estratégico que transmite lujo y confianza a clientes VIP.",
-      "tag1": "Turismo",
-      "tag2": "Reservas",
-      "tag3": "Lujo"
+      "tag2": "SEO",
+      "tag3": "Responsive"
     },
     "gymdenia": {
       "title": "GymDenia",
@@ -325,7 +263,7 @@
     },
     "tropidenia": {
       "title": "TropiDenia",
-      "tagline": "Sistema de reservas que generó +40% más ingresos",
+      "tagline": "Reservas directas, sin intermediarios.",
       "description": "Eliminamos intermediarios y comisiones. Resultado: reservas directas, control total del negocio y máxima rentabilidad desde el día uno.",
       "tag1": "UI/UX",
       "tag2": "React",
@@ -360,26 +298,6 @@
     "ctaText": "¿Listo para empezar tu proyecto?",
     "ctaButton": "Contactar Ahora"
   },
-  "about": {
-    "title": "El Equipo",
-    "subtitle": "Dos hermanos, un objetivo: ayudar a negocios locales a destacar online",
-    "miguel": {
-      "name": "Miguel",
-      "role": "Desarrollo Web",
-      "description": "Desarrollo web moderno con React y TypeScript. Webs rápidas optimizadas para negocios.",
-      "skill1": "React",
-      "skill2": "TypeScript",
-      "skill3": "Tailwind"
-    },
-    "sergio": {
-      "name": "Sergio",
-      "role": "Fotografía",
-      "description": "Fotografía profesional para negocios, productos e inmobiliaria. Estilo único y comercial.",
-      "skill1": "Corporativa",
-      "skill2": "Productos",
-      "skill3": "Inmobiliaria"
-    }
-  },
   "contact": {
     "title": "¿Hablamos?",
     "description": "Si tienes dudas, quieres probar el servicio gratis o simplemente necesitas asesoramiento, escríbenos. Respondemos personalmente y sin compromiso.",
@@ -403,7 +321,7 @@
       "title": "Horario de Respuesta",
       "weekdays": "Lunes - Viernes: 9:00 - 20:00",
       "weekends": "Fines de semana: Consultas urgentes por WhatsApp",
-      "note": "Si escribes fuera de horario, te respondo al día siguiente 😊"
+      "note": "Si escribes fuera de horario, te respondo al día siguiente"
     },
     "formTitle": "Escríbeme directamente"
   },
@@ -456,28 +374,6 @@
       "terms": "Aviso Legal"
     }
   },
-  "testimonials": {
-    "title": "Lo Que Dicen Nuestros Clientes",
-    "subtitle": "Testimonios reales de negocios que confiaron en nosotros",
-    "testimonial1": {
-      "name": "María G.",
-      "location": "Dénia, España",
-      "text": "Contraté el servicio de fotografía para mi inmobiliaria y las fotos quedaron increíbles. Cada propiedad luce mucho mejor con imágenes editadas profesionalmente. Los clientes me felicitan por la calidad.",
-      "rating": 5
-    },
-    "testimonial2": {
-      "name": "Robert M.",
-      "location": "Miami, USA",
-      "text": "Necesitaba una web profesional para mi empresa de servicios verticales. El equipo entregó un sitio bilingüe excelente que funciona perfectamente. Muy receptivos y profesionales.",
-      "rating": 5
-    },
-    "testimonial3": {
-      "name": "Ana L.",
-      "location": "Calpe, España",
-      "text": "Al principio no le daba mucha importancia a tener web para mi gimnasio, pero me sorprendió la cantidad de gente que nos contacta a través de ella. Ahora es mi mejor herramienta de captación.",
-      "rating": 5
-    }
-  },
   "header": {
     "tagline": "Web & Fotografía",
     "badge": "Profesionales licenciados",
@@ -493,7 +389,36 @@
   "common": {
     "whatsapp": {
       "cta": "WhatsApp",
-      "prefilledMessage": "Hola, me gustaría más información sobre los servicios de Studio Pixelens."
+      "ariaLabel": "Contactar por WhatsApp",
+      "tooltip": "Hablemos por WhatsApp",
+      "prefilledMessage": "Hola, me gustaría hablar sobre un proyecto para mi negocio."
+    },
+    "nav": {
+      "home": "Inicio",
+      "services": "Servicios",
+      "portfolio": "Portfolio",
+      "portfolioPhoto": "Fotografía",
+      "portfolioWeb": "Desarrollo web",
+      "contact": "Contacto",
+      "whatsappCta": "WhatsApp",
+      "langToggle": "ES / EN"
+    },
+    "footer": {
+      "claim": "Estudio digital independiente en Dénia. Desarrollo web y fotografía profesional para negocios locales.",
+      "navHeading": "Navegación",
+      "contactHeading": "Contacto",
+      "legalHeading": "Legal",
+      "legalNotice": "Aviso legal",
+      "privacy": "Política de privacidad",
+      "cookies": "Política de cookies",
+      "rightsReserved": "© 2026 Studio Pixelens. Todos los derechos reservados.",
+      "location": "Dénia, Alicante, España"
+    },
+    "toast": {
+      "successTitle": "Mensaje enviado",
+      "successBody": "Te respondemos en menos de 48 horas.",
+      "errorTitle": "Algo ha fallado",
+      "errorBody": "Prueba por WhatsApp o email. Disculpa las molestias."
     }
   },
   "simplePrice": {
@@ -532,12 +457,155 @@
       "benefit6Title": "Soporte Real",
       "benefit6Text": "Hablamos tu idioma y estamos a un WhatsApp de distancia."
     },
-    "portfolioButton": "🌐 VER TECNOLOGÍA EN ACCIÓN",
-    "portfolioButtonShort": "🌐 Ver Webs",
+    "portfolioButton": "VER TECNOLOGÍA EN ACCIÓN",
+    "portfolioButtonShort": "Ver Webs",
     "portfolioDescription": "Mira la velocidad de nuestros proyectos"
   },
   "divider": {
     "title": "Tu negocio merece brillar online",
     "subtitle": "Capturamos la esencia de tu negocio y la transformamos en una presencia digital que atrae clientes"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Estudio digital · Dénia",
+      "headline": "Trabajo visual y técnico para negocios que quieren crecer.",
+      "subclaim": "Desarrollo web y fotografía profesional. Un solo estudio, un solo estándar. Sin intermediarios, sin plantillas.",
+      "ctaPrimary": "Hablemos por WhatsApp",
+      "ctaSecondary": "Ver trabajo"
+    },
+    "services": {
+      "heading": "Dos disciplinas, un mismo estándar.",
+      "subheading": "No somos una agencia generalista. Hacemos dos cosas y las hacemos bien.",
+      "web": {
+        "number": "01",
+        "label": "Desarrollo web",
+        "title": "Webs construidas a medida.",
+        "body": "Código propio en React y TypeScript. Sin plantillas recicladas. Cada web se diseña para responder a un problema concreto de un negocio concreto.",
+        "link": "Ver portfolio web →"
+      },
+      "photo": {
+        "number": "02",
+        "label": "Fotografía profesional",
+        "title": "Imagen que cuenta lo que tienes que contar.",
+        "body": "Fotografía corporativa, producto, eventos, inmobiliaria. También edición profesional de fotos que ya tienes. Cada imagen se trata con cuidado editorial.",
+        "link": "Ver portfolio fotográfico →"
+      }
+    },
+    "casesWeb": {
+      "eyebrow": "Trabajo reciente",
+      "heading": "Casos de estudio en desarrollo web.",
+      "subheading": "Tres proyectos recientes para negocios locales. Cada uno resuelve un problema distinto.",
+      "case1": {
+        "eyebrow": "TropiDenia · Turismo local",
+        "title": "Reservas directas, sin intermediarios.",
+        "body": "Eliminamos la dependencia de plataformas externas con comisiones. Sistema de reservas propio con control total del negocio desde el día uno.",
+        "tag1": "UI/UX",
+        "tag2": "React",
+        "tag3": "Reservas"
+      },
+      "case2": {
+        "eyebrow": "BVS Trabajos Verticales · Servicios industriales",
+        "title": "Presencia digital que transmite oficio.",
+        "body": "Rediseñamos su imagen online para reflejar la seriedad técnica del negocio. Más leads cualificados, proyectos más grandes, autoridad en el sector.",
+        "tag1": "Corporativa",
+        "tag2": "SEO"
+      },
+      "case3": {
+        "eyebrow": "GymDenia · Fitness local",
+        "title": "Captación local que funciona a diario.",
+        "body": "Pasó de ser invisible online a convertirse en la referencia fitness de su zona. Formularios optimizados que transforman visitantes en socios cada semana.",
+        "tag1": "Diseño Web",
+        "tag2": "Formularios",
+        "tag3": "Responsive"
+      },
+      "cta": "Ver todos los casos →"
+    },
+    "photoShowcase": {
+      "eyebrow": "Trabajo fotográfico",
+      "heading": "Imagen antes, imagen después.",
+      "body": "Cada foto pasa por un proceso manual de ajuste de luz, contraste, color y detalle. Desliza el control para ver la diferencia.",
+      "labelBefore": "Original",
+      "labelAfter": "Editada",
+      "cta": "Ver portfolio fotográfico →"
+    },
+    "process": {
+      "eyebrow": "Cómo trabajamos",
+      "heading": "Un proceso claro, sin sorpresas.",
+      "step1": {
+        "number": "01",
+        "title": "Escuchamos.",
+        "body": "Primera conversación gratuita. Queremos entender tu negocio, tu cliente y el problema real que tienes. No vamos a recomendar nada que no nos creamos.",
+        "promise": "Respuesta en 48 horas."
+      },
+      "step2": {
+        "number": "02",
+        "title": "Construimos.",
+        "body": "Propuesta concreta con alcance, coste y plazos. Sin letra pequeña. Empezamos cuando confirmas, no antes.",
+        "promise": "Propuesta escrita siempre."
+      },
+      "step3": {
+        "number": "03",
+        "title": "Entregamos y acompañamos.",
+        "body": "Entregamos lo acordado en plazo. Tras el lanzamiento seguimos disponibles para ajustes, dudas y lo que aparezca. No somos una agencia que desaparece.",
+        "promise": "30 días de acompañamiento incluido."
+      }
+    },
+    "about": {
+      "eyebrow": "Quiénes somos",
+      "heading": "Un estudio pequeño con criterio propio.",
+      "body1": "Somos Miguel y Sergio, hermanos y socios. Trabajamos con negocios locales de la Marina Alta que ya tienen algo que contar y necesitan a alguien que lo cuente bien.",
+      "body2": "Miguel se encarga del desarrollo web y la dirección del estudio. Sergio se encarga de fotografía y producción visual. Hablamos entre nosotros y contigo directamente. Sin capas intermedias.",
+      "miguelName": "Miguel Louwagie",
+      "miguelRole": "Desarrollo · Dirección",
+      "sergioName": "Sergio Louwagie",
+      "sergioRole": "Fotografía · Producción",
+      "trustHeading": "Trabajar con nosotros significa:",
+      "trust1": "Auditoría inicial gratuita, sin compromiso.",
+      "trust2": "Sin permanencia ni contratos de retención.",
+      "trust3": "Trato directo con quien hace el trabajo.",
+      "trust4": "Propiedad del código y los archivos al 100%."
+    },
+    "testimonials": {
+      "eyebrow": "Lo que dicen quienes trabajaron con nosotros",
+      "heading": "Tres conversaciones reales.",
+      "quote1": {
+        "text": "Entendieron el negocio en la primera reunión. Nos propusieron exactamente lo que necesitábamos, ni más ni menos. La web está funcionando muy por encima de lo que esperábamos.",
+        "author": "María G.",
+        "role": "Propietaria · TropiDenia"
+      },
+      "quote2": {
+        "text": "Las fotos cambiaron la forma en que nos perciben los clientes. Profesionales, cuidadas, sin ese aire de foto de agencia genérica. Notamos el salto al día siguiente de publicarlas.",
+        "author": "Robert M.",
+        "role": "Director · BVS Trabajos Verticales"
+      },
+      "quote3": {
+        "text": "Trabajan con calma, sin prisa pero sin pausa. Nos explicaron cada decisión técnica con palabras que entendemos. Al acabar teníamos una web que nos representa, no una plantilla.",
+        "author": "Ana L.",
+        "role": "Propietaria · GymDenia"
+      }
+    },
+    "contact": {
+      "eyebrow": "Contacto",
+      "heading": "Una conversación de 15 minutos suele bastar.",
+      "body": "Cuéntanos qué necesitas. Si podemos ayudarte lo sabrás el mismo día. Si no, te diremos con quién sí puedes hablar.",
+      "whatsappCta": "Hablemos por WhatsApp",
+      "emailLabel": "O por email",
+      "emailAddress": "studiopixelens@gmail.com",
+      "hoursLabel": "Horario de atención",
+      "hoursValue": "Lun-Vie · 9:00-18:00 · Europe/Madrid",
+      "form": {
+        "heading": "O escríbenos desde aquí",
+        "nameLabel": "Nombre",
+        "namePlaceholder": "Tu nombre",
+        "emailLabel": "Email",
+        "emailPlaceholder": "tu@email.com",
+        "phoneLabel": "Teléfono (opcional)",
+        "phonePlaceholder": "+34 600 000 000",
+        "messageLabel": "Cuéntanos",
+        "messagePlaceholder": "¿Qué tienes en mente?",
+        "submit": "Enviar mensaje",
+        "submitting": "Enviando..."
+      }
+    }
   }
 }

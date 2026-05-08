@@ -1,18 +1,4 @@
 {
-  "hero": {
-    "title": "Professional Websites",
-    "titleHighlight": "Photography",
-    "subtitle": "For your business",
-    "description": "We create your digital asset: high-performance web development and strategic photography. Direct communication, real results.",
-    "serviceIndexTitle": "What do you need to boost?",
-    "serviceIndexBtn1Text": "Premium Web Development",
-    "serviceIndexBtn2Text": "Business Photography",
-    "ctaWhatsapp": "Contact via WhatsApp",
-    "ctaServices": "View Solutions",
-    "benefit1": "Initial audit",
-    "benefit2": "No permanence",
-    "benefit3": "Licensed professionals"
-  },
   "nav": {
     "home": "Home",
     "services": "Services",
@@ -198,84 +184,63 @@
     "trialMessage": "Need to see more examples from your sector? Write to us.",
     "vatIncluded": "+ VAT"
   },
-  "whyUs": {
-    "title": "Don't Look for Vendors,<br><span class='text-3xl md:text-4xl lg:text-5xl'>Look for a <br><span class='text-orange-500'>Growth Partner</span></span>",
-    "subtitle": "",
-    "reason1": {
-      "title": "Engineering vs. Craftsmanship",
-      "description": "We don't use slow templates. We write clean code (React) that Google loves and your customers appreciate. <strong>Your site will fly.</strong>"
-    },
-    "reason2": {
-      "title": "Business Vision",
-      "description": "We don't just take pretty photos or make modern websites. We understand <strong>sales funnels, conversion, and retention</strong>."
-    },
-    "reason3": {
-      "title": "In-House Production",
-      "description": "No outsourcing. The developer and photographer are the owners. <strong>Total commitment</strong> to your result."
-    },
-    "reason4": {
-      "title": "Commercial Agility",
-      "description": "We understand business timelines. <strong>Fast deliveries and fluid communication</strong> via WhatsApp."
-    },
-    "reason5": {
-      "title": "Safe Investment",
-      "description": "We work until the result meets the agreed quality standards. Your satisfaction is our reputation."
-    },
-    "reason6": {
-      "title": "Scalability",
-      "description": "Our solutions grow with you. Start with the Launch Pack and scale to complex systems without throwing anything away."
-    },
-    "badges": {
-      "certified": "Certified",
-      "topPrice": "High Value"
-    }
-  },
   "portfolio": {
     "title": "Industries We Work With",
     "subtitle": "Experience in multiple industries with real results",
     "footerText": "Your industry not listed? We work with any type of business",
     "footerCta": "Tell Us About Your Project",
     "webCategory": "Web Development",
-    "photoCategory": "Photography"
-  },
-  "stickyScroll": {
-    "mainTitle": "Your Website as",
-    "mainTitleHighlight": "Business Asset",
-    "result1": {
-      "title": "CRO-Based Strategic Design",
-      "description": "We don't design for aesthetics. Every visual element is optimized to maximize conversions through CRO (Conversion Rate Optimization) techniques backed by user psychology."
-    },
-    "result2": {
-      "title": "Premium User Experience",
-      "description": "Smooth animations, fluid transitions and micro-interactions that elevate perceived value. Your website will feel like a $5,000+ product, not a generic template."
-    },
-    "result3": {
-      "title": "Content Strategy Included",
-      "description": "Persuasive copy, clear visual hierarchy and strategically placed calls-to-action. Every word works to sell your value proposition."
-    },
-    "process1": {
-      "title": "Analysis and Strategy",
-      "description": "We study your market, competition and target audience to create a winning digital strategy from the start."
-    },
-    "process3": {
-      "title": "Post-Launch Tracking",
-      "description": "We don't abandon you after launch. We monitor performance and continuously optimize to improve results."
-    },
-    "priceTitle": "Your Platform for",
-    "priceTitleHighlight": "Digital Growth",
-    "croBadge": "✨ Built to Convert (CRO)",
-    "initialInvestment": "Initial Investment",
-    "priceAmount": "From €699",
-    "priceDisclaimer": "This is the cost of our Startup Launch Pack. Request a quote for our strategic design services with advanced CRO and smooth animations.",
-    "strategicDesign": "Strategic Design",
-    "ctaButton": "Request My Custom Quote",
-    "whatsappMessage": "Hello, I want to request a custom quote for a professional website with strategic design",
-    "feature1": "Built to Convert\n(CRO)",
-    "feature2": "Smooth Animations\n(Next-Level Design)",
-    "feature3": "Content Strategy Included",
-    "maintenanceTitle": "Proactive Maintenance: Avoid Hidden Costs",
-    "maintenanceDescription": "After creating your website, we offer a monthly maintenance service to keep it secure, updated and running perfectly. You'll never have to call an emergency developer. Cost varies based on your needs (updates, support, backups). Ask us without obligation!",
-    "legalDisclaimer": "All prices do not include VAT. Domain and hosting managed separately."
+    "photoCategory": "Photography",
+    "gallery": {
+      "heading": "Before / after comparison",
+      "labelBefore": "Original",
+      "labelAfter": "Edited",
+      "item1": {
+        "number": "#01",
+        "title": "Corporate portrait",
+        "caption": "Natural light adjustment, skin corrected, background cleaned."
+      },
+      "item2": {
+        "number": "#02",
+        "title": "Product outdoors",
+        "caption": "Shadow detail recovery, background toned for editorial integration."
+      },
+      "item3": {
+        "number": "#03",
+        "title": "Real estate interior",
+        "caption": "Mixed light tone correction, blown window rebalancing."
+      },
+      "item4": {
+        "number": "#04",
+        "title": "Building exterior",
+        "caption": "Perspective adjustment, removal of cables and distracting elements."
+      },
+      "item5": {
+        "number": "#05",
+        "title": "Food & gastronomy",
+        "caption": "Plate colour treatment, enhanced subject-background separation."
+      },
+      "item6": {
+        "number": "#06",
+        "title": "Studio product",
+        "caption": "Uniform background, controlled highlights, texture detail enhanced."
+      },
+      "item7": {
+        "number": "#07",
+        "title": "TODO 5.5",
+        "caption": "TODO 5.5"
+      },
+      "item8": {
+        "number": "#08",
+        "title": "TODO 5.5",
+        "caption": "TODO 5.5"
+      },
+      "item9": {
+        "number": "#09",
+        "title": "TODO 5.5",
+        "caption": "TODO 5.5"
+      }
+    }
   },
   "portfolioShowcase": {
     "header": {
@@ -290,14 +255,6 @@
       "tag1": "Corporate",
       "tag2": "WordPress",
       "tag3": "SEO"
-    },
-    "goldencoast": {
-      "title": "Golden Coast Charter",
-      "tagline": "Premium booking platform for luxury vessels",
-      "description": "High-end system that increases conversions and direct reservations. Strategic design that conveys luxury and trust to VIP clients.",
-      "tag1": "Tourism",
-      "tag2": "Bookings",
-      "tag3": "Luxury"
     },
     "gymdenia": {
       "title": "GymDenia",
@@ -343,26 +300,6 @@
     },
     "ctaText": "Ready to start your project?",
     "ctaButton": "Contact Now"
-  },
-  "about": {
-    "title": "The Team",
-    "subtitle": "Two brothers, one goal: help local businesses stand out online",
-    "miguel": {
-      "name": "Miguel",
-      "role": "Web Development",
-      "description": "Modern web development with React and TypeScript. Fast websites optimized for businesses.",
-      "skill1": "React",
-      "skill2": "TypeScript",
-      "skill3": "Tailwind"
-    },
-    "sergio": {
-      "name": "Sergio",
-      "role": "Photography",
-      "description": "Professional photography for businesses, products and real estate. Unique and commercial style.",
-      "skill1": "Corporate",
-      "skill2": "Products",
-      "skill3": "Real Estate"
-    }
   },
   "contact": {
     "title": "Let's Talk?",
@@ -440,28 +377,6 @@
       "terms": "Terms of Use"
     }
   },
-  "testimonials": {
-    "title": "What Our Clients Say",
-    "subtitle": "Real testimonials from businesses that trusted us",
-    "testimonial1": {
-      "name": "María G.",
-      "location": "Dénia, Spain",
-      "text": "I hired the photography service for my real estate agency and the photos turned out amazing. Every property looks much better with professionally edited images. Clients congratulate me on the quality.",
-      "rating": 5
-    },
-    "testimonial2": {
-      "name": "Robert M.",
-      "location": "Miami, USA",
-      "text": "I needed a professional website for my vertical service company. The team delivered an excellent bilingual site that works perfectly. Very responsive and professional.",
-      "rating": 5
-    },
-    "testimonial3": {
-      "name": "Ana L.",
-      "location": "Calpe, Spain",
-      "text": "At first I didn't give much importance to having a website for my gym, but I was surprised by the number of people who contact us through it. Now it's my best customer acquisition tool.",
-      "rating": 5
-    }
-  },
   "header": {
     "tagline": "Web & Photography",
     "badge": "Licensed professionals",
@@ -477,7 +392,36 @@
   "common": {
     "whatsapp": {
       "cta": "WhatsApp",
-      "prefilledMessage": "Hi, I'd like more information about Studio Pixelens services."
+      "ariaLabel": "Contact via WhatsApp",
+      "tooltip": "Let's talk on WhatsApp",
+      "prefilledMessage": "Hi, I'd like to discuss a project for my business."
+    },
+    "nav": {
+      "home": "Home",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "portfolioPhoto": "Photography",
+      "portfolioWeb": "Web development",
+      "contact": "Contact",
+      "whatsappCta": "WhatsApp",
+      "langToggle": "ES / EN"
+    },
+    "footer": {
+      "claim": "Independent digital studio in Dénia. Web development and professional photography for local businesses.",
+      "navHeading": "Navigation",
+      "contactHeading": "Contact",
+      "legalHeading": "Legal",
+      "legalNotice": "Legal notice",
+      "privacy": "Privacy policy",
+      "cookies": "Cookie policy",
+      "rightsReserved": "© 2026 Studio Pixelens. All rights reserved.",
+      "location": "Dénia, Alicante, Spain"
+    },
+    "toast": {
+      "successTitle": "Message sent",
+      "successBody": "We'll get back to you within 48 hours.",
+      "errorTitle": "Something went wrong",
+      "errorBody": "Try reaching us via WhatsApp or email. Sorry for the inconvenience."
     }
   },
   "simplePrice": {
@@ -523,5 +467,148 @@
   "divider": {
     "title": "Your business deserves to shine online",
     "subtitle": "We capture your business essence and transform it into a digital presence that attracts customers"
+  },
+  "home": {
+    "hero": {
+      "eyebrow": "Digital studio · Dénia",
+      "headline": "Visual and technical work for businesses that want to grow.",
+      "subclaim": "Web development and professional photography. One studio, one standard. No middlemen, no templates.",
+      "ctaPrimary": "Let's talk on WhatsApp",
+      "ctaSecondary": "See our work"
+    },
+    "services": {
+      "heading": "Two disciplines, one standard.",
+      "subheading": "We're not a generalist agency. We do two things and we do them well.",
+      "web": {
+        "number": "01",
+        "label": "Web development",
+        "title": "Websites built from scratch.",
+        "body": "Custom code in React and TypeScript. No recycled templates. Every website is designed to address a specific problem for a specific business.",
+        "link": "View web portfolio →"
+      },
+      "photo": {
+        "number": "02",
+        "label": "Professional photography",
+        "title": "Images that tell what needs to be told.",
+        "body": "Corporate photography, product, events, real estate. Also professional editing of photos you already have. Every image is treated with editorial care.",
+        "link": "View photo portfolio →"
+      }
+    },
+    "casesWeb": {
+      "eyebrow": "Recent work",
+      "heading": "Web development case studies.",
+      "subheading": "Three recent projects for local businesses. Each one solves a different problem.",
+      "case1": {
+        "eyebrow": "TropiDenia · Local tourism",
+        "title": "Direct bookings, no middlemen.",
+        "body": "We eliminated dependence on external platforms with commissions. A proprietary booking system with full business control from day one.",
+        "tag1": "UI/UX",
+        "tag2": "React",
+        "tag3": "Bookings"
+      },
+      "case2": {
+        "eyebrow": "BVS Vertical Works · Industrial services",
+        "title": "Digital presence that conveys craft.",
+        "body": "We redesigned their online image to reflect the technical seriousness of the business. More qualified leads, bigger projects, authority in the sector.",
+        "tag1": "Corporate",
+        "tag2": "SEO"
+      },
+      "case3": {
+        "eyebrow": "GymDenia · Local fitness",
+        "title": "Local acquisition that works every day.",
+        "body": "Went from being invisible online to becoming the local fitness reference. Optimised forms that turn visitors into members every week.",
+        "tag1": "Web Design",
+        "tag2": "Forms",
+        "tag3": "Responsive"
+      },
+      "cta": "View all cases →"
+    },
+    "photoShowcase": {
+      "eyebrow": "Photography work",
+      "heading": "Image before, image after.",
+      "body": "Every photo goes through a manual process of light, contrast, colour and detail adjustment. Drag the slider to see the difference.",
+      "labelBefore": "Original",
+      "labelAfter": "Edited",
+      "cta": "View photo portfolio →"
+    },
+    "process": {
+      "eyebrow": "How we work",
+      "heading": "A clear process, no surprises.",
+      "step1": {
+        "number": "01",
+        "title": "We listen.",
+        "body": "Free first conversation. We want to understand your business, your customer and the real problem you have. We won't recommend anything we don't believe in.",
+        "promise": "Response within 48 hours."
+      },
+      "step2": {
+        "number": "02",
+        "title": "We build.",
+        "body": "Concrete proposal with scope, cost and timeline. No small print. We start when you confirm, not before.",
+        "promise": "Written proposal always."
+      },
+      "step3": {
+        "number": "03",
+        "title": "We deliver and stay.",
+        "body": "We deliver what was agreed on time. After launch we remain available for adjustments, questions and whatever comes up. We're not an agency that disappears.",
+        "promise": "30 days of support included."
+      }
+    },
+    "about": {
+      "eyebrow": "Who we are",
+      "heading": "A small studio with its own standards.",
+      "body1": "We're Miguel and Sergio, brothers and partners. We work with local businesses in the Marina Alta that already have something to say and need someone to say it well.",
+      "body2": "Miguel handles web development and studio direction. Sergio handles photography and visual production. We talk to each other and to you directly. No middle layers.",
+      "miguelName": "Miguel Louwagie",
+      "miguelRole": "Development · Direction",
+      "sergioName": "Sergio Louwagie",
+      "sergioRole": "Photography · Production",
+      "trustHeading": "Working with us means:",
+      "trust1": "Free initial audit, no commitment.",
+      "trust2": "No lock-in contracts or retention agreements.",
+      "trust3": "Direct contact with the people who do the work.",
+      "trust4": "100% ownership of code and files."
+    },
+    "testimonials": {
+      "eyebrow": "What people who worked with us say",
+      "heading": "Three real conversations.",
+      "quote1": {
+        "text": "They understood the business in the first meeting. They proposed exactly what we needed, nothing more, nothing less. The website is performing well above our expectations.",
+        "author": "María G.",
+        "role": "Owner · TropiDenia"
+      },
+      "quote2": {
+        "text": "The photos changed how clients perceive us. Professional, considered, without that generic agency feel. We noticed the difference the day after publishing them.",
+        "author": "Robert M.",
+        "role": "Director · BVS Vertical Works"
+      },
+      "quote3": {
+        "text": "They work calmly, steadily but without rushing. They explained every technical decision in words we understand. When we finished we had a website that represents us, not a template.",
+        "author": "Ana L.",
+        "role": "Owner · GymDenia"
+      }
+    },
+    "contact": {
+      "eyebrow": "Contact",
+      "heading": "A 15-minute conversation is usually enough.",
+      "body": "Tell us what you need. If we can help you'll know the same day. If not, we'll tell you who can.",
+      "whatsappCta": "Let's talk on WhatsApp",
+      "emailLabel": "Or by email",
+      "emailAddress": "studiopixelens@gmail.com",
+      "hoursLabel": "Response hours",
+      "hoursValue": "Mon–Fri · 9:00–18:00 · Europe/Madrid",
+      "form": {
+        "heading": "Or write to us here",
+        "nameLabel": "Name",
+        "namePlaceholder": "Your name",
+        "emailLabel": "Email",
+        "emailPlaceholder": "you@email.com",
+        "phoneLabel": "Phone (optional)",
+        "phonePlaceholder": "+34 600 000 000",
+        "messageLabel": "Tell us",
+        "messagePlaceholder": "What's on your mind?",
+        "submit": "Send message",
+        "submitting": "Sending..."
+      }
+    }
   }
 }
