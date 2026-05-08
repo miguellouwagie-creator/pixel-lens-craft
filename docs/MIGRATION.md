@@ -10,10 +10,10 @@
 
 | Campo | Valor |
 |---|---|
-| Versión | 1.0 |
-| Fecha | 2026-04-19 |
-| Autor | Miguel Louwagie Sapena + Claude Opus 4.7 |
-| Estado | Draft. Clasificación inicial. Se refina al ejecutar cada subfase. |
+| Versión | 1.1 |
+| Fecha | 2026-05-08 |
+| Autor | Miguel Louwagie Sapena + Claude Opus 4.7 / Sonnet 4.6 |
+| Estado | Subfase 5.1 ejecutada y cerrada. Subfases 5.2-5.5 pendientes. |
 | Alcance | `src/components/`, `src/pages/`, `src/data/`, `src/hooks/` (relevantes para Sprint 1 público). |
 | Bloquea | G1 gate. |
 
@@ -36,7 +36,7 @@
 
 | Path | Clasificación | Fase | Notas |
 |---|---|---|---|
-| `src/pages/Index.tsx` | 🏗️ REBUILD | 5.1 | Home completo. Reescribir imports de componentes nuevos. Estructura actual: 14 imports → estructura nueva: 8 bloques modulares (ver CONTENT.md §3). |
+| `src/pages/Index.tsx` | ✅ REBUILD | 5.1 | **COMPLETO** commit `68e298e`. Home completo. 7 componentes nuevos importados + contact placeholder. |
 | `src/pages/Portfolio.tsx` | 🏗️ REBUILD | 5.5 | Reescribir galería con `react-compare-image` (cierra DT-12), 4 bloques nuevos (ver CONTENT.md §4). Elimina toggle manual de opacidad. Elimina fondo gradiente naranja-rojo. |
 | `src/pages/PortfolioWebs.tsx` | 🏗️ REBUILD | 5.5 | Reescribir con 4 bloques editoriales. Actualmente es shell de 34 líneas envolviendo `WebPortfolioShowcase` — este pasa también a REBUILD. |
 | `src/pages/Auth.tsx` | ⏭️ DIFERIR | Sprint 2 | Tocar solo para envolver en nuevo `Header` + `Footer` del rediseño. Contenido interno intocable Sprint 1. |
@@ -51,22 +51,22 @@
 | Path | Clasificación | Fase | Reemplaza a / se fusiona con | Notas |
 |---|---|---|---|---|
 | `src/components/Header.tsx` | 🏗️ REBUILD | 5.2 | (mismo archivo) | 458 líneas → ~150 líneas objetivo. Elimina pill-on-scroll. Simplifica dropdown portfolio. Usa `VITE_WHATSAPP_NUMBER` (cierra DT-01 parcial). Lang toggle real (no sólo visual, cierra DT-09 parcial). |
-| `src/components/Hero.tsx` | 🏗️ REBUILD | 5.1 | (mismo archivo) | Eliminar sticky video + parallax. Layout asimétrico text-left + image-right. Copy nuevo de `home.hero.*`. CTA WhatsApp conversacional. |
-| `src/components/ServiceSelector.tsx` | 🗑️ DESCARTAR | 5.1 | Sustituido por nuevo `HomeServices.tsx` (🆕 CREAR) | Split-screen SaaS 2019-2021 abandonado (D31). Reemplazado por layout editorial de 2 tarjetas numeradas 01/02 según CONTENT.md §3.2. |
-| `src/components/HorizontalShowcase.tsx` | 🗑️ DESCARTAR | 5.1 | Sustituido por nuevo `HomeCasesWeb.tsx` (🆕 CREAR) | Scroll horizontal con `FloatingElements` 3D mouse tracking — sobredimensionado y competing con cases de /portfolio-webs. Reemplazado por carrusel editorial horizontal simple con 3 casos (ver CONTENT.md §3.3). |
-| `src/components/FloatingElements.tsx` | 🗑️ DESCARTAR | 5.1 | — | Solo existía para apoyar `HorizontalShowcase`. Al morir su consumidor, se descarta. Verificar con `grep` antes de borrar que nadie más lo importa. |
-| `src/components/StickyScrollSection.tsx` | 🗑️ DESCARTAR | 5.1 | Sustituido por nuevo `HomeProcess.tsx` (🆕 CREAR) | Proceso con pricing embebido. Se separa: proceso editorial limpio en nuevo bloque, pricing sale del Home (se trata en conversación directa). Ver CONTENT.md §3.5. |
-| `src/components/PricingSection.tsx` | 🗑️ DESCARTAR | 5.1 | — | Photo pricing con demo slider. Sale del Home. Las keys `photoPacks.*` se preservan en locales para una futura `/servicios`, pero el componente no se usa. |
+| `src/components/Hero.tsx` | ✅ REBUILD | 5.1 | (mismo archivo) | **COMPLETO** commit `223eb78`. Movido a `src/components/home/Hero.tsx`. Layout grid 3fr/2fr, `home.hero.*`, CTA WhatsApp glow + secondary anchor `#cases-web`. |
+| `src/components/ServiceSelector.tsx` | ✅ DESCARTAR | 5.1 | Sustituido por nuevo `HomeServices.tsx` (✅ CREAR) | **COMPLETO** commit `6af42f3`. Eliminado. `HomeServices.tsx` creado en `src/components/home/`. |
+| `src/components/HorizontalShowcase.tsx` | ✅ DESCARTAR | 5.1 | Sustituido por nuevo `HomeCasesWeb.tsx` (✅ CREAR) | **COMPLETO** commit `db6c756`. Eliminado junto con `FloatingElements.tsx` y `ProjectCard.tsx`. |
+| `src/components/FloatingElements.tsx` | ✅ DESCARTAR | 5.1 | — | **COMPLETO** commit `db6c756`. Eliminado. |
+| `src/components/StickyScrollSection.tsx` | ✅ DESCARTAR | 5.1 | Sustituido por nuevo `HomeProcess.tsx` (✅ CREAR) | **COMPLETO** commit `1a775af`. Eliminado junto con PricingSection, SimplePricingSection y processData.ts. |
+| `src/components/PricingSection.tsx` | ✅ DESCARTAR | 5.1 | — | **COMPLETO** commit `1a775af`. Eliminado. |
 | `src/components/PhotoPricingSection.tsx` si existe | 🗑️ DESCARTAR | 5.1 | — | Si hay duplicado con PricingSection (DT-07 candidato), se elimina. Auditar en Fase 2. |
 | `src/components/SimplePricingSection.tsx` | 🗑️ DESCARTAR | 5.1 | — | INVENTORY §16.15 confirmó duplicación con `PricingSection`. Eliminar. |
-| `src/components/WhyUs.tsx` | 🗑️ DESCARTAR | 5.1 | Fusionado en `HomeAbout.tsx` nuevo (🆕 CREAR) | 6 tarjetas con iconos coloridos: anti-patrón MASTER §6.1 "prohibido 3 cols icono+texto". Bug: WhatsApp con número distinto `34634408043` (DT-01 se cierra aquí). Los trust signals se mueven a nuevo `HomeAbout`. |
-| `src/components/Testimonials.tsx` | 🏗️ REBUILD | 5.1 | (mismo archivo) | Reescribir eliminando círculos con iniciales coloridas y estrellas. Layout editorial de 3 citas. Copy nuevo de `home.testimonials.*`. |
-| `src/components/About.tsx` | 🗑️ DESCARTAR | 5.1 | Sustituido por nuevo `HomeAbout.tsx` (🆕 CREAR, fusión About + WhyUs) | Reemplaza componente actual que usaba DS tokens correctamente pero copy débil. Nueva versión fusiona team presentation + trust signals. |
+| `src/components/WhyUs.tsx` | ✅ DESCARTAR | 5.1 | Fusionado en `HomeAbout.tsx` nuevo (✅ CREAR) | **COMPLETO** commit `bd10b11`. Eliminado. `HomeAbout.tsx` creado en `src/components/home/` con trust signals. |
+| `src/components/Testimonials.tsx` | ✅ REBUILD | 5.1 | (mismo archivo) | **COMPLETO** commit `a9523f1`. Movido a `src/components/home/Testimonials.tsx`. Blockquote editorial sin estrellas ni círculos. |
+| `src/components/About.tsx` | ✅ DESCARTAR | 5.1 | Sustituido por nuevo `HomeAbout.tsx` (✅ CREAR, fusión About + WhyUs) | **COMPLETO** commit `bd10b11`. Eliminado. |
 | `src/components/FormSection.tsx` | 🏗️ REBUILD | 5.4 | (mismo archivo) | Mantener lógica de React Hook Form + Zod + DOMPurify. Reescribir UI con 2 columnas (info izq + form der). Nuevo copy de `home.contact.*`. Usar `VITE_WHATSAPP_NUMBER`. |
 | `src/components/ContactForm.tsx` | ♻️ REFACTOR | 5.4 | — | Si existe como componente separado de `FormSection`, unificar. Si solo es sub-componente del form, reescribir con DS nuevo. Hay que ver el archivo concreto en Fase 2. |
 | `src/components/Footer.tsx` | 🏗️ REBUILD | 5.2 | (mismo archivo) | Reescribir con 4 columnas nuevas. Eliminar "Aviso Legal" hardcoded ES. Añadir `common.footer.rightsReserved` (faltante). Usa `VITE_WHATSAPP_NUMBER`. |
 | `src/components/WhatsAppButton.tsx` | ♻️ REFACTOR | 5.2 | (mismo archivo) | Mantener floating button. Reescribir visual con DS nuevo. Usa `VITE_WHATSAPP_NUMBER` + mensaje prefilled de `common.whatsapp.prefilledMessage`. Cierra DT-01 para este archivo. |
-| `src/components/SectionDivider.tsx` | ♻️ REFACTOR | 5.1 | (mismo archivo) | Usado 3 veces en Home actual. El rediseño reduce uso: solo entre bloque 5 y 6. Simplificar a línea horizontal fina 1px con opacity. |
+| `src/components/SectionDivider.tsx` | ✅ DESCARTAR | 5.1 | — | **COMPLETO** (varios commits). Eliminado. El único divider necesario entre HomeProcess y HomeAbout fue inlinado directamente en Index.tsx como `<div aria-hidden className="border-t border-border/40 my-16 mx-auto max-w-6xl" />`. |
 
 ---
 
@@ -99,10 +99,10 @@
 
 | Path | Clasificación | Fase | Notas |
 |---|---|---|---|
-| `src/data/showcaseData.ts` | 🗑️ DESCARTAR | 5.1 | Datos de `HorizontalShowcase` que desaparece. Las 3 entradas de proyectos migran a `src/data/webCasesData.ts` nuevo. |
-| `src/data/processData.ts` | 🗑️ DESCARTAR | 5.1 | Pasos del proceso embebidos en `StickyScrollSection` que desaparece. Los 3 pasos nuevos van directamente en `HomeProcess.tsx` o en un archivo nuevo más limpio. Cierra DT-02 parcial (había `any` aquí). |
-| `src/data/galleryData.ts` | 🆕 CREAR | 5.5 | Array de 9 objetos con `{ imageBefore, imageAfter, number, title, caption }`. Imports de `src/assets/portfolio-*.png`. |
-| `src/data/webCasesData.ts` | 🆕 CREAR | 5.5 | Array de 3 objetos con `{ image, eyebrow, headline, description, tags }` para TropiDenia, BVS, GymDenia. |
+| `src/data/showcaseData.ts` | ✅ DESCARTAR | 5.1 | **COMPLETO** commit `db6c756`. Eliminado. |
+| `src/data/processData.ts` | ✅ DESCARTAR | 5.1 | **COMPLETO** commit `1a775af`. Eliminado. |
+| `src/data/galleryData.ts` | ✅ CREAR | 5.1 | **COMPLETO** commit `c4aba54`. Creado en Subfase 5.1 (necesario para HomePhotoShowcase). 9 items con `{ id, imageBefore, imageAfter, numberKey, titleKey, captionKey }`. |
+| `src/data/webCasesData.ts` | ✅ CREAR | 5.1 | **COMPLETO** commit `db6c756`. Creado en Subfase 5.1 (necesario para HomeCasesWeb). 3 items con `{ id, image, eyebrowKey, titleKey, bodyKey, tagKeys: string[] }`. |
 
 ---
 
@@ -112,9 +112,9 @@ Archivos identificados como potencialmente huérfanos en Fase 0. Decisión aplic
 
 | Path | Clasificación | Fase | Razón |
 |---|---|---|---|
-| `src/components/CTASection.tsx` | 🗑️ DESCARTAR | 5.1 | Confirmado huérfano en INVENTORY §16.14. El rediseño no necesita un CTASection separado: cada bloque termina con su propio CTA contextual. |
-| `src/components/GuaranteesSection.tsx` | 🗑️ DESCARTAR | 5.1 | Confirmado huérfano. Las garantías se integran como trust signals en `HomeAbout.tsx` (`home.about.trust*`). |
-| `src/components/Process.tsx` | 🗑️ DESCARTAR | 5.1 | Confirmado huérfano. Sustituido conceptualmente por `StickyScrollSection` → nuevo `HomeProcess.tsx`. |
+| `src/components/CTASection.tsx` | ✅ DESCARTAR | 5.1 | **COMPLETO** (varios commits). Eliminado. |
+| `src/components/GuaranteesSection.tsx` | ✅ DESCARTAR | 5.1 | **COMPLETO** (varios commits). Eliminado. |
+| `src/components/Process.tsx` | ✅ DESCARTAR | 5.1 | **COMPLETO** (varios commits). Eliminado. |
 | `src/components/Services.tsx` | 🗑️ DESCARTAR | 5.1 | Confirmado huérfano. Funcionalidad cubierta por `ServiceSelector` (que también se descarta) → nuevo `HomeServices.tsx`. |
 
 **Nota operativa:** antes del `git rm`, Claude Code debe ejecutar `grep -r "CTASection\|GuaranteesSection\|Process\|Services\|SimplePricingSection" src/ --include="*.tsx" --include="*.ts"` para confirmar cero imports. Si aparece algún import residual (por ejemplo comentado), resolverlo antes de borrar.
@@ -290,4 +290,5 @@ Checklist pre-merge a `dev`:
 
 | Versión | Fecha | Autor | Cambios |
 |---|---|---|---|
+| 1.1 | 2026-05-08 | Miguel + Claude Sonnet 4.6 | Cierre Subfase 5.1. §0 meta actualizado. Marcadas como ✅ COMPLETO todas las entradas de Subfase 5.1: Hero, ServiceSelector, HorizontalShowcase, FloatingElements, StickyScrollSection, PricingSection, SimplePricingSection, WhyUs, About, Testimonials, SectionDivider (§3), showcaseData y processData (§6), CTASection, GuaranteesSection, Process, Services (§7). Entradas CREAR en §6: galleryData.ts y webCasesData.ts actualizadas a ✅ con fase real 5.1 (adelantadas de 5.5 por necesidad de HomeCasesWeb/HomePhotoShowcase). Nota sub-decisión D37-5: ProjectCard.tsx eliminado en Step 3 junto con HorizontalShowcase (no en §5 como planeado originalmente). |
 | 1.0 | 2026-04-19 | Miguel + Claude Opus 4.7 | Documento inicial. Clasificación archivo por archivo (`src/pages/`, `src/components/`, `src/data/`, `src/hooks/`, `src/i18n/`, huérfanos). 16 CREAR nuevos + 12 REBUILD + 6 REFACTOR + 13 DESCARTAR + 14 PRESERVAR. Orden ejecución Fase 5 en 4 subfases (5.1, 5.2, 5.4, 5.5). Cross-reference con CONTENT.md y deuda técnica MASTER §7.4. |
