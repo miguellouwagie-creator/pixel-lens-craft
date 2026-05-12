@@ -10,10 +10,10 @@
 
 | Campo | Valor |
 |---|---|
-| Versión | 1.1 |
-| Fecha | 2026-05-08 |
+| Versión | 1.2 |
+| Fecha | 2026-05-12 |
 | Autor | Miguel Louwagie Sapena + Claude Opus 4.7 / Sonnet 4.6 |
-| Estado | Subfase 5.1 ejecutada y cerrada. Subfases 5.2-5.5 pendientes. |
+| Estado | Subfases 5.1 y 5.2 ejecutadas y cerradas. Subfases 5.4 y 5.5 pendientes. |
 | Alcance | `src/components/`, `src/pages/`, `src/data/`, `src/hooks/` (relevantes para Sprint 1 público). |
 | Bloquea | G1 gate. |
 
@@ -40,9 +40,9 @@
 | `src/pages/Portfolio.tsx` | 🏗️ REBUILD | 5.5 | Reescribir galería con `react-compare-image` (cierra DT-12), 4 bloques nuevos (ver CONTENT.md §4). Elimina toggle manual de opacidad. Elimina fondo gradiente naranja-rojo. |
 | `src/pages/PortfolioWebs.tsx` | 🏗️ REBUILD | 5.5 | Reescribir con 4 bloques editoriales. Actualmente es shell de 34 líneas envolviendo `WebPortfolioShowcase` — este pasa también a REBUILD. |
 | `src/pages/Auth.tsx` | ⏭️ DIFERIR | Sprint 2 | Tocar solo para envolver en nuevo `Header` + `Footer` del rediseño. Contenido interno intocable Sprint 1. |
-| `src/pages/NotFound.tsx` | ♻️ REFACTOR | 5.2 | Actualizar visual con DS nuevo (tipografía, colores, CTA al home). Mantener lógica. |
+| `src/pages/NotFound.tsx` | ✅ REFACTOR | 5.2 | **VALIDADO SIN CAMBIOS** en G5 parcial 5.2. Estado conforme DS final desde Fase 4. |
 | `src/pages/dashboard/*.tsx` (todos) | ⏭️ DIFERIR | Sprint 2 | Cualquier archivo bajo `pages/dashboard/`. No se abre hasta post-Basilea. |
-| `src/pages/legal/*.tsx` (Aviso, Privacidad, Cookies) | ♻️ REFACTOR | 5.2 | Mantener copy legal íntegro. Aplicar `LegalLayout` con tipografía DS nueva. Cierra DT-11 (import sin uso en LegalNotice). |
+| `src/pages/legal/*.tsx` (Aviso, Privacidad, Cookies) | ✅ REFACTOR | 5.2 | **VALIDADO SIN CAMBIOS** en G5 parcial 5.2. `LegalLayout` con `prose-editorial` y copy real preservado desde Fase 4 (P2). DT-11 cerrado en Fase 4, commit `434897e`. |
 
 ---
 
@@ -50,7 +50,7 @@
 
 | Path | Clasificación | Fase | Reemplaza a / se fusiona con | Notas |
 |---|---|---|---|---|
-| `src/components/Header.tsx` | 🏗️ REBUILD | 5.2 | (mismo archivo) | 458 líneas → ~150 líneas objetivo. Elimina pill-on-scroll. Simplifica dropdown portfolio. Usa `VITE_WHATSAPP_NUMBER` (cierra DT-01 parcial). Lang toggle real (no sólo visual, cierra DT-09 parcial). |
+| `src/components/Header.tsx` | ✅ DESCARTAR | 5.2 | — | **COMPLETO** commit `c0b66d4`. Eliminado (código muerto desde D36-1). Chrome activo en `src/components/layout/Header.tsx` (REFACTOR commit `7c7cfe3`). 5 nav items con `common.nav.about` añadido (D38-1). |
 | `src/components/Hero.tsx` | ✅ REBUILD | 5.1 | (mismo archivo) | **COMPLETO** commit `223eb78`. Movido a `src/components/home/Hero.tsx`. Layout grid 3fr/2fr, `home.hero.*`, CTA WhatsApp glow + secondary anchor `#cases-web`. |
 | `src/components/ServiceSelector.tsx` | ✅ DESCARTAR | 5.1 | Sustituido por nuevo `HomeServices.tsx` (✅ CREAR) | **COMPLETO** commit `6af42f3`. Eliminado. `HomeServices.tsx` creado en `src/components/home/`. |
 | `src/components/HorizontalShowcase.tsx` | ✅ DESCARTAR | 5.1 | Sustituido por nuevo `HomeCasesWeb.tsx` (✅ CREAR) | **COMPLETO** commit `db6c756`. Eliminado junto con `FloatingElements.tsx` y `ProjectCard.tsx`. |
@@ -64,8 +64,8 @@
 | `src/components/About.tsx` | ✅ DESCARTAR | 5.1 | Sustituido por nuevo `HomeAbout.tsx` (✅ CREAR, fusión About + WhyUs) | **COMPLETO** commit `bd10b11`. Eliminado. |
 | `src/components/FormSection.tsx` | 🏗️ REBUILD | 5.4 | (mismo archivo) | Mantener lógica de React Hook Form + Zod + DOMPurify. Reescribir UI con 2 columnas (info izq + form der). Nuevo copy de `home.contact.*`. Usar `VITE_WHATSAPP_NUMBER`. |
 | `src/components/ContactForm.tsx` | ♻️ REFACTOR | 5.4 | — | Si existe como componente separado de `FormSection`, unificar. Si solo es sub-componente del form, reescribir con DS nuevo. Hay que ver el archivo concreto en Fase 2. |
-| `src/components/Footer.tsx` | 🏗️ REBUILD | 5.2 | (mismo archivo) | Reescribir con 4 columnas nuevas. Eliminar "Aviso Legal" hardcoded ES. Añadir `common.footer.rightsReserved` (faltante). Usa `VITE_WHATSAPP_NUMBER`. |
-| `src/components/WhatsAppButton.tsx` | ♻️ REFACTOR | 5.2 | (mismo archivo) | Mantener floating button. Reescribir visual con DS nuevo. Usa `VITE_WHATSAPP_NUMBER` + mensaje prefilled de `common.whatsapp.prefilledMessage`. Cierra DT-01 para este archivo. |
+| `src/components/Footer.tsx` | ✅ DESCARTAR + REBUILD | 5.2 | — | **COMPLETO** commits `c0b66d4` (descarte legacy) + `6dca42c` (REBUILD selectivo `layout/Footer.tsx`, D38-2). Namespace `footer.col.*` legacy sustituido por `common.footer.*` canónico. Drift `footer.social.instagramUrl` preservado (D38-3). |
+| `src/components/WhatsAppButton.tsx` | ✅ DESCARTAR | 5.2 | — | **COMPLETO** commit `c0b66d4`. Eliminado (código muerto desde D36-1). Chrome activo en `src/components/layout/WhatsAppButton.tsx` (REFACTOR commit `da9662c`). |
 | `src/components/SectionDivider.tsx` | ✅ DESCARTAR | 5.1 | — | **COMPLETO** (varios commits). Eliminado. El único divider necesario entre HomeProcess y HomeAbout fue inlinado directamente en Index.tsx como `<div aria-hidden className="border-t border-border/40 my-16 mx-auto max-w-6xl" />`. |
 
 ---
@@ -290,5 +290,6 @@ Checklist pre-merge a `dev`:
 
 | Versión | Fecha | Autor | Cambios |
 |---|---|---|---|
-| 1.1 | 2026-05-08 | Miguel + Claude Sonnet 4.6 | Cierre Subfase 5.1. §0 meta actualizado. Marcadas como ✅ COMPLETO todas las entradas de Subfase 5.1: Hero, ServiceSelector, HorizontalShowcase, FloatingElements, StickyScrollSection, PricingSection, SimplePricingSection, WhyUs, About, Testimonials, SectionDivider (§3), showcaseData y processData (§6), CTASection, GuaranteesSection, Process, Services (§7). Entradas CREAR en §6: galleryData.ts y webCasesData.ts actualizadas a ✅ con fase real 5.1 (adelantadas de 5.5 por necesidad de HomeCasesWeb/HomePhotoShowcase). Nota sub-decisión D37-5: ProjectCard.tsx eliminado en Step 3 junto con HorizontalShowcase (no en §5 como planeado originalmente). |
 | 1.0 | 2026-04-19 | Miguel + Claude Opus 4.7 | Documento inicial. Clasificación archivo por archivo (`src/pages/`, `src/components/`, `src/data/`, `src/hooks/`, `src/i18n/`, huérfanos). 16 CREAR nuevos + 12 REBUILD + 6 REFACTOR + 13 DESCARTAR + 14 PRESERVAR. Orden ejecución Fase 5 en 4 subfases (5.1, 5.2, 5.4, 5.5). Cross-reference con CONTENT.md y deuda técnica MASTER §7.4. |
+| 1.1 | 2026-05-08 | Miguel + Claude Sonnet 4.6 | Cierre Subfase 5.1. §0 meta actualizado. Marcadas como ✅ COMPLETO todas las entradas de Subfase 5.1: Hero, ServiceSelector, HorizontalShowcase, FloatingElements, StickyScrollSection, PricingSection, SimplePricingSection, WhyUs, About, Testimonials, SectionDivider (§3), showcaseData y processData (§6), CTASection, GuaranteesSection, Process, Services (§7). Entradas CREAR en §6: galleryData.ts y webCasesData.ts actualizadas a ✅ con fase real 5.1 (adelantadas de 5.5 por necesidad de HomeCasesWeb/HomePhotoShowcase). Nota sub-decisión D37-5: ProjectCard.tsx eliminado en Step 3 junto con HorizontalShowcase (no en §5 como planeado originalmente). |
+| 1.2 | 2026-05-12 | Miguel Louwagie Sapena + Claude Opus 4.7 / Sonnet 4.6 | Cierre Subfase 5.2. §0 meta actualizado. §2 NotFound y legales marcados VALIDADO SIN CAMBIOS. §3 entradas Header.tsx, Footer.tsx, WhatsAppButton.tsx actualizadas a ✅ COMPLETO con hashes de commit. Nota REBUILD selectivo Footer por D38-2. |

@@ -421,7 +421,7 @@ Se mantienen mismas keys que Home §3.3 para evitar duplicación, pero con descr
 
 ### 6.1 Header
 
-**Estructura simplificada:** logo + nav (Inicio, Servicios, Portfolio, Contacto) + lang toggle + CTA WhatsApp. Sin pill-on-scroll. Sin dropdown complejo de portfolio (los dos portfolios se linkan desde bloques Home, no desde nav).
+**Estructura simplificada:** logo + nav (Inicio, Servicios, Portfolio, Sobre, Contacto) + lang toggle + CTA WhatsApp. Sin pill-on-scroll. Sin dropdown complejo de portfolio (los dos portfolios se linkan desde bloques Home, no desde nav).
 
 | Key i18n | ES | EN (draft) |
 |---|---|---|
@@ -431,10 +431,11 @@ Se mantienen mismas keys que Home §3.3 para evitar duplicación, pero con descr
 | `common.nav.portfolioPhoto` | `Fotografía` | `Photography` |
 | `common.nav.portfolioWeb` | `Desarrollo web` | `Web development` |
 | `common.nav.contact` | `Contacto` | `Contact` |
+| `common.nav.about` | `Sobre` | `About` |
 | `common.nav.whatsappCta` | `WhatsApp` | `WhatsApp` |
 | `common.nav.langToggle` | `ES / EN` | `ES / EN` |
 
-**Nota:** `common.nav.portfolio` funciona como label del menú desplegable que contiene `portfolioPhoto` y `portfolioWeb`. Se mantiene el patrón de dropdown actual pero simplificado visualmente.
+**Nota:** `common.nav.portfolio` funciona como label del menú desplegable que contiene `portfolioPhoto` y `portfolioWeb`. Se mantiene el patrón de dropdown actual pero simplificado visualmente. `common.nav.about` añadido en Subfase 5.2 (commit `adb524b`): el Header real tiene 5 nav items incluyendo Sobre (anchor `/#about`, D36-2). CONTENT.md v1.0 listaba 4.
 
 ---
 
@@ -605,3 +606,4 @@ Cuando Claude Code migre este copy a `src/i18n/locales/es.json` y `en.json`:
 | Versión | Fecha | Autor | Cambios |
 |---|---|---|---|
 | 1.0 | 2026-04-19 | Miguel + Claude Opus 4.7 | Documento inicial. Cubre Home (8 bloques), /portfolio (4 bloques), /portfolio-webs (4 bloques), chrome global. ES definitivo, EN draft. Anti-patrones (10 reglas). Keys a eliminar (huérfanas + reemplazadas). Diff conceptual vs copy actual. Validación pendiente. Aplicadas D31.1 (quitar +40% TropiDenia), D31.2 (quitar tag WordPress BVS), D31.3 (descripción única por caso web), D31.4 (Bloque B /portfolio reducido sin números). |
+| 1.1 | 2026-05-12 | Miguel + Claude Sonnet 4.6 | §6.1 Header actualizado: "Estructura simplificada" con 5 nav items, key `common.nav.about` añadida a la tabla (ES: `Sobre`, EN: `About`), nota al pie ampliada. Corrección de drift respecto a Header real validado en G5 parcial 5.2. |

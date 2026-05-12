@@ -11,11 +11,11 @@
 
 ## Current status
 
-- **Fase actual:** **Fase 5 (Migración contenido + portfolio) — Subfase 5.1 COMPLETA** ✅. 11 commits Subfase 5.1 (223eb78 a d7578b7) en `redesign/v2-framer-base`. Home REBUILD: 7 componentes nuevos, 14 archivos legacy eliminados, i18n `home.*` completo en ES + EN. Build limpio, tsc limpio, `grep --cta` vacío en home components.
-- **Siguiente subfase:** **Subfase 5.2 — Chrome global REBUILD** ⬜. Header + Footer + WhatsAppButton + PageLoader (MIGRATION.md §11).
+- **Fase actual:** **Fase 5 (Migración contenido + portfolio) — Subfase 5.2 COMPLETA** ✅. 5 commits Subfase 5.2 (adb524b a da9662c) en `redesign/v2-framer-base`. Chrome global en estado terminal: legacy eliminado, `layout/` canónico, i18n `common.*` en paridad ES/EN, Playwright 9/9. Build limpio, tsc limpio.
+- **Siguiente subfase:** **Subfase 5.4 — Contact form REBUILD** ⬜. FormSection.tsx REBUILD + ContactForm.tsx REFACTOR o unificar + cierra DT-01 total (MIGRATION.md §11).
 - **Próximo gate:** **G5** (cada página pasa side-by-side, copy real de CONTENT.md aplicado, componentes legacy DESCARTADOS según MIGRATION.md).
-- **Siguiente acción inmediata:** Miguel sube MASTER v1.9 y PROGRESS v1.11 al Project Knowledge y ejecuta `git push origin redesign/v2-framer-base`.
-- **Última actualización:** 2026-05-08 por Claude Sonnet 4.6 en Antigravity (cierre Subfase 5.1).
+- **Siguiente acción inmediata:** Miguel aplica updates docs canónicos MASTER v2.0, PROGRESS v1.12, MIGRATION v1.2, CONTENT v1.1 en `docs/`, commit docs y push, sube al Project Knowledge.
+- **Última actualización:** 2026-05-12 por Claude Sonnet 4.6 en Antigravity (cierre Subfase 5.2) + Claude Sonnet 4.6 en claude.ai Project (firma G5 parcial 5.2, decisiones D38).
 
 ---
 
@@ -29,7 +29,7 @@
 | 2 | Auditoría técnica | ✅ Completa | G2 (pendiente validación) | 2026-04-25 | 2026-04-25 | ~2h | Antigravity Sonnet 4.6. DT-04 (`f0743c7`), DT-13 (`f802256`), DT-06 (`a77f245`), DT-05 (`ddce38a`), depcheck + grep huérfanos (`81a2bed`). Cierre documental en commit de cierre. |
 | 3 | Design system build | ✅ Completa | G3 (final firmado) | 2026-04-26 | 2026-04-30 | ~10-12h totales | 26 commits totales en `redesign/v2-framer-base`: sub-tarea 1 (11 commits hasta `0fd21cd`), sub-tarea 2 (7 commits hasta `365f563`), sub-tarea 3 (8 commits hasta `8b0bcc1` + commit docs cierre). DT-03, DT-08 cerrados. DT-16 re-clasificado a Fase 5. D29, D33, D34, D35 registradas. Tokens DS validados con tabla WCAG real. Componentes encapsulados (Heading, Button + 4 variants + glow, FeatureCard, Header, Footer, LanguageToggle, WhatsAppButton, MobileNav). i18n ES/EN operativo. Anti-flash defensivo. WhatsApp con número real |
 | 4 | Esqueleto y rutas | ✅ Completa | G4 ✓ | 2026-04-30 | 2026-05-03 | ~3-4h | Antigravity Sonnet 4.6 Effort Medium. 8 commits b38e56a a 4d42340. Q10=A, Q11=B, Q12=A ejecutadas. P2 disparada (copy legal real preservado). DT-11 cerrado. D36 con sub-decisiones D36-1 a D36-5 registradas. Validación owner 14/14 puntos en navegador local |
-| 5 | Migración contenido + portfolio | 🟡 En curso | G5 | 2026-05-03 | — | — | Subfase 5.1 ✅ (Home REBUILD, 11 commits, 2026-05-08). Subfases 5.2-5.5 pendientes. |
+| 5 | Migración contenido + portfolio | 🟡 En curso | G5 | 2026-05-03 | — | — | Subfase 5.1 ✅ (Home REBUILD, 11 commits, 2026-05-08). Subfase 5.2 ✅ (Chrome global, 5 commits, 2026-05-12). Subfases 5.4 y 5.5 pendientes. |
 | 6 | Motion unificado | ⬜ Pendiente | G6 | — | — | — | GSAP únicamente |
 | 7 | SEO, perf, launch | ⬜ Pendiente | G7 | — | — | — | — |
 
@@ -516,6 +516,20 @@ Protocolo de 20 puntos en 4 bloques:
 - Nav anchors `/#services`, `/#about`, `/#contact` no funcionan aún porque las secciones no existen. Funcionarán automáticamente cuando Fase 4 cree las secciones placeholder en Home.
 - Logo real cuando se tenga: overwrite de `public/logo.svg`. Sin tocar código.
 
+### 2026-05-03 — Fase 4 (Esqueleto y rutas, G4 firmado)
+
+**Canal:** claude.ai Project (Opus 4.7) + Antigravity (Claude Code Sonnet 4.6, Effort Medium)
+**Duración:** ~3-4h acumulado entre planificación, ejecución y validación
+
+**Contexto:**
+G3 final firmado tras 27 commits pusheados a origin. Owner confirma 3 decisiones de scope: Q10=A (eliminar chrome legacy en Index.tsx y PortfolioWebs.tsx), Q11=B (placeholder estructurado con lorem ipsum), Q12=A (legales con lorem técnico, contenido legal real difiere a pre-launch).
+
+**Acciones de planificación (claude.ai Project):**
+- Brief O.D.A. de 8 steps redactado tras Q10+Q11+Q12 confirmadas.
+- Detectadas dos tensiones documentales en revisión previa al brief: T1 Q10=A supersede D35-6, T2 §5.3 listaba /servicios, /sobre, /contacto que el chrome global ya implementaba como anchors. Ambas absorbidas como D36-1 y D36-2 al cierre.
+- 7 protecciones stop-and-report definidas, con énfasis en P2 (copy legal real), P4 (no crear i18n keys), P6 (no importar legacy), P7 (no insertar copy real de CONTENT.md).
+- Test Playwright nuevo definido: skeleton_navigation con asserts sobre anchors, footer legal links, NotFound y headings Playfair en rutas públicas.
+
 ### 2026-05-08 — Subfase 5.1 (Home REBUILD completo)
 
 **Canal:** Antigravity (Claude Code, Sonnet 4.6)
@@ -559,19 +573,6 @@ G4 firmado 14/14. Docs canónicos MASTER v1.8 / PROGRESS v1.10 subidos al Projec
 - `git push origin redesign/v2-framer-base`.
 - Apertura de Subfase 5.2 (Chrome global REBUILD) en chat nuevo del Project.
 
-### 2026-05-03 — Fase 4 (Esqueleto y rutas, G4 firmado)
-
-**Canal:** claude.ai Project (Opus 4.7) + Antigravity (Claude Code Sonnet 4.6, Effort Medium)
-**Duración:** ~3-4h acumulado entre planificación, ejecución y validación
-
-**Contexto:**
-G3 final firmado tras 27 commits pusheados a origin. Owner confirma 3 decisiones de scope: Q10=A (eliminar chrome legacy en Index.tsx y PortfolioWebs.tsx), Q11=B (placeholder estructurado con lorem ipsum), Q12=A (legales con lorem técnico, contenido legal real difiere a pre-launch).
-
-**Acciones de planificación (claude.ai Project):**
-- Brief O.D.A. de 8 steps redactado tras Q10+Q11+Q12 confirmadas.
-- Detectadas dos tensiones documentales en revisión previa al brief: T1 Q10=A supersede D35-6, T2 §5.3 listaba /servicios, /sobre, /contacto que el chrome global ya implementaba como anchors. Ambas absorbidas como D36-1 y D36-2 al cierre.
-- 7 protecciones stop-and-report definidas, con énfasis en P2 (copy legal real), P4 (no crear i18n keys), P6 (no importar legacy), P7 (no insertar copy real de CONTENT.md).
-- Test Playwright nuevo definido: skeleton_navigation con asserts sobre anchors, footer legal links, NotFound y headings Playfair en rutas públicas.
 
 **Acciones de ejecución (Antigravity):**
 
@@ -624,6 +625,62 @@ Protocolo de 14 puntos en bloques:
 - DT-16 (token --cta) se cierra naturalmente al reescribir cada componente legacy.
 - ScrollToTop.tsx queda como referencia para futuros briefs: clasificar componentes shared explícitamente en "Archivos en scope" o "Archivos blindados".
 
+### 2026-05-12 — Subfase 5.2 (Chrome global REBUILD + firma G5 parcial 5.2)
+
+**Canal:** claude.ai Project (Claude Sonnet 4.6) + Antigravity (Claude Code, Sonnet 4.6)
+**Duración:** ~1 sesión
+
+**Contexto:**
+G5 parcial 5.1 firmado. MASTER v1.9 / PROGRESS v1.11 / MIGRATION v1.1 en Project Knowledge. Brief O.D.A. Subfase 5.2 entregado como archivo markdown.
+
+**Acciones de ejecución (Antigravity):**
+
+| Step | Hash | Resultado |
+|---|---|---|
+| 1: i18n sync chrome keys | `adb524b` | ✅ |
+| 2: Descarte legacy Header/Footer/WhatsAppButton | `c0b66d4` | ✅ |
+| 3: REFACTOR layout/Header.tsx | `7c7cfe3` | ✅ |
+| 4: REBUILD selectivo layout/Footer.tsx | `6dca42c` | ✅ (ascenso scope D38-2) |
+| 5: REFACTOR layout/WhatsAppButton.tsx | `da9662c` | ✅ |
+
+**Desviaciones documentadas:**
+- D1 (previsto §3.5 brief): Header tiene 5 nav items incluyendo `about→/#about`. `common.nav.about` añadido en locales y CONTENT.md §6.1.
+- D2: `layout/Footer.tsx` namespace `footer.col.*` legacy desalineado de CONTENT.md §6.2. REFACTOR ascendido a REBUILD selectivo. Registrado D38-2.
+- D3 (info): DT-11 ya cerrado antes de 5.2. Confirmación coherente con Fase 4 commit `434897e`.
+- D4: `footer.social.instagramUrl` preservado en namespace legacy `footer.*`. Drift técnico registrado como D38-3.
+
+**Correcciones documentales:**
+- DT-01: conteo corregido a 5/7 (Portfolio.tsx limpio por grep en validación owner). Pendientes: ContactForm.tsx, FormSection.tsx → Subfase 5.4.
+- DT-09: marcado resuelto retroactivo. Fix real en Fase 3 sub-tarea 3 (D35-3, commit `73535f7`). Drift documental en §7.4 corregido.
+
+**Acciones de validación (owner sobre navegador local):**
+
+Smoke test 6 bloques:
+- **Bloque 1 Descarte legacy:** 3 archivos inexistentes ✅. Build limpio ✅.
+- **Bloque 2 Chrome activo:** Header sticky 5 items + LanguageToggle + WhatsApp. Footer 4 columnas. Mobile drawer ✅.
+- **Bloque 3 i18n:** `common.nav.*` 9 keys, `common.footer.*` 9 keys, `common.whatsapp.*` 4 keys. Toggle ES↔EN funcional ✅.
+- **Bloque 4 Auxiliares:** NotFound, legales, PageLoader conformes DS ✅.
+- **Bloque 5 DT-01:** `grep -rn "34667326300" src/` solo ContactForm.tsx + FormSection.tsx. Portfolio.tsx limpio ✅.
+- **Bloque 6 Build y tests:** `npm run build` ✅, `tsc --noEmit` ✅, `header_footer.spec.py` 3/3 ✅, `skeleton_navigation.spec.py` 6/6 ✅.
+
+**Resultado: G5 parcial 5.2 firmado 6/6.** Subfase 5.2 cerrada.
+
+**Outputs:**
+- 5 commits en `redesign/v2-framer-base`.
+- Archivos eliminados: `src/components/Header.tsx`, `Footer.tsx`, `WhatsAppButton.tsx` (legacy).
+- Archivos modificados: `src/components/layout/Header.tsx`, `Footer.tsx`, `WhatsAppButton.tsx`, `src/i18n/locales/es.json`, `en.json`.
+- D38 registrada con sub-decisiones D38-1 a D38-3. DT-01 corregido a 5/7. DT-09 marcado resuelto.
+
+**Pendiente operativo inmediato:**
+- Miguel aplica updates MASTER v2.0, PROGRESS v1.12, MIGRATION v1.2, CONTENT v1.1 en `docs/`.
+- Miguel commit docs y `git push origin redesign/v2-framer-base`.
+- Miguel sube docs canónicos actualizados al Project Knowledge.
+- Apertura Subfase 5.4 en chat nuevo del Project con brief O.D.A. Contact form REBUILD.
+
+**Notas para Subfase 5.4:**
+- DT-01 cierre total: ContactForm.tsx y FormSection.tsx son las 2 ubicaciones pendientes del hardcode `34667326300`.
+- DT-02 cierre parcial: si ContactForm.tsx tiene `any` explícitos, cerrar en el REBUILD.
+- D38-3 housekeeping: limpiar `footer.social.instagramUrl` del namespace `footer.*` si se toca en 5.4.
 
 ---
 
@@ -666,8 +723,9 @@ Protocolo de 14 puntos en bloques:
 | D33 | 2026-04-30 | **Afinamiento Design System (cierre Fase 3 sub-tarea 1).** 7 sub-decisiones D33-1 a D33-7: estados semánticos `--success`/`--warning` con `--info` alias de `--accent`, `--gradient-hero` radial off-center variante B, glow 0.18 restringido, body 16px + `.prose-editorial` 17px lista cerrada, ratio 1.333 con H6 fuera de escala, Playfair 800 dark / 900 light, `--primary-foreground` `220 30% 8%` (5.80:1 AA) | Cierra brechas pre-brief y mejora ratio AA Large → AA en par crítico CTA. Validación G3 parcial en `/styleguide` con Contrast Checker | En G3 final si evidencia nueva |
 | D34 | 2026-04-30 | **Patrones de componentes DS (Fase 3 sub-tarea 2).** D34-1 `<Heading>` semántico con visualLevel + eyebrow. D34-2 Button + 4 variants custom + prop glow vía CVA. D34-3 FeatureCard como wrapper. D34-4 script anti-flash en `<head>`. D34-5 DT-16 re-clasificado a Fase 5 tras grep (15 archivos legacy usan `--cta`). Observaciones O1 (glow imperceptible en styleguide) y O2 (disabled marrón) no bloqueantes | Componentes encapsulados → invariantes DS protegidos. Wrapper Card → respeta upstream. Anti-flash defensivo. Re-clasificación DT-16 coherente con D28 | En G3 final si evidencia visual nueva |
 | D35 | 2026-04-30 | **Chrome global funcional (Fase 3 sub-tarea 3, G3 final).** D35-1 Header sticky con backdrop-blur, 5 nav items, LanguageToggle, WhatsApp, MobileNav drawer. D35-2 Footer 4 columnas con bottom bar legal, solo Instagram (sin LinkedIn por decisión owner). D35-3 i18n ES/EN cableado con `i18next-browser-languagedetector` (fix bug `getStoredLanguage`). D35-4 WhatsApp con número real (34667326300) y mensaje pre-formateado. D35-5 legal routes alineadas con realidad del repo. D35-6 doble chrome aceptado hasta Fase 5. D35-7 logo SVG placeholder | Componentes layout reusables, i18n verdadero, fix latente cerrado, defensa producción. Validación G3 final 20/20 puntos | Próxima revisión en Fase 4 |
-| D37 | 2026-05-08 | **Cierre Subfase 5.1 — Home REBUILD.** D37-1: estructura `src/components/home/` con 7 componentes. D37-2: HomeCasesWeb scroll CSS nativo (`snap-x snap-mandatory`). D37-3: HomePhotoShowcase solo muestra `galleryData[0]` como teaser. D37-4: `webCasesData.ts` usa `tagKeys: string[]`. D37-5: eliminación `ProjectCard.tsx` avanzada a Step 3 por cadena de imports con `showcaseData.ts`. | Subfase 5.1 ejecutada 11 commits, build limpio, `grep --cta` vacío, 14 archivos legacy eliminados | No |
 | D36 | 2026-05-03 | **Cierre Fase 4 (G4 firmado 14/14).** Cinco sub-decisiones: D36-1 avance limpieza chrome legacy Index.tsx + PortfolioWebs.tsx (supersede D35-6). D36-2 modelo definitivo anchors-in-Home: rutas /servicios, /sobre, /contacto descartadas, viven como anchors /#services, /#about, /#contact. D36-3 placeholder strategy lorem hard-coded sin keys i18n para Fase 4. D36-4 extensión ScrollToTop.tsx para hash navigation (decisión correcta sobre componente no blindado, lección operativa registrada). D36-5 copy legal real preservado por P2, DT-11 cerrado al paso | Fase 4 ejecutada limpia: 8 commits, build limpio, tsc limpio, 6/6 tests pasan, 14/14 validación owner. Lección operativa D36-4: futuros briefs deben listar componentes shared (ScrollToTop, PageLoader, SectionDivider) explícitamente | No |
+| D37 | 2026-05-08 | **Cierre Subfase 5.1 — Home REBUILD.** D37-1: estructura `src/components/home/` con 7 componentes. D37-2: HomeCasesWeb scroll CSS nativo (`snap-x snap-mandatory`). D37-3: HomePhotoShowcase solo muestra `galleryData[0]` como teaser. D37-4: `webCasesData.ts` usa `tagKeys: string[]`. D37-5: eliminación `ProjectCard.tsx` avanzada a Step 3 por cadena de imports con `showcaseData.ts`. | Subfase 5.1 ejecutada 11 commits, build limpio, `grep --cta` vacío, 14 archivos legacy eliminados | No |
+| D38 | 2026-05-12 | **Cierre Subfase 5.2 — Chrome global REBUILD.** D38-1: formalización `src/components/layout/` como ubicación canónica del chrome (supersede prescripción "estructura plana" §5.2 v1.x, análogo a D36-2). D38-2: REFACTOR ascendido a REBUILD selectivo en `layout/Footer.tsx` por namespace `footer.col.*` legacy desalineado (commit `6dca42c`). D38-3: drift `footer.social.instagramUrl` en namespace legacy `footer.*` preservado, limpieza diferida a 5.4 o 5.5. | Subfase 5.2 ejecutada: 5 commits, build limpio, tsc limpio, Playwright 9/9, G5 parcial 5.2 firmado 6/6. Lección: namespace i18n chrome Fase 3 no era canónico internamente, REFACTOR en Footer ascendió a REBUILD selectivo. | No |
 
 ---
 
@@ -744,5 +802,6 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | 1.7 | 2026-04-30 | Miguel + Claude Opus 4.7 | Cierre Fase 3 sub-tarea 1 (G3 parcial firmado). Sesión 2026-04-26 a 2026-04-30 añadida con detalle completo: planificación en chat (6 brechas color + 7 tipografía + 4 puntos de fricción + 5 brechas técnicas), ejecución Antigravity (8 commits + 1 hot-fix), validación visual `/styleguide` (palette + contrast + typography + A/B + focus + estados), decisiones A/B finales (Playfair 800 dark, Gradient B), aceptación AA en `--primary-foreground/--primary` post-hot-fix. Phase tracker Fase 3 a 🟡 En curso con 9 hashes. D33 registrada. DT-16 nuevo abierto, DT-03 y DT-08 cerrados. Horas acumuladas a ~22 (≈19 + 3-5 sub-tarea 1, estimación pendiente de medición precisa). |
 | 1.8 | 2026-04-30 | Miguel + Claude Opus 4.7 | Cierre Fase 3 sub-tarea 2 (G3 parcial sub-tarea 2 firmado). Sesión 2026-04-30 añadida con detalle: planificación con 4 decisiones de scope (Q1-Q4), ejecución Antigravity 6/7 steps con bloqueo correcto en Step 5 por grep, re-clasificación de DT-16 a Fase 5, validación visual completa con observaciones O1 (glow) y O2 (disabled). Phase tracker Fase 3 con 17 commits totales (11 sub-tarea 1 pushed + 6 sub-tarea 2 local). D34 registrada (D34-1 a D34-5). MASTER §3.6 corregido (primary text oscuro, no blanco). Horas acumuladas a ~24-25 (estimación). |
 | 1.9 | 2026-04-30 | Miguel + Claude Opus 4.7 | Cierre Fase 3 completa (G3 final firmado). Sesión 2026-04-30 sub-tarea 3 añadida con detalle: planificación con Q5+Q6 confirmadas, ejecución Antigravity 7 commits + ajustes manuales del owner para datos reales (Q7-Q9), validación visual 20/20 puntos en 4 bloques. Phase tracker Fase 3 a ✅ Completa con 26 commits totales. Phase tracker Fase 4 abierta a 🟡 En curso. D35 registrada (D35-1 a D35-7). Horas acumuladas a ~28-30 (estimación). |
-| 1.11 | 2026-05-08 | Miguel + Claude Sonnet 4.6 | Cierre Subfase 5.1 Home REBUILD. Current status actualizado (5.1 ✅, 5.2 siguiente). Phase tracker Fase 5 con nota Subfase 5.1 ✅. Sesión 2026-05-08 añadida con tabla de 11 commits, verificaciones finales, pendiente push. D37 añadida en decisions log. |
 | 1.10 | 2026-05-03 | Miguel + Claude Opus 4.7 | Cierre Fase 4 (G4 firmado 14/14). Sesión 2026-05-03 añadida con detalle: planificación con Q10+Q11+Q12 confirmadas, ejecución Antigravity 8 commits con desviaciones D1-D3 documentadas, P2 disparada correctamente, validación owner 14/14 en navegador. Phase tracker Fase 4 ✅ Completa, Fase 5 abierta 🟡. D36 registrada con sub-decisiones D36-1 a D36-5. DT-11 cerrado. Horas acumuladas a ~32-34 (estimación). |
+| 1.11 | 2026-05-08 | Miguel + Claude Sonnet 4.6 | Cierre Subfase 5.1 Home REBUILD. Current status actualizado (5.1 ✅, 5.2 siguiente). Phase tracker Fase 5 con nota Subfase 5.1 ✅. Sesión 2026-05-08 añadida con tabla de 11 commits, verificaciones finales, pendiente push. D37 añadida en decisions log. |
+| 1.12 | 2026-05-12 | Claude Sonnet 4.6 (Antigravity) + Claude Sonnet 4.6 (claude.ai Project) | Cierre Subfase 5.2 Chrome global. Current status actualizado (5.2 ✅, 5.4 siguiente). Phase tracker Fase 5 con nota Subfase 5.2 ✅. Sesión 2026-05-12 añadida con tabla 5 commits, desviaciones D1-D4, smoke test 6/6. D38 añadida en decisions log. DT-01 corregido a 5/7. DT-09 marcado resuelto. |
