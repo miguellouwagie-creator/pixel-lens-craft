@@ -7,11 +7,11 @@ import { WhatsAppButton } from "./WhatsAppButton";
 import { MobileNav } from "./MobileNav";
 
 const NAV_ITEMS = [
-  { key: "header.nav.home", to: "/" },
-  { key: "header.nav.services", to: "/#services" },
-  { key: "header.nav.portfolio", to: "/portfolio" },
-  { key: "header.nav.about", to: "/#about" },
-  { key: "header.nav.contact", to: "/#contact" },
+  { key: "common.nav.home", to: "/" },
+  { key: "common.nav.services", to: "/#services" },
+  { key: "common.nav.portfolio", to: "/portfolio" },
+  { key: "common.nav.about", to: "/#about" },
+  { key: "common.nav.contact", to: "/#contact" },
 ];
 
 export function Header() {
