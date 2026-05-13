@@ -105,7 +105,9 @@
         "feature1": "Media jornada de sesión",
         "feature2": "Equipo, local y producto",
         "feature3": "Entrega 48h",
-        "cta": "Reservar"
+        "feature4": "Entrega digital en 48h",
+        "cta": "Reservar",
+        "whatsappMessage": "Hola, me interesa reservar el Pack Corporativo (350€)."
       },
       "custom": {
         "name": "Pack A Medida",
@@ -115,7 +117,8 @@
         "feature2": "Vídeo corporativo",
         "feature3": "Planificación creativa",
         "feature4": "Soporte VIP",
-        "cta": "Contactar"
+        "cta": "Contactar",
+        "whatsappMessage": "Hola, tengo un proyecto fotográfico especial y necesito presupuesto."
       }
     },
     "footerText": "¿Tienes un proyecto grande o necesitas vídeo?",
@@ -602,10 +605,34 @@
         "emailPlaceholder": "tu@email.com",
         "phoneLabel": "Teléfono (opcional)",
         "phonePlaceholder": "+34 600 000 000",
+        "serviceLabel": "Servicio",
+        "servicePlaceholder": "¿Qué necesitas?",
+        "serviceOptions": {
+          "web": "Diseño web",
+          "photo": "Fotografía",
+          "both": "Ambos"
+        },
         "messageLabel": "Cuéntanos",
         "messagePlaceholder": "¿Qué tienes en mente?",
+        "termsLabel": "He leído y acepto la",
+        "termsLink": "política de privacidad",
         "submit": "Enviar mensaje",
-        "submitting": "Enviando..."
+        "submitting": "Enviando...",
+        "validation": {
+          "nameTooShort": "El nombre es demasiado corto",
+          "emailInvalid": "Email no válido",
+          "messageTooShort": "El mensaje debe tener al menos 20 caracteres",
+          "serviceRequired": "Selecciona un servicio",
+          "termsRequired": "Debes aceptar la política de privacidad"
+        }
+      },
+      "whatsapp": {
+        "subject": "Nuevo contacto desde studiopixelens.com",
+        "nameLabel": "Nombre",
+        "emailLabel": "Email",
+        "phoneLabel": "Teléfono",
+        "serviceLabel": "Servicio",
+        "messageLabel": "Mensaje"
       }
     }
   }

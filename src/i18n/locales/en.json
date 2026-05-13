@@ -420,9 +420,9 @@
     },
     "toast": {
       "successTitle": "Message sent",
-      "successBody": "We'll get back to you within 48 hours.",
+      "successBody": "We'll reply within 48 hours.",
       "errorTitle": "Something went wrong",
-      "errorBody": "Try reaching us via WhatsApp or email. Sorry for the inconvenience."
+      "errorBody": "Try WhatsApp or email. Sorry for the inconvenience."
     }
   },
   "simplePrice": {
@@ -591,24 +591,48 @@
     "contact": {
       "eyebrow": "Contact",
       "heading": "A 15-minute conversation is usually enough.",
-      "body": "Tell us what you need. If we can help you'll know the same day. If not, we'll tell you who can.",
+      "body": "Tell us what you need. If we can help you'll know the same day. If we can't, we'll point you to someone who can.",
       "whatsappCta": "Let's talk on WhatsApp",
       "emailLabel": "Or by email",
       "emailAddress": "studiopixelens@gmail.com",
-      "hoursLabel": "Response hours",
-      "hoursValue": "Mon–Fri · 9:00–18:00 · Europe/Madrid",
+      "hoursLabel": "Hours",
+      "hoursValue": "Mon-Fri · 9:00-18:00 · Europe/Madrid",
       "form": {
-        "heading": "Or write to us here",
+        "heading": "Or write to us from here",
         "nameLabel": "Name",
         "namePlaceholder": "Your name",
         "emailLabel": "Email",
         "emailPlaceholder": "you@email.com",
         "phoneLabel": "Phone (optional)",
         "phonePlaceholder": "+34 600 000 000",
-        "messageLabel": "Tell us",
-        "messagePlaceholder": "What's on your mind?",
+        "serviceLabel": "Service",
+        "servicePlaceholder": "What do you need?",
+        "serviceOptions": {
+          "web": "Web design",
+          "photo": "Photography",
+          "both": "Both"
+        },
+        "messageLabel": "Tell us more",
+        "messagePlaceholder": "What do you have in mind?",
+        "termsLabel": "I have read and accept the",
+        "termsLink": "privacy policy",
         "submit": "Send message",
-        "submitting": "Sending..."
+        "submitting": "Sending...",
+        "validation": {
+          "nameTooShort": "Name is too short",
+          "emailInvalid": "Invalid email",
+          "messageTooShort": "Message must be at least 20 characters",
+          "serviceRequired": "Select a service",
+          "termsRequired": "You must accept the privacy policy"
+        }
+      },
+      "whatsapp": {
+        "subject": "New contact from studiopixelens.com",
+        "nameLabel": "Name",
+        "emailLabel": "Email",
+        "phoneLabel": "Phone",
+        "serviceLabel": "Service",
+        "messageLabel": "Message"
       }
     }
   }
