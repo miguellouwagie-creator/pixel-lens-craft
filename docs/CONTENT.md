@@ -14,10 +14,10 @@
 
 | Campo | Valor |
 |---|---|
-| Versión | 1.0 |
-| Fecha | 2026-04-19 |
+| Versión | 1.2 |
+| Fecha | 2026-05-13 |
 | Autor | Miguel Louwagie Sapena + Claude Opus 4.7 |
-| Estado | Draft. Pendiente validación EN por Miguel antes de Fase 5. |
+| Estado | Draft. EN validado parcialmente (Subfases 5.1, 5.2 y 5.4 cableados en código). |
 | Alcance | Sprint 1: Home, /portfolio, /portfolio-webs, chrome global (Header, Footer, WhatsApp CTA). No cubre legal ni páginas autenticadas. |
 | Bloquea | G1 gate. |
 
@@ -236,7 +236,7 @@ Keys antiguas se eliminan al final del proceso (sección 9 de este documento).
 
 ### 3.8 Bloque 8 — Contacto
 
-**Estructura:** 2 columnas. Izquierda: H2 + body + CTA WhatsApp + email + horario. Derecha: formulario React Hook Form + Zod (name, email, phone opt, message).
+**Estructura:** 2 columnas. Izquierda: H2 + body + CTA WhatsApp + email + horario. Derecha: formulario React Hook Form + Zod + DOMPurify (name, email, phone opt, service, message min 20, terms checkbox).
 
 | Key i18n | ES | EN (draft) |
 |---|---|---|
@@ -255,10 +255,28 @@ Keys antiguas se eliminan al final del proceso (sección 9 de este documento).
 | `home.contact.form.emailPlaceholder` | `tu@email.com` | `you@email.com` |
 | `home.contact.form.phoneLabel` | `Teléfono (opcional)` | `Phone (optional)` |
 | `home.contact.form.phonePlaceholder` | `+34 600 000 000` | `+34 600 000 000` |
+| `home.contact.form.serviceLabel` | `Servicio` | `Service` |
+| `home.contact.form.servicePlaceholder` | `¿Qué necesitas?` | `What do you need?` |
+| `home.contact.form.serviceOptions.web` | `Diseño web` | `Web design` |
+| `home.contact.form.serviceOptions.photo` | `Fotografía` | `Photography` |
+| `home.contact.form.serviceOptions.both` | `Ambos` | `Both` |
 | `home.contact.form.messageLabel` | `Cuéntanos` | `Tell us more` |
 | `home.contact.form.messagePlaceholder` | `¿Qué tienes en mente?` | `What do you have in mind?` |
+| `home.contact.form.termsLabel` | `He leído y acepto la` | `I have read and accept the` |
+| `home.contact.form.termsLink` | `política de privacidad` | `privacy policy` |
 | `home.contact.form.submit` | `Enviar mensaje` | `Send message` |
 | `home.contact.form.submitting` | `Enviando...` | `Sending...` |
+| `home.contact.form.validation.nameTooShort` | `El nombre es demasiado corto` | `Name is too short` |
+| `home.contact.form.validation.emailInvalid` | `Email no válido` | `Invalid email` |
+| `home.contact.form.validation.messageTooShort` | `El mensaje debe tener al menos 20 caracteres` | `Message must be at least 20 characters` |
+| `home.contact.form.validation.serviceRequired` | `Selecciona un servicio` | `Select a service` |
+| `home.contact.form.validation.termsRequired` | `Debes aceptar la política de privacidad` | `You must accept the privacy policy` |
+| `home.contact.whatsapp.subject` | `Nuevo contacto desde studiopixelens.com` | `New contact from studiopixelens.com` |
+| `home.contact.whatsapp.nameLabel` | `Nombre` | `Name` |
+| `home.contact.whatsapp.emailLabel` | `Email` | `Email` |
+| `home.contact.whatsapp.phoneLabel` | `Teléfono` | `Phone` |
+| `home.contact.whatsapp.serviceLabel` | `Servicio` | `Service` |
+| `home.contact.whatsapp.messageLabel` | `Mensaje` | `Message` |
 | `common.toast.successTitle` | `Mensaje enviado` | `Message sent` |
 | `common.toast.successBody` | `Te respondemos en menos de 48 horas.` | `We'll reply within 48 hours.` |
 | `common.toast.errorTitle` | `Algo ha fallado` | `Something went wrong` |
@@ -267,8 +285,12 @@ Keys antiguas se eliminan al final del proceso (sección 9 de este documento).
 **Justificación copy:**
 - CTA primario WhatsApp visible, formulario como opción secundaria (D30 resuelta).
 - Email `studiopixelens@gmail.com` visible (fallback).
-- Form con 4 campos, mensaje mínimo 20 chars (preservado de MASTER §6.5).
+- Form con 6 campos. Mensaje mínimo 20 chars (preservado de MASTER §6.5). Phone opcional. Service dropdown 3 opciones (D39-3, Q5-E=A). Checkbox terms con link a `/privacidad` por RGPD (D39-4, Q5-F=A).
+- Payload WhatsApp en texto plano formato `campo: valor` sin emojis (D39-5, Q5-G=C), coherente con principio editorial §0.
 - Toast messages usan namespace `common.toast.*` para reutilización en otras páginas.
+
+**Cableado en código (Subfase 5.4, 2026-05-13):**
+Implementado en `src/components/home/HomeContact.tsx` (D39-1). Sustituye al placeholder lorem heredado de Fase 4 (D36-3). Los archivos `ContactForm.tsx` y `FormSection.tsx` legacy descartados (D39-2). Schema Zod en `useMemo([t])` por incompat shadcn FormMessage (D39-8). DOMPurify importado directo, strip total `ALLOWED_TAGS: [], ALLOWED_ATTR: []` para texto plano (D39-6).
 
 ---
 
@@ -607,3 +629,4 @@ Cuando Claude Code migre este copy a `src/i18n/locales/es.json` y `en.json`:
 |---|---|---|---|
 | 1.0 | 2026-04-19 | Miguel + Claude Opus 4.7 | Documento inicial. Cubre Home (8 bloques), /portfolio (4 bloques), /portfolio-webs (4 bloques), chrome global. ES definitivo, EN draft. Anti-patrones (10 reglas). Keys a eliminar (huérfanas + reemplazadas). Diff conceptual vs copy actual. Validación pendiente. Aplicadas D31.1 (quitar +40% TropiDenia), D31.2 (quitar tag WordPress BVS), D31.3 (descripción única por caso web), D31.4 (Bloque B /portfolio reducido sin números). |
 | 1.1 | 2026-05-12 | Miguel + Claude Sonnet 4.6 | §6.1 Header actualizado: "Estructura simplificada" con 5 nav items, key `common.nav.about` añadida a la tabla (ES: `Sobre`, EN: `About`), nota al pie ampliada. Corrección de drift respecto a Header real validado en G5 parcial 5.2. |
+| 1.2 | 2026-05-13 | Miguel + Claude Opus 4.7 | Cierre Subfase 5.4 Contact form REBUILD. §0 versión + fecha + estado bumped. §3.8 tabla ampliada con 17 keys nuevas: `form.serviceLabel`, `form.servicePlaceholder`, `form.serviceOptions.web/photo/both` (D39-3), `form.termsLabel`, `form.termsLink` (D39-4), `form.validation.nameTooShort/emailInvalid/messageTooShort/serviceRequired/termsRequired` (D39-8 patrón i18n vía useMemo), `whatsapp.subject/nameLabel/emailLabel/phoneLabel/serviceLabel/messageLabel` (D39-5 payload texto plano). §3.8 justificación copy actualizada con referencias a D39-3 a D39-8 y notas sobre RGPD, Q5-E/F/G. §3.8 nueva sección "Cableado en código" referenciando HomeContact.tsx y descarte legacy. Drift documental cerrado: v1.0 afirmaba "Form con 4 campos" cuando la realidad cableada en 5.4 son 6 (añadidos service y terms preservados del legacy). |

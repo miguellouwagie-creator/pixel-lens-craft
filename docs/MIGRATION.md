@@ -10,10 +10,10 @@
 
 | Campo | Valor |
 |---|---|
-| Versión | 1.2 |
-| Fecha | 2026-05-12 |
+| Versión | 1.3 |
+| Fecha | 2026-05-13 |
 | Autor | Miguel Louwagie Sapena + Claude Opus 4.7 / Sonnet 4.6 |
-| Estado | Subfases 5.1 y 5.2 ejecutadas y cerradas. Subfases 5.4 y 5.5 pendientes. |
+| Estado | Subfases 5.1, 5.2 y 5.4 ejecutadas y cerradas. Subfase 5.5 pendiente. |
 | Alcance | `src/components/`, `src/pages/`, `src/data/`, `src/hooks/` (relevantes para Sprint 1 público). |
 | Bloquea | G1 gate. |
 
@@ -62,8 +62,8 @@
 | `src/components/WhyUs.tsx` | ✅ DESCARTAR | 5.1 | Fusionado en `HomeAbout.tsx` nuevo (✅ CREAR) | **COMPLETO** commit `bd10b11`. Eliminado. `HomeAbout.tsx` creado en `src/components/home/` con trust signals. |
 | `src/components/Testimonials.tsx` | ✅ REBUILD | 5.1 | (mismo archivo) | **COMPLETO** commit `a9523f1`. Movido a `src/components/home/Testimonials.tsx`. Blockquote editorial sin estrellas ni círculos. |
 | `src/components/About.tsx` | ✅ DESCARTAR | 5.1 | Sustituido por nuevo `HomeAbout.tsx` (✅ CREAR, fusión About + WhyUs) | **COMPLETO** commit `bd10b11`. Eliminado. |
-| `src/components/FormSection.tsx` | 🏗️ REBUILD | 5.4 | (mismo archivo) | Mantener lógica de React Hook Form + Zod + DOMPurify. Reescribir UI con 2 columnas (info izq + form der). Nuevo copy de `home.contact.*`. Usar `VITE_WHATSAPP_NUMBER`. |
-| `src/components/ContactForm.tsx` | ♻️ REFACTOR | 5.4 | — | Si existe como componente separado de `FormSection`, unificar. Si solo es sub-componente del form, reescribir con DS nuevo. Hay que ver el archivo concreto en Fase 2. |
+| `src/components/FormSection.tsx` | ✅ DESCARTAR | 5.4 | **COMPLETO** commit `92f7cf2`. Eliminado por D39-2: era wrapper layout orphan no renderizado (placeholder lorem D36-3 lo reemplazaba en Index.tsx). Antes del descarte tenía hardcode `tel:+34667326300` L47 (DT-01 cierre). Sustituido por `src/components/home/HomeContact.tsx` (🆕 CREAR §9). Supersede prescripción original "REBUILD UI + reusa lógica RHF+Zod+DOMPurify": la inspección previa (Q5-B=B chat owner) reveló que FormSection no contenía la lógica del form (vivía en ContactForm) y que no estaba importado en producción. |
+| `src/components/ContactForm.tsx` | ✅ DESCARTAR | 5.4 | **COMPLETO** commit `92f7cf2`. Eliminado por D39-2: era el componente con la lógica del form (193 líneas, RHF + Zod sin DOMPurify) pero solo importado por FormSection.tsx que también era orphan. Antes del descarte tenía hardcode `whatsappNumber = "34667326300"` L60 (DT-01 cierre) y schema Zod con drift contra MASTER §6.5 (phone requerido min 9 cuando debía ser opcional, message min 10 cuando debía ser min 20). Sustituido por `src/components/home/HomeContact.tsx` (🆕 CREAR §9) con schema corregido, DOMPurify añadido, y patrón shadcn FormMessage + i18n via useMemo schema (D39-8). Nota: corrige mentira documental v1.0-1.2 que afirmaba "Mantener lógica RHF + Zod + DOMPurify" — el código legacy nunca usó DOMPurify. |
 | `src/components/Footer.tsx` | ✅ DESCARTAR + REBUILD | 5.2 | — | **COMPLETO** commits `c0b66d4` (descarte legacy) + `6dca42c` (REBUILD selectivo `layout/Footer.tsx`, D38-2). Namespace `footer.col.*` legacy sustituido por `common.footer.*` canónico. Drift `footer.social.instagramUrl` preservado (D38-3). |
 | `src/components/WhatsAppButton.tsx` | ✅ DESCARTAR | 5.2 | — | **COMPLETO** commit `c0b66d4`. Eliminado (código muerto desde D36-1). Chrome activo en `src/components/layout/WhatsAppButton.tsx` (REFACTOR commit `da9662c`). |
 | `src/components/SectionDivider.tsx` | ✅ DESCARTAR | 5.1 | — | **COMPLETO** (varios commits). Eliminado. El único divider necesario entre HomeProcess y HomeAbout fue inlinado directamente en Index.tsx como `<div aria-hidden className="border-t border-border/40 my-16 mx-auto max-w-6xl" />`. |
@@ -155,6 +155,7 @@ Resumen consolidado de todos los componentes nuevos:
 | `src/components/home/HomePhotoShowcase.tsx` | 5.1 | Bloque 4 Home: full-bleed before/after slider |
 | `src/components/home/HomeProcess.tsx` | 5.1 | Bloque 5 Home: 3 pasos del proceso |
 | `src/components/home/HomeAbout.tsx` | 5.1 | Bloque 6 Home: team + trust signals (fusión About + WhyUs) |
+| `src/components/home/HomeContact.tsx` | 5.4 | **COMPLETO** commit `92f7cf2`. Bloque 8 Home: layout 2 cols info+form. Sustituye FormSection + ContactForm legacy descartados. RHF + Zod + DOMPurify directo. 6 campos (nombre, email, teléfono opt, servicio dropdown, mensaje min 20, checkbox terms). Submit abre `wa.me/{VITE_WHATSAPP_NUMBER}?text=...` con payload texto plano. Schema Zod en `useMemo([t])` por compat con shadcn FormMessage (D39-8). |
 | `src/components/portfolio/PortfolioHeader.tsx` | 5.5 | Header editorial reutilizable |
 | `src/components/portfolio/PortfolioIntro.tsx` | 5.5 | Intro contextual /portfolio |
 | `src/components/portfolio/PortfolioGallery.tsx` | 5.5 | Galería con `react-compare-image` |
@@ -187,7 +188,8 @@ Tareas de limpieza que se ejecutan junto al rediseño o en Fase 2:
 | Limpiar console.error activos en GallerySection | 5 o DESCARTAR | DT-10 | Si GallerySection muere, desaparece el problema. Si se preserva, limpiar. |
 | Eliminar import sin uso en LegalNotice.tsx | 5.2 | DT-11 | `useTranslation` importado sin consumo. Quitar import. |
 | Fix `getStoredLanguage()` en i18n/config.ts | 7 (o antes) | DT-09 | Función actual siempre retorna "es". Implementar lectura real de `localStorage`. |
-| Consolidar `VITE_WHATSAPP_NUMBER` (7 archivos hardcoded + 1 inconsistente) | 5.1-5.4 | DT-01 | Se resuelve por capas al reescribir cada componente (FormSection, Footer, Header, Hero, WhyUs→HomeAbout, CTASection→descartado, PricingSection→descartado, Portfolio). Al final Sprint 1, cero hardcodes. |
+| Consolidar `VITE_WHATSAPP_NUMBER` (7 archivos hardcoded + 1 inconsistente) | 5.1-5.4 | DT-01 | **✅ RESUELTO 7/7** en Subfase 5.4. Las 2 ocurrencias finales (ContactForm L60 `whatsappNumber` const y FormSection L47 `tel:+34667326300`) cerradas al descartar ambos archivos (commit `92f7cf2`). HomeContact lee `import.meta.env.VITE_WHATSAPP_NUMBER`. Grep final `git grep -nE "34667326300\|34634408043" -- src/` vacío. |
+| Auditar namespace `pricing.*` en locales | 5.5 | DT-17 | 3 keys ES rellenadas en 5.4 para mantener paridad i18n. Validar uso real con `git grep "pricing\\." -- src/`. Si huérfano, eliminar namespace completo de ambos locales. |
 
 ---
 
@@ -218,11 +220,18 @@ Propuesta de secuencia para que el trabajo en Antigravity sea fluido y testeable
 6. Páginas legal `src/pages/legal/*` REFACTOR (solo layout, copy preservado)
 7. Test manual: navegación, lang toggle, WhatsApp button desde cualquier página
 
-**Fase 5.4 — Contact form (2h)**
-1. `FormSection.tsx` REBUILD (UI + reusa lógica RHF/Zod)
-2. Validación Zod confirmada
-3. `VITE_WHATSAPP_NUMBER` consolidado en el último archivo que lo referencia
-4. Test Playwright de form (envío valid, invalid, WhatsApp open)
+**Fase 5.4 — Contact form REBUILD (2-2.5h reales, ejecutada 2026-05-13)**
+1. **COMPLETO** Crear `src/components/home/HomeContact.tsx` (CREAR nuevo, NO REBUILD de FormSection como brief original planteaba; supersede por D39-1 tras inspección Q5-B=B que reveló FormSection orphan).
+2. **COMPLETO** Schema Zod con campos: name (min 2), email, phone (opcional), service (dropdown web/photo/both), message (min 20), terms (checkbox). Movido al interior del componente con `useMemo([t])` por incompat shadcn FormMessage (D39-8).
+3. **COMPLETO** DOMPurify importado directo (no via wrapper de security.ts que no cubre el caso "strip total", D39-6).
+4. **COMPLETO** Submit: valida, sanitiza, construye payload texto plano, abre `wa.me/{VITE_WHATSAPP_NUMBER}?text=...` en nueva pestaña, toast éxito.
+5. **COMPLETO** Layout 2 columnas desktop (info izq + form der), stack vertical mobile info→form (Q5-C=A).
+6. **COMPLETO** Copy i18n cableado `home.contact.*` + 13 keys nuevas (serviceLabel, servicePlaceholder, serviceOptions.*, termsLabel, termsLink, validation.*, whatsapp.*).
+7. **COMPLETO** Wire `<HomeContact />` en Index.tsx sustituyendo placeholder lorem D36-3.
+8. **COMPLETO** `git rm` ContactForm.tsx y FormSection.tsx (DT-01 cierra 7/7).
+9. **COMPLETO** Test Playwright `tests/contact-form.spec.py` con 4 escenarios (empty submit, full submit, no phone, message min length). 4/4 PASS.
+10. **COMPLETO** Verificación final: build OK, lint nuevo OK, paridad i18n diff:0.
+11. **COMPLETO** 3 commits push: `92f7cf2` (feat + cleanup en mismo commit por staging area, D1), `5605764` (i18n keys), `3450fb5` (wire Index).
 
 **Fase 5.5 — Portfolios (3.5h + 5.5h = 9h)**
 1. Crear estructura `src/components/portfolio/` y `src/components/portfolio-webs/`
@@ -274,7 +283,7 @@ Checklist pre-merge a `dev`:
 - [ ] `scripts/with_server.py` existe y funciona (DT-04).
 - [ ] `vite.config.ts` usa puerto 5173 (DT-03).
 - [ ] `ThemeProvider` wired en `main.tsx`, dark mode default (DT-08).
-- [ ] Cero ocurrencias de `"34667326300"` o `34634408043` en el código (`grep -r "34667\|34634" src/` debe estar vacío excepto `.env.example`) (DT-01).
+- [x] Cero ocurrencias de `"34667326300"` o `34634408043` en el código (`grep -r "34667\|34634" src/` debe estar vacío excepto `.env.example`) (DT-01). **✅ Cerrado en Subfase 5.4 (commit `92f7cf2`).**
 - [ ] Cero componentes huérfanos en `src/components/` (depcheck clean).
 - [ ] i18n keys huérfanas de locales eliminadas (goldencoast, photoPacks.trial/basic/standard/premium).
 - [ ] `npm run build` OK.
@@ -293,3 +302,4 @@ Checklist pre-merge a `dev`:
 | 1.0 | 2026-04-19 | Miguel + Claude Opus 4.7 | Documento inicial. Clasificación archivo por archivo (`src/pages/`, `src/components/`, `src/data/`, `src/hooks/`, `src/i18n/`, huérfanos). 16 CREAR nuevos + 12 REBUILD + 6 REFACTOR + 13 DESCARTAR + 14 PRESERVAR. Orden ejecución Fase 5 en 4 subfases (5.1, 5.2, 5.4, 5.5). Cross-reference con CONTENT.md y deuda técnica MASTER §7.4. |
 | 1.1 | 2026-05-08 | Miguel + Claude Sonnet 4.6 | Cierre Subfase 5.1. §0 meta actualizado. Marcadas como ✅ COMPLETO todas las entradas de Subfase 5.1: Hero, ServiceSelector, HorizontalShowcase, FloatingElements, StickyScrollSection, PricingSection, SimplePricingSection, WhyUs, About, Testimonials, SectionDivider (§3), showcaseData y processData (§6), CTASection, GuaranteesSection, Process, Services (§7). Entradas CREAR en §6: galleryData.ts y webCasesData.ts actualizadas a ✅ con fase real 5.1 (adelantadas de 5.5 por necesidad de HomeCasesWeb/HomePhotoShowcase). Nota sub-decisión D37-5: ProjectCard.tsx eliminado en Step 3 junto con HorizontalShowcase (no en §5 como planeado originalmente). |
 | 1.2 | 2026-05-12 | Miguel Louwagie Sapena + Claude Opus 4.7 / Sonnet 4.6 | Cierre Subfase 5.2. §0 meta actualizado. §2 NotFound y legales marcados VALIDADO SIN CAMBIOS. §3 entradas Header.tsx, Footer.tsx, WhatsAppButton.tsx actualizadas a ✅ COMPLETO con hashes de commit. Nota REBUILD selectivo Footer por D38-2. |
+| 1.3 | 2026-05-13 | Miguel + Claude Opus 4.7 | Cierre Subfase 5.4 Contact form REBUILD. §0 meta versión bumped. §3 fila `FormSection.tsx` 🏗️ REBUILD → ✅ DESCARTAR con nota D39-2 (era wrapper layout orphan no renderizado). §3 fila `ContactForm.tsx` ♻️ REFACTOR → ✅ DESCARTAR con nota D39-2 (lógica del form vivía aquí, no en FormSection; corrige mentira documental "Mantener lógica RHF+Zod+DOMPurify" — legacy nunca usó DOMPurify). §9 nueva entrada `src/components/home/HomeContact.tsx` 🆕 CREAR 5.4 con detalle de implementación (RHF+Zod+DOMPurify directo, payload texto plano, schema en useMemo por shadcn FormMessage). §10 fila DT-01 marcada ✅ RESUELTO 7/7 con commit `92f7cf2`. §10 nueva entrada DT-17 (namespace `pricing.*` legacy auditar en 5.5). §11 paso Fase 5.4 reescrito con 11 sub-pasos reflejando ejecución real. §14 checklist DT-01 marcado [x]. |
