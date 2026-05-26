@@ -97,30 +97,6 @@
     "webSubtitle": "Tecnología empresarial al alcance de tu negocio local.",
     "photoTitle": "Sesiones Fotográficas Corporativas",
     "photoSubtitle": "Deja de usar fotos de stock. Muestra la realidad de tu negocio con calidad editorial.",
-    "photoPacks": {
-      "corporate": {
-        "name": "Pack Corporativo",
-        "price": "350€",
-        "photos": "Reportaje Completo",
-        "feature1": "Media jornada de sesión",
-        "feature2": "Equipo, local y producto",
-        "feature3": "Entrega 48h",
-        "feature4": "Entrega digital en 48h",
-        "cta": "Reservar",
-        "whatsappMessage": "Hola, me interesa reservar el Pack Corporativo (350€)."
-      },
-      "custom": {
-        "name": "Pack A Medida",
-        "price": "Consultar",
-        "photos": "Proyecto Específico",
-        "feature1": "Catálogos / E-commerce",
-        "feature2": "Vídeo corporativo",
-        "feature3": "Planificación creativa",
-        "feature4": "Soporte VIP",
-        "cta": "Contactar",
-        "whatsappMessage": "Hola, tengo un proyecto fotográfico especial y necesito presupuesto."
-      }
-    },
     "footerText": "¿Tienes un proyecto grande o necesitas vídeo?",
     "footerCta": "Contáctanos para un presupuesto a medida",
     "portfolioButton": "VER GALERÍA DE TRABAJOS",
@@ -227,19 +203,34 @@
       },
       "item7": {
         "number": "#07",
-        "title": "TODO 5.5",
-        "caption": "TODO 5.5"
+        "title": "Retrato ambiente",
+        "caption": "Integración de sujeto y espacio, corrección de temperatura de color."
       },
       "item8": {
         "number": "#08",
-        "title": "TODO 5.5",
-        "caption": "TODO 5.5"
+        "title": "Detalle arquitectónico",
+        "caption": "Eliminación de aberraciones cromáticas, realce de textura de materiales."
       },
       "item9": {
         "number": "#09",
-        "title": "TODO 5.5",
-        "caption": "TODO 5.5"
+        "title": "Escena nocturna",
+        "caption": "Reducción de ruido, recuperación de zonas oscuras, balance de luces mixtas."
       }
+    },
+    "header": {
+      "breadcrumb": "← Inicio",
+      "eyebrow": "Portfolio · Fotografía",
+      "headline": "Cada imagen cuenta mejor cuando está bien editada.",
+      "body": "Trabajamos con propietarios de negocios locales que ya tienen buenas fotos, pero les falta el acabado profesional. Desliza los controles y compara."
+    },
+    "intro": {
+      "body": "Cada imagen pasa por un proceso manual de ajuste de luz, contraste, color y detalle. Sin filtros automáticos, sin presets genéricos. Trabajamos hasta que la escena cuenta lo que tiene que contar."
+    },
+    "closing": {
+      "heading": "¿Tienes fotos que no terminan de convencerte?",
+      "body": "Podemos editar las que ya tienes o fotografiar desde cero. La consulta inicial es gratuita.",
+      "ctaPrimary": "Hablemos por WhatsApp",
+      "linkCross": "Ver portfolio web →"
     }
   },
   "portfolioShowcase": {

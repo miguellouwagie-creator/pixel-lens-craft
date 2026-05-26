@@ -97,30 +97,6 @@
     "webSubtitle": "Enterprise technology within reach of your local business.",
     "photoTitle": "Corporate Photography Sessions",
     "photoSubtitle": "Stop using stock photos. Show the reality of your business with editorial quality.",
-    "photoPacks": {
-      "corporate": {
-        "name": "Corporate Pack",
-        "price": "€350",
-        "photos": "Full Report",
-        "feature1": "Half-day on-site session",
-        "feature2": "Team, venue, and product photos",
-        "feature3": "Premium High-End Editing",
-        "feature4": "Digital delivery in 48h",
-        "cta": "Book Date",
-        "whatsappMessage": "Hello, I am interested in booking the €350 Corporate Pack."
-      },
-      "custom": {
-        "name": "Custom Project",
-        "price": "Consult",
-        "photos": "Tailored",
-        "feature1": "E-commerce / Catalog",
-        "feature2": "Corporate Video",
-        "feature3": "Creative Direction",
-        "feature4": "VIP Support",
-        "cta": "Get Quote",
-        "whatsappMessage": "Hello, I have a special photography project and need a quote."
-      }
-    },
     "footerText": "Have a big project or need video?",
     "footerCta": "Contact us for a custom quote",
     "portfolioButton": "📸 VIEW WORK GALLERY",
@@ -198,48 +174,63 @@
       "item1": {
         "number": "#01",
         "title": "Corporate portrait",
-        "caption": "Natural light adjustment, skin corrected, background cleaned."
+        "caption": "Natural light adjustment, skin correction, background cleanup."
       },
       "item2": {
         "number": "#02",
         "title": "Product outdoors",
-        "caption": "Shadow detail recovery, background toned for editorial integration."
+        "caption": "Shadow detail recovery, background toning for editorial integration."
       },
       "item3": {
         "number": "#03",
         "title": "Real estate interior",
-        "caption": "Mixed light tone correction, blown window rebalancing."
+        "caption": "Mixed light tone correction, rebalancing of blown-out windows."
       },
       "item4": {
         "number": "#04",
-        "title": "Building exterior",
-        "caption": "Perspective adjustment, removal of cables and distracting elements."
+        "title": "Exterior façade",
+        "caption": "Perspective adjustment, cleanup of cables and distracting elements."
       },
       "item5": {
         "number": "#05",
-        "title": "Food & gastronomy",
-        "caption": "Plate colour treatment, enhanced subject-background separation."
+        "title": "Food",
+        "caption": "Plate colour treatment, enhanced figure-background separation."
       },
       "item6": {
         "number": "#06",
         "title": "Studio product",
-        "caption": "Uniform background, controlled highlights, texture detail enhanced."
+        "caption": "Uniform background, controlled highlights, enhanced texture detail."
       },
       "item7": {
         "number": "#07",
-        "title": "TODO 5.5",
-        "caption": "TODO 5.5"
+        "title": "Environmental portrait",
+        "caption": "Subject-space integration, colour temperature correction."
       },
       "item8": {
         "number": "#08",
-        "title": "TODO 5.5",
-        "caption": "TODO 5.5"
+        "title": "Architectural detail",
+        "caption": "Chromatic aberration removal, material texture enhancement."
       },
       "item9": {
         "number": "#09",
-        "title": "TODO 5.5",
-        "caption": "TODO 5.5"
+        "title": "Night scene",
+        "caption": "Noise reduction, shadow recovery, mixed light balance."
       }
+    },
+    "header": {
+      "breadcrumb": "← Home",
+      "eyebrow": "Portfolio · Photography",
+      "headline": "Every image tells its story better when it's edited well.",
+      "body": "We work with local business owners who already have good photos but lack the professional finish. Drag the controls and compare."
+    },
+    "intro": {
+      "body": "Every image goes through a manual process of light, contrast, colour and detail adjustment. No automatic filters, no generic presets. We work until the scene tells what it needs to tell."
+    },
+    "closing": {
+      "heading": "Do you have photos that don't quite convince you?",
+      "body": "We can edit the ones you already have or shoot from scratch. Initial consultation is free.",
+      "ctaPrimary": "Let's talk on WhatsApp",
+      "linkCross": "See web portfolio →"
     }
   },
   "portfolioShowcase": {
