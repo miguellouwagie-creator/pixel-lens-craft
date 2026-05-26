@@ -11,11 +11,11 @@
 
 ## Current status
 
-- **Fase actual:** **Fase 5 (Migración contenido + portfolio) — Subfase 5.4 COMPLETA** ✅. 3 commits Subfase 5.4 (`92f7cf2`, `5605764`, `3450fb5`) en `redesign/v2-framer-base`. Bloque contact del Home en estado terminal: HomeContact.tsx canónico, ContactForm.tsx + FormSection.tsx legacy descartados, payload WhatsApp texto plano, DT-01 cerrado 7/7, paridad i18n diff:0 (461 keys), Playwright 4/4 PASS. Build limpio. G5 parcial 5.4 firmado 14/14.
-- **Siguiente subfase:** **Subfase 5.5 — Portfolios (Portfolio.tsx + PortfolioWebs.tsx REBUILD)** ⬜. 6 componentes nuevos en `src/components/portfolio/` y `src/components/portfolio-webs/`. Estimación ~9h. DT-17 auditoría primer paso. Brief pendiente de redacción.
-- **Próximo gate:** **G5 final** (cierre Fase 5 completa, todos los bloques cableados y validados).
-- **Siguiente acción inmediata:** Miguel aplica updates docs canónicos MASTER v2.1, PROGRESS v1.13, MIGRATION v1.3, CONTENT v1.2 en `docs/`, commit docs y push, sube al Project Knowledge. Luego abre nueva conversación para redactar brief 5.5.
-- **Última actualización:** 2026-05-13 por Claude Sonnet 4.6 en Antigravity (cierre Subfase 5.4) + Claude Opus 4.7 en claude.ai Project (firma G5 parcial 5.4, decisiones D39, DT-17 nuevo).
+- **Fase actual:** **Fase 5 (Migración contenido + portfolio) — Subfase 5.5a COMPLETA** ✅. 1 commit Subfase 5.5a (`f49ceac`) en `redesign/v2-framer-base`. Página `/portfolio` REBUILD terminal: 4 componentes en `src/components/portfolio/` (PortfolioHeader, PortfolioIntro, PortfolioGallery, PortfolioClosing), galería 9 items con `react-compare-slider v4`, copy real verbatim CONTENT.md §4. DT-17 cerrado (`pricing.photoPacks.*` eliminado de ambos locales). DT-12 cerrado (slider antes/después integrado). Paridad i18n diff:0 (452 keys). Build limpio. Playwright 6/6 PASS. G5 parcial 5.5a firmado.
+- **Siguiente subfase:** **Subfase 5.5b — /portfolio-webs REBUILD** ⬜. 2 componentes nuevos en `src/components/portfolio-webs/` (PortfolioWebsIntro, PortfolioWebsCases) + reutilización PortfolioHeader y PortfolioClosing de 5.5a. REBUILD de `src/pages/PortfolioWebs.tsx`. Descartes legacy: StickyScrollSection, WebPortfolioShowcase, ProjectCard. Estimación ~5.5h. Brief pendiente de redacción.
+- **Próximo gate:** **G5 final** (cierre Fase 5 completa tras 5.5b).
+- **Siguiente acción inmediata:** Miguel aplica updates docs canónicos MASTER v2.2, PROGRESS v1.14, HANDOFF v2, CONTENT v1.3 en `docs/`, commit docs y push, sube al Project Knowledge. Luego abre nueva conversación para redactar brief 5.5b.
+- **Última actualización:** 2026-05-26 por Claude Sonnet 4.6 en Antigravity (cierre Subfase 5.5a) + Claude Opus 4.7 en claude.ai Project (firma G5 parcial 5.5a, decisión D40, cierre DT-12 y DT-17, drift librería slider documentado).
 
 ---
 
@@ -29,7 +29,7 @@
 | 2 | Auditoría técnica | ✅ Completa | G2 (pendiente validación) | 2026-04-25 | 2026-04-25 | ~2h | Antigravity Sonnet 4.6. DT-04 (`f0743c7`), DT-13 (`f802256`), DT-06 (`a77f245`), DT-05 (`ddce38a`), depcheck + grep huérfanos (`81a2bed`). Cierre documental en commit de cierre. |
 | 3 | Design system build | ✅ Completa | G3 (final firmado) | 2026-04-26 | 2026-04-30 | ~10-12h totales | 26 commits totales en `redesign/v2-framer-base`: sub-tarea 1 (11 commits hasta `0fd21cd`), sub-tarea 2 (7 commits hasta `365f563`), sub-tarea 3 (8 commits hasta `8b0bcc1` + commit docs cierre). DT-03, DT-08 cerrados. DT-16 re-clasificado a Fase 5. D29, D33, D34, D35 registradas. Tokens DS validados con tabla WCAG real. Componentes encapsulados (Heading, Button + 4 variants + glow, FeatureCard, Header, Footer, LanguageToggle, WhatsAppButton, MobileNav). i18n ES/EN operativo. Anti-flash defensivo. WhatsApp con número real |
 | 4 | Esqueleto y rutas | ✅ Completa | G4 ✓ | 2026-04-30 | 2026-05-03 | ~3-4h | Antigravity Sonnet 4.6 Effort Medium. 8 commits b38e56a a 4d42340. Q10=A, Q11=B, Q12=A ejecutadas. P2 disparada (copy legal real preservado). DT-11 cerrado. D36 con sub-decisiones D36-1 a D36-5 registradas. Validación owner 14/14 puntos en navegador local |
-| 5 | Migración contenido + portfolio | 🟡 En curso | G5 | 2026-05-03 | — | — | Subfase 5.1 ✅ (Home REBUILD, 11 commits, 2026-05-08). Subfase 5.2 ✅ (Chrome global, 5 commits, 2026-05-12). Subfase 5.4 ✅ (Contact form REBUILD, 3 commits, 2026-05-13). Subfase 5.5 pendiente. |
+| 5 | Migración contenido + portfolio | 🟡 En curso | G5 | 2026-05-03 | — | — | Subfase 5.1 ✅ (Home REBUILD, 11 commits, 2026-05-08). Subfase 5.2 ✅ (Chrome global, 5 commits, 2026-05-12). Subfase 5.4 ✅ (Contact form REBUILD, 3 commits, 2026-05-13). Subfase 5.5a ✅ (/portfolio REBUILD, 1 commit, 2026-05-26). Subfase 5.5b /portfolio-webs pendiente. |
 | 6 | Motion unificado | ⬜ Pendiente | G6 | — | — | — | GSAP únicamente |
 | 7 | SEO, perf, launch | ⬜ Pendiente | G7 | — | — | — | — |
 
@@ -752,6 +752,73 @@ Commit base: `f1fc0b5` (incluía sync docs canónicos MASTER v2.0 etc previo a 5
 
 ---
 
+### 2026-05-26 — Subfase 5.5a (/portfolio REBUILD + firma G5 parcial 5.5a)
+
+**Canal:** claude.ai Project (Opus 4.7) + Antigravity (Sonnet 4.6 Effort Medium)
+**Duración:** ~3.5h Antigravity + ~2h chat owner (preparación brief, decisiones scope Q5.5-A a F, análisis reporte, validación G5)
+
+**Preparación del brief (chat owner, claude.ai Project Opus 4.7):**
+- 6 decisiones de scope cerradas en 1 ronda con propuestas razonadas: Q5.5-A=A (grid último item full-width), Q5.5-B (assets asumidos disponibles, audit en pre-brief), Q5.5-C=A (apilado vertical full-bleed para PortfolioWebsCases, aplica solo en 5.5b, D32 satisfecho con confirmación en chat), Q5.5-D=B (split 5.5a + 5.5b), Q5.5-E (resuelto sin swap: páginas no tenían chrome legacy, brief añade desde layout/), Q5.5-F (DT-17 autónomo con criterio).
+- 4 audits manuales pre-brief ejecutados por owner (DT-17 vacío, imports chrome vacíos, assets confirmados con item 7 físico inexistente, huérfanos legacy ya descartados).
+- Brief O.D.A. redactado para Antigravity como markdown auto-suficiente con pre-step de verificación numberKeys, 8 stop-conditions, 7 checks de auto-validación, plantilla de reporte.
+
+**Ejecución Antigravity:**
+
+| # | Hash | Mensaje |
+|---|---|---|
+| 1 | `f49ceac` | feat(portfolio): REBUILD /portfolio 5.5a — 4 editorial blocks, 9-item gallery |
+
+Commit base: `f724097` (HANDOFF.md introducido). HEAD final: `f49ceac`. Branch push completo a origin.
+
+**Verificaciones finales:**
+- `npm run build`: PASS en 13.27s.
+- `npx tsc --noEmit`: PASS sin errores.
+- `npm run lint`: 15 errores PRE-EXISTENTES en archivos protegidos (D-1, no atribuibles).
+- `git grep "pricing\." -- src/i18n/locales/`: VACÍO. DT-17 cerrado.
+- `git grep -lE "HorizontalShowcase|FloatingElements" -- src/`: VACÍO. Legacy descartado.
+- Paridad i18n ES vs EN: diff:0, 452 keys cada uno.
+- Playwright `tests/portfolio_smoke.py` con locale `es-ES`: 6/6 PASS.
+
+**Desviaciones registradas (D-1):**
+- D-1: Lint check 3 falla con 15 errores en archivos protegidos pre-existentes (GallerySection.tsx, OrdersSection.tsx, PackagesSection.tsx, UploadSection.tsx, AuthContext.tsx, useSecureNavigation.ts, tailwind.config.ts, src/components/ui/*). Reglas violadas: no-explicit-any, no-empty-object-type, no-require-imports. Cero errores en código nuevo del REBUILD. No atribuibles a este PR. Acción: ampliar DT-10 en MASTER §11 con la lista categorizada por regla. Resolución total en Sprint 2.
+
+**Observaciones no bloqueantes (O-1, O-2, O-3):**
+- O-1: Librería instalada `react-compare-slider v4` (no `react-compare-image` como decía documentación canónica). Antigravity usó la instalada, decisión técnica correcta (react-compare-image abandonado desde 2021). Drift documental cerrado en este docs sync: find+replace en MASTER §3.8 y §6.3, CONTENT §3.4 y §4.3, MIGRATION §4 y §6. Selector DOM correcto `[data-rcs="root"]`. DT-12 se cierra con esta nota.
+- O-2: Brief decía "3 keys pricing.photoPacks.*" pero la estructura real eran 2 subkeys padre (`corporate`, `custom`) con sub-hojas. Resultado equivalente: `pricing.photoPacks` removido completo. DT-17 cerrado.
+- O-3: HorizontalShowcase.tsx y FloatingElements.tsx ya no existían en el repo al inicio de la ejecución. Drift de auditoría documental (probablemente descartados en alguna fase anterior sin loguearse). Grep defensivo confirmó cero matches antes de proceder. No acción inmediata.
+
+**Validación G5 parcial 5.5a:**
+- Auto-validación 6/7 verde + 1 desviación justificada (D-1 lint pre-existente).
+- Reporte de Antigravity revisado por Claude Opus 4.7 en chat.
+- G5 parcial 5.5a firmado por owner 2026-05-26.
+
+**Decisiones registradas:**
+- D40 con sub-decisiones D40-1 a D40-6 (Q5.5-A a F resueltas), ver §Decisions log.
+- DT-12 cerrado 2026-05-26. Implementado con react-compare-slider v4 (no react-compare-image como decía documentación original; este último está sin mantener desde 2021). Uso confirmado en HomePhotoShowcase.tsx (5.1) y PortfolioGallery.tsx (5.5a). Selector DOM [data-rcs='root']. Drift documental cerrado en commit docs sync 5.5a.
+- DT-17 cerrado 2026-05-26. Audit pre-brief 5.5a git grep -n 'pricing\\.' -- src/ devolvió cero importadores. Namespace pricing.photoPacks (2 nodos padre corporate y custom con sub-hojas) eliminado de es.json y en.json. Paridad i18n diff:0 confirmada (452 keys cada uno).
+- DT-16 cerrado parcial 2026-05-26. HorizontalShowcase y FloatingElements ya inexistentes en repo al inicio de 5.5a (drift de auditoría). Restos pendientes en StickyScrollSection, WebPortfolioShowcase, ProjectCard que se descartan en 5.5b.
+- DT-10 ampliado 2026-05-26. Total auditado en cierre 5.5a: 15 lint errors categorizados. no-explicit-any: AuthContext.tsx, useSecureNavigation.ts, dashboard/GallerySection.tsx, OrdersSection.tsx, PackagesSection.tsx, UploadSection.tsx, varios src/components/ui/. no-empty-object-type: src/components/ui/. no-require-imports: tailwind.config.ts. Resolución total Sprint 2.
+
+**Apuntes documentales pendientes resueltos:**
+- Drift librería `react-compare-image` → `react-compare-slider v4`: cerrado en find+replace de docs canónicos.
+- INVENTORY §6.2 desfase ProjectCard: SIGUE PENDIENTE, se cerrará en 5.5b al descartar ProjectCard.
+- D38-3 drift `footer.social.instagramUrl`: SIGUE PENDIENTE, no se tocó footer en 5.5a. Aplaza a 5.5b si toca footer, o post-Sprint 1.
+
+**Pendiente operativo inmediato:**
+- Miguel aplica updates MASTER v2.2, PROGRESS v1.14, HANDOFF v2, CONTENT v1.3, MIGRATION (sin bump) en `docs/`.
+- Miguel commit docs y `git push origin redesign/v2-framer-base`.
+- Miguel sube docs canónicos actualizados al Project Knowledge.
+- Apertura Subfase 5.5b en chat nuevo del Project con brief O.D.A. /portfolio-webs REBUILD.
+
+**Notas para Subfase 5.5b:**
+- PortfolioHeader.tsx y PortfolioClosing.tsx ya validados en 5.5a, reutilizar con props distintos en /portfolio-webs.
+- Layout PortfolioWebsCases.tsx: apilado vertical full-bleed (Q5.5-C=A, decidido D32 en chat 2026-05-26).
+- Descartes legacy en 5.5b: StickyScrollSection.tsx, WebPortfolioShowcase.tsx, ProjectCard.tsx (grep cero importadores previo a `git rm`).
+- Cerrar INVENTORY §6.2 desfase ProjectCard al ejecutar el descarte.
+- Q12 (evaluar Antigravity 2.0 + Gemini 3.5 Flash para Fase 7) se abre al cierre G5 final, no antes.
+
+---
+
 ## Decisions log
 
 | # | Fecha | Decisión | Razón | Revisable |
@@ -795,6 +862,7 @@ Commit base: `f1fc0b5` (incluía sync docs canónicos MASTER v2.0 etc previo a 5
 | D37 | 2026-05-08 | **Cierre Subfase 5.1 — Home REBUILD.** D37-1: estructura `src/components/home/` con 7 componentes. D37-2: HomeCasesWeb scroll CSS nativo (`snap-x snap-mandatory`). D37-3: HomePhotoShowcase solo muestra `galleryData[0]` como teaser. D37-4: `webCasesData.ts` usa `tagKeys: string[]`. D37-5: eliminación `ProjectCard.tsx` avanzada a Step 3 por cadena de imports con `showcaseData.ts`. | Subfase 5.1 ejecutada 11 commits, build limpio, `grep --cta` vacío, 14 archivos legacy eliminados | No |
 | D38 | 2026-05-12 | **Cierre Subfase 5.2 — Chrome global REBUILD.** D38-1: formalización `src/components/layout/` como ubicación canónica del chrome (supersede prescripción "estructura plana" §5.2 v1.x, análogo a D36-2). D38-2: REFACTOR ascendido a REBUILD selectivo en `layout/Footer.tsx` por namespace `footer.col.*` legacy desalineado (commit `6dca42c`). D38-3: drift `footer.social.instagramUrl` en namespace legacy `footer.*` preservado, limpieza diferida a 5.4 o 5.5. | Subfase 5.2 ejecutada: 5 commits, build limpio, tsc limpio, Playwright 9/9, G5 parcial 5.2 firmado 6/6. Lección: namespace i18n chrome Fase 3 no era canónico internamente, REFACTOR en Footer ascendió a REBUILD selectivo. | No |
 | D39 | 2026-05-13 | **Cierre Subfase 5.4 — Contact form REBUILD.** Nueve sub-decisiones: D39-1 estructura `src/components/home/HomeContact.tsx` adoptada como canónica (supersede MIGRATION.md §11 paso 1 "FormSection.tsx REBUILD" tras inspección Q5-B=B que reveló FormSection orphan wrapper y ContactForm el componente con lógica). D39-2 ContactForm.tsx + FormSection.tsx DESCARTADOS como código orphan (placeholder lorem D36-3 los reemplazaba, cero importadores activos). D39-3 campo `service` preservado con dropdown 3 opciones (Q5-E=A, 5 keys i18n nuevas `home.contact.form.serviceLabel/servicePlaceholder/serviceOptions.*`). D39-4 checkbox `terms` con link a `/privacidad` preservado por RGPD (Q5-F=A, 2 keys nuevas). D39-5 mensaje WhatsApp en texto plano formato campo:valor sin emojis (Q5-G=C, namespace nuevo `home.contact.whatsapp.*` con 6 keys, coherente con CONTENT §0). D39-6 DOMPurify importado directo (no via wrapper security.ts que no cubre el caso "strip total"; corrige mentira documental MIGRATION.md §3). D39-7 DT-01 cerrado 7/7 al descartar las 2 ubicaciones finales (ContactForm L60 + FormSection L47, 2 hardcodes en 2 archivos, no 1 como sugería contador "5/7"). D39-8 lección operativa shadcn FormMessage + i18n: el patrón inicial `<FormMessage>{translateError(...)}</FormMessage>` es incompatible (FormMessage ignora children cuando hay error); solución adoptada schema Zod en `useMemo([t])` con mensajes pre-traducidos. D39-9 patrón Playwright `locale: 'es-ES'` obligatorio en context (sin esto headless reporta en-US y rompe selectores ES); MASTER §9.4 actualizado. Observaciones no bloqueantes registradas: O1 wa.me redirige a api.whatsapp.com/send en headless (aserción test ampliada), O2 3 keys `pricing.photoPacks.*` asimétricas históricas rellenadas en ES (abre DT-17 audit en 5.5), O3 cubierta por D39-9. | Subfase 5.4 ejecutada: 3 commits (no 4 por agrupación staging D1), build limpio, tsc limpio, Playwright 4/4 PASS, G5 parcial 5.4 firmado 14/14. DT-01 cerrado total. DT-02 cerrado parcial Sprint 1. DT-17 abierto. Lecciones operativas D39-8 y D39-9 registradas. | No |
+| D40 | 2026-05-26 | **Cierre Subfase 5.5a /portfolio REBUILD.** Sub-decisiones: D40-1 grid 2 cols `md:` con último item full-width `md:col-span-2` (Q5.5-A=A). D40-2 split de Fase 5.5 en 5.5a (/portfolio) y 5.5b (/portfolio-webs) por dependencia de componentes reutilizables PortfolioHeader/PortfolioClosing y para validar primera integración real de slider antes/después (Q5.5-D=B). D40-3 layout PortfolioWebsCases apilado vertical full-bleed (Q5.5-C=A, D32 satisfecho con confirmación en chat 2026-05-26, aplica solo en 5.5b). D40-4 chrome de páginas Portfolio/PortfolioWebs añadido desde `@/components/layout/*` (no swap porque legacy no importaba Header/Footer, Q5.5-E resuelto). D40-5 DT-17 cierre autónomo confirmado en audit pre-brief (cero importadores), eliminación completa de namespace `pricing.photoPacks`. D40-6 librería slider real es `react-compare-slider v4` (no `react-compare-image` como decía documentación canónica anterior); decisión técnica de Antigravity correcta dado que la antigua está sin mantener desde 2021. Drift documental cerrado en docs sync con find+replace. | Cumplimiento docs-first sequencing aplicado (audits previos antes del brief). Patrón split 5.5a + 5.5b reproduce el rigor de cierres 5.1/5.2/5.4 con scope acotado. Q5.5-C en D32 sin necesidad de revisión visual previa porque PortfolioWebsCases se ejecuta en 5.5b separado. DT-12 cierre material confirma uso real de librería, no su nombre histórico. | No |
 
 ---
 
@@ -875,3 +943,4 @@ Cosas que Claude necesita para avanzar. Miguel responde antes de la fase que blo
 | 1.11 | 2026-05-08 | Miguel + Claude Sonnet 4.6 | Cierre Subfase 5.1 Home REBUILD. Current status actualizado (5.1 ✅, 5.2 siguiente). Phase tracker Fase 5 con nota Subfase 5.1 ✅. Sesión 2026-05-08 añadida con tabla de 11 commits, verificaciones finales, pendiente push. D37 añadida en decisions log. |
 | 1.12 | 2026-05-12 | Claude Sonnet 4.6 (Antigravity) + Claude Sonnet 4.6 (claude.ai Project) | Cierre Subfase 5.2 Chrome global. Current status actualizado (5.2 ✅, 5.4 siguiente). Phase tracker Fase 5 con nota Subfase 5.2 ✅. Sesión 2026-05-12 añadida con tabla 5 commits, desviaciones D1-D4, smoke test 6/6. D38 añadida en decisions log. DT-01 corregido a 5/7. DT-09 marcado resuelto. |
 | 1.13 | 2026-05-13 | Claude Sonnet 4.6 (Antigravity) + Claude Opus 4.7 (claude.ai Project) | Cierre Subfase 5.4 Contact form REBUILD. Current status actualizado (5.4 ✅, 5.5 siguiente). Phase tracker Fase 5 con nota Subfase 5.4 ✅. Sesión 2026-05-13 añadida AL FINAL (aplica apunte orden cronológico) con tabla 3 commits, desviaciones D1-D2, observaciones O1-O3, validación G5 parcial 5.4 14/14. D39 añadida en decisions log con sub-decisiones D39-1 a D39-9. DT-01 cerrado ✅ 7/7. DT-02 cerrado parcial Sprint 1. DT-17 abierto (namespace `pricing.*` audit en 5.5). |
+| 1.14 | 2026-05-26 | Claude Sonnet 4.6 (Antigravity) + Claude Opus 4.7 (claude.ai Project) | Cierre Subfase 5.5a /portfolio REBUILD. Current status actualizado (5.5a ✅, 5.5b siguiente). Phase tracker Fase 5 con nota Subfase 5.5a ✅. Sesión 2026-05-26 añadida AL FINAL (orden cronológico) con tabla 1 commit `f49ceac`, desviación D-1 lint pre-existente justificada, observaciones O-1 a O-3, validación G5 parcial 5.5a firmada. D40 añadida en decisions log con sub-decisiones D40-1 a D40-6. DT-12 cerrado ✅, DT-17 cerrado ✅, DT-16 cerrado parcial, DT-10 ampliado con 15 lint errors categorizados. Drift librería `react-compare-image` → `react-compare-slider v4` resuelto con find+replace en MASTER §3.8 y §6.3, CONTENT §3.4 y §4.3, MIGRATION §4 y §6. HANDOFF.md bumpeado a v2. |
