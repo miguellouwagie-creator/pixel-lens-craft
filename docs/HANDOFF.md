@@ -113,7 +113,32 @@ Historia completa en MASTER §13. Aquí solo las que afectan operación actual:
 - **D37 (2026-05-08):** Cierre 5.1. Estructura `src/components/home/`. HomeCasesWeb usa scroll CSS nativo. ProjectCard descartado adelantado por cadena imports.
 - **D38 (2026-05-12):** Cierre 5.2. Estructura `src/components/layout/` canónica. Footer REBUILD selectivo por namespace `footer.col.*` legacy desalineado.
 - **D39 (2026-05-13):** Cierre 5.4. HomeContact.tsx canónico. ContactForm + FormSection descartados como orphan. DOMPurify directo. Schema Zod en `useMemo([t])` por incompat shadcn FormMessage. Patrón Playwright `locale: 'es-ES'` obligatorio.
-- **D40 (2026-05-26):** Cierre 5.5a. Estructura `src/components/portfolio/`. Grid último item full-width. Split 5.5a/5.5b. Layout PortfolioWebsCases apilado vertical full-bleed (Q5.5-C=A para 5.5b). Chrome añadido desde layout/ (no swap). DT-17 cerrado. DT-12 cerrado con `react-compare-slider v4` real.
+- **D40 (2026-05-26):** Cierre 5.5a. Estructura `src/components/portfolio/`. Grid último item full-width. Split 5.5a/5.5b. Layout PortfolioWebsCases apilado vertical full-bleed (Q5.5-C=A para 5.5b). Chrome añadido desde layout/ (no swap). DT-17 cerrado. DT-12 cerrado con `react-compare-slider v4` real. Lecciones operativas: encoding-safe PowerShell, VS Code config UTF-8, docs sync regenerar en chat.
+
+---
+
+## Protecciones permanentes (NO tocar en ninguna subfase sin scope explícito)
+
+- `src/components/home/*` (cerrados en 5.1 y 5.4)
+- `src/components/layout/*` (cerrados en 5.2)
+- `src/components/portfolio/*` (cerrados en 5.5a)
+- `src/components/ui/*` (shadcn upstream)
+- `src/lib/*`, `src/integrations/*`, `src/hooks/*`, `src/contexts/*`
+- `src/pages/legal/*`, `src/pages/Auth.tsx`, `src/pages/dashboard/*`
+- `src/data/galleryData.ts` (cerrado 5.1)
+- `supabase/migrations/*`, `.env*`, `package.json`
+- `docs/*` (owner sincroniza al cierre)
+
+---
+
+## Convenciones operativas vigentes
+
+- **D32:** validación estética por owner en chat antes de pasar brief O.D.A. crítico de UI a Antigravity.
+- **D37-1:** estructura subcarpetas `src/components/<group>/` para nuevos componentes.
+- **D39-9:** Playwright context obligatorio con `locale: 'es-ES'`. Sin esto, headless reporta `en-US` y rompe selectores ES.
+- **Convención D-N en reportes Antigravity:** solo desviaciones del brief se numeran D-N. Confirmaciones de ejecución no se numeran. Observaciones no bloqueantes con O-N.
+- **Orden cronológico en logs:** entradas nuevas al final del bloque correspondiente, no en penúltima posición.
+- **Docs-first sequencing:** Project Knowledge sincronizado antes de abrir nueva conversación con brief.
 
 ---
 
@@ -123,86 +148,25 @@ Historia completa en MASTER §13. Aquí solo las que afectan operación actual:
 
 ---
 
-## Protecciones / archivos PRESERVAR
+## Lecciones operativas sobre docs sync (nuevas 2026-05-26)
 
-NO modificar bajo ningún concepto:
+Para futuros cierres de subfase con docs sync extenso:
 
-- `src/lib/validation.ts`, `src/lib/security.ts`, `src/lib/utils.ts`
-- `src/integrations/supabase/*` (Sprint 1 congelado, MASTER §5.5)
-- `src/contexts/AuthContext.tsx` (Sprint 2)
-- `src/hooks/use-toast.ts`, `use-mobile.tsx`, `useSecureNavigation.ts`
-- `src/components/ui/*` (shadcn primitives)
-- `src/components/home/*` (cerrados en 5.1 y 5.4)
-- `src/components/layout/*` (cerrados en 5.2)
-- `src/components/ScrollToTop.tsx`, `PageLoader.tsx`
-- `src/pages/legal/*` (copy legal real, Protección 2 desde Fase 4)
-- `src/pages/Auth.tsx`, `src/pages/dashboard/*` (Sprint 2)
-- `.env`, `.env.example`, `package.json`
-- `supabase/migrations/*` (congelado)
-- `docs/*` (MASTER, PROGRESS, MIGRATION, CONTENT, HANDOFF, CONTEXT_BRIEF, INVENTORY, PHASE2_REPORT: owner los actualiza al cierre)
-
----
-
-## Convenciones del flujo
-
-- **Phase gate system:** G0 a G7. Cada gate firmado antes de abrir siguiente fase. Subfases dentro de Fase 5 con G5 parcial por cada cierre.
-- **Decision IDs:** D-N en orden ascendente. Sub-decisiones D-N-X (ej. D39-1, D39-2).
-- **DT-N:** items de deuda técnica en MASTER §7.4.
-- **Q-N:** preguntas de scope al owner durante preparación de brief (ej. Q5-A, Q5-B).
-- **O.D.A. brief:** estructura Objetivo + Datos + Arquitectura. Auto-suficiente para Antigravity. Producido por Claude Opus en claude.ai Project, ejecutado por Claude Code en VS Code.
-- **Protocolo D32:** validación estética por owner en chat antes de pasar brief O.D.A. crítico de UI a Antigravity. Aplica a UI crítica (Fase 5 y futuras).
-- **Sync docs al cierre:** ritual al cierre de cada subfase. Actualizar MASTER + PROGRESS + MIGRATION + CONTENT + HANDOFF. Sin em-dashes en documentos ni respuestas (usar punto o coma).
-- **Convención D-N en reportes Antigravity:** solo desviaciones del brief se numeran D-N. Confirmaciones de ejecución no se numeran. Observaciones no bloqueantes con O-N.
-- **Cronología logs:** entradas nuevas SIEMPRE al final del bloque correspondiente. Drift histórico no se reordena retroactivamente.
-
----
-
-## Reglas de comportamiento Claude en chat
-
-Resumen del system prompt del Project (idéntico para todas las conversaciones):
-
-1. Al arrancar conversación nueva, leer HANDOFF.md primero (este archivo). Solo consultar MASTER, PROGRESS, MIGRATION, CONTENT si HANDOFF no cubre el punto específico.
-2. Toda decisión consistente con MASTER. Si conflicto, señalar antes de proceder.
-3. Nunca proponer saltarse fases ni subfases. Si owner pide sin gate firmado, rechazar.
-4. Tono crítico-constructivo, directo, sin validación vacía. En español.
-5. Formato respuesta: resumen + detalle + riesgos/próximos pasos.
-6. Sin em-dashes.
-7. Bloque "Estado del proyecto" al final de cada respuesta operativa.
-8. Protocolo D32 en UI crítica.
-9. Convención D-N: desviaciones se numeran, confirmaciones no.
-
----
-
-## Próximos updates programados de HANDOFF.md
-
-| Cuándo | Qué |
-|---|---|
-| Cierre Subfase 5.5 | HANDOFF.md v2 con scope Fase 6 (Motion unificado GSAP). Documentar D40 (introducción HANDOFF.md como entrada operativa, decidida 2026-05-13) + D41 (cierre 5.5). |
-| Cierre Fase 6 | HANDOFF.md v3 con scope Fase 7 (SEO, perf, launch). |
-| Cierre Fase 7 | HANDOFF.md v4 con scope Sprint 2 (dashboard, post-Sprint 1). |
-| Cierre Sprint 2 | HANDOFF.md v5 con estado proyecto completo o archive del documento si proyecto se cierra. |
-
----
-
-## Punteros para profundizar
-
-Si HANDOFF no cubre algo, usar `project_knowledge_search` con keywords específicas en estos docs:
-
-- **Arquitectura, design system, tokens DS, DT consolidados, decisions log:** `docs/MASTER.md`
-- **Plan archivo por archivo, qué hacer con cada componente:** `docs/MIGRATION.md`
-- **Copy real ES + EN, keys i18n, anti-patrones editoriales:** `docs/CONTENT.md`
-- **Bitácora completa, session logs históricos, blockers, preguntas abiertas:** `docs/PROGRESS.md`
-- **Contexto inicial del proyecto, owner, deadlines, stakeholders:** `docs/CONTEXT_BRIEF.md`
-- **Inventario auditoría Fase 0:** `docs/INVENTORY.md`
-- **Auditoría técnica Fase 2:** `docs/PHASE2_REPORT.md`
-
----
-
-## Footer del documento
-
-| Campo | Valor |
-|---|---|
-| Sobreescribir este archivo en | Cierre Subfase 5.5 |
-| Plantilla reutilizable | Sí (estructura fija, valores actualizados) |
-| Histórico de HANDOFF | NO se preserva en HANDOFF. Trazabilidad en `docs/PROGRESS.md` session logs y `docs/MASTER.md` decisions log (D40 a documentar en cierre 5.5). |
-| Generador | Claude Opus 4.7 en claude.ai Project |
+- **Find+replace en PowerShell 5.x:** usar método encoding-safe obligatorio.
+  ```powershell
+  $utf8NoBom = New-Object System.Text.UTF8Encoding $false
+  $content = [System.IO.File]::ReadAllText($path, $utf8NoBom)
+  $content = $content -replace 'old', 'new'
+  [System.IO.File]::WriteAllText($path, $content, $utf8NoBom)
+  ```
+  NUNCA `Set-Content -Encoding UTF8` (escribe BOM y corrompe UTF-8 sin BOM preexistente con doble encoding).
+- **VS Code settings obligatorios** para editar archivos UTF-8 sin BOM:
+  - `files.encoding`: `utf8`
+  - `files.autoGuessEncoding`: `false`
+  - Verificar esquina inferior derecha al abrir cada archivo (debe decir `UTF-8` exacto).
+- **Verificación post-edición** antes de commit:
+  ```powershell
+  Get-Content docs\<file>.md -Encoding UTF8 -TotalCount 5
+  # Acentos deben verse correctos (ñ, é, á, etc.), sin mojibake (Ã, â€, Â§).
+  ```
+- **Preferencia operativa:** docs sync intensivos del cierre de subfase se regeneran completos en chat con Claude y se descargan, no se editan incrementalmente en local. Reduce el riesgo de corrupción por orquestación de múltiples ediciones.
